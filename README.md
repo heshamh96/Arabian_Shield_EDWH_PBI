@@ -64,11 +64,41 @@ Two standing risks worth fixing:
   `openssl pkcs8 -topk8 -v2 aes-256-cbc -in qlik_dev_key.p8 -out qlik_dev_key_enc.p8`
   (no Snowflake-side change needed; the key pair itself is unchanged).
 
+## Relationships
+
+Generated from the `Ref` block of `DWH_Physical_Model_Mix_Prefix_reduced.sql`
+(the DBML physical model), not guessed from column names. Every endpoint was
+validated against the deployed schema before being written.
+
+| | |
+|---|---|
+| Refs in the DBML | 55 |
+| Dropped | 1 — `FK_B_DIM_Parties_REINSU_ID`, a self-join Power BI can't represent |
+| Active | 27 |
+| Inactive | 27 |
+
+**Why half are inactive.** This is a snowflake, not a clean star: facts reach the
+same dimension by several routes (e.g. `E_FCT_TRANSACTIONS` → `B_DIM_PARTIES`
+directly *and* via `C_DIM_POLICY_MASTER`). Power BI rejects a model whose active
+relationships contain a cycle, so the active set was chosen to be acyclic. The
+tie-break prefers the natural key — `PARTY_ID → PARTY_ID` stays active while the
+role-playing variants (`CHANNEL_ID`, `SALES_CHANNEL_ID`, `BENIFITIONRY_ID`,
+`CLAIMANT_ID`) go inactive. Reach those from DAX with `USERELATIONSHIP`.
+
+That tie-break is *structurally* safe but not a business decision. If the
+business considers, say, `SALES_CHANNEL_ID` the primary path, flip which one
+carries `isActive: false` in
+[`relationships.tmdl`](Snowflake_Arabian_Shield_Gold_model.SemanticModel/definition/relationships.tmdl)
+— just keep the active set acyclic.
+
+The four `D_DIM_RISK_MASTER` → `*_RISK_INSURED_MEMBER` links are one-to-one
+subtype joins (`fromCardinality: one`), matching the DBML.
+
+`A_DIM_DATE` has **no** relationships — the DBML declares none. Wiring it to the
+fact date columns is the obvious next modelling step.
+
 ## Not yet modelled
 
-- **No relationships.** GOLD defines no foreign-key constraints, so there was
-  nothing to derive them from — inferring 38 tables' worth from column names
-  would produce silently wrong numbers. Define them deliberately.
 - **No measures.** No DAX has been written yet.
 - Auto date/time is **off** (`__PBI_TimeIntelligenceEnabled = 0`): it is
   unsupported in DirectQuery and would otherwise generate a hidden date table

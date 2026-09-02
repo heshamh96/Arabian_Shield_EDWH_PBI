@@ -27,11 +27,31 @@ Credentials are *not* in this repo — Power BI keeps them in the Windows
 credential store. On first open, Desktop will prompt:
 
 1. Open `Snowflake_Arabian_Shield_Gold_model.pbip`.
-2. At the Snowflake prompt choose **Key-Pair** authentication.
-3. Username `SVC_QLIK_DEV`, private key file `qlik_dev_key.p8`, passphrase **blank**.
+2. **Expect an "Issues were found" dialog.** The model's tables were authored as
+   files rather than through the Desktop UI, so the data-source bindings do not
+   match the `securityBindingsSignature` recorded in `.pbi/localSettings.json`
+   (whose `userConsent` is empty). Power BI will not silently connect to a data
+   source that appeared in the project files — you have to approve it. Read the
+   dialog and accept the Snowflake source.
+3. At the Snowflake prompt choose **Key-Pair** authentication.
+4. Username `SVC_QLIK_DEV`, private key file `qlik_dev_key.p8`, passphrase
+   **blank** — the key is PKCS#8 "ENCRYPTED" in form but opens with no password.
 
 Key-pair auth requires the **ADBC** driver — Power BI selects it automatically
 and ignores any `Implementation="1.0"` (ODBC) setting.
+
+## Validating the model without opening Power BI
+
+Opening the `.pbip` takes ~90s and reports problems only through a dialog. To
+check the TMDL in about a second using Power BI's own parser:
+
+```powershell
+.\tools\Validate-Tmdl.ps1
+```
+
+This validates syntax and structure — not Power BI's semantic checks or the
+data-source consent above. It is worth running after any hand-edit to
+`definition/`; it is what caught the `///`-on-`relationship` bug.
 
 ## Repo layout
 

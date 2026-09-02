@@ -153,3 +153,4 @@ table D_DIM_TREATY_DETAILS
 	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
+

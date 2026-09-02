@@ -316,3 +316,4 @@ table E_FCT_TRANSACTIONS
 	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
+

@@ -219,3 +219,4 @@ table BUC_LIFE360_POLICY_STATUS_VIEW
 	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
+

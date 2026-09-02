@@ -206,3 +206,4 @@ table BUC_LIFE360_CLAIMS_SETTLEMENT_VIEW
 	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
+

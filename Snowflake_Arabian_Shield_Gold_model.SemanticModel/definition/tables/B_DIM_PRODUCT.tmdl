@@ -89,3 +89,4 @@ table B_DIM_PRODUCT
 	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
+

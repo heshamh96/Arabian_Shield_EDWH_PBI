@@ -333,3 +333,4 @@ table D_DIM_MEDICAL_RISK_INSURED_MEMBER
 	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
+

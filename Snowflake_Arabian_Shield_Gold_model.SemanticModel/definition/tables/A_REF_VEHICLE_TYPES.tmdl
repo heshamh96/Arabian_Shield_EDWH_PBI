@@ -121,3 +121,4 @@ table A_REF_VEHICLE_TYPES
 	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
+

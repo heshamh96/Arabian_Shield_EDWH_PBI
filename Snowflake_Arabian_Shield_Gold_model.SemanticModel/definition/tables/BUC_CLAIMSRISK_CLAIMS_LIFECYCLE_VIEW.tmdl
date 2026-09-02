@@ -238,3 +238,4 @@ table BUC_CLAIMSRISK_CLAIMS_LIFECYCLE_VIEW
 	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
+

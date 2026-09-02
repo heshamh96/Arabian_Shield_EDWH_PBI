@@ -89,3 +89,4 @@ table A_REF_NATIONALITY
 	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
+

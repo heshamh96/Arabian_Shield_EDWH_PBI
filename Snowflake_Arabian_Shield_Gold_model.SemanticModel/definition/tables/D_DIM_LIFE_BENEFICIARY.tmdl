@@ -177,3 +177,4 @@ table D_DIM_LIFE_BENEFICIARY
 	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
+

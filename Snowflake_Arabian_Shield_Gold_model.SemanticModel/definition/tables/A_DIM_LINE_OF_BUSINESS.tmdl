@@ -81,3 +81,4 @@ table A_DIM_LINE_OF_BUSINESS
 	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
+

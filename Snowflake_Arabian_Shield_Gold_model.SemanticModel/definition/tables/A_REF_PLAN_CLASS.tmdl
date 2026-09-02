@@ -113,3 +113,4 @@ table A_REF_PLAN_CLASS
 	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
+

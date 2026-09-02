@@ -1,0 +1,687 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 222.05013005472483,
+        "y": 1288.639237901858
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 2774.8584845968103,
+            "y": 1247.6584454749495
+          },
+          "nodeIndex": "A_DIM_DATE",
+          "nodeLineageTag": "60d9a4ad-e231-4f0a-b812-9426cb7422ae",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2410.5170002284631,
+            "y": 299.51002590966846
+          },
+          "nodeIndex": "A_DIM_LINE_OF_BUSINESS",
+          "nodeLineageTag": "e26abaa5-7305-4d0e-87f7-26733b0768d3",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1083.7867971581438,
+            "y": 544.15161172142643
+          },
+          "nodeIndex": "A_REF_ENDORSMENT_TYPES",
+          "nodeLineageTag": "0c9f91c3-d4f5-4e2c-acfc-16820fe700cf",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1727.0869093437118,
+            "y": 2408.2094199089383
+          },
+          "nodeIndex": "A_REF_GENDER",
+          "nodeLineageTag": "9063fede-9a4c-48cf-b5d0-9b5f62aeb00f",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1348.7163336700733,
+            "y": 2084.5025235714729
+          },
+          "nodeIndex": "A_REF_NATIONALITY",
+          "nodeLineageTag": "481c7214-90fd-4791-8086-dfb038c5db0c",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3058.8584845968103,
+            "y": 1247.6584454749495
+          },
+          "nodeIndex": "A_REF_PLAN_CLASS",
+          "nodeLineageTag": "d93093ab-dd43-4144-b93a-f509b55284a9",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 336.24056829281335,
+            "y": 945.34058958266269
+          },
+          "nodeIndex": "A_REF_PREMUIM_STATUS",
+          "nodeLineageTag": "bab6e70a-f36c-4db2-a36d-926ab02ecf98",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1440.2548377914381,
+            "y": 2473.3168909498986
+          },
+          "nodeIndex": "A_REF_PROFESSION",
+          "nodeLineageTag": "af09298f-8ae7-42a3-8a01-19057b267efc",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2014.1203641572788,
+            "y": 2190.4534457738418
+          },
+          "nodeIndex": "A_REF_TITLE",
+          "nodeLineageTag": "deec7421-a5a4-4cdc-9a85-cfc43d6fdac0",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3342.8584845968103,
+            "y": 1247.6584454749495
+          },
+          "nodeIndex": "A_REF_VEHICLE_TYPES",
+          "nodeLineageTag": "1eff1bde-68e3-4336-b3d5-6b5d942f1d03",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1634.7700844430169,
+            "y": 2055.3154145619628
+          },
+          "nodeIndex": "B_DIM_PARTIES",
+          "nodeLineageTag": "649eed90-f9b7-43a8-9f09-2a0bd9e75965",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2243.055866712476,
+            "y": -50
+          },
+          "nodeIndex": "B_DIM_PRODUCT",
+          "nodeLineageTag": "6a80b632-759d-4cd3-8782-b7c65a99df12",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3626.8584845968103,
+            "y": 1247.6584454749495
+          },
+          "nodeIndex": "BUC_CLAIMSRISK_CLAIMS_LIFECYCLE_VIEW",
+          "nodeLineageTag": "bdda18b6-12e5-4446-8ff3-c1154b06eb57",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 3910.8584845968103,
+            "y": 1247.6584454749495
+          },
+          "nodeIndex": "BUC_CLAIMSRISK_SECTOR_LOSS_RATIO_MONTHLY_VIEW",
+          "nodeLineageTag": "dc16f618-137b-49e0-b1d2-f9eaf6826c6e",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4194.8584845968107,
+            "y": 1247.6584454749495
+          },
+          "nodeIndex": "BUC_LIFE360_CLAIMS_SETTLEMENT_VIEW",
+          "nodeLineageTag": "9b77b151-58ff-451f-8ea4-8b38c90c4d3c",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4478.8584845968107,
+            "y": 1247.6584454749495
+          },
+          "nodeIndex": "BUC_LIFE360_POLICY_STATUS_VIEW",
+          "nodeLineageTag": "1e74d31f-1c4e-4e21-b5f2-361a15e067cc",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4762.8584845968107,
+            "y": 1247.6584454749495
+          },
+          "nodeIndex": "BUC_LIFE360_PREMIUM_KPI_MONTHLY_VIEW",
+          "nodeLineageTag": "34793123-5992-4c87-a01e-2628cecf55c6",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 5046.8584845968107,
+            "y": 1247.6584454749495
+          },
+          "nodeIndex": "BUC_SALESPERFORMANCE_APPLICATION_FUNNEL_VIEW",
+          "nodeLineageTag": "fcd92826-936d-4ffc-a30d-a9a54e3ed1b9",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 5330.8584845968107,
+            "y": 1247.6584454749495
+          },
+          "nodeIndex": "BUC_SALESPERFORMANCE_MONTHLY_VIEW",
+          "nodeLineageTag": "aac038a9-5839-4830-87f2-9c5864afb844",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2540.0539507035705,
+            "y": 1067.908879479
+          },
+          "nodeIndex": "C_DIM_MEDICAL_CLASSES",
+          "nodeLineageTag": "76a6e766-8273-4191-aa2b-d7454a9c0905",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2540.8584845968103,
+            "y": 1465.6764109951025
+          },
+          "nodeIndex": "C_DIM_MEDICAL_PLANS",
+          "nodeLineageTag": "53480656-62d4-4334-aa42-b0ebedccd3dd",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1968.0525111753273,
+            "y": 974.8723208366066
+          },
+          "nodeIndex": "C_DIM_POLICY_MASTER",
+          "nodeLineageTag": "3b5b2593-9ccc-4299-b7af-ae0ca2844231",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1766.2171427769758,
+            "y": 1703.202968288633
+          },
+          "nodeIndex": "D_DIM_LIFE_BENEFICIARY",
+          "nodeLineageTag": "bc0c49a8-d09d-41ea-b6b9-7c94ee0b1f5d",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50.46287999210972,
+            "y": 633.14175310527821
+          },
+          "nodeIndex": "D_DIM_LIFE_RISK_INSURED_MEMBER",
+          "nodeLineageTag": "f5a8d014-9bd2-4875-aff1-84de53d97243",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2254.2078117157071,
+            "y": 1151.8664738774287
+          },
+          "nodeIndex": "D_DIM_MEDICAL_POLICY_NETWORK",
+          "nodeLineageTag": "6b3f4dc9-7a8b-41b6-bbb6-28f0d4f90aca",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 506.12508607595612,
+            "y": 2130.1838105288434
+          },
+          "nodeIndex": "D_DIM_MEDICAL_RISK_INSURED_MEMBER",
+          "nodeLineageTag": "46ba81ca-4191-4123-b88d-14428e3a5de3",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 180.13146158205427,
+            "y": 1495.3901209239066
+          },
+          "nodeIndex": "D_DIM_MOTOR_RISK_INSURED_MEMBER",
+          "nodeLineageTag": "3f575e36-c2e7-49a9-9bfa-c11470996690",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 1141.6853341412766
+          },
+          "nodeIndex": "D_DIM_NON_MOTOR_RISK_INSURED_MEMBER",
+          "nodeLineageTag": "bfb98af9-1ae5-4c96-ab37-f0dac5c4fddf",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2233.34054370085,
+            "y": 622.70915737256109
+          },
+          "nodeIndex": "D_DIM_POLICY_BENEFIT",
+          "nodeLineageTag": "2b997933-1312-43df-8913-41a27e2620f8",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 527.25509617167,
+            "y": 1270.9698627727189
+          },
+          "nodeIndex": "D_DIM_RISK_MASTER",
+          "nodeLineageTag": "7704dc2a-e02c-45ba-ab82-58c745c4a034",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2052.1678875713155,
+            "y": 1499.4112713686186
+          },
+          "nodeIndex": "D_DIM_TREATY_DETAILS",
+          "nodeLineageTag": "644aa97f-37cd-4724-a510-b0905957b348",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 803.72296083828837,
+            "y": 869.73746778456507
+          },
+          "nodeIndex": "E_DIM_LIFE_CLAIMS_DETAILS",
+          "nodeLineageTag": "6d9b49e1-ed07-4254-9f47-17b292329c9d",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 908.89387882547953,
+            "y": 1576.6014496550433
+          },
+          "nodeIndex": "E_DIM_MEDICAL_CLAIMS_DETAILS",
+          "nodeLineageTag": "affc6603-2dd2-4d48-97da-735bcdb9632e",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1480.064296520356,
+            "y": 1518.5677220084904
+          },
+          "nodeIndex": "E_DIM_MOTOR_CLAIMS_DETAILS",
+          "nodeLineageTag": "4ed2573c-77d5-47be-8855-09be95a2cda7",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1194.5873113352229,
+            "y": 1691.1681722206924
+          },
+          "nodeIndex": "E_DIM_NON_MOTOR_CLAIMS_DETAILS",
+          "nodeLineageTag": "1ea9261d-4fb0-41b7-af98-7ae58e7a53b5",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 622.99963753491011,
+            "y": 1624.8091111261092
+          },
+          "nodeIndex": "E_FCT_TRANSACTIONS",
+          "nodeLineageTag": "ceb72f39-7dca-4da2-be17-2930cc72b8f8",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 945.45628816506792,
+            "y": 1223.4199080721235
+          },
+          "nodeIndex": "F_FCT_CLAIMS",
+          "nodeLineageTag": "4ea8b347-2e93-4bbe-8070-782ec0cd98fc",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1230.89476417463,
+            "y": 1067.0375898266464
+          },
+          "nodeIndex": "G_DIM_REINSURANCE_SHARE",
+          "nodeLineageTag": "27117c1b-2317-4306-8d33-7f73d4c28354",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 80.162078696432843,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 1,
+      "scrollPosition": {
+        "x": 795,
+        "y": 705
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 539.31278591289981,
+            "y": 890.41509043534234
+          },
+          "nodeIndex": "B_DIM_PARTIES",
+          "nodeLineageTag": "649eed90-f9b7-43a8-9f09-2a0bd9e75965",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 900.21303973105807,
+            "y": 893.30115503872594
+          },
+          "nodeIndex": "C_DIM_POLICY_MASTER",
+          "nodeLineageTag": "3b5b2593-9ccc-4299-b7af-ae0ca2844231",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 1065.5624068162792,
+            "y": 6.2102052595498662
+          },
+          "nodeIndex": "D_DIM_TREATY_DETAILS",
+          "nodeLineageTag": "644aa97f-37cd-4724-a510-b0905957b348",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 1591.9085953260228,
+            "y": 1124.5871677350613
+          },
+          "nodeIndex": "E_FCT_TRANSACTIONS",
+          "nodeLineageTag": "ceb72f39-7dca-4da2-be17-2930cc72b8f8",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 1592.8170026093148,
+            "y": 108
+          },
+          "nodeIndex": "G_DIM_REINSURANCE_SHARE",
+          "nodeLineageTag": "27117c1b-2317-4306-8d33-7f73d4c28354",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 1607.448985404556,
+            "y": 723.63286413536741
+          },
+          "nodeIndex": "E_DIM_MOTOR_CLAIMS_DETAILS",
+          "nodeLineageTag": "4ed2573c-77d5-47be-8855-09be95a2cda7",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 1349.2880374011534,
+            "y": 273.13205002428845
+          },
+          "nodeIndex": "E_DIM_NON_MOTOR_CLAIMS_DETAILS",
+          "nodeLineageTag": "1ea9261d-4fb0-41b7-af98-7ae58e7a53b5",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 12
+        },
+        {
+          "location": {
+            "x": 1228.5186504541134,
+            "y": 329.41453078409074
+          },
+          "nodeIndex": "F_FCT_CLAIMS",
+          "nodeLineageTag": "4ea8b347-2e93-4bbe-8070-782ec0cd98fc",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 47.294582163958125,
+            "y": 408.58585317565337
+          },
+          "nodeIndex": "A_REF_GENDER",
+          "nodeLineageTag": "9063fede-9a4c-48cf-b5d0-9b5f62aeb00f",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 48.483670726938726,
+            "y": 1386.4027798729549
+          },
+          "nodeIndex": "A_REF_PROFESSION",
+          "nodeLineageTag": "af09298f-8ae7-42a3-8a01-19057b267efc",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 53.373794446103147,
+            "y": 1075.4105447889356
+          },
+          "nodeIndex": "A_REF_TITLE",
+          "nodeLineageTag": "deec7421-a5a4-4cdc-9a85-cfc43d6fdac0",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 737.52242802229546
+          },
+          "nodeIndex": "A_REF_NATIONALITY",
+          "nodeLineageTag": "481c7214-90fd-4791-8086-dfb038c5db0c",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 11
+        }
+      ],
+      "name": "Layout 1",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Layout 1",
+  "defaultDiagram": "All tables"
+}

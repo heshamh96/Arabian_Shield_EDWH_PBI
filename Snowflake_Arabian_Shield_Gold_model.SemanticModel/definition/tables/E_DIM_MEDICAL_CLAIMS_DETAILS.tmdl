@@ -179,3 +179,4 @@ table E_DIM_MEDICAL_CLAIMS_DETAILS
 	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
+

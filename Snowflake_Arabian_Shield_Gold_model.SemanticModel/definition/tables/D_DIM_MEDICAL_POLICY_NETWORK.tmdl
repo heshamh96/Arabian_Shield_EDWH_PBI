@@ -89,3 +89,4 @@ table D_DIM_MEDICAL_POLICY_NETWORK
 	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
+

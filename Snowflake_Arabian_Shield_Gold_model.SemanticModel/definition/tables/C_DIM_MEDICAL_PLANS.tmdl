@@ -73,3 +73,4 @@ table C_DIM_MEDICAL_PLANS
 	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
+

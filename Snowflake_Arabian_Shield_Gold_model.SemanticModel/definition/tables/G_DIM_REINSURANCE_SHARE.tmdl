@@ -265,3 +265,4 @@ table G_DIM_REINSURANCE_SHARE
 	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
+

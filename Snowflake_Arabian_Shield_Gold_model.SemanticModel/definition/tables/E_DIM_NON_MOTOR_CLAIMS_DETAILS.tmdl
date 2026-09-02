@@ -327,3 +327,4 @@ table E_DIM_NON_MOTOR_CLAIMS_DETAILS
 	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
+

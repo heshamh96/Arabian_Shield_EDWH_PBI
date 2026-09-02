@@ -270,3 +270,4 @@ table C_DIM_POLICY_MASTER
 	annotation PBI_NavigationStepName = Navigation
 
 	annotation PBI_ResultType = Table
+

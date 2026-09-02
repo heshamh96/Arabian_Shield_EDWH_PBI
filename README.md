@@ -23,22 +23,55 @@ Storage mode is **DirectQuery** for every table. This is deliberate:
 
 ## First-time setup (per machine)
 
-Credentials are *not* in this repo — Power BI keeps them in the Windows
-credential store. On first open, Desktop will prompt:
+Credentials are **not** in this repo, and cannot be — Power BI keeps them in the
+Windows credential store, never in the project files. That is by design; it is
+also why every new machine has to do this once.
 
 1. Open `Snowflake_Arabian_Shield_Gold_model.pbip`.
-2. **Expect an "Issues were found" dialog.** The model's tables were authored as
-   files rather than through the Desktop UI, so the data-source bindings do not
-   match the `securityBindingsSignature` recorded in `.pbi/localSettings.json`
-   (whose `userConsent` is empty). Power BI will not silently connect to a data
-   source that appeared in the project files — you have to approve it. Read the
-   dialog and accept the Snowflake source.
-3. At the Snowflake prompt choose **Key-Pair** authentication.
-4. Username `SVC_QLIK_DEV`, private key file `qlik_dev_key.p8`, passphrase
-   **blank** — the key is PKCS#8 "ENCRYPTED" in form but opens with no password.
+2. Click **Refresh now** on the "relationships have been modified" banner.
+3. Choose **Key-Pair** authentication.
+4. Username `SVC_QLIK_DEV`, private key file **`qlik_dev_key_unencrypted.p8`**,
+   passphrase **blank**.
+
+### Use the unencrypted key, not `qlik_dev_key.p8`
+
+`qlik_dev_key.p8` is PKCS#8 `BEGIN ENCRYPTED PRIVATE KEY` but opens with an
+*empty* passphrase. The ADBC driver sees the "encrypted" wrapper and requires a
+passphrase option; Power BI only sends one if you type something; you have
+nothing to type. Result:
+
+```
+ADBC: [snowflake] adbc.snowflake.sql.client_option.jwt_private_key_pkcs8_password
+is not configured.
+```
+
+`qlik_dev_key_unencrypted.p8` is the same key re-wrapped honestly as
+`BEGIN PRIVATE KEY`, produced with:
+
+```bash
+openssl pkcs8 -topk8 -nocrypt -in qlik_dev_key.p8 -passin pass: -out qlik_dev_key_unencrypted.p8
+```
+
+Same key pair — the public-key fingerprint is unchanged at
+`SHA256:8QCU0FRpjvPEdJMnmDaKK2AumsQ0jOkR5FYPzxnFH3o=`, so **nothing needs
+re-registering in Snowflake**. This does not weaken anything: a blank passphrase
+already offered no protection. It only stops the driver asking for a password
+that never existed.
+
+> The real weakness is unchanged and worth fixing: **either key file alone grants
+> full `SVC_QLIK_DEV` access.** Re-encrypting with a genuine passphrase
+> (`openssl pkcs8 -topk8 -v2 aes-256-cbc -in qlik_dev_key.p8 -out key_enc.p8`)
+> and typing it once in the Key-Pair dialog is the proper fix.
 
 Key-pair auth requires the **ADBC** driver — Power BI selects it automatically
 and ignores any `Implementation="1.0"` (ODBC) setting.
+
+### If Power BI keeps failing with a cached credential
+
+Desktop remembers the failed attempt. Clear it before retrying:
+
+**File → Options and settings → Data source settings →** select
+`ASCI-EDP.snowflakecomputing.com` **→ Clear Permissions**, then refresh again.
 
 ## Validating the model without opening Power BI
 

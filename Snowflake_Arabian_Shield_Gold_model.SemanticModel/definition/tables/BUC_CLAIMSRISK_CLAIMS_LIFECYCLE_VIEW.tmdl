@@ -1,0 +1,240 @@
+table BUC_CLAIMSRISK_CLAIMS_LIFECYCLE_VIEW
+	lineageTag: bdda18b6-12e5-4446-8ff3-c1154b06eb57
+
+	column SOURCE_SYSTEM
+		dataType: string
+		lineageTag: 86bbf696-3b7f-4a6a-8576-67f82139c45a
+		summarizeBy: none
+		sourceColumn: SOURCE_SYSTEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIM_ID
+		dataType: string
+		lineageTag: add6c0f7-4e4a-4cbd-86a7-8c6bb2bed81a
+		summarizeBy: none
+		sourceColumn: CLAIM_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIM_NO
+		dataType: string
+		lineageTag: 7a0f36f0-3bcf-42cd-9714-f6487de15b42
+		summarizeBy: none
+		sourceColumn: CLAIM_NO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIM_CLASS
+		dataType: string
+		lineageTag: 16b13b30-4dae-4ca1-894d-a55e762166f9
+		summarizeBy: none
+		sourceColumn: CLAIM_CLASS
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICY_ID
+		dataType: string
+		lineageTag: d20f0ea0-47a1-48d0-af28-4c42994d40fe
+		summarizeBy: none
+		sourceColumn: POLICY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SECTOR
+		dataType: string
+		lineageTag: 4b55f172-5d37-4ca1-8473-8b144e6c012f
+		summarizeBy: none
+		sourceColumn: SECTOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIM_STATUS
+		dataType: string
+		lineageTag: 49dc687b-ea0b-423b-af0e-a8fed3ef4694
+		summarizeBy: none
+		sourceColumn: CLAIM_STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUB_CLAIM_STATUSES
+		dataType: string
+		lineageTag: c5d6d91a-58bb-423e-b573-846ca49d5d29
+		summarizeBy: none
+		sourceColumn: SUB_CLAIM_STATUSES
+
+		annotation SummarizationSetBy = Automatic
+
+	column CAUSE_OF_LOSS
+		dataType: string
+		lineageTag: 55592e75-c4d8-485b-8e42-ba35907ca270
+		summarizeBy: none
+		sourceColumn: CAUSE_OF_LOSS
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATE_OF_LOSS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 33489cbb-a8ea-4647-8509-1993ed8c3cc8
+		summarizeBy: none
+		sourceColumn: DATE_OF_LOSS
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOTIFICATION_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6d165912-bbb2-4254-b998-18b59b5104b6
+		summarizeBy: none
+		sourceColumn: NOTIFICATION_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column REGISTRATION_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 39b26e7d-6216-4d41-a124-77a519e3a823
+		summarizeBy: none
+		sourceColumn: REGISTRATION_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCUMENT_COMPLETION_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5178ebb5-0811-4bc3-9d1b-954319d9df46
+		summarizeBy: none
+		sourceColumn: DOCUMENT_COMPLETION_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column FIRST_TRANSACTION_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b235ed63-440a-436f-8287-99066c47e9dd
+		summarizeBy: none
+		sourceColumn: FIRST_TRANSACTION_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column LAST_PAYMENT_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0c61e52d-c289-4623-9f4e-2d8f189a92a9
+		summarizeBy: none
+		sourceColumn: LAST_PAYMENT_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIMED_AMOUNT
+		dataType: double
+		lineageTag: 03908799-3f56-4c55-a487-dada896a630e
+		summarizeBy: sum
+		sourceColumn: CLAIMED_AMOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAID_AMOUNT
+		dataType: double
+		lineageTag: e916d739-8e1a-4f83-a91e-579486879688
+		summarizeBy: sum
+		sourceColumn: PAID_AMOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column RESERVE_MOVEMENT
+		dataType: double
+		lineageTag: fd6aba43-e73d-41d3-9138-bc25dbea59a0
+		summarizeBy: sum
+		sourceColumn: RESERVE_MOVEMENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column RECOVERED_AMOUNT
+		dataType: double
+		lineageTag: b60a15ce-d2e0-4118-8004-0c7ea5bac777
+		summarizeBy: sum
+		sourceColumn: RECOVERED_AMOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_SETTLED
+		dataType: int64
+		lineageTag: 8c6e13e6-93a0-4eda-b7d3-253ef250337e
+		summarizeBy: sum
+		sourceColumn: IS_SETTLED
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_OPEN
+		dataType: int64
+		lineageTag: d4c3eb06-a953-43a2-9a14-d65daacacb41
+		summarizeBy: sum
+		sourceColumn: IS_OPEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_DENIED
+		dataType: int64
+		lineageTag: 8dec9ec2-ee17-4c23-ad28-78b825dd8172
+		summarizeBy: sum
+		sourceColumn: IS_DENIED
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_REOPENED
+		dataType: int64
+		lineageTag: 960c8097-cb2a-4cf8-ba56-6a38da36f3d3
+		summarizeBy: sum
+		sourceColumn: IS_REOPENED
+
+		annotation SummarizationSetBy = Automatic
+
+	column SETTLEMENT_DAYS
+		dataType: int64
+		lineageTag: 32110a17-fa7e-49cc-98e0-5e6763b3fa7a
+		summarizeBy: sum
+		sourceColumn: SETTLEMENT_DAYS
+
+		annotation SummarizationSetBy = Automatic
+
+	column OPEN_AGE_DAYS
+		dataType: int64
+		lineageTag: 55773e06-1630-44e5-9ba6-fc8736f9b301
+		summarizeBy: sum
+		sourceColumn: OPEN_AGE_DAYS
+
+		annotation SummarizationSetBy = Automatic
+
+	column AGING_BUCKET
+		dataType: string
+		lineageTag: 6a7c0062-275c-4cb0-8267-d1d4e3b154b4
+		summarizeBy: none
+		sourceColumn: AGING_BUCKET
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOTIFICATION_MONTH
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5d29e78a-f262-4f3c-ba9e-9b3d55b047ff
+		summarizeBy: none
+		sourceColumn: NOTIFICATION_MONTH
+
+		annotation SummarizationSetBy = Automatic
+
+	partition BUC_CLAIMSRISK_CLAIMS_LIFECYCLE_VIEW = m
+		mode: directQuery
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sch = Db{[Name=SnowflakeSchema, Kind="Schema"]}[Data],
+				    Data = Sch{[Name="BUC_CLAIMSRISK_CLAIMS_LIFECYCLE_VIEW", Kind="View"]}[Data]
+				in
+				    Data
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

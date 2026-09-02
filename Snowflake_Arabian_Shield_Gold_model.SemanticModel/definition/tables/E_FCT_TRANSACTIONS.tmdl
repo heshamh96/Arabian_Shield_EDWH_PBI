@@ -1,0 +1,318 @@
+table E_FCT_TRANSACTIONS
+	lineageTag: ceb72f39-7dca-4da2-be17-2930cc72b8f8
+
+	column TRANS_ID
+		dataType: string
+		lineageTag: f49cc1fb-c463-4936-8c5e-5323ace76d82
+		summarizeBy: none
+		sourceColumn: TRANS_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICY_ID
+		dataType: string
+		lineageTag: fb72e59d-ce08-47e4-95a9-b69490f73aa0
+		summarizeBy: none
+		sourceColumn: POLICY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column RISK_ID
+		dataType: string
+		lineageTag: a4f5e55e-5fd8-499b-b661-305c7b11c114
+		summarizeBy: none
+		sourceColumn: RISK_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PARTY_ID
+		dataType: string
+		lineageTag: 7b78c5c4-211d-41b2-93a2-ba55c09fd973
+		summarizeBy: none
+		sourceColumn: PARTY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column BENIFITIONRY_ID
+		dataType: string
+		lineageTag: 25499046-a385-4245-b471-6e07133ac901
+		summarizeBy: none
+		sourceColumn: BENIFITIONRY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALES_CHANNEL_ID
+		dataType: string
+		lineageTag: 4ae5bb44-8094-4aa8-8ab0-cd33ad9cb60b
+		summarizeBy: none
+		sourceColumn: SALES_CHANNEL_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DOCUMENT_TYPE
+		dataType: string
+		lineageTag: aec19706-b64b-4c26-b971-0f78779b12fb
+		summarizeBy: none
+		sourceColumn: DOCUMENT_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENDO_TYPE
+		dataType: string
+		lineageTag: d46cc09e-7828-498d-8a1d-8f874b61b678
+		summarizeBy: none
+		sourceColumn: ENDO_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENDO_SERIAL
+		dataType: int64
+		lineageTag: 3562cf14-356d-4183-b8a2-de530306ce7a
+		summarizeBy: sum
+		sourceColumn: ENDO_SERIAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAYMENT_PURPOSE
+		dataType: string
+		lineageTag: 8aac9883-680c-47e4-979e-66b812cb681d
+		summarizeBy: none
+		sourceColumn: PAYMENT_PURPOSE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAYMENT_STATUS
+		dataType: string
+		lineageTag: 1fd5e7de-801c-466d-b79b-38feb2f16094
+		summarizeBy: none
+		sourceColumn: PAYMENT_STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column PREMIUM_STATUS_ID
+		dataType: string
+		lineageTag: 38cd7fa1-7646-463b-861d-a02e8e6f85dc
+		summarizeBy: none
+		sourceColumn: PREMIUM_STATUS_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column UW_YEAR
+		dataType: int64
+		lineageTag: c65ee24a-92cb-411d-a957-d0de70cde04a
+		summarizeBy: none
+		sourceColumn: UW_YEAR
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRANSACTION_ISSUE_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a1711777-4fb1-4380-851f-4ff24f8569e9
+		summarizeBy: none
+		sourceColumn: TRANSACTION_ISSUE_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRANSACTION_EFFECTIVE_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 57d193e3-c8c4-4e64-b8ce-a9230b273c0b
+		summarizeBy: none
+		sourceColumn: TRANSACTION_EFFECTIVE_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRANSACTION_EXPIRY_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9b2ded5a-4d2f-49e5-84ec-cefa1910a555
+		summarizeBy: none
+		sourceColumn: TRANSACTION_EXPIRY_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column NO_OF_SUBJECTS
+		dataType: int64
+		lineageTag: 07bc019f-e0f8-46de-bac9-27d1241d1355
+		summarizeBy: sum
+		sourceColumn: NO_OF_SUBJECTS
+
+		annotation SummarizationSetBy = Automatic
+
+	column GROSS_PREMIUM
+		dataType: double
+		lineageTag: 0ecfef72-c8f9-49fa-a22f-3aee9c49c71f
+		summarizeBy: sum
+		sourceColumn: GROSS_PREMIUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column GROSS_PREMIUM_LC
+		dataType: double
+		lineageTag: b92558bf-24bc-4454-a427-2a31be212628
+		summarizeBy: sum
+		sourceColumn: GROSS_PREMIUM_LC
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRORATA_PREMIUM
+		dataType: double
+		lineageTag: 73d1444d-2a12-48b1-8f0c-c694bd0988bf
+		summarizeBy: sum
+		sourceColumn: PRORATA_PREMIUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUMINSURED
+		dataType: double
+		lineageTag: 43ca691e-b575-4e3a-9146-da0d2e506dd8
+		summarizeBy: sum
+		sourceColumn: SUMINSURED
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUMINSURED_LC
+		dataType: double
+		lineageTag: 5de67a4b-b967-49e0-b6c4-09ca5505fd3c
+		summarizeBy: sum
+		sourceColumn: SUMINSURED_LC
+
+		annotation SummarizationSetBy = Automatic
+
+	column COMMISION
+		dataType: double
+		lineageTag: d2cbc868-6805-4ae1-8d2b-c7f7d6914bb9
+		summarizeBy: sum
+		sourceColumn: COMMISION
+
+		annotation SummarizationSetBy = Automatic
+
+	column VAT
+		dataType: double
+		lineageTag: 7759bae4-a1e1-41f6-8314-6d1efc5d1688
+		summarizeBy: sum
+		sourceColumn: VAT
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_DISCOUNT
+		dataType: double
+		lineageTag: 2bcc5a91-910b-4907-a1b6-abeaa08609eb
+		summarizeBy: sum
+		sourceColumn: TOTAL_DISCOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_TTY_SUMINSURED
+		dataType: double
+		lineageTag: 2af3cf19-79fd-4b42-be00-3fa23d389203
+		summarizeBy: sum
+		sourceColumn: TOTAL_TTY_SUMINSURED
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_TTY_PREMIUM
+		dataType: double
+		lineageTag: ac130554-d68f-4d6d-bccf-12d3ab8d83c5
+		summarizeBy: sum
+		sourceColumn: TOTAL_TTY_PREMIUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_FAC_LOCAL_SUMINSURED
+		dataType: double
+		lineageTag: 1257901f-9139-48e1-8d65-8a7eb5636c9c
+		summarizeBy: sum
+		sourceColumn: TOTAL_FAC_LOCAL_SUMINSURED
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_FAC_LOCAL_PREMIUM
+		dataType: double
+		lineageTag: 40fc9811-a899-402a-a0d0-d87e92e4e0d6
+		summarizeBy: sum
+		sourceColumn: TOTAL_FAC_LOCAL_PREMIUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_FAC_FOREIGN_SUMINSURED
+		dataType: double
+		lineageTag: 7c3f69e3-73d7-42b3-ad2b-5b37259657cf
+		summarizeBy: sum
+		sourceColumn: TOTAL_FAC_FOREIGN_SUMINSURED
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_FAC_FOREIGN_PREMIUM
+		dataType: double
+		lineageTag: 8bece1a8-d553-4c50-96b1-28c2d78acb2b
+		summarizeBy: sum
+		sourceColumn: TOTAL_FAC_FOREIGN_PREMIUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_RET_SUMINSURED
+		dataType: double
+		lineageTag: f72d22a6-2d1b-41db-861e-6d8a792fca0e
+		summarizeBy: sum
+		sourceColumn: TOTAL_RET_SUMINSURED
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_RET_PREMIUM
+		dataType: double
+		lineageTag: 6ad08571-5a0d-48d8-9bf6-f6cddf1ca4c1
+		summarizeBy: sum
+		sourceColumn: TOTAL_RET_PREMIUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_SYSTEM
+		dataType: string
+		lineageTag: da38236a-ff52-4b3c-a92b-c418598e0257
+		summarizeBy: none
+		sourceColumn: SOURCE_SYSTEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXTRACTION_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 166429ab-9b04-4aec-9c61-24fa50e40506
+		summarizeBy: none
+		sourceColumn: EXTRACTION_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOAD_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0ca4080c-16cd-443a-a57a-bbf5a906c46e
+		summarizeBy: none
+		sourceColumn: LOAD_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROW_VERSION
+		dataType: string
+		lineageTag: 95145a23-a552-4edd-ae85-f5a8b2d2b477
+		summarizeBy: none
+		sourceColumn: ROW_VERSION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition E_FCT_TRANSACTIONS = m
+		mode: directQuery
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sch = Db{[Name=SnowflakeSchema, Kind="Schema"]}[Data],
+				    Data = Sch{[Name="E_FCT_TRANSACTIONS", Kind="Table"]}[Data]
+				in
+				    Data
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

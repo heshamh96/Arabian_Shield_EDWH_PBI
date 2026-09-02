@@ -1,0 +1,272 @@
+table C_DIM_POLICY_MASTER
+	lineageTag: 3b5b2593-9ccc-4299-b7af-ae0ca2844231
+
+	column POLICY_ID
+		dataType: string
+		lineageTag: cdb98524-3e5a-4c90-a37f-d4e19de336c4
+		summarizeBy: none
+		sourceColumn: POLICY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_POLICY_ID
+		dataType: string
+		lineageTag: 20ccb494-adea-4601-9b87-931b77715913
+		summarizeBy: none
+		sourceColumn: SOURCE_POLICY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICY_NO
+		dataType: string
+		lineageTag: de6f0850-3561-45a7-a905-034d1fe5f8ed
+		summarizeBy: none
+		sourceColumn: POLICY_NO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENDO_SERIAL
+		dataType: string
+		lineageTag: ecbe4fcd-6160-4e31-869a-63f3d476eb20
+		summarizeBy: none
+		sourceColumn: ENDO_SERIAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENDO_NO
+		dataType: string
+		lineageTag: 58b5e08a-c14b-40df-8c51-18338e2505c0
+		summarizeBy: none
+		sourceColumn: ENDO_NO
+
+		annotation SummarizationSetBy = Automatic
+
+	column PARTY_ID
+		dataType: string
+		lineageTag: 39c406bd-c36f-4dd0-b8df-1f6094f0192e
+		summarizeBy: none
+		sourceColumn: PARTY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PARTY_ACCOUNT_ID
+		dataType: string
+		lineageTag: fbb5d23e-4cdd-4601-b378-e3e75e3d86b4
+		summarizeBy: none
+		sourceColumn: PARTY_ACCOUNT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOB_ID
+		dataType: string
+		lineageTag: cd48528b-b934-4020-8c79-0afae5788621
+		summarizeBy: none
+		sourceColumn: LOB_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRODUCT_ID
+		dataType: string
+		lineageTag: 13512a9c-26d9-43cd-a6a1-86013e48ab6b
+		summarizeBy: none
+		sourceColumn: PRODUCT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CHANNEL_ID
+		dataType: string
+		lineageTag: d6c09d03-28ac-4206-9319-ec83899ddd89
+		summarizeBy: none
+		sourceColumn: CHANNEL_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLAN_TYPE
+		dataType: string
+		lineageTag: d2383271-8cec-4f6f-9ddf-efa3b15e2e9a
+		summarizeBy: none
+		sourceColumn: PLAN_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICY_STATUS
+		dataType: string
+		lineageTag: 7208cb05-557c-4336-aa6a-78603e22473e
+		summarizeBy: none
+		sourceColumn: POLICY_STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICY_SUB_STATUS
+		dataType: string
+		lineageTag: 22ce61a5-c241-400c-be0d-9ea6a38ab601
+		summarizeBy: none
+		sourceColumn: POLICY_SUB_STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICY_INCEPTION_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 886f5923-d790-4932-95c5-1660e6c3c6ac
+		summarizeBy: none
+		sourceColumn: POLICY_INCEPTION_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICY_EXPIRY_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5d774850-d2ca-4167-9bdc-70f0f3a4c471
+		summarizeBy: none
+		sourceColumn: POLICY_EXPIRY_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENDORSEMENT_TYPE_ID
+		dataType: string
+		lineageTag: 22e56225-e566-4fe0-9699-b6a2271a6bd9
+		summarizeBy: none
+		sourceColumn: ENDORSEMENT_TYPE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENDO_EFFECTIVE_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2874f9dc-e534-4098-90e2-2836b225690c
+		summarizeBy: none
+		sourceColumn: ENDO_EFFECTIVE_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENDO_EXPIRY_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 341a0246-6d1e-470b-b380-6fa34902813d
+		summarizeBy: none
+		sourceColumn: ENDO_EXPIRY_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column MATURATY_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 562c2a44-33a5-47f6-9967-10e80d70a4df
+		summarizeBy: none
+		sourceColumn: MATURATY_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICY_TENURE
+		dataType: double
+		lineageTag: 9a0043c9-771d-4429-abf0-482e6822a7cb
+		summarizeBy: sum
+		sourceColumn: POLICY_TENURE
+
+		annotation SummarizationSetBy = Automatic
+
+	column FREQUANCY_MODE
+		dataType: string
+		lineageTag: 4f16745b-5492-4bcb-81ac-babd9e4424ca
+		summarizeBy: none
+		sourceColumn: FREQUANCY_MODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column FREQUANCY_AMOUNT
+		dataType: double
+		lineageTag: 61971658-bf11-4224-b6b2-845159ba86cc
+		summarizeBy: sum
+		sourceColumn: FREQUANCY_AMOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column MID_POL_ID
+		dataType: string
+		lineageTag: 8a51b60c-7920-474f-a9c3-379b8ce86dd6
+		summarizeBy: none
+		sourceColumn: MID_POL_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column LIFE_POL_ID
+		dataType: string
+		lineageTag: 48ea3ad7-33a4-46c2-aa38-fa4e7e84a9d4
+		summarizeBy: none
+		sourceColumn: LIFE_POL_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column NMOTOR_POL_ID
+		dataType: string
+		lineageTag: 00d33581-9858-4ef3-aaf8-13b70603a09e
+		summarizeBy: none
+		sourceColumn: NMOTOR_POL_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column MOTOR_POL_ID
+		dataType: string
+		lineageTag: 3af43bec-5568-45ac-9bb1-a8e71509694c
+		summarizeBy: none
+		sourceColumn: MOTOR_POL_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICY_TYPE_CODE
+		dataType: string
+		lineageTag: a8a0b42b-dd4a-4020-8e3f-9e8861e10c9d
+		summarizeBy: none
+		sourceColumn: POLICY_TYPE_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_SYSTEM
+		dataType: string
+		lineageTag: 4fda4b11-8463-4eab-aa25-64a6c12fcff7
+		summarizeBy: none
+		sourceColumn: SOURCE_SYSTEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXTRACTION_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e9d1b7a4-1450-4786-a555-4730aa2988af
+		summarizeBy: none
+		sourceColumn: EXTRACTION_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOAD_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3ea5aacb-58f1-4a07-a78f-4e71857f80e1
+		summarizeBy: none
+		sourceColumn: LOAD_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROW_VERSION
+		dataType: string
+		lineageTag: efe41e0e-966e-49eb-9811-b9f361d82357
+		summarizeBy: none
+		sourceColumn: ROW_VERSION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition C_DIM_POLICY_MASTER = m
+		mode: directQuery
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sch = Db{[Name=SnowflakeSchema, Kind="Schema"]}[Data],
+				    Data = Sch{[Name="C_DIM_POLICY_MASTER", Kind="Table"]}[Data]
+				in
+				    Data
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

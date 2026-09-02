@@ -1,0 +1,115 @@
+table A_REF_PLAN_CLASS
+	lineageTag: d93093ab-dd43-4144-b93a-f509b55284a9
+
+	column PLAN_CLASS_ID
+		dataType: string
+		lineageTag: 2b0623fc-24a9-41ab-b87c-5240d40b1ff6
+		summarizeBy: none
+		sourceColumn: PLAN_CLASS_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_CODE
+		dataType: string
+		lineageTag: 2c255c79-b27b-498a-8648-5840f94c4d73
+		summarizeBy: none
+		sourceColumn: SOURCE_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLAN_CODE
+		dataType: string
+		lineageTag: 5408c4d4-5420-4bd2-a95e-fdb88a03fd18
+		summarizeBy: none
+		sourceColumn: PLAN_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLAN_NAME
+		dataType: string
+		lineageTag: e44a26b3-bc00-40a5-818e-bcd23b46973b
+		summarizeBy: none
+		sourceColumn: PLAN_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column CATEGORY_CODE
+		dataType: string
+		lineageTag: a8c11fe1-54b2-4fcf-ab1b-1b1ee9a5a697
+		summarizeBy: none
+		sourceColumn: CATEGORY_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_NAME
+		dataType: string
+		lineageTag: 09a802f9-3903-4c98-a26f-2264cc8c21be
+		summarizeBy: none
+		sourceColumn: SOURCE_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column EN_NAME
+		dataType: string
+		lineageTag: 51f2f28d-b44b-41b1-b67b-31d55971f73a
+		summarizeBy: none
+		sourceColumn: EN_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column AR_NAME
+		dataType: string
+		lineageTag: 60d1edcb-7cdc-427a-9021-015844916db5
+		summarizeBy: none
+		sourceColumn: AR_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_SYSTEM
+		dataType: string
+		lineageTag: 0edabd67-e099-4775-9c18-3e3e6f1ca6d6
+		summarizeBy: none
+		sourceColumn: SOURCE_SYSTEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXTRACTION_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 07809284-d240-453a-b574-569edac3a67c
+		summarizeBy: none
+		sourceColumn: EXTRACTION_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOAD_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5f512996-4497-41b3-a381-56c4be9c40ac
+		summarizeBy: none
+		sourceColumn: LOAD_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROW_VERSION
+		dataType: string
+		lineageTag: f49ce986-4831-4aaf-b489-f098c7152edb
+		summarizeBy: none
+		sourceColumn: ROW_VERSION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition A_REF_PLAN_CLASS = m
+		mode: directQuery
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sch = Db{[Name=SnowflakeSchema, Kind="Schema"]}[Data],
+				    Data = Sch{[Name="A_REF_PLAN_CLASS", Kind="Table"]}[Data]
+				in
+				    Data
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

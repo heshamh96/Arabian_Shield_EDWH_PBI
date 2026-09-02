@@ -1,0 +1,91 @@
+table C_DIM_MEDICAL_CLASSES
+	lineageTag: 76a6e766-8273-4191-aa2b-d7454a9c0905
+
+	column MEDICAL_CLASS_ID
+		dataType: string
+		lineageTag: 1af49d0a-bdfc-4ea8-b399-49ac0dbbe1b0
+		summarizeBy: none
+		sourceColumn: MEDICAL_CLASS_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLAN_CODE
+		dataType: string
+		lineageTag: eaff2867-be0f-4ffb-a107-26f6633e4791
+		summarizeBy: none
+		sourceColumn: PLAN_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLAN_NAME
+		dataType: string
+		lineageTag: 44fc5416-b2f5-4bf4-acb4-f230fb022bba
+		summarizeBy: none
+		sourceColumn: PLAN_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLASS_CODE
+		dataType: string
+		lineageTag: d0b10136-73ac-4ace-83ec-6225dddacb56
+		summarizeBy: none
+		sourceColumn: CLASS_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLASS_NAME
+		dataType: string
+		lineageTag: e884e49d-ce2c-4e60-b6e1-72db736da0fe
+		summarizeBy: none
+		sourceColumn: CLASS_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_SYSTEM
+		dataType: string
+		lineageTag: 7bb1dfc7-6e91-44ec-8e37-0ecaaa2e2ecc
+		summarizeBy: none
+		sourceColumn: SOURCE_SYSTEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXTRACTION_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6352e824-7dd7-46aa-bf60-58a7f80437c1
+		summarizeBy: none
+		sourceColumn: EXTRACTION_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOAD_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0a88219a-52f4-4d10-b555-d7369d082c79
+		summarizeBy: none
+		sourceColumn: LOAD_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROW_VERSION
+		dataType: string
+		lineageTag: 49151aba-8b0f-4b72-8ce4-4d41ad5d74bc
+		summarizeBy: none
+		sourceColumn: ROW_VERSION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition C_DIM_MEDICAL_CLASSES = m
+		mode: directQuery
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sch = Db{[Name=SnowflakeSchema, Kind="Schema"]}[Data],
+				    Data = Sch{[Name="C_DIM_MEDICAL_CLASSES", Kind="Table"]}[Data]
+				in
+				    Data
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

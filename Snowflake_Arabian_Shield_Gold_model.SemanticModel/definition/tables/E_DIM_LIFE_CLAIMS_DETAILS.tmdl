@@ -1,0 +1,192 @@
+table E_DIM_LIFE_CLAIMS_DETAILS
+	lineageTag: 6d9b49e1-ed07-4254-9f47-17b292329c9d
+
+	column CLAIM_ID
+		dataType: string
+		lineageTag: 18216662-f17d-48c3-8d54-9b83936ad633
+		summarizeBy: none
+		sourceColumn: CLAIM_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIM_NATIVE_ID
+		dataType: string
+		lineageTag: e7e1d1a5-563c-4eea-bbff-0d3c4b2c21dd
+		summarizeBy: none
+		sourceColumn: CLAIM_NATIVE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_SYSTEM
+		dataType: string
+		lineageTag: eca34c11-f73c-4a6d-abbd-fc5e72cc7e4f
+		summarizeBy: none
+		sourceColumn: SOURCE_SYSTEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIM_NO
+		dataType: string
+		lineageTag: 5707ccd6-d480-4418-a532-58fa6aebe293
+		summarizeBy: none
+		sourceColumn: CLAIM_NO
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICY_ID
+		dataType: string
+		lineageTag: 2c199bbf-ded6-4aa8-9cb2-38baaac48a84
+		summarizeBy: none
+		sourceColumn: POLICY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column RISK_ID
+		dataType: string
+		lineageTag: 2e1e6a6b-ea79-4ab7-a176-2e3b16f3c4b9
+		summarizeBy: none
+		sourceColumn: RISK_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLC_UW_YEAR
+		dataType: int64
+		lineageTag: 5270ac7c-0d2c-47b6-acc7-2bc1a006d6de
+		summarizeBy: none
+		sourceColumn: PLC_UW_YEAR
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLM_UW_YEAR
+		dataType: int64
+		lineageTag: 434e46c5-23c2-4ed9-bb7c-20f0f093f0b3
+		summarizeBy: none
+		sourceColumn: CLM_UW_YEAR
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIM_TYPE
+		dataType: string
+		lineageTag: 4f31e2d6-98bd-4c40-b53b-c9aff0c55c0a
+		summarizeBy: none
+		sourceColumn: CLAIM_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATE_OF_LOSS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: cf62c4d0-57a9-42f0-9e2b-bb96174f1b9f
+		summarizeBy: none
+		sourceColumn: DATE_OF_LOSS
+
+		annotation SummarizationSetBy = Automatic
+
+	column REGISTRATION_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9de6dfea-5ea6-48dc-a072-ec5f430a7b74
+		summarizeBy: none
+		sourceColumn: REGISTRATION_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOTIFICATION_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c5bb55d8-5bd6-46dd-8b64-ee9ff69da8dc
+		summarizeBy: none
+		sourceColumn: NOTIFICATION_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIM_STATUS_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6173952e-f9a6-4b58-be69-b3f5579f384e
+		summarizeBy: none
+		sourceColumn: CLAIM_STATUS_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIM_STATUS
+		dataType: string
+		lineageTag: fa9b9523-8bc0-46bd-b001-a368104e3d6f
+		summarizeBy: none
+		sourceColumn: CLAIM_STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIM_CREATION_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 380d2474-74d0-4c55-b4e7-f3c09a0434e2
+		summarizeBy: none
+		sourceColumn: CLAIM_CREATION_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column AMOUNT
+		dataType: double
+		lineageTag: 59ae35b4-e0d2-4aca-8e79-1ceea9ceda35
+		summarizeBy: sum
+		sourceColumn: AMOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCRIPTION
+		dataType: string
+		lineageTag: 90535cf4-64db-4def-841b-2822d6c951d2
+		summarizeBy: none
+		sourceColumn: DESCRIPTION
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOTES
+		dataType: string
+		lineageTag: 47f678c8-5bce-4b73-957d-3196d4abda89
+		summarizeBy: none
+		sourceColumn: NOTES
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXTRACTION_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 735c8b01-faab-4a89-97ab-cbbf44988f68
+		summarizeBy: none
+		sourceColumn: EXTRACTION_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOAD_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 318b7a1b-7ab4-454d-b273-97ced0971305
+		summarizeBy: none
+		sourceColumn: LOAD_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROW_VERSION
+		dataType: string
+		lineageTag: a0686a8b-8f66-444e-aa29-9e5604fee409
+		summarizeBy: none
+		sourceColumn: ROW_VERSION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition E_DIM_LIFE_CLAIMS_DETAILS = m
+		mode: directQuery
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sch = Db{[Name=SnowflakeSchema, Kind="Schema"]}[Data],
+				    Data = Sch{[Name="E_DIM_LIFE_CLAIMS_DETAILS", Kind="Table"]}[Data]
+				in
+				    Data
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

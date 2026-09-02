@@ -1,0 +1,123 @@
+table A_REF_VEHICLE_TYPES
+	lineageTag: 1eff1bde-68e3-4336-b3d5-6b5d942f1d03
+
+	column VEHICLE_TYPE_ID
+		dataType: string
+		lineageTag: aaa90581-9797-4179-84f3-944492b4655b
+		summarizeBy: none
+		sourceColumn: VEHICLE_TYPE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column VEHICLE_ID
+		dataType: string
+		lineageTag: 597d7c2d-f8f4-4d68-a90b-11c4fc1bbc32
+		summarizeBy: none
+		sourceColumn: VEHICLE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_NAME
+		dataType: string
+		lineageTag: 319b1d81-c3a1-4b47-96e9-9c17297d7817
+		summarizeBy: none
+		sourceColumn: SOURCE_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column MAKE
+		dataType: string
+		lineageTag: 3f3f73fd-cfd0-46d5-8169-f58bcbaa12c2
+		summarizeBy: none
+		sourceColumn: MAKE
+
+		annotation SummarizationSetBy = Automatic
+
+	column MODEL
+		dataType: string
+		lineageTag: 370147f1-b23c-4c17-bf2d-060067c3b73a
+		summarizeBy: none
+		sourceColumn: MODEL
+
+		annotation SummarizationSetBy = Automatic
+
+	column BODY_TYPE
+		dataType: string
+		lineageTag: 95d19c4e-7f55-4a5e-8f24-ab4ec10aefb4
+		summarizeBy: none
+		sourceColumn: BODY_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column NATIONALITY
+		dataType: string
+		lineageTag: 539118b3-897b-4474-9866-33a012ee72a0
+		summarizeBy: none
+		sourceColumn: NATIONALITY
+
+		annotation SummarizationSetBy = Automatic
+
+	column VEHICLE_GROUP
+		dataType: double
+		lineageTag: f4729841-7e15-4ecb-81b4-31d245f61ca6
+		summarizeBy: sum
+		sourceColumn: VEHICLE_GROUP
+
+		annotation SummarizationSetBy = Automatic
+
+	column VHICLE_GROUP_NAME
+		dataType: string
+		lineageTag: 3b020952-197b-4aac-a560-0c3b74dc56bd
+		summarizeBy: none
+		sourceColumn: VHICLE_GROUP_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_SYSTEM
+		dataType: string
+		lineageTag: 0bf080c1-10d5-452f-84bb-a5e99fd3fbee
+		summarizeBy: none
+		sourceColumn: SOURCE_SYSTEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXTRACTION_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 992f8d0a-fb7c-4b8b-b871-071482fa42c1
+		summarizeBy: none
+		sourceColumn: EXTRACTION_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOAD_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4b0e637b-68c0-4a81-a4d5-333b6277fd53
+		summarizeBy: none
+		sourceColumn: LOAD_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROW_VERSION
+		dataType: string
+		lineageTag: 01e0175a-a7d1-4964-bb97-17889bc40c70
+		summarizeBy: none
+		sourceColumn: ROW_VERSION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition A_REF_VEHICLE_TYPES = m
+		mode: directQuery
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sch = Db{[Name=SnowflakeSchema, Kind="Schema"]}[Data],
+				    Data = Sch{[Name="A_REF_VEHICLE_TYPES", Kind="Table"]}[Data]
+				in
+				    Data
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

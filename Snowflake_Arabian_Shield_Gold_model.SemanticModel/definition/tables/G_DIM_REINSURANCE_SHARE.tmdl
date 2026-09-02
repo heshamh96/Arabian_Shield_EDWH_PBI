@@ -1,0 +1,267 @@
+table G_DIM_REINSURANCE_SHARE
+	lineageTag: 27117c1b-2317-4306-8d33-7f73d4c28354
+
+	column REINSURANCE_SHARE_ID
+		dataType: string
+		lineageTag: d7a015cc-33e1-467e-92fc-eb76742f3507
+		summarizeBy: none
+		sourceColumn: REINSURANCE_SHARE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SHARE_CLASS
+		dataType: string
+		lineageTag: 011a48cb-345b-4a39-9be3-b1bc9fdcb811
+		summarizeBy: none
+		sourceColumn: SHARE_CLASS
+
+		annotation SummarizationSetBy = Automatic
+
+	column SHARE_ROW_NATIVE_ID
+		dataType: string
+		lineageTag: 462fe0e9-ddbb-471f-9382-30224f5ee3d4
+		summarizeBy: none
+		sourceColumn: SHARE_ROW_NATIVE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICY_ID
+		dataType: string
+		lineageTag: 5b53f682-ec1b-4db5-9fac-2149a4466e97
+		summarizeBy: none
+		sourceColumn: POLICY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column RISK_ID
+		dataType: string
+		lineageTag: a2e50f2d-36fd-438e-9e6c-ad14a454aba9
+		summarizeBy: none
+		sourceColumn: RISK_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUBJECT_SERIAL
+		dataType: int64
+		lineageTag: df4f4ed9-4f0f-419f-9b49-e2ceda1dae07
+		summarizeBy: sum
+		sourceColumn: SUBJECT_SERIAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRANSACTION_ID
+		dataType: string
+		lineageTag: 4ca356f6-283f-4a93-8c4e-1140c38eccc5
+		summarizeBy: none
+		sourceColumn: TRANSACTION_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIM_SLIP_NATIVE_ID
+		dataType: string
+		lineageTag: 21d2d63d-dc4d-46f5-8800-955b548ebaa9
+		summarizeBy: none
+		sourceColumn: CLAIM_SLIP_NATIVE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUM_INSURED
+		dataType: double
+		lineageTag: e07ac0ad-a36e-485e-a4f8-9bd3dd0738fd
+		summarizeBy: sum
+		sourceColumn: SUM_INSURED
+
+		annotation SummarizationSetBy = Automatic
+
+	column PREMIUM
+		dataType: double
+		lineageTag: 4156381e-d893-4122-a4f1-cad25df32756
+		summarizeBy: sum
+		sourceColumn: PREMIUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column TREATY_ID
+		dataType: string
+		lineageTag: cbecf1dd-7b9d-45fd-a15c-c959b1358100
+		summarizeBy: none
+		sourceColumn: TREATY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TREATY_LAYER_CODE
+		dataType: string
+		lineageTag: c51feba7-2e15-4737-9dae-017c9f4c29e3
+		summarizeBy: none
+		sourceColumn: TREATY_LAYER_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column LAYER_REINSURER_NATIVE_ID
+		dataType: int64
+		lineageTag: fc61b65a-1974-4ddb-b330-c66476ba500f
+		summarizeBy: none
+		sourceColumn: LAYER_REINSURER_NATIVE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column RETENTION_SHARE_PERCENTAGE
+		dataType: double
+		lineageTag: 76b58a68-33e4-4590-ae74-3c40d4b0ba7d
+		summarizeBy: sum
+		sourceColumn: RETENTION_SHARE_PERCENTAGE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CESSION_SHARE_PERCENTAGE
+		dataType: double
+		lineageTag: 4f8679f2-cb15-4a34-b7d5-9eafa7a360d9
+		summarizeBy: sum
+		sourceColumn: CESSION_SHARE_PERCENTAGE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SURPLUS_SHARE_PERCENTAGE
+		dataType: double
+		lineageTag: d315fad6-839e-4441-85a4-84f823d8647f
+		summarizeBy: sum
+		sourceColumn: SURPLUS_SHARE_PERCENTAGE
+
+		annotation SummarizationSetBy = Automatic
+
+	column RETENTION_SHARE_AMOUNT
+		dataType: double
+		lineageTag: 299bb943-4db0-4f0a-b50e-e0935989caaf
+		summarizeBy: sum
+		sourceColumn: RETENTION_SHARE_AMOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column CESSION_SHARE_AMOUNT
+		dataType: double
+		lineageTag: fc386bd7-d733-4234-8bbf-f39bccada3ee
+		summarizeBy: sum
+		sourceColumn: CESSION_SHARE_AMOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column SURPLUS_SHARE_AMOUNT
+		dataType: double
+		lineageTag: fc1a7ef9-2f53-4fc2-ae79-b14ce877f8cf
+		summarizeBy: sum
+		sourceColumn: SURPLUS_SHARE_AMOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column CESSION_SHARE_COMMISSION_PERCENTAGE
+		dataType: double
+		lineageTag: 5fb741ca-9ea5-46f7-9e0d-034acdb5646f
+		summarizeBy: sum
+		sourceColumn: CESSION_SHARE_COMMISSION_PERCENTAGE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SURPLUS_SHARE_COMMISSION_PERCENTAGE
+		dataType: double
+		lineageTag: 17aa40e3-71c4-48d8-8b50-95400d2341db
+		summarizeBy: sum
+		sourceColumn: SURPLUS_SHARE_COMMISSION_PERCENTAGE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PARTY_ID
+		dataType: string
+		lineageTag: b8b45093-e411-401a-ac61-0ade42c80a03
+		summarizeBy: none
+		sourceColumn: PARTY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PARTY_SHARE_PERCENTAGE
+		dataType: double
+		lineageTag: 07dfcb40-8d34-4629-a8bd-55b4a777d4b6
+		summarizeBy: sum
+		sourceColumn: PARTY_SHARE_PERCENTAGE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PARTY_SHARE_AMOUNT
+		dataType: double
+		lineageTag: ce0313ab-6635-49b4-a3a8-f13c923a622c
+		summarizeBy: sum
+		sourceColumn: PARTY_SHARE_AMOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column FAC_SHARE_PERCENTAGE
+		dataType: double
+		lineageTag: 6f7b9470-d604-45f4-b629-dba0cf64b9bb
+		summarizeBy: sum
+		sourceColumn: FAC_SHARE_PERCENTAGE
+
+		annotation SummarizationSetBy = Automatic
+
+	column FAC_SHARE_AMOUNT
+		dataType: double
+		lineageTag: bc2137ac-c4eb-417b-8c2b-79218a0d9534
+		summarizeBy: sum
+		sourceColumn: FAC_SHARE_AMOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column FAC_SHARE_COMMISSION_PERCENTAGE
+		dataType: double
+		lineageTag: 81ce3c9a-b661-4c1f-bc70-3daae43e7731
+		summarizeBy: sum
+		sourceColumn: FAC_SHARE_COMMISSION_PERCENTAGE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_SYSTEM
+		dataType: string
+		lineageTag: 4cd14101-43fe-4732-9321-58bf7e2d5a14
+		summarizeBy: none
+		sourceColumn: SOURCE_SYSTEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXTRACTION_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6b7c1038-887c-4630-8f9a-68e9699cb9fb
+		summarizeBy: none
+		sourceColumn: EXTRACTION_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOAD_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5d1ba2e9-b1c6-497f-acbd-d5e0eea51270
+		summarizeBy: none
+		sourceColumn: LOAD_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROW_VERSION
+		dataType: string
+		lineageTag: 81152704-f07a-43f5-9f1c-3b35ad6d4c2e
+		summarizeBy: none
+		sourceColumn: ROW_VERSION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition G_DIM_REINSURANCE_SHARE = m
+		mode: directQuery
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sch = Db{[Name=SnowflakeSchema, Kind="Schema"]}[Data],
+				    Data = Sch{[Name="G_DIM_REINSURANCE_SHARE", Kind="Table"]}[Data]
+				in
+				    Data
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

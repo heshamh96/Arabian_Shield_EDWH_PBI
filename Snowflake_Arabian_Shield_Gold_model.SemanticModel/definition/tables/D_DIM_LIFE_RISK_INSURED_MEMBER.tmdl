@@ -1,0 +1,203 @@
+table D_DIM_LIFE_RISK_INSURED_MEMBER
+	lineageTag: f5a8d014-9bd2-4875-aff1-84de53d97243
+
+	column LIFE_RISK_ID
+		dataType: string
+		lineageTag: 723e133c-b4f3-411d-9809-d9169f105610
+		summarizeBy: none
+		sourceColumn: LIFE_RISK_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column RISK_ID
+		dataType: string
+		lineageTag: 7df090d4-5d86-4603-a1e5-71fd1e810cfa
+		summarizeBy: none
+		sourceColumn: RISK_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_POLICY_ID
+		dataType: string
+		lineageTag: 2411de75-6129-45ca-8323-6e25223f08d8
+		summarizeBy: none
+		sourceColumn: SOURCE_POLICY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_SYSTEM
+		dataType: string
+		lineageTag: 7f9c055d-4a9e-46b8-bc1d-31612233b885
+		summarizeBy: none
+		sourceColumn: SOURCE_SYSTEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column TITLE
+		dataType: string
+		lineageTag: ad21c584-785c-48e4-a08e-47859c60766d
+		summarizeBy: none
+		sourceColumn: TITLE
+
+		annotation SummarizationSetBy = Automatic
+
+	column FIRST_NAME
+		dataType: string
+		lineageTag: e84a7576-c7ac-48f4-a99c-7af8d7ead739
+		summarizeBy: none
+		sourceColumn: FIRST_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column FATHER_NAME
+		dataType: string
+		lineageTag: c1f76d29-c7ab-4bbb-800b-8fde1b9c68e7
+		summarizeBy: none
+		sourceColumn: FATHER_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column LAST_NAME
+		dataType: string
+		lineageTag: ec439c63-45d3-493b-9ee1-c52e1110cb43
+		summarizeBy: none
+		sourceColumn: LAST_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENDER
+		dataType: string
+		lineageTag: 9df53a60-240b-4a8e-bbc1-2b3c56dd0169
+		summarizeBy: none
+		sourceColumn: GENDER
+
+		annotation SummarizationSetBy = Automatic
+
+	column NATIONAL_ID
+		dataType: string
+		lineageTag: 0ec3dc0b-167e-4006-971b-d677adec2772
+		summarizeBy: none
+		sourceColumn: NATIONAL_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column NATIONALITY
+		dataType: string
+		lineageTag: e8ed7d6a-ce56-4b3d-9a72-e43755894a52
+		summarizeBy: none
+		sourceColumn: NATIONALITY
+
+		annotation SummarizationSetBy = Automatic
+
+	column COUNTRY_OF_BIRTH
+		dataType: string
+		lineageTag: 76f20c3c-b17a-4fdf-90f9-ef39b713c62a
+		summarizeBy: none
+		sourceColumn: COUNTRY_OF_BIRTH
+
+		annotation SummarizationSetBy = Automatic
+
+	column MARTIAL_STATUS
+		dataType: string
+		lineageTag: 21263928-fbf0-4e99-a108-54b8605a2be4
+		summarizeBy: none
+		sourceColumn: MARTIAL_STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column REGION
+		dataType: string
+		lineageTag: c306d823-6c06-42ec-a339-0a1bba810f76
+		summarizeBy: none
+		sourceColumn: REGION
+
+		annotation SummarizationSetBy = Automatic
+
+	column CITY
+		dataType: string
+		lineageTag: ee7fe06a-1347-4e88-800d-2d02e3364d2f
+		summarizeBy: none
+		sourceColumn: CITY
+
+		annotation SummarizationSetBy = Automatic
+
+	column DISTRICT
+		dataType: string
+		lineageTag: c3c719cf-f273-4ddf-9c00-f72dc576be12
+		summarizeBy: none
+		sourceColumn: DISTRICT
+
+		annotation SummarizationSetBy = Automatic
+
+	column ZIP_CODE
+		dataType: string
+		lineageTag: d6198daf-9696-4751-bad5-310c8d082393
+		summarizeBy: none
+		sourceColumn: ZIP_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column COMPANY
+		dataType: string
+		lineageTag: 2fad4ea3-e2c5-48bf-986f-94d8d8078ec2
+		summarizeBy: none
+		sourceColumn: COMPANY
+
+		annotation SummarizationSetBy = Automatic
+
+	column DEPENDENCY
+		dataType: string
+		lineageTag: d9495ee5-6309-4557-90fc-bdbeefde6d4d
+		summarizeBy: none
+		sourceColumn: DEPENDENCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column SMOKER_STATUS
+		dataType: string
+		lineageTag: d2284c25-f140-4d62-8816-dd1c9b72a9af
+		summarizeBy: none
+		sourceColumn: SMOKER_STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXTRACTION_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 86c2a8a5-f9ab-4324-90a8-be5057442ff0
+		summarizeBy: none
+		sourceColumn: EXTRACTION_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOAD_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5d7d6315-9b91-40a6-a597-6c2326e52281
+		summarizeBy: none
+		sourceColumn: LOAD_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROW_VERSION
+		dataType: string
+		lineageTag: bab150dd-6efd-48b8-abc7-d4da87b41d3d
+		summarizeBy: none
+		sourceColumn: ROW_VERSION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition D_DIM_LIFE_RISK_INSURED_MEMBER = m
+		mode: directQuery
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sch = Db{[Name=SnowflakeSchema, Kind="Schema"]}[Data],
+				    Data = Sch{[Name="D_DIM_LIFE_RISK_INSURED_MEMBER", Kind="Table"]}[Data]
+				in
+				    Data
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

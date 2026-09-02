@@ -1,0 +1,181 @@
+table E_DIM_MEDICAL_CLAIMS_DETAILS
+	lineageTag: affc6603-2dd2-4d48-97da-735bcdb9632e
+
+	column CLAIM_ID
+		dataType: string
+		lineageTag: edca0389-e602-4894-af89-9a267463176c
+		summarizeBy: none
+		sourceColumn: CLAIM_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIM_NO
+		dataType: string
+		lineageTag: 2ecc2e1a-96bb-453f-9bc8-ba5a333b554d
+		summarizeBy: none
+		sourceColumn: CLAIM_NO
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICY_ID
+		dataType: string
+		lineageTag: 13c82bc2-f63a-4b96-9990-71fe12cff05d
+		summarizeBy: none
+		sourceColumn: POLICY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column RISK_ID
+		dataType: string
+		lineageTag: 146f7aba-8818-4c59-a69c-b79f6b4c9204
+		summarizeBy: none
+		sourceColumn: RISK_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIMANT_TYPE
+		dataType: string
+		lineageTag: 403600f6-d78c-427e-8ff5-eeb31e59fe1c
+		summarizeBy: none
+		sourceColumn: CLAIMANT_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUPPLIER_ID
+		dataType: string
+		lineageTag: 883bca0d-8059-45bb-bccd-146a6412bcdc
+		summarizeBy: none
+		sourceColumn: SUPPLIER_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SERVICE_TYPE
+		dataType: string
+		lineageTag: cd76d34b-5b19-44f6-be04-aed66e92d62e
+		summarizeBy: none
+		sourceColumn: SERVICE_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CAUSE_OF_LOSS
+		dataType: string
+		lineageTag: 048ce7bb-30fa-4d8e-9971-b9c4e1cae80f
+		summarizeBy: none
+		sourceColumn: CAUSE_OF_LOSS
+
+		annotation SummarizationSetBy = Automatic
+
+	column DAMAGE_TYPE
+		dataType: int64
+		lineageTag: 01cc5800-22c5-48d5-8c59-c7fe2fa47e0f
+		summarizeBy: sum
+		sourceColumn: DAMAGE_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column DESCRIPTION
+		dataType: string
+		lineageTag: 5803aac1-a630-4723-90f5-fae8a62e7b18
+		summarizeBy: none
+		sourceColumn: DESCRIPTION
+
+		annotation SummarizationSetBy = Automatic
+
+	column REGISTRATION_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 35f7b65d-01ac-492b-b635-63aad6752eb0
+		summarizeBy: none
+		sourceColumn: REGISTRATION_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOTIFICATION_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e6845e3f-e14b-492b-bd81-c9f7b64d2b73
+		summarizeBy: none
+		sourceColumn: NOTIFICATION_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column QUANTITY
+		dataType: double
+		lineageTag: 43ef207e-14cd-46d3-a48f-8d21dff800ca
+		summarizeBy: sum
+		sourceColumn: QUANTITY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIMED_AMOUNT
+		dataType: double
+		lineageTag: 0dad2269-342b-4b6d-8113-99092319e8b5
+		summarizeBy: sum
+		sourceColumn: CLAIMED_AMOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column DEDUCTABLE_AMOUNT
+		dataType: double
+		lineageTag: c268abd7-46cd-41da-a941-7f0bd6b3714a
+		summarizeBy: sum
+		sourceColumn: DEDUCTABLE_AMOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOTES
+		dataType: string
+		lineageTag: cad2e441-a354-415b-ae07-02f599340745
+		summarizeBy: none
+		sourceColumn: NOTES
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_SYSTEM
+		dataType: string
+		lineageTag: af59a5eb-5b97-4c41-ba50-b68dd77bde10
+		summarizeBy: none
+		sourceColumn: SOURCE_SYSTEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXTRACTION_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5b3eda39-23e8-4a36-928a-3ac9304600e6
+		summarizeBy: none
+		sourceColumn: EXTRACTION_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOAD_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1df4401f-afeb-41cd-af10-4938f59b3781
+		summarizeBy: none
+		sourceColumn: LOAD_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROW_VERSION
+		dataType: string
+		lineageTag: 11991226-689c-4dd3-9330-76b9c652e550
+		summarizeBy: none
+		sourceColumn: ROW_VERSION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition E_DIM_MEDICAL_CLAIMS_DETAILS = m
+		mode: directQuery
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sch = Db{[Name=SnowflakeSchema, Kind="Schema"]}[Data],
+				    Data = Sch{[Name="E_DIM_MEDICAL_CLAIMS_DETAILS", Kind="Table"]}[Data]
+				in
+				    Data
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

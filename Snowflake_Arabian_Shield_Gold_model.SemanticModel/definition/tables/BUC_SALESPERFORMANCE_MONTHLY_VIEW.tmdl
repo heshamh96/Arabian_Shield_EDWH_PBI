@@ -1,0 +1,194 @@
+table BUC_SALESPERFORMANCE_MONTHLY_VIEW
+	lineageTag: aac038a9-5839-4830-87f2-9c5864afb844
+
+	column MONTH
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: dc78bcaa-8265-4c4f-814c-4f9d01116ec4
+		summarizeBy: none
+		sourceColumn: MONTH
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_SYSTEM
+		dataType: string
+		lineageTag: 6f28d343-58b2-478a-905d-9e9f176754d7
+		summarizeBy: none
+		sourceColumn: SOURCE_SYSTEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column SECTOR
+		dataType: string
+		lineageTag: 438b1bdb-566a-403f-bd5f-0f71a544eaa7
+		summarizeBy: none
+		sourceColumn: SECTOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRODUCT_ID
+		dataType: string
+		lineageTag: f4457982-8246-4570-8afd-43fde22ed04f
+		summarizeBy: none
+		sourceColumn: PRODUCT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRODUCT_NAME
+		dataType: string
+		lineageTag: 04c319fc-f4ea-4481-a0e5-7f9ccf0362cf
+		summarizeBy: none
+		sourceColumn: PRODUCT_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALES_CHANNEL_NAME
+		dataType: string
+		lineageTag: b4c36f6b-e9d6-4540-8d97-0ceed3141325
+		summarizeBy: none
+		sourceColumn: SALES_CHANNEL_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRANSACTIONS
+		dataType: int64
+		lineageTag: d6b5e13b-d635-46de-b957-995dbddbe327
+		summarizeBy: sum
+		sourceColumn: TRANSACTIONS
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICIES_WRITTEN
+		dataType: int64
+		lineageTag: a62c096e-c9ce-4106-9546-4abae0aa9696
+		summarizeBy: sum
+		sourceColumn: POLICIES_WRITTEN
+
+		annotation SummarizationSetBy = Automatic
+
+	column NEW_BUSINESS_POLICIES
+		dataType: int64
+		lineageTag: 9a2c0c00-1c19-49d8-96df-bd70319b565e
+		summarizeBy: sum
+		sourceColumn: NEW_BUSINESS_POLICIES
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUSTOMERS
+		dataType: int64
+		lineageTag: aa029658-7758-4dc1-a33b-faadc0333a7e
+		summarizeBy: sum
+		sourceColumn: CUSTOMERS
+
+		annotation SummarizationSetBy = Automatic
+
+	column GROSS_WRITTEN_PREMIUM
+		dataType: double
+		lineageTag: 51ce5817-b99c-4205-97c7-9929fbae09d4
+		summarizeBy: sum
+		sourceColumn: GROSS_WRITTEN_PREMIUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column NEW_BUSINESS_PREMIUM
+		dataType: double
+		lineageTag: 6795fcf3-dd37-4b95-aba5-d3741ef64543
+		summarizeBy: sum
+		sourceColumn: NEW_BUSINESS_PREMIUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUBSEQUENT_PREMIUM
+		dataType: double
+		lineageTag: 7465f48c-2dcf-43f6-a2f8-021d9dd980dd
+		summarizeBy: sum
+		sourceColumn: SUBSEQUENT_PREMIUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column REINSURANCE_PREMIUM_CEDED
+		dataType: double
+		lineageTag: cf69b305-5bfa-40a2-8051-387a744a2667
+		summarizeBy: sum
+		sourceColumn: REINSURANCE_PREMIUM_CEDED
+
+		annotation SummarizationSetBy = Automatic
+
+	column NET_RETAINED_PREMIUM
+		dataType: double
+		lineageTag: d1dd833e-5d03-47e1-87ea-bdab9897a315
+		summarizeBy: sum
+		sourceColumn: NET_RETAINED_PREMIUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUM_INSURED
+		dataType: double
+		lineageTag: ad63c8f1-4ff6-4298-acc0-96c58ccfd8e2
+		summarizeBy: sum
+		sourceColumn: SUM_INSURED
+
+		annotation SummarizationSetBy = Automatic
+
+	column COMMISSION
+		dataType: double
+		lineageTag: d7a923fa-ed58-4633-bd7f-339e9ba45305
+		summarizeBy: sum
+		sourceColumn: COMMISSION
+
+		annotation SummarizationSetBy = Automatic
+
+	column AVG_ISSUE_TO_EFFECTIVE_DAYS
+		dataType: double
+		lineageTag: ae47111f-f33b-4866-a184-ce3ed97e928f
+		summarizeBy: sum
+		sourceColumn: AVG_ISSUE_TO_EFFECTIVE_DAYS
+
+		annotation SummarizationSetBy = Automatic
+
+	column MEDIAN_ISSUE_TO_EFFECTIVE_DAYS
+		dataType: double
+		lineageTag: 01ece5dc-6dbd-47cf-8f8f-3d906fcd03de
+		summarizeBy: sum
+		sourceColumn: MEDIAN_ISSUE_TO_EFFECTIVE_DAYS
+
+		annotation SummarizationSetBy = Automatic
+
+	column BACKDATED_TRANSACTIONS
+		dataType: int64
+		lineageTag: e28d0525-fab3-480f-8f1c-ae54045e2513
+		summarizeBy: sum
+		sourceColumn: BACKDATED_TRANSACTIONS
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRANSACTIONS_WITH_EFFECTIVE_DATE
+		dataType: int64
+		lineageTag: 1dc9a91a-d324-4321-a0b8-13b1c1f51726
+		summarizeBy: sum
+		sourceColumn: TRANSACTIONS_WITH_EFFECTIVE_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column AVG_PREMIUM_PER_POLICY
+		dataType: double
+		lineageTag: cb509abf-ad37-4d21-8bc6-956a7245c315
+		summarizeBy: sum
+		sourceColumn: AVG_PREMIUM_PER_POLICY
+
+		annotation SummarizationSetBy = Automatic
+
+	partition BUC_SALESPERFORMANCE_MONTHLY_VIEW = m
+		mode: directQuery
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sch = Db{[Name=SnowflakeSchema, Kind="Schema"]}[Data],
+				    Data = Sch{[Name="BUC_SALESPERFORMANCE_MONTHLY_VIEW", Kind="View"]}[Data]
+				in
+				    Data
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

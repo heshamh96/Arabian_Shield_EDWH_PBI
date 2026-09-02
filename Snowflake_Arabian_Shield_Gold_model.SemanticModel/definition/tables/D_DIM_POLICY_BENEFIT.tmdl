@@ -1,0 +1,123 @@
+table D_DIM_POLICY_BENEFIT
+	lineageTag: 2b997933-1312-43df-8913-41a27e2620f8
+
+	column POLICY_ID
+		dataType: string
+		lineageTag: 6ab8d55b-60e0-4ce6-811e-359c410d50a5
+		summarizeBy: none
+		sourceColumn: POLICY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICY_TYPE
+		dataType: string
+		lineageTag: eb611f0b-f4ba-41fb-b3d1-bcbedbe9f163
+		summarizeBy: none
+		sourceColumn: POLICY_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column MEDICAL_PLAN_ID
+		dataType: string
+		lineageTag: 662e3f7e-e57f-4adb-939f-d696c9d39f63
+		summarizeBy: none
+		sourceColumn: MEDICAL_PLAN_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column MEDICAL_CLASS_ID
+		dataType: string
+		lineageTag: 2a2ae8eb-5756-4577-9f64-77d310aadb19
+		summarizeBy: none
+		sourceColumn: MEDICAL_CLASS_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUBJECT_ID
+		dataType: string
+		lineageTag: 10ec7c7e-0881-4dee-afe3-6e91dd0aa0aa
+		summarizeBy: none
+		sourceColumn: SUBJECT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column BENFIT_ID
+		dataType: string
+		lineageTag: b9939b2e-1ead-4976-b715-05c16559fd39
+		summarizeBy: none
+		sourceColumn: BENFIT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column BENFIT_NAME
+		dataType: string
+		lineageTag: ede3c91d-9ecc-417e-ac85-d48acc12d750
+		summarizeBy: none
+		sourceColumn: BENFIT_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column BENEFIT_LIMIT
+		dataType: double
+		lineageTag: fab0464e-eda4-467e-ae5d-942c8c3bdbdf
+		summarizeBy: sum
+		sourceColumn: BENEFIT_LIMIT
+
+		annotation SummarizationSetBy = Automatic
+
+	column BENEFIT_PREMIUM
+		dataType: double
+		lineageTag: e69524b5-5a69-4208-93c4-4be6aa3eb350
+		summarizeBy: sum
+		sourceColumn: BENEFIT_PREMIUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_SYSTEM
+		dataType: string
+		lineageTag: b75c2961-fff7-40ad-ad5e-aea0f17a516f
+		summarizeBy: none
+		sourceColumn: SOURCE_SYSTEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXTRACTION_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3bb2c7da-e752-402d-8aab-62c29e487cd4
+		summarizeBy: none
+		sourceColumn: EXTRACTION_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOAD_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 244e8110-ec2c-4ff0-ab0e-883d7b2547c3
+		summarizeBy: none
+		sourceColumn: LOAD_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROW_VERSION
+		dataType: string
+		lineageTag: 2f4486a5-99b0-4b9c-aad5-87b0f8768217
+		summarizeBy: none
+		sourceColumn: ROW_VERSION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition D_DIM_POLICY_BENEFIT = m
+		mode: directQuery
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sch = Db{[Name=SnowflakeSchema, Kind="Schema"]}[Data],
+				    Data = Sch{[Name="D_DIM_POLICY_BENEFIT", Kind="Table"]}[Data]
+				in
+				    Data
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

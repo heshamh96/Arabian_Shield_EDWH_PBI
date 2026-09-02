@@ -1,0 +1,171 @@
+table BUC_SALESPERFORMANCE_APPLICATION_FUNNEL_VIEW
+	lineageTag: fcd92826-936d-4ffc-a30d-a9a54e3ed1b9
+
+	column POLICY_ID
+		dataType: string
+		lineageTag: ba245df1-0b54-4139-9cf3-8d1cfe56644c
+		summarizeBy: none
+		sourceColumn: POLICY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_POLICY_ID
+		dataType: string
+		lineageTag: 6310edc0-f813-4309-885a-9564d3303f3d
+		summarizeBy: none
+		sourceColumn: SOURCE_POLICY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICY_NO
+		dataType: string
+		lineageTag: 4eecb07e-2603-407a-b5cf-a8c58aac14c3
+		summarizeBy: none
+		sourceColumn: POLICY_NO
+
+		annotation SummarizationSetBy = Automatic
+
+	column PARTY_ID
+		dataType: string
+		lineageTag: 6b974702-2c9f-43af-ba76-b24bd5c9afb1
+		summarizeBy: none
+		sourceColumn: PARTY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRODUCT_ID
+		dataType: string
+		lineageTag: 80cbaf35-6cc6-4bbb-9f18-ef77e30beb6c
+		summarizeBy: none
+		sourceColumn: PRODUCT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRODUCT_NAME
+		dataType: string
+		lineageTag: 57f9fd1e-97cb-44fc-a3d2-2b14287fc3dd
+		summarizeBy: none
+		sourceColumn: PRODUCT_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICY_STATUS
+		dataType: string
+		lineageTag: ec51b1f5-55e3-4cdb-bc97-7959702de16f
+		summarizeBy: none
+		sourceColumn: POLICY_STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICY_SUB_STATUS
+		dataType: string
+		lineageTag: 86a3b6a0-6cc7-43e1-8305-e8cb0157716d
+		summarizeBy: none
+		sourceColumn: POLICY_SUB_STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICY_INCEPTION_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5ba4a88e-dade-42f7-b6d8-b78c68a6e552
+		summarizeBy: none
+		sourceColumn: POLICY_INCEPTION_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column INCEPTION_MONTH
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2f83f152-09d0-4e82-8bd1-dc55faf9f852
+		summarizeBy: none
+		sourceColumn: INCEPTION_MONTH
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTRIBUTION_AMOUNT
+		dataType: double
+		lineageTag: d5d30a3c-0e8c-40ee-a5b0-8be45d5c59dc
+		summarizeBy: sum
+		sourceColumn: CONTRIBUTION_AMOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column FUNNEL_STAGE
+		dataType: string
+		lineageTag: ee3cab90-1809-4206-9577-a8e41270ac6c
+		summarizeBy: none
+		sourceColumn: FUNNEL_STAGE
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_OPEN_APPLICATION
+		dataType: int64
+		lineageTag: 16d64a95-86b8-4c6b-a7d1-f5cf8d46866f
+		summarizeBy: sum
+		sourceColumn: IS_OPEN_APPLICATION
+
+		annotation SummarizationSetBy = Automatic
+
+	column APPLICATION_AGE_DAYS
+		dataType: int64
+		lineageTag: dda2187c-644a-4971-8ffa-14ca3e64a800
+		summarizeBy: sum
+		sourceColumn: APPLICATION_AGE_DAYS
+
+		annotation SummarizationSetBy = Automatic
+
+	column AGING_BUCKET
+		dataType: string
+		lineageTag: 7093493c-22cc-4a0b-b34a-d595979cb400
+		summarizeBy: none
+		sourceColumn: AGING_BUCKET
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_CONVERTED
+		dataType: int64
+		lineageTag: 16fc3c1b-6917-453b-9cdc-2641ce9d9b40
+		summarizeBy: sum
+		sourceColumn: IS_CONVERTED
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_DECLINED
+		dataType: int64
+		lineageTag: d95aad43-d654-4bc9-a92d-768f39960f10
+		summarizeBy: sum
+		sourceColumn: IS_DECLINED
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_LOST_AFTER_APPROVAL
+		dataType: int64
+		lineageTag: cac0ec00-b6b6-4e17-a131-9957b7c098d6
+		summarizeBy: sum
+		sourceColumn: IS_LOST_AFTER_APPROVAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOSS_REASON
+		dataType: string
+		lineageTag: 61393dd9-a518-494a-addf-69ecbbd19880
+		summarizeBy: none
+		sourceColumn: LOSS_REASON
+
+		annotation SummarizationSetBy = Automatic
+
+	partition BUC_SALESPERFORMANCE_APPLICATION_FUNNEL_VIEW = m
+		mode: directQuery
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sch = Db{[Name=SnowflakeSchema, Kind="Schema"]}[Data],
+				    Data = Sch{[Name="BUC_SALESPERFORMANCE_APPLICATION_FUNNEL_VIEW", Kind="View"]}[Data]
+				in
+				    Data
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

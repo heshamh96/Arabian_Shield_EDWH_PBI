@@ -1,0 +1,29 @@
+/// Snowflake account URL (org-account identifier).
+expression SnowflakeServer = "ASCI-EDP.snowflakecomputing.com" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: a1aedafc-b562-4dbc-83ea-cd2e9202b080
+
+	annotation PBI_ResultType = Text
+
+/// Virtual warehouse used to execute DirectQuery requests.
+expression SnowflakeWarehouse = "DEV_GOLD_WH" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 0f28b4dc-4975-4f52-bcea-44f18131e1e9
+
+	annotation PBI_ResultType = Text
+
+/// Target database. Switch to the PROD database to repoint the model.
+expression SnowflakeDatabase = "ARABIANSHIELD_DEV" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 0e3b089b-a4f9-4c2a-a089-5b6d74c65183
+
+	annotation PBI_ResultType = Text
+
+/// Medallion layer consumed by this model.
+expression SnowflakeSchema = "GOLD" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 282b974d-7fea-466a-ab98-24c810f2a656
+
+	annotation PBI_ResultType = Text
+
+/// Role assumed on connect; governs which objects are visible.
+expression SnowflakeRole = "DEV_QLIK_READER_ROLE" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: e31416dd-ef88-4e05-8c3b-3ed0dd5cf8fc
+
+	annotation PBI_ResultType = Text

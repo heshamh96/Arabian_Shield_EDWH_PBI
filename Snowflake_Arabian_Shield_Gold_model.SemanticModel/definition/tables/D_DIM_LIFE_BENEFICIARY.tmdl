@@ -1,0 +1,179 @@
+table D_DIM_LIFE_BENEFICIARY
+	lineageTag: bc0c49a8-d09d-41ea-b6b9-7c94ee0b1f5d
+
+	column LIFE_BENEFICIARY_ID
+		dataType: string
+		lineageTag: a3871ad8-2ba6-4114-a700-c21bd5c08636
+		summarizeBy: none
+		sourceColumn: LIFE_BENEFICIARY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICY_PARTY_ID
+		dataType: string
+		lineageTag: 8272a1f4-0711-4b41-a049-3679c5f366b3
+		summarizeBy: none
+		sourceColumn: POLICY_PARTY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICY_ID
+		dataType: string
+		lineageTag: 077c2b74-14fa-4666-9f0e-d02ce26ffef5
+		summarizeBy: none
+		sourceColumn: POLICY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICY_NATIVE_ID
+		dataType: string
+		lineageTag: 9b1d18ae-18ea-4c69-ad6f-b02af2561498
+		summarizeBy: none
+		sourceColumn: POLICY_NATIVE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_SYSTEM
+		dataType: string
+		lineageTag: e2cdf1f3-2b9a-4100-b7dc-1e3b827faa48
+		summarizeBy: none
+		sourceColumn: SOURCE_SYSTEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column TITLE
+		dataType: string
+		lineageTag: 62c638dd-577a-485f-a459-7ea88208839e
+		summarizeBy: none
+		sourceColumn: TITLE
+
+		annotation SummarizationSetBy = Automatic
+
+	column FIRST_NAME
+		dataType: string
+		lineageTag: 2d1cdf6b-8825-4c69-af41-cd37615a3635
+		summarizeBy: none
+		sourceColumn: FIRST_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column FATHER_NAME
+		dataType: string
+		lineageTag: 6b350e39-51d9-424d-ae38-940a1e9553ca
+		summarizeBy: none
+		sourceColumn: FATHER_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column LAST_NAME
+		dataType: string
+		lineageTag: 3412de75-9de4-49c4-b564-7766bfe8a22e
+		summarizeBy: none
+		sourceColumn: LAST_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENDER
+		dataType: string
+		lineageTag: aa12b7ff-7050-4327-97a0-6d0e432ca8d7
+		summarizeBy: none
+		sourceColumn: GENDER
+
+		annotation SummarizationSetBy = Automatic
+
+	column NATIONAL_ID
+		dataType: string
+		lineageTag: cdfb2104-df11-4445-9b5f-97b27544a516
+		summarizeBy: none
+		sourceColumn: NATIONAL_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column NATIONALITY
+		dataType: string
+		lineageTag: c20290f9-d98b-4309-ab6e-7afdadb38186
+		summarizeBy: none
+		sourceColumn: NATIONALITY
+
+		annotation SummarizationSetBy = Automatic
+
+	column NATIONALITY_ID
+		dataType: string
+		lineageTag: 740367b9-9458-4511-b2b2-7c9cd18f4cc7
+		summarizeBy: none
+		sourceColumn: NATIONALITY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column REGION
+		dataType: string
+		lineageTag: 07c15be6-bb6a-4a30-a23d-fc77a08cbe68
+		summarizeBy: none
+		sourceColumn: REGION
+
+		annotation SummarizationSetBy = Automatic
+
+	column CITY
+		dataType: string
+		lineageTag: 9edb80b5-3651-4bdd-9697-fbe3d0921ef4
+		summarizeBy: none
+		sourceColumn: CITY
+
+		annotation SummarizationSetBy = Automatic
+
+	column DISTRICT
+		dataType: string
+		lineageTag: 3cef99ee-bd63-4d8a-88d0-2d70f9a0e95f
+		summarizeBy: none
+		sourceColumn: DISTRICT
+
+		annotation SummarizationSetBy = Automatic
+
+	column ZIP_CODE
+		dataType: string
+		lineageTag: e5f193e0-469f-4377-97bc-88ded26222a4
+		summarizeBy: none
+		sourceColumn: ZIP_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXTRACTION_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 48aa7ba6-8a21-4798-9561-70015087b7f8
+		summarizeBy: none
+		sourceColumn: EXTRACTION_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOAD_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 1904222a-ed59-4377-b112-b39347e8fb53
+		summarizeBy: none
+		sourceColumn: LOAD_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROW_VERSION
+		dataType: string
+		lineageTag: bfaf5bc0-4758-4596-a66d-146098896eac
+		summarizeBy: none
+		sourceColumn: ROW_VERSION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition D_DIM_LIFE_BENEFICIARY = m
+		mode: directQuery
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sch = Db{[Name=SnowflakeSchema, Kind="Schema"]}[Data],
+				    Data = Sch{[Name="D_DIM_LIFE_BENEFICIARY", Kind="Table"]}[Data]
+				in
+				    Data
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

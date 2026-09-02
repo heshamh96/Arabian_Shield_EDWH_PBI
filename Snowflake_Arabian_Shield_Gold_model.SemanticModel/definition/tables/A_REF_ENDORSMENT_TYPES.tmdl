@@ -1,0 +1,83 @@
+table A_REF_ENDORSMENT_TYPES
+	lineageTag: 0c9f91c3-d4f5-4e2c-acfc-16820fe700cf
+
+	column ENDORSEMENT_TYPE_ID
+		dataType: string
+		lineageTag: 032e24f0-538e-4b85-8e4f-2fd355048b1b
+		summarizeBy: none
+		sourceColumn: ENDORSEMENT_TYPE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_NAME
+		dataType: string
+		lineageTag: fb6d4dc1-7d6d-44f4-8db2-0791d7b4175b
+		summarizeBy: none
+		sourceColumn: SOURCE_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column EN_NAME
+		dataType: string
+		lineageTag: e0db8900-80f9-42c3-98a0-d611c92603b0
+		summarizeBy: none
+		sourceColumn: EN_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column AR_NAME
+		dataType: string
+		lineageTag: 4be6454f-42b6-473b-be48-6434fc2b64b6
+		summarizeBy: none
+		sourceColumn: AR_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_SYSTEM
+		dataType: string
+		lineageTag: ba95eb2e-0404-4a53-9015-986e031a70da
+		summarizeBy: none
+		sourceColumn: SOURCE_SYSTEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXTRACTION_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7d12fd7e-9762-4007-991e-062e30d8e5cf
+		summarizeBy: none
+		sourceColumn: EXTRACTION_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOAD_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 731d833e-7da0-4c16-a77a-d238b9d9c32c
+		summarizeBy: none
+		sourceColumn: LOAD_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROW_VERSION
+		dataType: string
+		lineageTag: 4cb6fc55-aaac-4cbd-9279-0464b96650ad
+		summarizeBy: none
+		sourceColumn: ROW_VERSION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition A_REF_ENDORSMENT_TYPES = m
+		mode: directQuery
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sch = Db{[Name=SnowflakeSchema, Kind="Schema"]}[Data],
+				    Data = Sch{[Name="A_REF_ENDORSMENT_TYPES", Kind="Table"]}[Data]
+				in
+				    Data
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

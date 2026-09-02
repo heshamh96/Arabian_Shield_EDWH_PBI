@@ -1,0 +1,34 @@
+# ---------------------------------------------------------------------------
+# SECRETS — never commit. The Snowflake private key lives in this folder.
+# ---------------------------------------------------------------------------
+*.p8
+*.pem
+*.key
+*.pfx
+*.p12
+*.ppk
+id_rsa*
+credinitals.txt
+credentials.txt
+*credential*
+*secret*
+.env
+.env.*
+
+# ---------------------------------------------------------------------------
+# Power BI local state — machine-specific, and cache.abf contains real data
+# ---------------------------------------------------------------------------
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+**/.pbi/*.abf
+*.pbix
+*.pbids
+
+# ---------------------------------------------------------------------------
+# OS / editor noise
+# ---------------------------------------------------------------------------
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/

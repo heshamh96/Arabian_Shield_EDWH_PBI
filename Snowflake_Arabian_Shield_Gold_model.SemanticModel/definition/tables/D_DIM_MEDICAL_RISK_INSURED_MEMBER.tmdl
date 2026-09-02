@@ -1,0 +1,335 @@
+table D_DIM_MEDICAL_RISK_INSURED_MEMBER
+	lineageTag: 46ba81ca-4191-4123-b88d-14428e3a5de3
+
+	column MID_RISK_ID
+		dataType: string
+		lineageTag: 6b22a27d-45d1-4cb7-862e-083b5205f0c2
+		summarizeBy: none
+		sourceColumn: MID_RISK_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column RISK_ID
+		dataType: string
+		lineageTag: 5327f709-ad99-459f-8926-a8d0157a9198
+		summarizeBy: none
+		sourceColumn: RISK_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICY_NATIVE_ID
+		dataType: string
+		lineageTag: fa276660-e2b0-4481-bcb5-9cd753032dc6
+		summarizeBy: none
+		sourceColumn: POLICY_NATIVE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column MEMBER_NAME
+		dataType: string
+		lineageTag: 1b090466-951c-4f14-acd4-7c3769db061e
+		summarizeBy: none
+		sourceColumn: MEMBER_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column GENDER
+		dataType: string
+		lineageTag: e8383f39-0093-4bb1-b195-1fdf401495d5
+		summarizeBy: none
+		sourceColumn: GENDER
+
+		annotation SummarizationSetBy = Automatic
+
+	column AGE
+		dataType: int64
+		lineageTag: 584798eb-e7d5-4905-b334-7a46443cb4c2
+		summarizeBy: sum
+		sourceColumn: AGE
+
+		annotation SummarizationSetBy = Automatic
+
+	column NATIONALITY_ID
+		dataType: string
+		lineageTag: e00d9d65-7461-4d5f-b5a6-30d33b1f0d75
+		summarizeBy: none
+		sourceColumn: NATIONALITY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column MARTIAL_STATUS
+		dataType: string
+		lineageTag: 33989eb3-5fde-49fc-a248-1d5947a6557c
+		summarizeBy: none
+		sourceColumn: MARTIAL_STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column CIVIL_ID
+		dataType: string
+		lineageTag: 9db7838d-a914-472f-abc6-8946c3293a5f
+		summarizeBy: none
+		sourceColumn: CIVIL_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ID_TYPE
+		dataType: string
+		lineageTag: 0bc97f65-2fad-4a82-b510-8a13b64e9f61
+		summarizeBy: none
+		sourceColumn: ID_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column NATIONAL_ADDRESS
+		dataType: string
+		lineageTag: a64d2669-b5fb-4227-95a2-3aa759291118
+		summarizeBy: none
+		sourceColumn: NATIONAL_ADDRESS
+
+		annotation SummarizationSetBy = Automatic
+
+	column RELATION
+		dataType: string
+		lineageTag: 3eab900b-00e6-4904-8bc1-7a76bef3ad49
+		summarizeBy: none
+		sourceColumn: RELATION
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFISSION
+		dataType: string
+		lineageTag: be5c0e90-7278-4cb2-9161-0ba9abf03c5a
+		summarizeBy: none
+		sourceColumn: PROFISSION
+
+		annotation SummarizationSetBy = Automatic
+
+	column VISA_TYPE
+		dataType: string
+		lineageTag: 473608a8-a7f2-4c1d-a5b6-35835ab3b88a
+		summarizeBy: none
+		sourceColumn: VISA_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SPONSER_ID
+		dataType: string
+		lineageTag: e2cf45d9-e8c4-47c2-b867-9497f9a3f1cf
+		summarizeBy: none
+		sourceColumn: SPONSER_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SPONSORSHIP_TYPE
+		dataType: string
+		lineageTag: e419d691-bc09-4f32-b3b7-903a1debec62
+		summarizeBy: none
+		sourceColumn: SPONSORSHIP_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUB_SPONSOR_CIVIL_ID
+		dataType: string
+		lineageTag: 1a2e2376-0443-4e2d-abd5-823f988035af
+		summarizeBy: none
+		sourceColumn: SUB_SPONSOR_CIVIL_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_SUB_SPONSOR
+		dataType: boolean
+		lineageTag: 74138471-e762-4c23-b664-b94acdf23c83
+		summarizeBy: none
+		sourceColumn: IS_SUB_SPONSOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLASS
+		dataType: string
+		lineageTag: c5b86d9c-d060-4053-b604-acc370167631
+		summarizeBy: none
+		sourceColumn: CLASS
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLAN
+		dataType: string
+		lineageTag: f97d7eaa-11e9-41b9-ba14-19e51fc250df
+		summarizeBy: none
+		sourceColumn: PLAN
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENTRY_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 373de31b-49cb-49f5-b313-0560731a9370
+		summarizeBy: none
+		sourceColumn: ENTRY_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXIT_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f65bfc46-cdd4-4510-ad40-69a5ec8ead9e
+		summarizeBy: none
+		sourceColumn: EXIT_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column VISA_EXP_DT
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 53fa180a-d412-440d-a6c3-53574c3db77d
+		summarizeBy: none
+		sourceColumn: VISA_EXP_DT
+
+		annotation SummarizationSetBy = Automatic
+
+	column MEMBER_LIMIT
+		dataType: double
+		lineageTag: b4804031-0325-4e39-9882-86adb60199f9
+		summarizeBy: sum
+		sourceColumn: MEMBER_LIMIT
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOSS_RATIO
+		dataType: double
+		lineageTag: 53ec0b71-b08b-459c-9267-cfebc4d7c921
+		summarizeBy: sum
+		sourceColumn: LOSS_RATIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column BMI
+		dataType: double
+		lineageTag: 6f48f650-e199-417c-9087-9c2d4b60a412
+		summarizeBy: sum
+		sourceColumn: BMI
+
+		annotation SummarizationSetBy = Automatic
+
+	column MEMBER_STATUS
+		dataType: string
+		lineageTag: d2dfadf6-91b0-41d0-acf7-5c7fd8d1915f
+		summarizeBy: none
+		sourceColumn: MEMBER_STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column HEALTH_DECLERATION
+		dataType: string
+		lineageTag: 2a606d8b-592d-4720-a531-938994303b73
+		summarizeBy: none
+		sourceColumn: HEALTH_DECLERATION
+
+		annotation SummarizationSetBy = Automatic
+
+	column AML_SCREEN_STATUS
+		dataType: string
+		lineageTag: be86071a-7ff3-4f3e-ac2c-840b026df379
+		summarizeBy: none
+		sourceColumn: AML_SCREEN_STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column VISIT_TYPE
+		dataType: string
+		lineageTag: eded441d-9238-43e4-84bd-bf9ed45b0fed
+		summarizeBy: none
+		sourceColumn: VISIT_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column NAJM_MEMBER_ID
+		dataType: double
+		lineageTag: b2976584-0f95-404a-9dbb-f7a82205768f
+		summarizeBy: none
+		sourceColumn: NAJM_MEMBER_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column NAJM_TRANSACTION_ID
+		dataType: string
+		lineageTag: af5d1b1b-6136-4605-868a-e3de35e63238
+		summarizeBy: none
+		sourceColumn: NAJM_TRANSACTION_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column NAJM_UPLOAD_STATUS
+		dataType: string
+		lineageTag: 7cf9e88d-505b-4500-a181-b7cac7dea6bd
+		summarizeBy: none
+		sourceColumn: NAJM_UPLOAD_STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column NAJM_UPLOAD_REMARKS
+		dataType: string
+		lineageTag: 9684e0e0-9a3c-40b6-b0da-296b6d38b3c7
+		summarizeBy: none
+		sourceColumn: NAJM_UPLOAD_REMARKS
+
+		annotation SummarizationSetBy = Automatic
+
+	column NAJM_STATUS_UP_DT
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: fe2ee4f0-2554-4cc2-94e3-49edd0fe4170
+		summarizeBy: none
+		sourceColumn: NAJM_STATUS_UP_DT
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_SYSTEM
+		dataType: string
+		lineageTag: a2bf09c3-bc70-4385-9597-8ff083da9129
+		summarizeBy: none
+		sourceColumn: SOURCE_SYSTEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXTRACTION_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4aef8d5a-069c-4257-9f03-a1c870039f81
+		summarizeBy: none
+		sourceColumn: EXTRACTION_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOAD_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c205fea0-fa1d-4484-ba14-b9255dd2edd9
+		summarizeBy: none
+		sourceColumn: LOAD_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROW_VERSION
+		dataType: string
+		lineageTag: 145b8d32-639b-4d9a-ad94-fe186354ba08
+		summarizeBy: none
+		sourceColumn: ROW_VERSION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition D_DIM_MEDICAL_RISK_INSURED_MEMBER = m
+		mode: directQuery
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sch = Db{[Name=SnowflakeSchema, Kind="Schema"]}[Data],
+				    Data = Sch{[Name="D_DIM_MEDICAL_RISK_INSURED_MEMBER", Kind="Table"]}[Data]
+				in
+				    Data
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

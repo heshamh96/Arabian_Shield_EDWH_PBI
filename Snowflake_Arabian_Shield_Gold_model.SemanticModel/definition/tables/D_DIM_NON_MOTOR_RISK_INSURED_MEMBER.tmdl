@@ -1,0 +1,326 @@
+table D_DIM_NON_MOTOR_RISK_INSURED_MEMBER
+	lineageTag: bfb98af9-1ae5-4c96-ab37-f0dac5c4fddf
+
+	column NMOTOR_RISK_ID
+		dataType: string
+		lineageTag: 9cf484d1-f60b-4a18-8127-160799632f2b
+		summarizeBy: none
+		sourceColumn: NMOTOR_RISK_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column RISK_ID
+		dataType: string
+		lineageTag: 6cca2a13-4bc2-4379-a81d-099b2e7f0c4b
+		summarizeBy: none
+		sourceColumn: RISK_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_POLICY_ID
+		dataType: string
+		lineageTag: c7790a7b-5597-4dba-8c06-2d91ac82c088
+		summarizeBy: none
+		sourceColumn: SOURCE_POLICY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PARENT_POLICY_ID
+		dataType: string
+		lineageTag: 19e862d4-61d1-45ae-8974-469f9892af21
+		summarizeBy: none
+		sourceColumn: PARENT_POLICY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENDO_SERIAL
+		dataType: int64
+		lineageTag: 7182e3d9-40fb-4809-b53c-0ddc63672b50
+		summarizeBy: sum
+		sourceColumn: ENDO_SERIAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUBJECT_SERIAL
+		dataType: int64
+		lineageTag: bea93420-718a-4370-9d73-9a8340059616
+		summarizeBy: sum
+		sourceColumn: SUBJECT_SERIAL
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_SYSTEM
+		dataType: string
+		lineageTag: edf8872e-b1f3-4007-9aa8-87e91c416273
+		summarizeBy: none
+		sourceColumn: SOURCE_SYSTEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUBJECT_TYPE
+		dataType: string
+		lineageTag: 67a51a86-3ecc-4e6c-b827-d59642c4c529
+		summarizeBy: none
+		sourceColumn: SUBJECT_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUBJECT_EFFECTIVE_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9aef1495-d127-443c-bd58-0ae1cd97968a
+		summarizeBy: none
+		sourceColumn: SUBJECT_EFFECTIVE_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUBJECT_EXPIRY_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8997942b-092c-4c13-902e-f08827dace95
+		summarizeBy: none
+		sourceColumn: SUBJECT_EXPIRY_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOCATION
+		dataType: string
+		lineageTag: 5d45d286-0253-4f78-a781-0a5323196c72
+		summarizeBy: none
+		sourceColumn: LOCATION
+
+		annotation SummarizationSetBy = Automatic
+
+	column LONGTITUDE
+		dataType: double
+		lineageTag: 5eb2197b-8951-426b-9ac0-c69f527be47d
+		summarizeBy: sum
+		sourceColumn: LONGTITUDE
+
+		annotation SummarizationSetBy = Automatic
+
+	column LATITUDE
+		dataType: double
+		lineageTag: 25d23a1e-cead-4c63-9880-1b4ffd16965f
+		summarizeBy: sum
+		sourceColumn: LATITUDE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CRESTA_ZONE
+		dataType: string
+		lineageTag: 78af879a-1278-4415-a1a8-75f12d4b3049
+		summarizeBy: none
+		sourceColumn: CRESTA_ZONE
+
+		annotation SummarizationSetBy = Automatic
+
+	column RISK_CATEGORY
+		dataType: string
+		lineageTag: 761b8d8c-f929-4e28-9ccb-218479ac588e
+		summarizeBy: none
+		sourceColumn: RISK_CATEGORY
+
+		annotation SummarizationSetBy = Automatic
+
+	column OCCUPATION
+		dataType: string
+		lineageTag: ae30b50c-c032-4e98-9872-599ee5539b0a
+		summarizeBy: none
+		sourceColumn: OCCUPATION
+
+		annotation SummarizationSetBy = Automatic
+
+	column NO_OF_RISK
+		dataType: int64
+		lineageTag: fe436638-ff54-4dd0-8d72-ce62b986f779
+		summarizeBy: sum
+		sourceColumn: NO_OF_RISK
+
+		annotation SummarizationSetBy = Automatic
+
+	column AGE
+		dataType: int64
+		lineageTag: 9e14d371-0464-4b5e-a674-0eac04475497
+		summarizeBy: sum
+		sourceColumn: AGE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PORT_FROM
+		dataType: string
+		lineageTag: a949882b-60c9-45a9-b48c-5057af30cf4e
+		summarizeBy: none
+		sourceColumn: PORT_FROM
+
+		annotation SummarizationSetBy = Automatic
+
+	column PORT_TO
+		dataType: string
+		lineageTag: a0fc299c-a59e-4149-afd0-3473fc9f3dc6
+		summarizeBy: none
+		sourceColumn: PORT_TO
+
+		annotation SummarizationSetBy = Automatic
+
+	column VESSEL_NAME
+		dataType: string
+		lineageTag: 27660050-0765-47fb-a356-5362a2c53615
+		summarizeBy: none
+		sourceColumn: VESSEL_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column PACKING_TYPE
+		dataType: string
+		lineageTag: 11ebc046-0bca-42e3-9af7-1d3e9469f919
+		summarizeBy: none
+		sourceColumn: PACKING_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column BUILDING_TYPE
+		dataType: string
+		lineageTag: ea3d5688-5ea0-45fe-97b4-2f30180c8b6e
+		summarizeBy: none
+		sourceColumn: BUILDING_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CEILING_TYPE
+		dataType: string
+		lineageTag: e8cf55a7-37eb-4377-ab20-5201301fd6b1
+		summarizeBy: none
+		sourceColumn: CEILING_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column MAINTANANCE_PERIOD_TO
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 24dd95b0-f16c-4dbf-8614-8a279da0f5ba
+		summarizeBy: none
+		sourceColumn: MAINTANANCE_PERIOD_TO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURRENCY
+		dataType: string
+		lineageTag: 175a4769-549c-460b-b3d2-c53b3cd1aa0e
+		summarizeBy: none
+		sourceColumn: CURRENCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column EML_PML
+		dataType: double
+		lineageTag: 5602d7bc-5f01-45f9-85d2-3a1624ae7b6e
+		summarizeBy: sum
+		sourceColumn: EML_PML
+
+		annotation SummarizationSetBy = Automatic
+
+	column PER_PERSON_LIMIT
+		dataType: string
+		lineageTag: 2fdb55bd-e79c-403a-a42e-d36bc0c77b37
+		summarizeBy: none
+		sourceColumn: PER_PERSON_LIMIT
+
+		annotation SummarizationSetBy = Automatic
+
+	column FLEX_PASSPORT_VALUE
+		dataType: string
+		lineageTag: ba200bf7-e853-492b-931e-a2100199dd57
+		summarizeBy: none
+		sourceColumn: FLEX_PASSPORT_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+	column FLEX_PASSPORT_NO_VALUE
+		dataType: string
+		lineageTag: fc5f5f12-1fbf-4896-900b-c745796639bb
+		summarizeBy: none
+		sourceColumn: FLEX_PASSPORT_NO_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+	column FLEX_PASSPORTEXPIRY_VALUE
+		dataType: string
+		lineageTag: a66bf1bd-27bf-4c2e-ab6a-ed831ced8a40
+		summarizeBy: none
+		sourceColumn: FLEX_PASSPORTEXPIRY_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+	column FLEX_PASSPORTNATIONALITY_VALUE
+		dataType: string
+		lineageTag: 4915afe9-7b74-4bb7-a4f8-276069a4d491
+		summarizeBy: none
+		sourceColumn: FLEX_PASSPORTNATIONALITY_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+	column FLEX_PASSPORTTYPE_VALUE
+		dataType: string
+		lineageTag: 7dc2aa35-44e7-41e6-9de1-ef8439110df6
+		summarizeBy: none
+		sourceColumn: FLEX_PASSPORTTYPE_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUMINSURED
+		dataType: double
+		lineageTag: 758a9f4b-c162-44a4-a14c-e8a6fdce3b99
+		summarizeBy: sum
+		sourceColumn: SUMINSURED
+
+		annotation SummarizationSetBy = Automatic
+
+	column PREMIUM
+		dataType: double
+		lineageTag: 7fd14b3f-0970-4a83-9749-594f93a1e38b
+		summarizeBy: sum
+		sourceColumn: PREMIUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXTRACTION_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 01059265-0140-429b-839f-318330a0988b
+		summarizeBy: none
+		sourceColumn: EXTRACTION_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOAD_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c51cdacc-df01-4968-92ef-dabf3a287269
+		summarizeBy: none
+		sourceColumn: LOAD_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROW_VERSION
+		dataType: string
+		lineageTag: 9f9d3fdc-cdca-485d-bcff-c3a5f20c99ca
+		summarizeBy: none
+		sourceColumn: ROW_VERSION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition D_DIM_NON_MOTOR_RISK_INSURED_MEMBER = m
+		mode: directQuery
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sch = Db{[Name=SnowflakeSchema, Kind="Schema"]}[Data],
+				    Data = Sch{[Name="D_DIM_NON_MOTOR_RISK_INSURED_MEMBER", Kind="Table"]}[Data]
+				in
+				    Data
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,221 @@
+table BUC_LIFE360_POLICY_STATUS_VIEW
+	lineageTag: 1e74d31f-1c4e-4e21-b5f2-361a15e067cc
+
+	column POLICY_ID
+		dataType: string
+		lineageTag: 16b50727-7137-4b20-9440-1ad3aa04d16f
+		summarizeBy: none
+		sourceColumn: POLICY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_POLICY_ID
+		dataType: string
+		lineageTag: 2a5e5a6f-44eb-4147-a531-4c2bde963add
+		summarizeBy: none
+		sourceColumn: SOURCE_POLICY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICY_NO
+		dataType: string
+		lineageTag: d0ce4c43-7d53-4db9-af2f-a3bb3c847356
+		summarizeBy: none
+		sourceColumn: POLICY_NO
+
+		annotation SummarizationSetBy = Automatic
+
+	column PARTY_ID
+		dataType: string
+		lineageTag: ce3c1573-30a8-4564-977f-d7290f326a60
+		summarizeBy: none
+		sourceColumn: PARTY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRODUCT_ID
+		dataType: string
+		lineageTag: 69351041-3f3a-4b85-b2fe-a0cec18d4cf1
+		summarizeBy: none
+		sourceColumn: PRODUCT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRODUCT_NAME
+		dataType: string
+		lineageTag: f97e62c4-55d8-4fc2-904c-5a66d1960b43
+		summarizeBy: none
+		sourceColumn: PRODUCT_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICY_STATUS
+		dataType: string
+		lineageTag: faa32a5a-c09c-4fdc-9b70-92b4afe9c309
+		summarizeBy: none
+		sourceColumn: POLICY_STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICY_SUB_STATUS
+		dataType: string
+		lineageTag: aae26d9b-045d-4f7a-82ee-f33a7a298b1c
+		summarizeBy: none
+		sourceColumn: POLICY_SUB_STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICY_INCEPTION_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 76115557-4abc-48b7-ac3c-336f5c12564a
+		summarizeBy: none
+		sourceColumn: POLICY_INCEPTION_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICY_EXPIRY_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ba155062-7bf1-44e9-8cc9-94491992e781
+		summarizeBy: none
+		sourceColumn: POLICY_EXPIRY_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column MATURATY_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b5733260-6dd5-4086-bbf4-db6790a868e8
+		summarizeBy: none
+		sourceColumn: MATURATY_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICY_TENURE
+		dataType: double
+		lineageTag: dd7a48f5-7aad-4625-bf2b-d286046182d9
+		summarizeBy: sum
+		sourceColumn: POLICY_TENURE
+
+		annotation SummarizationSetBy = Automatic
+
+	column FREQUANCY_MODE
+		dataType: string
+		lineageTag: 060798da-3a4f-4fb3-a350-8a1d003d3a59
+		summarizeBy: none
+		sourceColumn: FREQUANCY_MODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column FREQUANCY_AMOUNT
+		dataType: double
+		lineageTag: 5bf0a668-cb12-4153-9c3e-1f79de907e21
+		summarizeBy: sum
+		sourceColumn: FREQUANCY_AMOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column INCEPTION_MONTH
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: b8c614e5-bd4a-4643-9bfa-e0128bbfb79f
+		summarizeBy: none
+		sourceColumn: INCEPTION_MONTH
+
+		annotation SummarizationSetBy = Automatic
+
+	column INCEPTION_YEAR
+		dataType: int64
+		lineageTag: d58dc543-82ba-45ec-a4af-5fbbfcdc2fb2
+		summarizeBy: none
+		sourceColumn: INCEPTION_YEAR
+
+		annotation SummarizationSetBy = Automatic
+
+	column STATUS_BUCKET
+		dataType: string
+		lineageTag: be1cd1d8-4e06-4de1-95c4-6c8e8e6c586e
+		summarizeBy: none
+		sourceColumn: STATUS_BUCKET
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_ACTIVE
+		dataType: int64
+		lineageTag: 8c134735-3085-42de-b1c3-b2753be398c3
+		summarizeBy: sum
+		sourceColumn: IS_ACTIVE
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_LAPSED
+		dataType: int64
+		lineageTag: e00dcbbe-3483-47f7-bdac-eb1c0272a967
+		summarizeBy: sum
+		sourceColumn: IS_LAPSED
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_SURRENDERED
+		dataType: int64
+		lineageTag: 1673d1e1-79a7-4b25-aa61-ab35534d2a1e
+		summarizeBy: sum
+		sourceColumn: IS_SURRENDERED
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_MATURED
+		dataType: int64
+		lineageTag: 177f95f9-6557-4d12-8739-dc4621898797
+		summarizeBy: sum
+		sourceColumn: IS_MATURED
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_RENEWED
+		dataType: int64
+		lineageTag: 6262f909-f6c5-478a-be72-5d458344313f
+		summarizeBy: sum
+		sourceColumn: IS_RENEWED
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_NOT_TAKEN_UP
+		dataType: int64
+		lineageTag: 8632915c-7989-40ae-84f3-6f3d29e84ed2
+		summarizeBy: sum
+		sourceColumn: IS_NOT_TAKEN_UP
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_FREE_LOOK_CANCELLED
+		dataType: int64
+		lineageTag: be719337-4cf4-4678-be27-44946e0e10bb
+		summarizeBy: sum
+		sourceColumn: IS_FREE_LOOK_CANCELLED
+
+		annotation SummarizationSetBy = Automatic
+
+	column PARTNER_BANK
+		dataType: string
+		lineageTag: 7df2c5bf-f999-4afa-8b3a-bf0ace9703f3
+		summarizeBy: none
+		sourceColumn: PARTNER_BANK
+
+		annotation SummarizationSetBy = Automatic
+
+	partition BUC_LIFE360_POLICY_STATUS_VIEW = m
+		mode: directQuery
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sch = Db{[Name=SnowflakeSchema, Kind="Schema"]}[Data],
+				    Data = Sch{[Name="BUC_LIFE360_POLICY_STATUS_VIEW", Kind="View"]}[Data]
+				in
+				    Data
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table

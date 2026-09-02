@@ -49,9 +49,21 @@ check the TMDL in about a second using Power BI's own parser:
 .\tools\Validate-Tmdl.ps1
 ```
 
-This validates syntax and structure — not Power BI's semantic checks or the
-data-source consent above. It is worth running after any hand-edit to
+This validates syntax and structure. It is worth running after any hand-edit to
 `definition/`; it is what caught the `///`-on-`relationship` bug.
+
+It does **not** cover Power BI's semantic rules, which are checked later at model
+load. Those surface only in the "Issues were found" dialog, whose text is not
+exposed to UI Automation. To read that dialog — including over RDP, where screen
+capture is unavailable:
+
+```powershell
+.\tools\Grab-Window.ps1 -TitleLike "Issues were found"
+```
+
+That is how the second bug was found: one-to-one relationships must carry
+`crossFilteringBehavior: bothDirections`, or load fails with *"CrossFilterDirection
+for One-to-One relationships should always be set to BothDirections."*
 
 ## Repo layout
 

@@ -1,19 +1,23 @@
 relationship 47424817-95d6-4492-91de-29aeceee1fa6
+	crossFilteringBehavior: bothDirections
 	fromCardinality: one
 	fromColumn: D_DIM_RISK_MASTER.LIFE_RISK_ID
 	toColumn: D_DIM_LIFE_RISK_INSURED_MEMBER.LIFE_RISK_ID
 
 relationship 083d0a7a-5fdc-4e25-aa82-c204ae93751b
+	crossFilteringBehavior: bothDirections
 	fromCardinality: one
 	fromColumn: D_DIM_RISK_MASTER.MID_RISK_ID
 	toColumn: D_DIM_MEDICAL_RISK_INSURED_MEMBER.MID_RISK_ID
 
 relationship 6ad70d8a-faee-4372-a9da-804d65af7f4b
+	crossFilteringBehavior: bothDirections
 	fromCardinality: one
 	fromColumn: D_DIM_RISK_MASTER.MOTOR_RISK_ID
 	toColumn: D_DIM_MOTOR_RISK_INSURED_MEMBER.MOTOR_RISK_ID
 
 relationship a51c976e-eab8-43b0-809f-83a2c3126eed
+	crossFilteringBehavior: bothDirections
 	fromCardinality: one
 	fromColumn: D_DIM_RISK_MASTER.NMOTOR_RISK_ID
 	toColumn: D_DIM_NON_MOTOR_RISK_INSURED_MEMBER.NMOTOR_RISK_ID

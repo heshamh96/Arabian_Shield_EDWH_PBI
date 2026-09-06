@@ -1,48 +1,38 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
-  "name": "22b17810929f110dcf31",
+  "name": "5d7b6d3e4886170343ea",
   "position": {
-    "x": 394.81690140845069,
-    "y": 263.21126760563379,
-    "z": 0,
-    "height": 414.64788732394368,
-    "width": 569.69014084507046,
-    "tabOrder": 2000
+    "x": 656.02110654147589,
+    "y": 438.61876309459143,
+    "z": 2005,
+    "height": 280.97028012726,
+    "width": 322.92511833630789
   },
   "visual": {
-    "visualType": "tableEx",
+    "visualType": "clusteredBarChart",
     "query": {
       "queryState": {
-        "Values": {
+        "Category": {
           "projections": [
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "A_REF_GENDER"
+                      "Entity": "B_DIM_PRODUCT"
                     }
                   },
                   "Property": "EN_NAME"
                 }
               },
-              "queryRef": "A_REF_GENDER.EN_NAME",
-              "nativeQueryRef": "EN_NAME1"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "B_DIM_PARTIES"
-                    }
-                  },
-                  "Property": "GENDER_ID"
-                }
-              },
-              "queryRef": "B_DIM_PARTIES.GENDER_ID",
-              "nativeQueryRef": "GENDER_ID"
-            },
+              "queryRef": "B_DIM_PRODUCT.EN_NAME",
+              "nativeQueryRef": "EN_NAME",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
             {
               "field": {
                 "Aggregation": {
@@ -94,19 +84,37 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "7a769e857c83ea17a0c9",
+        "name": "47ec3f0d70aa40746a1e",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "A_DIM_LINE_OF_BUSINESS"
+                "Entity": "B_DIM_PRODUCT"
               }
             },
             "Property": "EN_NAME"
           }
         },
-        "type": "Categorical",
-        "howCreated": "User"
+        "type": "Categorical"
+      },
+      {
+        "name": "2b9973b1772beb9a7f99",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "C_DIM_POLICY_MASTER"
+                  }
+                },
+                "Property": "POLICY_ID"
+              }
+            },
+            "Function": 5
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

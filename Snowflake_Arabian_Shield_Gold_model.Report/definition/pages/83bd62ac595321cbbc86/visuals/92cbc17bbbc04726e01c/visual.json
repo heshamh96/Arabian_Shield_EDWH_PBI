@@ -4,10 +4,10 @@
   "position": {
     "x": 149.63380281690141,
     "y": 117.1830985915493,
-    "z": 1,
+    "z": 1000,
     "height": 160.45070422535213,
     "width": 427.26760563380282,
-    "tabOrder": 1
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "tableEx",
@@ -48,37 +48,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "e1103d34f642f1fbfef4",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "A_REF_GENDER"
-              }
-            },
-            "Property": "GENDER_ID"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "fc5af5c06be929601bcd",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "A_REF_GENDER"
-              }
-            },
-            "Property": "EN_NAME"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

@@ -1,0 +1,271 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "ba11a93c507cefba79d6",
+  "position": {
+    "x": 0,
+    "y": 171.82525541848037,
+    "z": 2001,
+    "height": 247.57617447393943,
+    "width": 1280.3752903764182
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "A_DIM_LINE_OF_BUSINESS"
+                    }
+                  },
+                  "Property": "EN_NAME"
+                }
+              },
+              "queryRef": "A_DIM_LINE_OF_BUSINESS.EN_NAME",
+              "nativeQueryRef": "EN_NAME"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "B_DIM_PRODUCT"
+                    }
+                  },
+                  "Property": "EN_NAME"
+                }
+              },
+              "queryRef": "B_DIM_PRODUCT.EN_NAME",
+              "nativeQueryRef": "EN_NAME1"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "E_FCT_TRANSACTIONS"
+                        }
+                      },
+                      "Property": "GROSS_PREMIUM_LC"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(E_FCT_TRANSACTIONS.GROSS_PREMIUM_LC)",
+              "nativeQueryRef": "Sum of GROSS_PREMIUM_LC"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "D_DIM_RISK_MASTER"
+                        }
+                      },
+                      "Property": "POLICY_ID"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "D_DIM_RISK_MASTER.POLICY_ID",
+              "nativeQueryRef": "Count of POLICY_ID"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "F_FCT_CLAIMS"
+                    }
+                  },
+                  "Property": "claim os"
+                }
+              },
+              "queryRef": "F_FCT_CLAIMS.claim os",
+              "nativeQueryRef": "claim os"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "F_FCT_CLAIMS"
+                    }
+                  },
+                  "Property": "claim paid"
+                }
+              },
+              "queryRef": "F_FCT_CLAIMS.claim paid",
+              "nativeQueryRef": "claim paid"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "F_FCT_CLAIMS"
+                    }
+                  },
+                  "Property": "claim recovery"
+                }
+              },
+              "queryRef": "F_FCT_CLAIMS.claim recovery",
+              "nativeQueryRef": "claim recovery"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "F_FCT_CLAIMS"
+                    }
+                  },
+                  "Property": "claim recovery os"
+                }
+              },
+              "queryRef": "F_FCT_CLAIMS.claim recovery os",
+              "nativeQueryRef": "claim recovery os"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "028b6e12fad1d8c26b71",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "A_DIM_LINE_OF_BUSINESS"
+              }
+            },
+            "Property": "EN_NAME"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "21cd90a3c1ee6534fd96",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "B_DIM_PRODUCT"
+              }
+            },
+            "Property": "EN_NAME"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "45062d78d688f1f16656",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "E_FCT_TRANSACTIONS"
+                  }
+                },
+                "Property": "GROSS_PREMIUM_LC"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "bf7734ccef013a2ad0b9",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "D_DIM_RISK_MASTER"
+                  }
+                },
+                "Property": "POLICY_ID"
+              }
+            },
+            "Function": 5
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "d91699eed0b01129e185",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "F_FCT_CLAIMS"
+              }
+            },
+            "Property": "claim os"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5bdcc459355cb2ba489e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "F_FCT_CLAIMS"
+              }
+            },
+            "Property": "claim paid"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9cbd2dd169e04a7fefca",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "F_FCT_CLAIMS"
+              }
+            },
+            "Property": "claim recovery"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "fa233b12b120247e9605",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "F_FCT_CLAIMS"
+              }
+            },
+            "Property": "claim recovery os"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

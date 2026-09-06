@@ -4,10 +4,10 @@
   "position": {
     "x": 0,
     "y": 117,
-    "z": 2,
+    "z": 2000,
     "height": 160,
     "width": 427,
-    "tabOrder": 2
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "tableEx",
@@ -34,23 +34,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "fcadf51edf8efaa77433",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "D_DIM_MEDICAL_RISK_INSURED_MEMBER"
-              }
-            },
-            "Property": "GENDER"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

@@ -4,10 +4,10 @@
   "position": {
     "x": 331,
     "y": 0,
-    "z": 1,
+    "z": 1000,
     "height": 267,
     "width": 322,
-    "tabOrder": 1
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "tableEx",
@@ -120,20 +120,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "e66848da5cbbc8f425fe",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "E_FCT_TRANSACTIONS"
-              }
-            },
-            "Property": "TRANSACTION_ISSUE_DATE"
-          }
-        },
-        "type": "Categorical"
       }
     ]
   }

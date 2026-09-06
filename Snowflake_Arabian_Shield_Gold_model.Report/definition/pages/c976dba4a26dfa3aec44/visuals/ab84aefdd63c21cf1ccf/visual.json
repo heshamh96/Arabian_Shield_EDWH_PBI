@@ -1,13 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
-  "name": "7859a406bc2651dc24ad",
+  "name": "ab84aefdd63c21cf1ccf",
   "position": {
-    "x": 1076.4853556485355,
-    "y": 0,
-    "z": 1000,
-    "height": 616.56903765690379,
-    "width": 586.44351464435147,
-    "tabOrder": 1000
+    "x": 343.26685807402811,
+    "y": 438.61876309459143,
+    "z": 2004,
+    "height": 280.97028012726,
+    "width": 297.49794366415767
   },
   "visual": {
     "visualType": "pieChart",
@@ -23,11 +22,11 @@
                       "Entity": "A_REF_GENDER"
                     }
                   },
-                  "Property": "AR_NAME"
+                  "Property": "EN_NAME"
                 }
               },
-              "queryRef": "A_REF_GENDER.AR_NAME",
-              "nativeQueryRef": "AR_NAME",
+              "queryRef": "A_REF_GENDER.EN_NAME",
+              "nativeQueryRef": "EN_NAME",
               "active": true
             }
           ]
@@ -85,7 +84,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "bd57d93f14964608f1d4",
+        "name": "3c9e990ed7c97d6497c0",
         "field": {
           "Column": {
             "Expression": {
@@ -93,56 +92,29 @@
                 "Entity": "A_REF_GENDER"
               }
             },
-            "Property": "AR_NAME"
+            "Property": "EN_NAME"
           }
         },
-        "type": "Categorical",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "a",
-              "Entity": "A_REF_GENDER",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "a"
-                          }
-                        },
-                        "Property": "AR_NAME"
-                      }
-                    }
-                  ],
-                  "Values": [
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'أنثي'"
-                        }
-                      }
-                    ],
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'ذكر'"
-                        }
-                      }
-                    ]
-                  ]
-                }
+        "type": "Categorical"
+      },
+      {
+        "name": "f42072c146ad7f759ddd",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "B_DIM_PARTIES"
+                  }
+                },
+                "Property": "PARTY_ID"
               }
-            }
-          ]
-        }
+            },
+            "Function": 5
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

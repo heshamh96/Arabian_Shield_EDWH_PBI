@@ -53,42 +53,5 @@
       }
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "657fd0d20bafb62b571a",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "E_FCT_TRANSACTIONS"
-              }
-            },
-            "Property": "SOURCE_SYSTEM"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "1871df6be90cef7c46c4",
-        "field": {
-          "Aggregation": {
-            "Expression": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "E_FCT_TRANSACTIONS"
-                  }
-                },
-                "Property": "TRANSACTION_ISSUE_DATE"
-              }
-            },
-            "Function": 4
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

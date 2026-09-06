@@ -1,0 +1,106 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "95525d34d9aa199f20a2",
+  "position": {
+    "x": 467.5,
+    "y": 122.5,
+    "z": 6,
+    "height": 237.5,
+    "width": 382.5
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "A_DIM_LINE_OF_BUSINESS"
+                    }
+                  },
+                  "Property": "EN_NAME"
+                }
+              },
+              "queryRef": "A_DIM_LINE_OF_BUSINESS.EN_NAME",
+              "nativeQueryRef": "EN_NAME",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "F_FCT_CLAIMS"
+                    }
+                  },
+                  "Property": "claim paid"
+                }
+              },
+              "queryRef": "F_FCT_CLAIMS.claim paid",
+              "nativeQueryRef": "claim paid"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "F_FCT_CLAIMS"
+                  }
+                },
+                "Property": "claim paid"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "51eca2a563dea0cd77d2",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "A_DIM_LINE_OF_BUSINESS"
+              }
+            },
+            "Property": "EN_NAME"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "0454325f0ca776d8b948",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "F_FCT_CLAIMS"
+              }
+            },
+            "Property": "claim paid"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

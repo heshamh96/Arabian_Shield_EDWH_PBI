@@ -1,6 +1,28 @@
 table E_FCT_TRANSACTIONS
 	lineageTag: ceb72f39-7dca-4da2-be17-2930cc72b8f8
 
+	measure 'Cancelled Premium TCS' =
+			
+			CALCULATE (
+			    SUM ( E_FCT_TRANSACTIONS[GROSS_PREMIUM_LC] ),
+			    FILTER (
+			        ALL (
+			            C_DIM_POLICY_MASTER[POLICY_STATUS],
+			            C_DIM_POLICY_MASTER[POLICY_SUB_STATUS]
+			        ),
+			        C_DIM_POLICY_MASTER[POLICY_STATUS] IN {
+			            "CANCELLED",
+			            "CANCELLATION IN PROGRESS",
+			            "TERMINATED",
+			            "WITHDRAWN/SURRENDERED"
+			        }
+			            || C_DIM_POLICY_MASTER[POLICY_SUB_STATUS] = "Cancelled"
+			    )
+			)
+		lineageTag: 10ca3ef0-735e-4dfa-84f9-438c3fa99da3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column TRANS_ID
 		dataType: string
 		lineageTag: f49cc1fb-c463-4936-8c5e-5323ace76d82

@@ -1,48 +1,19 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
-  "name": "22b17810929f110dcf31",
+  "name": "d4e3a92592a764ac5cb5",
   "position": {
-    "x": 394.81690140845069,
-    "y": 263.21126760563379,
-    "z": 0,
-    "height": 414.64788732394368,
-    "width": 569.69014084507046,
-    "tabOrder": 2000
+    "x": 554.275017478969,
+    "y": 36.95166783193126,
+    "z": 2007,
+    "height": 105.31225332100409,
+    "width": 291.91817587225694
   },
   "visual": {
-    "visualType": "tableEx",
+    "visualType": "cardVisual",
     "query": {
       "queryState": {
-        "Values": {
+        "Data": {
           "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "A_REF_GENDER"
-                    }
-                  },
-                  "Property": "EN_NAME"
-                }
-              },
-              "queryRef": "A_REF_GENDER.EN_NAME",
-              "nativeQueryRef": "EN_NAME1"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "B_DIM_PARTIES"
-                    }
-                  },
-                  "Property": "GENDER_ID"
-                }
-              },
-              "queryRef": "B_DIM_PARTIES.GENDER_ID",
-              "nativeQueryRef": "GENDER_ID"
-            },
             {
               "field": {
                 "Aggregation": {
@@ -50,7 +21,7 @@
                     "Column": {
                       "Expression": {
                         "SourceRef": {
-                          "Entity": "C_DIM_POLICY_MASTER"
+                          "Entity": "D_DIM_RISK_MASTER"
                         }
                       },
                       "Property": "POLICY_ID"
@@ -59,7 +30,7 @@
                   "Function": 5
                 }
               },
-              "queryRef": "CountNonNull(C_DIM_POLICY_MASTER.POLICY_ID)",
+              "queryRef": "Min(D_DIM_RISK_MASTER.POLICY_ID)",
               "nativeQueryRef": "Count of POLICY_ID"
             }
           ]
@@ -74,7 +45,7 @@
                   "Column": {
                     "Expression": {
                       "SourceRef": {
-                        "Entity": "C_DIM_POLICY_MASTER"
+                        "Entity": "D_DIM_RISK_MASTER"
                       }
                     },
                     "Property": "POLICY_ID"
@@ -94,19 +65,23 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "7a769e857c83ea17a0c9",
+        "name": "b1a82abe3741d18d0449",
         "field": {
-          "Column": {
+          "Aggregation": {
             "Expression": {
-              "SourceRef": {
-                "Entity": "A_DIM_LINE_OF_BUSINESS"
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "D_DIM_RISK_MASTER"
+                  }
+                },
+                "Property": "POLICY_ID"
               }
             },
-            "Property": "EN_NAME"
+            "Function": 5
           }
         },
-        "type": "Categorical",
-        "howCreated": "User"
+        "type": "Advanced"
       }
     ]
   }

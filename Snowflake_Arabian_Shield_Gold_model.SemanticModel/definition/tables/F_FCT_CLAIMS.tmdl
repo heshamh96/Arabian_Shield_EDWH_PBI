@@ -1,6 +1,42 @@
 table F_FCT_CLAIMS
 	lineageTag: 4ea8b347-2e93-4bbe-8070-782ec0cd98fc
 
+	measure 'claim os' =
+			CALCULATE (
+			    SUM ( F_FCT_CLAIMS[TRANSACTION_AMOUNT] ),
+			    F_FCT_CLAIMS[TRANSACTION_TYPE] = "Reserve"
+			)
+		lineageTag: 232978ef-8987-47c7-a026-8504c351f244
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'claim paid' =
+			CALCULATE (
+			    SUM ( F_FCT_CLAIMS[TRANSACTION_AMOUNT] ),
+			    F_FCT_CLAIMS[TRANSACTION_TYPE] = "Payment"
+			)
+		lineageTag: 6f1a2d4a-223d-4ae1-8c0a-93d5ea75a42a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'claim recovery' =
+			CALCULATE (
+			    SUM ( F_FCT_CLAIMS[TRANSACTION_AMOUNT] ),
+			    F_FCT_CLAIMS[TRANSACTION_TYPE] = "Recovery Collection"
+			)
+		lineageTag: 3b13dbaa-bd49-4e91-b2ff-61c2592a409a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'claim recovery os' =
+			CALCULATE (
+			    SUM ( F_FCT_CLAIMS[TRANSACTION_AMOUNT] ),
+			   F_FCT_CLAIMS[TRANSACTION_TYPE] = "Recovery"
+			)
+		lineageTag: 24f90744-4d10-411d-a5cd-e6b7596d9613
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column TRANSACTION_ID
 		dataType: string
 		lineageTag: 654a9069-ffef-4350-9e32-abc2f0fbc42c

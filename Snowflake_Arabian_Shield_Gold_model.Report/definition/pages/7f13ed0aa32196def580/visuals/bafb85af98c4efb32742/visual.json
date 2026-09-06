@@ -1,0 +1,140 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "bafb85af98c4efb32742",
+  "position": {
+    "x": 331,
+    "y": 0,
+    "z": 1,
+    "height": 267,
+    "width": 322,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "E_FCT_TRANSACTIONS"
+                    }
+                  },
+                  "Property": "SOURCE_SYSTEM"
+                }
+              },
+              "queryRef": "E_FCT_TRANSACTIONS.SOURCE_SYSTEM",
+              "nativeQueryRef": "SOURCE_SYSTEM"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "E_FCT_TRANSACTIONS"
+                    }
+                  },
+                  "Property": "TRANSACTION_ISSUE_DATE"
+                }
+              },
+              "queryRef": "E_FCT_TRANSACTIONS.TRANSACTION_ISSUE_DATE1",
+              "nativeQueryRef": "TRANSACTION_ISSUE_DATE"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "E_FCT_TRANSACTIONS"
+                  }
+                },
+                "Property": "TRANSACTION_ISSUE_DATE"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "edf85d63d70060c1208e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "E_FCT_TRANSACTIONS"
+              }
+            },
+            "Property": "SOURCE_SYSTEM"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "e",
+              "Entity": "E_FCT_TRANSACTIONS",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "e"
+                          }
+                        },
+                        "Property": "SOURCE_SYSTEM"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'TCS'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "e66848da5cbbc8f425fe",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "E_FCT_TRANSACTIONS"
+              }
+            },
+            "Property": "TRANSACTION_ISSUE_DATE"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

@@ -19,28 +19,37 @@ table BUC_CLAIMSRISK_SECTOR_LOSS_RATIO_MONTHLY_VIEW
 
 	column MONTH
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 5b6520eb-f1fb-484c-a697-cda500892ff2
 		summarizeBy: none
 		sourceColumn: MONTH
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column TRANSACTIONS
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(18, 0)
 		lineageTag: d495a603-8761-4ac9-98d9-458e4eb0cc13
 		summarizeBy: sum
 		sourceColumn: TRANSACTIONS
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column POLICIES_WRITTEN
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(18, 0)
 		lineageTag: 9400785b-8a9d-465b-ab3d-fe27fc72bba8
 		summarizeBy: sum
 		sourceColumn: POLICIES_WRITTEN
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column GROSS_WRITTEN_PREMIUM
 		dataType: double
@@ -83,28 +92,37 @@ table BUC_CLAIMSRISK_SECTOR_LOSS_RATIO_MONTHLY_VIEW
 		annotation SummarizationSetBy = Automatic
 
 	column CLAIMS_REPORTED
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(18, 0)
 		lineageTag: 14aed945-744e-4952-8fc8-f0d7acea6d62
 		summarizeBy: sum
 		sourceColumn: CLAIMS_REPORTED
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column CLAIMS_TOUCHED
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(18, 0)
 		lineageTag: 8b7495ea-2a94-4225-90e0-42c5a90a28d9
 		summarizeBy: sum
 		sourceColumn: CLAIMS_TOUCHED
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column CLAIMS_WITH_PAYMENT
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(18, 0)
 		lineageTag: 8820cc24-040d-4059-b107-f029afa097a5
 		summarizeBy: sum
 		sourceColumn: CLAIMS_WITH_PAYMENT
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column CLAIMS_PAID
 		dataType: double

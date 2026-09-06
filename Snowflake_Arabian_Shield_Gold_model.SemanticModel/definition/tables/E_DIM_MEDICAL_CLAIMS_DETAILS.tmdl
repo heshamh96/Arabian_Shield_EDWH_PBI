@@ -66,12 +66,15 @@ table E_DIM_MEDICAL_CLAIMS_DETAILS
 		annotation SummarizationSetBy = Automatic
 
 	column DAMAGE_TYPE
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: 01cc5800-22c5-48d5-8c59-c7fe2fa47e0f
 		summarizeBy: sum
 		sourceColumn: DAMAGE_TYPE
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column DESCRIPTION
 		dataType: string
@@ -83,21 +86,27 @@ table E_DIM_MEDICAL_CLAIMS_DETAILS
 
 	column REGISTRATION_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 35f7b65d-01ac-492b-b635-63aad6752eb0
 		summarizeBy: none
 		sourceColumn: REGISTRATION_DATE
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column NOTIFICATION_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: e6845e3f-e14b-492b-bd81-c9f7b64d2b73
 		summarizeBy: none
 		sourceColumn: NOTIFICATION_DATE
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column QUANTITY
 		dataType: double

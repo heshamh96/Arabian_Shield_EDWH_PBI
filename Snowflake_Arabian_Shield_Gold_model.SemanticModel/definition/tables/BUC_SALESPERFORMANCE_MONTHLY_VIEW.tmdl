@@ -3,12 +3,15 @@ table BUC_SALESPERFORMANCE_MONTHLY_VIEW
 
 	column MONTH
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: dc78bcaa-8265-4c4f-814c-4f9d01116ec4
 		summarizeBy: none
 		sourceColumn: MONTH
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column SOURCE_SYSTEM
 		dataType: string
@@ -51,36 +54,48 @@ table BUC_SALESPERFORMANCE_MONTHLY_VIEW
 		annotation SummarizationSetBy = Automatic
 
 	column TRANSACTIONS
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(18, 0)
 		lineageTag: d6b5e13b-d635-46de-b957-995dbddbe327
 		summarizeBy: sum
 		sourceColumn: TRANSACTIONS
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column POLICIES_WRITTEN
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(18, 0)
 		lineageTag: a62c096e-c9ce-4106-9546-4abae0aa9696
 		summarizeBy: sum
 		sourceColumn: POLICIES_WRITTEN
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column NEW_BUSINESS_POLICIES
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(18, 0)
 		lineageTag: 9a2c0c00-1c19-49d8-96df-bd70319b565e
 		summarizeBy: sum
 		sourceColumn: NEW_BUSINESS_POLICIES
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column CUSTOMERS
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(18, 0)
 		lineageTag: aa029658-7758-4dc1-a33b-faadc0333a7e
 		summarizeBy: sum
 		sourceColumn: CUSTOMERS
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column GROSS_WRITTEN_PREMIUM
 		dataType: double
@@ -155,20 +170,26 @@ table BUC_SALESPERFORMANCE_MONTHLY_VIEW
 		annotation SummarizationSetBy = Automatic
 
 	column BACKDATED_TRANSACTIONS
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(13, 0)
 		lineageTag: e28d0525-fab3-480f-8f1c-ae54045e2513
 		summarizeBy: sum
 		sourceColumn: BACKDATED_TRANSACTIONS
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column TRANSACTIONS_WITH_EFFECTIVE_DATE
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(18, 0)
 		lineageTag: 1dc9a91a-d324-4321-a0b8-13b1c1f51726
 		summarizeBy: sum
 		sourceColumn: TRANSACTIONS_WITH_EFFECTIVE_DATE
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column AVG_PREMIUM_PER_POLICY
 		dataType: double

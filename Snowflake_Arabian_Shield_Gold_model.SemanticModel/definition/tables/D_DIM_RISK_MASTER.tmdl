@@ -67,30 +67,39 @@ table D_DIM_RISK_MASTER
 
 	column ISSUE_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 4bbaa5b6-402d-425e-841c-85357c4bc545
 		summarizeBy: none
 		sourceColumn: ISSUE_DATE
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column EFFECTIVE_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 0b8234f4-e2ac-4493-bc4f-f2a7ac257a32
 		summarizeBy: none
 		sourceColumn: EFFECTIVE_DATE
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column EXPIRY_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: faf7e35a-c5dd-4e11-9e07-9f11a3585c77
 		summarizeBy: none
 		sourceColumn: EXPIRY_DATE
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column SUMINUSRED
 		dataType: double

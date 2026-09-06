@@ -3,12 +3,15 @@ table BUC_LIFE360_PREMIUM_KPI_MONTHLY_VIEW
 
 	column MONTH
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: c99e0d31-1f49-46b4-bf8b-60c5033613a3
 		summarizeBy: none
 		sourceColumn: MONTH
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column PRODUCT_ID
 		dataType: string
@@ -27,20 +30,28 @@ table BUC_LIFE360_PREMIUM_KPI_MONTHLY_VIEW
 		annotation SummarizationSetBy = Automatic
 
 	column CONTRIBUTION_CYCLES
-		dataType: int64
+		dataType: double
+		isNullable: false
+		sourceProviderType: decimal(18, 0)
 		lineageTag: cf07c5a4-94b6-429d-bd26-05edd1b10b95
 		summarizeBy: sum
 		sourceColumn: CONTRIBUTION_CYCLES
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column POLICIES_BILLED
-		dataType: int64
+		dataType: double
+		isNullable: false
+		sourceProviderType: decimal(18, 0)
 		lineageTag: 8b4854c6-7825-41b1-ba05-9a8a294401e0
 		summarizeBy: sum
 		sourceColumn: POLICIES_BILLED
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column GROSS_WRITTEN_PREMIUM
 		dataType: double
@@ -75,12 +86,16 @@ table BUC_LIFE360_PREMIUM_KPI_MONTHLY_VIEW
 		annotation SummarizationSetBy = Automatic
 
 	column NEW_BUSINESS_POLICIES
-		dataType: int64
+		dataType: double
+		isNullable: false
+		sourceProviderType: decimal(18, 0)
 		lineageTag: 0ba231f3-1502-4f48-bcd8-7498944267f7
 		summarizeBy: sum
 		sourceColumn: NEW_BUSINESS_POLICIES
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column RAISED_PREMIUM
 		dataType: double
@@ -139,12 +154,15 @@ table BUC_LIFE360_PREMIUM_KPI_MONTHLY_VIEW
 		annotation SummarizationSetBy = Automatic
 
 	column CLAIMS_TOUCHED
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(30, 0)
 		lineageTag: 5ce242f1-2702-4344-b746-79a6e5582cb9
 		summarizeBy: sum
 		sourceColumn: CLAIMS_TOUCHED
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column CLAIMS_RATIO
 		dataType: double

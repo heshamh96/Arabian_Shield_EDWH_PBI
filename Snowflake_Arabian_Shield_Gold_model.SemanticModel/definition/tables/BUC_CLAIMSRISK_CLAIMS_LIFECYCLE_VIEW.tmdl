@@ -111,21 +111,27 @@ table BUC_CLAIMSRISK_CLAIMS_LIFECYCLE_VIEW
 
 	column FIRST_TRANSACTION_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: b235ed63-440a-436f-8287-99066c47e9dd
 		summarizeBy: none
 		sourceColumn: FIRST_TRANSACTION_DATE
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column LAST_PAYMENT_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 0c61e52d-c289-4623-9f4e-2d8f189a92a9
 		summarizeBy: none
 		sourceColumn: LAST_PAYMENT_DATE
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column CLAIMED_AMOUNT
 		dataType: double
@@ -160,52 +166,70 @@ table BUC_CLAIMSRISK_CLAIMS_LIFECYCLE_VIEW
 		annotation SummarizationSetBy = Automatic
 
 	column IS_SETTLED
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(1, 0)
 		lineageTag: 8c6e13e6-93a0-4eda-b7d3-253ef250337e
 		summarizeBy: sum
 		sourceColumn: IS_SETTLED
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column IS_OPEN
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(1, 0)
 		lineageTag: d4c3eb06-a953-43a2-9a14-d65daacacb41
 		summarizeBy: sum
 		sourceColumn: IS_OPEN
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column IS_DENIED
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(1, 0)
 		lineageTag: 8dec9ec2-ee17-4c23-ad28-78b825dd8172
 		summarizeBy: sum
 		sourceColumn: IS_DENIED
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column IS_REOPENED
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(1, 0)
 		lineageTag: 960c8097-cb2a-4cf8-ba56-6a38da36f3d3
 		summarizeBy: sum
 		sourceColumn: IS_REOPENED
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column SETTLEMENT_DAYS
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(9, 0)
 		lineageTag: 32110a17-fa7e-49cc-98e0-5e6763b3fa7a
 		summarizeBy: sum
 		sourceColumn: SETTLEMENT_DAYS
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column OPEN_AGE_DAYS
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(9, 0)
 		lineageTag: 55773e06-1630-44e5-9ba6-fc8736f9b301
 		summarizeBy: sum
 		sourceColumn: OPEN_AGE_DAYS
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column AGING_BUCKET
 		dataType: string
@@ -217,12 +241,15 @@ table BUC_CLAIMSRISK_CLAIMS_LIFECYCLE_VIEW
 
 	column NOTIFICATION_MONTH
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 5d29e78a-f262-4f3c-ba9e-9b3d55b047ff
 		summarizeBy: none
 		sourceColumn: NOTIFICATION_MONTH
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	partition BUC_CLAIMSRISK_CLAIMS_LIFECYCLE_VIEW = m
 		mode: directQuery

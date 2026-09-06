@@ -107,21 +107,27 @@ table C_DIM_POLICY_MASTER
 
 	column POLICY_INCEPTION_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 886f5923-d790-4932-95c5-1660e6c3c6ac
 		summarizeBy: none
 		sourceColumn: POLICY_INCEPTION_DATE
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column POLICY_EXPIRY_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 5d774850-d2ca-4167-9bdc-70f0f3a4c471
 		summarizeBy: none
 		sourceColumn: POLICY_EXPIRY_DATE
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column ENDORSEMENT_TYPE_ID
 		dataType: string
@@ -133,30 +139,39 @@ table C_DIM_POLICY_MASTER
 
 	column ENDO_EFFECTIVE_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 2874f9dc-e534-4098-90e2-2836b225690c
 		summarizeBy: none
 		sourceColumn: ENDO_EFFECTIVE_DATE
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column ENDO_EXPIRY_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 341a0246-6d1e-470b-b380-6fa34902813d
 		summarizeBy: none
 		sourceColumn: ENDO_EXPIRY_DATE
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column MATURATY_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 562c2a44-33a5-47f6-9967-10e80d70a4df
 		summarizeBy: none
 		sourceColumn: MATURATY_DATE
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column POLICY_TENURE
 		dataType: double

@@ -1,0 +1,94 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "cccb6926baa6f0354c7c",
+  "position": {
+    "x": 10,
+    "y": 0,
+    "z": 0,
+    "height": 280,
+    "width": 280,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "E_FCT_TRANSACTIONS"
+                    }
+                  },
+                  "Property": "SOURCE_SYSTEM"
+                }
+              },
+              "queryRef": "E_FCT_TRANSACTIONS.SOURCE_SYSTEM",
+              "nativeQueryRef": "SOURCE_SYSTEM"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "E_FCT_TRANSACTIONS"
+                        }
+                      },
+                      "Property": "TRANSACTION_ISSUE_DATE"
+                    }
+                  },
+                  "Function": 4
+                }
+              },
+              "queryRef": "E_FCT_TRANSACTIONS.TRANSACTION_ISSUE_DATE",
+              "nativeQueryRef": "Latest TRANSACTION_ISSUE_DATE"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "657fd0d20bafb62b571a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "E_FCT_TRANSACTIONS"
+              }
+            },
+            "Property": "SOURCE_SYSTEM"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "1871df6be90cef7c46c4",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "E_FCT_TRANSACTIONS"
+                  }
+                },
+                "Property": "TRANSACTION_ISSUE_DATE"
+              }
+            },
+            "Function": 4
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

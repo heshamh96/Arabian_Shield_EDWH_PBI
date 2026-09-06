@@ -83,12 +83,15 @@ table B_DIM_PARTIES
 
 	column BIRTH_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: c77388cc-712c-4de1-baa4-63a8bec8dcb8
 		summarizeBy: none
 		sourceColumn: BIRTH_DATE
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column NATIONALITY_ID
 		dataType: string
@@ -99,12 +102,15 @@ table B_DIM_PARTIES
 		annotation SummarizationSetBy = Automatic
 
 	column MARITAL_STATUS
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: 6036b07e-6a8f-4079-a5c6-8ae95ab70eb3
 		summarizeBy: sum
 		sourceColumn: MARITAL_STATUS
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column NATIONAL_ID
 		dataType: string
@@ -156,12 +162,15 @@ table B_DIM_PARTIES
 
 	column RESIDENTIAL_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 17cc5ef2-c016-4159-84a7-8399b9138223
 		summarizeBy: none
 		sourceColumn: RESIDENTIAL_DATE
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column CST_SUP_FLAG
 		dataType: boolean
@@ -212,12 +221,15 @@ table B_DIM_PARTIES
 		annotation SummarizationSetBy = Automatic
 
 	column LANGUAGE
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: 8135d2b6-a587-43cf-a668-495abc4cb5de
 		summarizeBy: sum
 		sourceColumn: LANGUAGE
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column COUNTRY
 		dataType: string
@@ -356,20 +368,26 @@ table B_DIM_PARTIES
 		annotation SummarizationSetBy = Automatic
 
 	column REVENUES
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: 3f5543e8-a440-4f1c-bfc4-88c41404650c
 		summarizeBy: sum
 		sourceColumn: REVENUES
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column NO_OF_EMPLOYEES
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: ec4af06d-82eb-46df-963f-4090a837b566
 		summarizeBy: sum
 		sourceColumn: NO_OF_EMPLOYEES
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column TAXABLE
 		dataType: boolean
@@ -477,21 +495,27 @@ table B_DIM_PARTIES
 
 	column START_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 557d2530-0bf5-4eb9-94f4-255aa061441c
 		summarizeBy: none
 		sourceColumn: START_DATE
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column EXPIRY_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 40a3c9a4-eebd-41d1-902f-f215b83b4358
 		summarizeBy: none
 		sourceColumn: EXPIRY_DATE
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column MANAGER_ID
 		dataType: string
@@ -519,12 +543,15 @@ table B_DIM_PARTIES
 
 	column CREATION_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 0672ad77-0e9f-417a-af1a-28adb56d0049
 		summarizeBy: none
 		sourceColumn: CREATION_DATE
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column MODIFIED_BY
 		dataType: string
@@ -536,12 +563,15 @@ table B_DIM_PARTIES
 
 	column MODIFICATION_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: b161c082-a3fe-4846-a155-f63c2b19888e
 		summarizeBy: none
 		sourceColumn: MODIFICATION_DATE
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column NOTES
 		dataType: string

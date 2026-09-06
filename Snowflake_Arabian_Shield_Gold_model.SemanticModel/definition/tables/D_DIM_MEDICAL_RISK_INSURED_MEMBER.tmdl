@@ -42,12 +42,15 @@ table D_DIM_MEDICAL_RISK_INSURED_MEMBER
 		annotation SummarizationSetBy = Automatic
 
 	column AGE
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: 584798eb-e7d5-4905-b334-7a46443cb4c2
 		summarizeBy: sum
 		sourceColumn: AGE
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column NATIONALITY_ID
 		dataType: string
@@ -163,30 +166,39 @@ table D_DIM_MEDICAL_RISK_INSURED_MEMBER
 
 	column ENTRY_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 373de31b-49cb-49f5-b313-0560731a9370
 		summarizeBy: none
 		sourceColumn: ENTRY_DATE
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column EXIT_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: f65bfc46-cdd4-4510-ad40-69a5ec8ead9e
 		summarizeBy: none
 		sourceColumn: EXIT_DATE
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column VISA_EXP_DT
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 53fa180a-d412-440d-a6c3-53574c3db77d
 		summarizeBy: none
 		sourceColumn: VISA_EXP_DT
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column MEMBER_LIMIT
 		dataType: double
@@ -278,12 +290,15 @@ table D_DIM_MEDICAL_RISK_INSURED_MEMBER
 
 	column NAJM_STATUS_UP_DT
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: fe2ee4f0-2554-4cc2-94e3-49edd0fe4170
 		summarizeBy: none
 		sourceColumn: NAJM_STATUS_UP_DT
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column SOURCE_SYSTEM
 		dataType: string

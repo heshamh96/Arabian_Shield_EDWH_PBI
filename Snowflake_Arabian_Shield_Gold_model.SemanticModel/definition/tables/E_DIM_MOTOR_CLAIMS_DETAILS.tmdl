@@ -74,12 +74,15 @@ table E_DIM_MOTOR_CLAIMS_DETAILS
 		annotation SummarizationSetBy = Automatic
 
 	column SUBJECT_SERIAL
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: 9ed28555-296e-40d6-a771-f28d812a2972
 		summarizeBy: sum
 		sourceColumn: SUBJECT_SERIAL
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column CLAIM_STATUS
 		dataType: string
@@ -147,12 +150,15 @@ table E_DIM_MOTOR_CLAIMS_DETAILS
 
 	column CLAIMANT_INTIMATION_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 8ae153f7-27d3-451a-b2b5-b3b15f6b193d
 		summarizeBy: none
 		sourceColumn: CLAIMANT_INTIMATION_DATE
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column NATIONAL_ID
 		dataType: string
@@ -188,12 +194,15 @@ table E_DIM_MOTOR_CLAIMS_DETAILS
 
 	column DRIVER_DOB
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 98328f92-4842-497b-9677-469207bf978d
 		summarizeBy: none
 		sourceColumn: DRIVER_DOB
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column DRIVER_NATIONALITY
 		dataType: string
@@ -205,12 +214,16 @@ table E_DIM_MOTOR_CLAIMS_DETAILS
 
 	column LOSS_DATE
 		dataType: dateTime
-		formatString: General Date
+		isNullable: false
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 69529fa5-4de3-463c-a3e7-2cb0a677f6ca
 		summarizeBy: none
 		sourceColumn: LOSS_DATE
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column LOSS_AREA
 		dataType: string
@@ -309,48 +322,64 @@ table E_DIM_MOTOR_CLAIMS_DETAILS
 		annotation SummarizationSetBy = Automatic
 
 	column VEHICLE_YEAR
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: 861ee257-66e1-4c20-9ef6-6c59621dceb0
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: VEHICLE_YEAR
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column CLAIM_REGISTRATION_DATE
 		dataType: dateTime
-		formatString: General Date
+		isNullable: false
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: b45df7af-de04-4286-ba90-70c33e4fb224
 		summarizeBy: none
 		sourceColumn: CLAIM_REGISTRATION_DATE
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column CLAIMANT_REGISTRATION_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 6f2c27d9-dcd0-480f-ba83-1709ce19e81d
 		summarizeBy: none
 		sourceColumn: CLAIMANT_REGISTRATION_DATE
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column CLAIMANT_NOTIFICATION_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: e6b44899-1e9a-4cf1-aaa1-ae572f2398bc
 		summarizeBy: none
 		sourceColumn: CLAIMANT_NOTIFICATION_DATE
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column DOCUMENT_COMPLETION_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: b3464fba-0418-4d11-ae08-45c3556d18bf
 		summarizeBy: none
 		sourceColumn: DOCUMENT_COMPLETION_DATE
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column CLAIMED_AMOUNT
 		dataType: double
@@ -385,12 +414,15 @@ table E_DIM_MOTOR_CLAIMS_DETAILS
 		annotation SummarizationSetBy = Automatic
 
 	column TAT
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: 1d628716-df0b-4898-b080-ded9e7b728a3
 		summarizeBy: sum
 		sourceColumn: TAT
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column NOTES
 		dataType: string

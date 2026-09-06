@@ -66,12 +66,15 @@ table E_FCT_TRANSACTIONS
 		annotation SummarizationSetBy = Automatic
 
 	column ENDO_SERIAL
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: 3562cf14-356d-4183-b8a2-de530306ce7a
 		summarizeBy: sum
 		sourceColumn: ENDO_SERIAL
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column PAYMENT_PURPOSE
 		dataType: string
@@ -98,47 +101,64 @@ table E_FCT_TRANSACTIONS
 		annotation SummarizationSetBy = Automatic
 
 	column UW_YEAR
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: c65ee24a-92cb-411d-a957-d0de70cde04a
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: UW_YEAR
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column TRANSACTION_ISSUE_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: dd/mm/yyyy
+		sourceProviderType: date
 		lineageTag: a1711777-4fb1-4380-851f-4ff24f8569e9
 		summarizeBy: none
 		sourceColumn: TRANSACTION_ISSUE_DATE
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
 	column TRANSACTION_EFFECTIVE_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 57d193e3-c8c4-4e64-b8ce-a9230b273c0b
 		summarizeBy: none
 		sourceColumn: TRANSACTION_EFFECTIVE_DATE
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column TRANSACTION_EXPIRY_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 9b2ded5a-4d2f-49e5-84ec-cefa1910a555
 		summarizeBy: none
 		sourceColumn: TRANSACTION_EXPIRY_DATE
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column NO_OF_SUBJECTS
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: 07bc019f-e0f8-46de-bac9-27d1241d1355
 		summarizeBy: sum
 		sourceColumn: NO_OF_SUBJECTS
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column GROSS_PREMIUM
 		dataType: double

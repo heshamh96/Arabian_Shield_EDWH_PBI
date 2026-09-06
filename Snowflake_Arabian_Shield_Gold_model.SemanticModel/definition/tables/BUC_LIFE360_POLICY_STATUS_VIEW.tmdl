@@ -67,30 +67,39 @@ table BUC_LIFE360_POLICY_STATUS_VIEW
 
 	column POLICY_INCEPTION_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 76115557-4abc-48b7-ac3c-336f5c12564a
 		summarizeBy: none
 		sourceColumn: POLICY_INCEPTION_DATE
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column POLICY_EXPIRY_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: ba155062-7bf1-44e9-8cc9-94491992e781
 		summarizeBy: none
 		sourceColumn: POLICY_EXPIRY_DATE
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column MATURATY_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: b5733260-6dd5-4086-bbf4-db6790a868e8
 		summarizeBy: none
 		sourceColumn: MATURATY_DATE
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column POLICY_TENURE
 		dataType: double
@@ -118,20 +127,26 @@ table BUC_LIFE360_POLICY_STATUS_VIEW
 
 	column INCEPTION_MONTH
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: b8c614e5-bd4a-4643-9bfa-e0128bbfb79f
 		summarizeBy: none
 		sourceColumn: INCEPTION_MONTH
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column INCEPTION_YEAR
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(4, 0)
 		lineageTag: d58dc543-82ba-45ec-a4af-5fbbfcdc2fb2
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: INCEPTION_YEAR
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column STATUS_BUCKET
 		dataType: string
@@ -142,60 +157,81 @@ table BUC_LIFE360_POLICY_STATUS_VIEW
 		annotation SummarizationSetBy = Automatic
 
 	column IS_ACTIVE
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(1, 0)
 		lineageTag: 8c134735-3085-42de-b1c3-b2753be398c3
 		summarizeBy: sum
 		sourceColumn: IS_ACTIVE
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column IS_LAPSED
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(1, 0)
 		lineageTag: e00dcbbe-3483-47f7-bdac-eb1c0272a967
 		summarizeBy: sum
 		sourceColumn: IS_LAPSED
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column IS_SURRENDERED
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(1, 0)
 		lineageTag: 1673d1e1-79a7-4b25-aa61-ab35534d2a1e
 		summarizeBy: sum
 		sourceColumn: IS_SURRENDERED
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column IS_MATURED
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(1, 0)
 		lineageTag: 177f95f9-6557-4d12-8739-dc4621898797
 		summarizeBy: sum
 		sourceColumn: IS_MATURED
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column IS_RENEWED
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(1, 0)
 		lineageTag: 6262f909-f6c5-478a-be72-5d458344313f
 		summarizeBy: sum
 		sourceColumn: IS_RENEWED
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column IS_NOT_TAKEN_UP
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(1, 0)
 		lineageTag: 8632915c-7989-40ae-84f3-6f3d29e84ed2
 		summarizeBy: sum
 		sourceColumn: IS_NOT_TAKEN_UP
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column IS_FREE_LOOK_CANCELLED
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(1, 0)
 		lineageTag: be719337-4cf4-4678-be27-44946e0e10bb
 		summarizeBy: sum
 		sourceColumn: IS_FREE_LOOK_CANCELLED
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column PARTNER_BANK
 		dataType: string

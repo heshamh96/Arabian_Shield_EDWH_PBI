@@ -34,20 +34,26 @@ table D_DIM_MOTOR_RISK_INSURED_MEMBER
 		annotation SummarizationSetBy = Automatic
 
 	column ENDO_SERIAL
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: 0fd2b127-dab0-43db-a2e1-de0cb47d0a36
 		summarizeBy: sum
 		sourceColumn: ENDO_SERIAL
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column SUBJECT_SERIAL
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: 76149b32-0278-4cb0-bc0c-36c77fbb6f8e
 		summarizeBy: sum
 		sourceColumn: SUBJECT_SERIAL
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column SOURCE_SYSTEM
 		dataType: string
@@ -75,12 +81,15 @@ table D_DIM_MOTOR_RISK_INSURED_MEMBER
 
 	column DRIVER_DOB
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 43ffcec0-4eb9-4ec9-bc63-1f05d6f1e866
 		summarizeBy: none
 		sourceColumn: DRIVER_DOB
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column DRIVER_CITY
 		dataType: string
@@ -139,12 +148,15 @@ table D_DIM_MOTOR_RISK_INSURED_MEMBER
 		annotation SummarizationSetBy = Automatic
 
 	column VEHICLE_YEAR
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: 008d2db8-4139-4c0c-bf3d-c9d8a1090a67
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: VEHICLE_YEAR
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column VEHICLE_BODY
 		dataType: string
@@ -171,12 +183,15 @@ table D_DIM_MOTOR_RISK_INSURED_MEMBER
 		annotation SummarizationSetBy = Automatic
 
 	column NO_SEATS
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: f11599de-0564-4205-a449-e11792d5e3fe
 		summarizeBy: sum
 		sourceColumn: NO_SEATS
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column VEHICLE_VIN
 		dataType: string
@@ -228,20 +243,26 @@ table D_DIM_MOTOR_RISK_INSURED_MEMBER
 
 	column ISTMARA_EXPIRY_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 5c67add2-383b-4bda-b96d-a7b8777c8d74
 		summarizeBy: none
 		sourceColumn: ISTMARA_EXPIRY_DATE
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column VEHICLE_MILAGE
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: 46565422-d97b-4f3b-a525-2e422811b9b6
 		summarizeBy: sum
 		sourceColumn: VEHICLE_MILAGE
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column REPAIR_CONDITION
 		dataType: string
@@ -252,12 +273,15 @@ table D_DIM_MOTOR_RISK_INSURED_MEMBER
 		annotation SummarizationSetBy = Automatic
 
 	column NO_COVERED_PASSANGERS
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: 2ff0f638-9190-49d8-bde4-e63db47277ac
 		summarizeBy: sum
 		sourceColumn: NO_COVERED_PASSANGERS
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column VEHICLE_DEDUCTIABLE
 		dataType: string

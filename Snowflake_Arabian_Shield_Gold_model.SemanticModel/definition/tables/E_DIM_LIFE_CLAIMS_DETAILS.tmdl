@@ -50,20 +50,26 @@ table E_DIM_LIFE_CLAIMS_DETAILS
 		annotation SummarizationSetBy = Automatic
 
 	column PLC_UW_YEAR
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(4, 0)
 		lineageTag: 5270ac7c-0d2c-47b6-acc7-2bc1a006d6de
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: PLC_UW_YEAR
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column CLM_UW_YEAR
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(4, 0)
 		lineageTag: 434e46c5-23c2-4ed9-bb7c-20f0f093f0b3
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: CLM_UW_YEAR
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column CLAIM_TYPE
 		dataType: string

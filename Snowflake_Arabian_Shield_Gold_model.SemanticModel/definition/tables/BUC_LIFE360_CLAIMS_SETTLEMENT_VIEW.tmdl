@@ -127,70 +127,94 @@ table BUC_LIFE360_CLAIMS_SETTLEMENT_VIEW
 
 	column FIRST_PAYMENT_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 53ffb095-6c03-4018-afc8-8c26a9a02618
 		summarizeBy: none
 		sourceColumn: FIRST_PAYMENT_DATE
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column LAST_PAYMENT_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: a0846894-aac9-4e2d-893e-4fa435ce11bd
 		summarizeBy: none
 		sourceColumn: LAST_PAYMENT_DATE
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column IS_SETTLED
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(1, 0)
 		lineageTag: 33f0c757-2cb3-4250-a042-bce306303289
 		summarizeBy: sum
 		sourceColumn: IS_SETTLED
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column IS_REJECTED
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(1, 0)
 		lineageTag: 348cf228-b244-473d-bc15-0da2ddfc6262
 		summarizeBy: sum
 		sourceColumn: IS_REJECTED
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column IS_REOPENED
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(1, 0)
 		lineageTag: 64aa0ff9-3b60-4068-bb1f-9b867159414b
 		summarizeBy: sum
 		sourceColumn: IS_REOPENED
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column IS_OPEN
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(1, 0)
 		lineageTag: 09caba60-631e-4535-87ac-f3da34833998
 		summarizeBy: sum
 		sourceColumn: IS_OPEN
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column SETTLEMENT_DAYS
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(9, 0)
 		lineageTag: 0af50272-8482-4f5e-a404-09cbd4461ba1
 		summarizeBy: sum
 		sourceColumn: SETTLEMENT_DAYS
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column NOTIFICATION_MONTH
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 5f6a6d7e-78c1-4f9b-a088-922af107ea96
 		summarizeBy: none
 		sourceColumn: NOTIFICATION_MONTH
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	partition BUC_LIFE360_CLAIMS_SETTLEMENT_VIEW = m
 		mode: directQuery

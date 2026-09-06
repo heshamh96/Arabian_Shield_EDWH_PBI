@@ -501,6 +501,15 @@
             "width": 234
           },
           "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "A_REF_NATIONALITY_RP",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
         }
       ],
       "name": "All tables",
@@ -513,8 +522,8 @@
     {
       "ordinal": 1,
       "scrollPosition": {
-        "x": 795,
-        "y": 705
+        "x": 595.24449600000014,
+        "y": 266.44276358724983
       },
       "nodes": [
         {
@@ -528,7 +537,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 1
+          "zIndex": 2
         },
         {
           "location": {
@@ -541,7 +550,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 2
+          "zIndex": 3
         },
         {
           "location": {
@@ -554,7 +563,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 3
+          "zIndex": 4
         },
         {
           "location": {
@@ -567,7 +576,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 4
+          "zIndex": 5
         },
         {
           "location": {
@@ -580,7 +589,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 5
+          "zIndex": 6
         },
         {
           "location": {
@@ -593,7 +602,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 6
+          "zIndex": 12
         },
         {
           "location": {
@@ -606,7 +615,7 @@
             "height": 300,
             "width": 234
           },
-          "zIndex": 12
+          "zIndex": 11
         },
         {
           "location": {
@@ -671,11 +680,24 @@
             "height": 296,
             "width": 234
           },
-          "zIndex": 11
+          "zIndex": 13
+        },
+        {
+          "location": {
+            "x": 1917.2205171388441,
+            "y": 496.701374
+          },
+          "nodeIndex": "A_REF_NATIONALITY_RP",
+          "nodeLineageTag": "cdc19690-1c70-4d48-8453-cf85091064e4",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 1
         }
       ],
       "name": "Layout 1",
-      "zoomValue": 100,
+      "zoomValue": 56.447393005377734,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,

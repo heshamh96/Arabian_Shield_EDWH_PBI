@@ -74,12 +74,15 @@ table F_FCT_CLAIMS
 		annotation SummarizationSetBy = Automatic
 
 	column TRANSACTION_SERIAL
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: 662c542a-a1bf-42fa-8fcd-7250acde12a7
 		summarizeBy: sum
 		sourceColumn: TRANSACTION_SERIAL
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column TRANSACTION_TYPE
 		dataType: string
@@ -99,12 +102,15 @@ table F_FCT_CLAIMS
 
 	column TRANSACTION_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 61246df3-53a9-4f6e-a350-1a1f18b256ab
 		summarizeBy: none
 		sourceColumn: TRANSACTION_DATE
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column TRANSACTION_AMOUNT
 		dataType: double
@@ -115,12 +121,15 @@ table F_FCT_CLAIMS
 		annotation SummarizationSetBy = Automatic
 
 	column TRANSACTION_VAT
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: c0bc6b47-a5cd-43b0-b82e-3ea4f5d66bf0
 		summarizeBy: sum
 		sourceColumn: TRANSACTION_VAT
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column TRANSACTION_AUTO_INSERT
 		dataType: boolean

@@ -42,12 +42,15 @@ table G_DIM_REINSURANCE_SHARE
 		annotation SummarizationSetBy = Automatic
 
 	column SUBJECT_SERIAL
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: df4f4ed9-4f0f-419f-9b49-e2ceda1dae07
 		summarizeBy: sum
 		sourceColumn: SUBJECT_SERIAL
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column TRANSACTION_ID
 		dataType: string
@@ -98,12 +101,15 @@ table G_DIM_REINSURANCE_SHARE
 		annotation SummarizationSetBy = Automatic
 
 	column LAYER_REINSURER_NATIVE_ID
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: fc61b65a-1974-4ddb-b330-c66476ba500f
-		summarizeBy: none
+		summarizeBy: count
 		sourceColumn: LAYER_REINSURER_NATIVE_ID
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column RETENTION_SHARE_PERCENTAGE
 		dataType: double

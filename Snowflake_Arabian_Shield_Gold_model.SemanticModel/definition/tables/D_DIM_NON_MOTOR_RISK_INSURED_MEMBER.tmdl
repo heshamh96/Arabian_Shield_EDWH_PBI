@@ -34,20 +34,26 @@ table D_DIM_NON_MOTOR_RISK_INSURED_MEMBER
 		annotation SummarizationSetBy = Automatic
 
 	column ENDO_SERIAL
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: 7182e3d9-40fb-4809-b53c-0ddc63672b50
 		summarizeBy: sum
 		sourceColumn: ENDO_SERIAL
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column SUBJECT_SERIAL
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: bea93420-718a-4370-9d73-9a8340059616
 		summarizeBy: sum
 		sourceColumn: SUBJECT_SERIAL
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column SOURCE_SYSTEM
 		dataType: string
@@ -67,21 +73,27 @@ table D_DIM_NON_MOTOR_RISK_INSURED_MEMBER
 
 	column SUBJECT_EFFECTIVE_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 9aef1495-d127-443c-bd58-0ae1cd97968a
 		summarizeBy: none
 		sourceColumn: SUBJECT_EFFECTIVE_DATE
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column SUBJECT_EXPIRY_DATE
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 8997942b-092c-4c13-902e-f08827dace95
 		summarizeBy: none
 		sourceColumn: SUBJECT_EXPIRY_DATE
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column LOCATION
 		dataType: string
@@ -132,20 +144,26 @@ table D_DIM_NON_MOTOR_RISK_INSURED_MEMBER
 		annotation SummarizationSetBy = Automatic
 
 	column NO_OF_RISK
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: fe436638-ff54-4dd0-8d72-ce62b986f779
 		summarizeBy: sum
 		sourceColumn: NO_OF_RISK
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column AGE
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: 9e14d371-0464-4b5e-a674-0eac04475497
 		summarizeBy: sum
 		sourceColumn: AGE
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column PORT_FROM
 		dataType: string
@@ -197,12 +215,15 @@ table D_DIM_NON_MOTOR_RISK_INSURED_MEMBER
 
 	column MAINTANANCE_PERIOD_TO
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 24dd95b0-f16c-4dbf-8614-8a279da0f5ba
 		summarizeBy: none
 		sourceColumn: MAINTANANCE_PERIOD_TO
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column CURRENCY
 		dataType: string

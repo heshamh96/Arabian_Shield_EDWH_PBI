@@ -3,44 +3,59 @@ table A_DIM_DATE
 
 	column DATE_ID
 		dataType: dateTime
-		formatString: General Date
+		formatString: Long Date
+		sourceProviderType: date
 		lineageTag: 9373cde9-ffc6-4e54-840d-d2ece1b14cab
 		summarizeBy: none
 		sourceColumn: DATE_ID
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation UnderlyingDateTimeDataType = Date
+
 	column DATE_KEY
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: 2f3b21a9-edd5-4f51-b5ad-d72408d66076
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: DATE_KEY
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column YEAR
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(4, 0)
 		lineageTag: 5dae31b4-91da-4e55-b2be-863e16ec0c3d
 		summarizeBy: sum
 		sourceColumn: YEAR
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column QUARTER
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(2, 0)
 		lineageTag: 458bb207-0ce3-4ef5-8ef2-725d56ea2af2
 		summarizeBy: sum
 		sourceColumn: QUARTER
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column MONTH
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(2, 0)
 		lineageTag: 5c5782c7-5308-4b37-a806-278f752e085e
 		summarizeBy: sum
 		sourceColumn: MONTH
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column MONTH_NAME
 		dataType: string
@@ -51,20 +66,26 @@ table A_DIM_DATE
 		annotation SummarizationSetBy = Automatic
 
 	column DAY
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(2, 0)
 		lineageTag: 0146da91-4907-4a6a-be62-914264cb70a0
 		summarizeBy: sum
 		sourceColumn: DAY
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column DAY_OF_WEEK_ISO
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(2, 0)
 		lineageTag: f9de3c0c-7963-4e44-906e-09c8ed8fd50a
 		summarizeBy: sum
 		sourceColumn: DAY_OF_WEEK_ISO
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column DAY_NAME
 		dataType: string
@@ -75,12 +96,15 @@ table A_DIM_DATE
 		annotation SummarizationSetBy = Automatic
 
 	column WEEK_OF_YEAR_ISO
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(2, 0)
 		lineageTag: 7da0223d-278a-4acf-bd64-b2c3ccd4e6e7
 		summarizeBy: sum
 		sourceColumn: WEEK_OF_YEAR_ISO
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column YEAR_MONTH
 		dataType: string
@@ -107,36 +131,48 @@ table A_DIM_DATE
 		annotation SummarizationSetBy = Automatic
 
 	column UW_YEAR
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(4, 0)
 		lineageTag: be5f8fa4-0f0c-48e5-a70f-06df8f2f46ae
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: UW_YEAR
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column HIJRI_YEAR
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: 56112ab1-8641-424b-9908-eb2767a53042
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: HIJRI_YEAR
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column HIJRI_MONTH
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: 9b5eaaf3-ce82-4c02-af82-6507bec1b505
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: HIJRI_MONTH
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column HIJRI_DAY
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: ad21fb23-8de9-482f-9fd7-a5dd444a2bf9
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: HIJRI_DAY
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column HIJRI_MONTH_NAME
 		dataType: string
@@ -187,28 +223,37 @@ table A_DIM_DATE
 		annotation SummarizationSetBy = Automatic
 
 	column COPTIC_YEAR
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: 427444f0-c23d-41cf-b336-ad892219f529
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: COPTIC_YEAR
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column COPTIC_MONTH
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: 24aeb099-d0e7-4961-8d7d-7af90d24b534
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: COPTIC_MONTH
 
 		annotation SummarizationSetBy = Automatic
 
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column COPTIC_DAY
-		dataType: int64
+		dataType: double
+		sourceProviderType: decimal(38, 0)
 		lineageTag: b5df60a5-d1a7-4b3e-b66a-464e8d607f32
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: COPTIC_DAY
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column COPTIC_MONTH_NAME
 		dataType: string

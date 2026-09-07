@@ -84,18 +84,25 @@
         "objects": {
           "general": [
             {
-              "properties": {
-                "isInvertedSelectionMode": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "true"
-                    }
-                  }
-                }
-              }
+              "properties": {}
             }
           ]
         }
+      },
+      {
+        "name": "f251a4896c311e6580c7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "E_DIM_MOTOR_CLAIMS_DETAILS"
+              }
+            },
+            "Property": "CLAIM_NO"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
       }
     ]
   },
@@ -119,7 +126,7 @@
           "expanded": {
             "expr": {
               "Literal": {
-                "Value": "false"
+                "Value": "true"
               }
             }
           }

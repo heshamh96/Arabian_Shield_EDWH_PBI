@@ -19,45 +19,15 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "E_DIM_MEDICAL_CLAIMS_DETAILS"
+                      "Entity": "BUC_CLAIMSRISK_CLAIMS_LIFECYCLE_VIEW"
                     }
                   },
                   "Property": "CAUSE_OF_LOSS"
                 }
               },
-              "queryRef": "E_DIM_MEDICAL_CLAIMS_DETAILS.CAUSE_OF_LOSS",
+              "queryRef": "BUC_CLAIMSRISK_CLAIMS_LIFECYCLE_VIEW.CAUSE_OF_LOSS",
               "nativeQueryRef": "CAUSE_OF_LOSS",
               "active": true
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "E_DIM_NON_MOTOR_CLAIMS_DETAILS"
-                    }
-                  },
-                  "Property": "CAUSE_OF_LOSS"
-                }
-              },
-              "queryRef": "E_DIM_NON_MOTOR_CLAIMS_DETAILS.CAUSE_OF_LOSS",
-              "nativeQueryRef": "CAUSE_OF_LOSS2",
-              "active": false
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "E_DIM_MOTOR_CLAIMS_DETAILS"
-                    }
-                  },
-                  "Property": "CAUSE_OF_LOSS"
-                }
-              },
-              "queryRef": "E_DIM_MOTOR_CLAIMS_DETAILS.CAUSE_OF_LOSS",
-              "nativeQueryRef": "CAUSE_OF_LOSS1",
-              "active": false
             }
           ]
         },
@@ -104,20 +74,6 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "261a761690a7d76c814f",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "E_DIM_MEDICAL_CLAIMS_DETAILS"
-              }
-            },
-            "Property": "CAUSE_OF_LOSS"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
         "name": "01b18c43b64de777340c",
         "field": {
           "Measure": {
@@ -132,26 +88,12 @@
         "type": "Advanced"
       },
       {
-        "name": "a9c756cfd1b34c5a8dda",
+        "name": "bdacf3d3a94617945740",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "E_DIM_MOTOR_CLAIMS_DETAILS"
-              }
-            },
-            "Property": "CAUSE_OF_LOSS"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "38399109f194f8c630fd",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "E_DIM_NON_MOTOR_CLAIMS_DETAILS"
+                "Entity": "BUC_CLAIMSRISK_CLAIMS_LIFECYCLE_VIEW"
               }
             },
             "Property": "CAUSE_OF_LOSS"

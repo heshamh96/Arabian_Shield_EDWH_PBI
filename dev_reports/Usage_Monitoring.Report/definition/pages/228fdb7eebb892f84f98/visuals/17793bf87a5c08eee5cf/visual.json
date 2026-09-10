@@ -1,0 +1,84 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "17793bf87a5c08eee5cf",
+  "position": {
+    "x": 12,
+    "y": 110,
+    "z": 6,
+    "height": 290,
+    "width": 618,
+    "tabOrder": 60
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Date"
+                    }
+                  },
+                  "Property": "Date"
+                }
+              },
+              "queryRef": "Date.Date",
+              "nativeQueryRef": "Date"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Daily_Consumption"
+                    }
+                  },
+                  "Property": "Total Credits"
+                }
+              },
+              "queryRef": "Daily_Consumption.Total Credits",
+              "nativeQueryRef": "Total Credits"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Daily_Consumption"
+                    }
+                  },
+                  "Property": "Compute Credits"
+                }
+              },
+              "queryRef": "Daily_Consumption.Compute Credits",
+              "nativeQueryRef": "Compute Credits"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Daily_Consumption"
+                    }
+                  },
+                  "Property": "Cloud Services Credits"
+                }
+              },
+              "queryRef": "Daily_Consumption.Cloud Services Credits",
+              "nativeQueryRef": "Cloud Services Credits"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

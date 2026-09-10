@@ -1,0 +1,164 @@
+/// Daily row-count and storage snapshot per table. Semi-additive: sum across tables, not across days.
+table Table_Snapshots
+	lineageTag: b260f2c7-3665-4d7b-b1b8-57aab1efd28b
+
+	column SNAPSHOT_DATE
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 3cf6e6d4-a243-4176-bd4e-6fb1cdbc85b6
+		summarizeBy: none
+		sourceColumn: SNAPSHOT_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SNAPSHOT_TIME
+		dataType: dateTime
+		lineageTag: f71b4ad9-1ed6-466c-bfa6-dd35bd8651ee
+		summarizeBy: none
+		sourceColumn: SNAPSHOT_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATABASE_NAME
+		dataType: string
+		lineageTag: ea0d6d0b-3132-4169-95d4-43c955c48b13
+		summarizeBy: none
+		sourceColumn: DATABASE_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column LAYER
+		dataType: string
+		lineageTag: f31dc2be-36a8-473f-b579-2d07dd85d4dc
+		summarizeBy: none
+		sourceColumn: LAYER
+
+		annotation SummarizationSetBy = Automatic
+
+	column SCHEMA_NAME
+		dataType: string
+		lineageTag: da4971ee-c172-455c-ab78-e36c57791711
+		summarizeBy: none
+		sourceColumn: SCHEMA_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column TABLE_NAME
+		dataType: string
+		lineageTag: d01d1740-9884-4db3-9ae9-90adcc1dd983
+		summarizeBy: none
+		sourceColumn: TABLE_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_DYNAMIC
+		dataType: string
+		lineageTag: d572cfde-b5d5-4500-804b-0ce486232d7f
+		summarizeBy: none
+		sourceColumn: IS_DYNAMIC
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROW_COUNT
+		dataType: int64
+		lineageTag: 3d76ad5d-9a69-4284-9834-d3a07b6bf9f5
+		summarizeBy: sum
+		sourceColumn: ROW_COUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column BYTES
+		dataType: int64
+		lineageTag: c98ed4c5-a86a-452b-afe6-1c1bb944e4c8
+		summarizeBy: sum
+		sourceColumn: BYTES
+
+		annotation SummarizationSetBy = Automatic
+
+	column RETENTION_TIME
+		dataType: int64
+		lineageTag: 701fdbb9-b223-4b57-84ff-b9a1a7c1f0aa
+		summarizeBy: none
+		sourceColumn: RETENTION_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column CREATED_AT
+		dataType: dateTime
+		lineageTag: b8c912ce-a2aa-428c-834d-287e0d148889
+		summarizeBy: none
+		sourceColumn: CREATED_AT
+
+		annotation SummarizationSetBy = Automatic
+
+	column LAST_ALTERED
+		dataType: dateTime
+		lineageTag: 72405c41-12c9-444e-96fe-af8e85ecfc46
+		summarizeBy: none
+		sourceColumn: LAST_ALTERED
+
+		annotation SummarizationSetBy = Automatic
+
+	column TABLE_COMMENT
+		dataType: string
+		lineageTag: f4dfea82-6464-4764-ac33-9e6595f6002e
+		summarizeBy: none
+		sourceColumn: TABLE_COMMENT
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Only meaningful with a single date in filter context.
+	measure 'Rows (Snapshot)' = SUM(Table_Snapshots[ROW_COUNT])
+		formatString: #,0
+		lineageTag: 7f719a14-4278-4909-89e0-5e3a7a7daaf7
+
+	measure 'Storage GB (Snapshot)' = DIVIDE(SUM(Table_Snapshots[BYTES]), 1073741824)
+		formatString: #,0.00
+		lineageTag: 39c3c9ba-8f79-4c02-a8be-27fc89e22da2
+
+	/// Semi-additive: takes the most recent snapshot rather than summing every day.
+	measure 'Rows (Latest)' = CALCULATE([Rows (Snapshot)], LASTNONBLANK('Date'[Date], [Rows (Snapshot)]))
+		formatString: #,0
+		lineageTag: 997c4fa2-0d2d-478e-8c27-3e301f2bee09
+
+	measure 'Storage GB (Latest)' = CALCULATE([Storage GB (Snapshot)], LASTNONBLANK('Date'[Date], [Rows (Snapshot)]))
+		formatString: #,0.00
+		lineageTag: e6935885-c6e6-4471-859b-571ceebb348f
+
+	measure 'Rows 7D Ago' = CALCULATE([Rows (Latest)], DATEADD('Date'[Date], -7, DAY))
+		formatString: #,0
+		lineageTag: 3b52b673-12ae-4c62-bd3b-aa93fbd8b6ad
+
+	measure 'Row Growth 7D' = [Rows (Latest)] - [Rows 7D Ago]
+		formatString: #,0
+		lineageTag: eb95ef7d-e18d-4979-abd5-9f5d9921fa3f
+
+	measure 'Row Growth 7D %' = DIVIDE([Row Growth 7D], [Rows 7D Ago])
+		formatString: 0.0%
+		lineageTag: d697feba-dced-41aa-af24-7a70073cb88e
+
+	measure 'Storage GB 7D Ago' = CALCULATE([Storage GB (Latest)], DATEADD('Date'[Date], -7, DAY))
+		formatString: #,0.00
+		lineageTag: a36c4109-53e4-4617-9381-612f88064d83
+
+	measure 'Storage Growth 7D %' = DIVIDE([Storage GB (Latest)] - [Storage GB 7D Ago], [Storage GB 7D Ago])
+		formatString: 0.0%
+		lineageTag: 9256857e-e94a-4d7a-97b1-7d3d0c6b2042
+
+	measure 'Tables in Snapshot' = DISTINCTCOUNT(Table_Snapshots[TABLE_NAME])
+		formatString: #,0
+		lineageTag: 6bc2fe67-460e-4cfa-a538-2f499309718c
+
+	partition Table_Snapshots = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sql = Text.Replace(Text.Replace("select cast(SNAPSHOT_TIME as date) as SNAPSHOT_DATE, SNAPSHOT_TIME, DATABASE_NAME, SCHEMA_NAME as LAYER, SCHEMA_NAME, TABLE_NAME, IS_DYNAMIC, ROW_COUNT, BYTES, RETENTION_TIME, CREATED_AT, LAST_ALTERED, ""COMMENT"" as TABLE_COMMENT from {DB}.{SCHEMA}.TABLE_COUNT_DAILY_SNAPSHOTS", "{DB}", SnowflakeDatabase), "{SCHEMA}", SnowflakeSchema),
+				    Result = Value.NativeQuery(Db, Sql, null, [EnableFolding=true])
+				in
+				    Result
+
+	annotation PBI_ResultType = Table
+

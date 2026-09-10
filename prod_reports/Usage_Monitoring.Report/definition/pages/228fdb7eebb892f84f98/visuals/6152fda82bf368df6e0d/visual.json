@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "6152fda82bf368df6e0d",
+  "position": {
+    "x": 856,
+    "y": 12,
+    "z": 4,
+    "height": 88,
+    "width": 201,
+    "tabOrder": 40
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Daily_Consumption"
+                    }
+                  },
+                  "Property": "Cost WoW %"
+                }
+              },
+              "queryRef": "Daily_Consumption.Cost WoW %",
+              "nativeQueryRef": "Cost WoW %"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

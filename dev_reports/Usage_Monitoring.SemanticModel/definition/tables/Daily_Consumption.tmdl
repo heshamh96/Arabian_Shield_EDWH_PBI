@@ -1,0 +1,121 @@
+/// Credits and estimated cost per day, account-wide.
+table Daily_Consumption
+	lineageTag: 9d5df39f-d940-49d1-a73e-2f475919e90a
+
+	column USAGE_DATE
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: a2a7dab9-a532-4f4f-93ea-f993f7713abf
+		summarizeBy: none
+		sourceColumn: USAGE_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_CREDITS
+		dataType: double
+		lineageTag: a91a89e3-9ad9-4173-a4c9-33276a7a59b9
+		summarizeBy: sum
+		sourceColumn: TOTAL_CREDITS
+
+		annotation SummarizationSetBy = Automatic
+
+	column COMPUTE_CREDITS
+		dataType: double
+		lineageTag: b6dd36c8-bd36-457a-abc4-a9d167023c53
+		summarizeBy: sum
+		sourceColumn: COMPUTE_CREDITS
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLOUD_SERVICES_CREDITS
+		dataType: double
+		lineageTag: 05b10e89-631d-47a0-ba55-7666133c56e1
+		summarizeBy: sum
+		sourceColumn: CLOUD_SERVICES_CREDITS
+
+		annotation SummarizationSetBy = Automatic
+
+	column WAREHOUSES_USED
+		dataType: int64
+		lineageTag: c9d582b0-3ff5-4789-a0b3-181c3abc2348
+		summarizeBy: sum
+		sourceColumn: WAREHOUSES_USED
+
+		annotation SummarizationSetBy = Automatic
+
+	column ESTIMATED_DAILY_COST_USD
+		dataType: double
+		lineageTag: 3cead929-cbc9-4777-b2a7-c3883dff6392
+		summarizeBy: sum
+		sourceColumn: ESTIMATED_DAILY_COST_USD
+
+		annotation SummarizationSetBy = Automatic
+
+	measure 'Total Credits' = SUM(Daily_Consumption[TOTAL_CREDITS])
+		formatString: #,0.00
+		lineageTag: 91aade96-07ca-445b-8fb9-16b8f7916369
+
+	measure 'Compute Credits' = SUM(Daily_Consumption[COMPUTE_CREDITS])
+		formatString: #,0.00
+		lineageTag: 68facdb2-ae4d-46c4-859a-0b1010aa18ba
+
+	measure 'Cloud Services Credits' = SUM(Daily_Consumption[CLOUD_SERVICES_CREDITS])
+		formatString: #,0.00
+		lineageTag: 7884f500-429e-4c5d-acdd-6852a16c1443
+
+	/// Snowflake bills cloud services only above 10% of compute; a high share is worth investigating.
+	measure 'Cloud Services %' = DIVIDE([Cloud Services Credits], [Total Credits])
+		formatString: 0.0%
+		lineageTag: 2e75cb04-41bc-4a4f-9399-08bd905fe835
+
+	measure 'Estimated Cost' = SUM(Daily_Consumption[ESTIMATED_DAILY_COST_USD])
+		formatString: \$#,0.00
+		lineageTag: 88da56bc-12ba-4b90-8fcc-91fbbb1063fc
+
+	measure 'Avg Daily Cost' = AVERAGE(Daily_Consumption[ESTIMATED_DAILY_COST_USD])
+		formatString: \$#,0.00
+		lineageTag: 89c574cd-41a6-4249-aebb-27b656007c0a
+
+	measure 'Peak Daily Cost' = MAX(Daily_Consumption[ESTIMATED_DAILY_COST_USD])
+		formatString: \$#,0.00
+		lineageTag: 75255685-5be7-4651-b4c5-3ccbe50f0794
+
+	measure 'Days Monitored' = DISTINCTCOUNT(Daily_Consumption[USAGE_DATE])
+		formatString: #,0
+		lineageTag: 9836c69c-6886-4c1e-aefa-8158ee0de5de
+
+	measure 'Cost Last 7 Days' = CALCULATE([Estimated Cost], DATESINPERIOD('Date'[Date], MAX('Date'[Date]), -7, DAY))
+		formatString: \$#,0.00
+		lineageTag: 1dea84fa-d860-44b9-84b2-77b4c9518b23
+
+	measure 'Cost Prev 7 Days' = CALCULATE([Estimated Cost], DATESINPERIOD('Date'[Date], MAX('Date'[Date]) - 7, -7, DAY))
+		formatString: \$#,0.00
+		lineageTag: c9a6b5c9-3af3-494f-a279-102028f3ae66
+
+	measure 'Cost WoW %' = DIVIDE([Cost Last 7 Days] - [Cost Prev 7 Days], [Cost Prev 7 Days])
+		formatString: 0.0%
+		lineageTag: 37504a4e-c251-481e-8c26-b3007c5fd3f6
+
+	/// Projected monthly spend at the current daily average.
+	measure 'Run Rate (30d) USD' = [Avg Daily Cost] * 30
+		formatString: \$#,0.00
+		lineageTag: d477ab50-b364-4f98-8640-3cb01313329a
+
+	/// Unit economics: spend against data actually landed.
+	measure 'Cost per Million Rows' = DIVIDE([Estimated Cost], DIVIDE([Rows (Latest)], 1000000))
+		formatString: \$#,0.00
+		lineageTag: 25ece0fe-94da-455e-b37e-a986c7d370c1
+
+	partition Daily_Consumption = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sql = Text.Replace(Text.Replace("select USAGE_DATE, TOTAL_CREDITS, COMPUTE_CREDITS, CLOUD_SERVICES_CREDITS, WAREHOUSES_USED, ESTIMATED_DAILY_COST_USD from {DB}.{SCHEMA}.VW_DAILY_CONSUMPTION_SUMMARY", "{DB}", SnowflakeDatabase), "{SCHEMA}", SnowflakeSchema),
+				    Result = Value.NativeQuery(Db, Sql, null, [EnableFolding=true])
+				in
+				    Result
+
+	annotation PBI_ResultType = Table
+

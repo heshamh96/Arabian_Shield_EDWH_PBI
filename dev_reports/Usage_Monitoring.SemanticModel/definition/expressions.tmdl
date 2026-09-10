@@ -1,0 +1,29 @@
+/// Snowflake account URL for this environment.
+expression SnowflakeServer = "ASCI-EDP.snowflakecomputing.com" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 28216c78-9462-4c8b-81f2-1cbbb0f55ab2
+
+	annotation PBI_ResultType = Text
+
+/// Warehouse used to run the monitoring queries.
+expression SnowflakeWarehouse = "DEV_GOLD_WH" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: fa3b0415-b283-45a1-9248-4f131266a2d8
+
+	annotation PBI_ResultType = Text
+
+/// Monitoring database. Change here to repoint the whole model.
+expression SnowflakeDatabase = "MONITORING_DB" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: a013337f-83c3-489f-853a-4eb3ce4718b4
+
+	annotation PBI_ResultType = Text
+
+/// Schema holding the telemetry views.
+expression SnowflakeSchema = "SNOWFLAKE" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 59fbf046-45db-42f8-8bad-46a24ebb4081
+
+	annotation PBI_ResultType = Text
+
+/// Role assumed on connect.
+expression SnowflakeRole = "DEV_QLIK_READER_ROLE" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: e8a4148c-cf3c-4ea3-ac08-11cb54486f1b
+
+	annotation PBI_ResultType = Text

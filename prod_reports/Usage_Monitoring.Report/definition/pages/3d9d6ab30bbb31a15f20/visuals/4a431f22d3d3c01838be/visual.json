@@ -1,0 +1,108 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "4a431f22d3d3c01838be",
+  "position": {
+    "x": 650,
+    "y": 410,
+    "z": 9,
+    "height": 298,
+    "width": 618,
+    "tabOrder": 90
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "TABLE_NAME"
+                }
+              },
+              "queryRef": "DTS_Refresh.TABLE_NAME",
+              "nativeQueryRef": "TABLE_NAME"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "REFRESH_STATE"
+                }
+              },
+              "queryRef": "DTS_Refresh.REFRESH_STATE",
+              "nativeQueryRef": "REFRESH_STATE"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "Total Refreshes"
+                }
+              },
+              "queryRef": "DTS_Refresh.Total Refreshes",
+              "nativeQueryRef": "Total Refreshes"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "Target Lag Breaches"
+                }
+              },
+              "queryRef": "DTS_Refresh.Target Lag Breaches",
+              "nativeQueryRef": "Target Lag Breaches"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "Avg Lag Overage (min)"
+                }
+              },
+              "queryRef": "DTS_Refresh.Avg Lag Overage (min)",
+              "nativeQueryRef": "Avg Lag Overage (min)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "Avg Queued (ms)"
+                }
+              },
+              "queryRef": "DTS_Refresh.Avg Queued (ms)",
+              "nativeQueryRef": "Avg Queued (ms)"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

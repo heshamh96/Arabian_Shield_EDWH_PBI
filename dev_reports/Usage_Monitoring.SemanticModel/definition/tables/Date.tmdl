@@ -1,0 +1,98 @@
+/// Date dimension derived from the loaded facts, so it always spans the data.
+table 'Date'
+	lineageTag: 1b9a6551-016e-462d-8537-7108dd2bec7a
+	dataCategory: Time
+
+	column Date
+		dataType: dateTime
+		isKey
+		formatString: yyyy-mm-dd
+		lineageTag: cafa586c-2515-47e3-b07d-17c05bcb6c52
+		summarizeBy: none
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		lineageTag: d58655a8-aba8-4f78-a78c-6d5150b5d076
+		summarizeBy: none
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: string
+		lineageTag: aa58674a-015f-4398-b619-a2d6ab264d9c
+		summarizeBy: none
+		sourceColumn: [Month]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Name'
+		dataType: string
+		lineageTag: 9538e393-952d-4053-bcfa-805c2cf1cd7b
+		summarizeBy: none
+		sourceColumn: [Month Name]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day of Week'
+		dataType: string
+		lineageTag: 6d855cb9-3aca-4b3a-ba71-a2acd28c3756
+		summarizeBy: none
+		sourceColumn: [Day of Week]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day of Week No'
+		dataType: int64
+		lineageTag: 22a00c52-45ef-4cb9-aec7-1cec11d99bd0
+		summarizeBy: none
+		sourceColumn: [Day of Week No]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Is Weekend'
+		dataType: boolean
+		lineageTag: e929db31-55eb-444c-b09c-2586668fc619
+		summarizeBy: none
+		sourceColumn: [Is Weekend]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Week Start'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 51f072da-6c96-452e-9a96-2b8bdddb7624
+		summarizeBy: none
+		sourceColumn: [Week Start]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Date' = calculated
+		mode: import
+		source =
+				VAR AllDates =
+				    DISTINCT(
+				        UNION(
+				            SELECTCOLUMNS(Daily_Consumption, "TheDate", Daily_Consumption[USAGE_DATE]),
+				            SELECTCOLUMNS(Table_Snapshots, "TheDate", Table_Snapshots[SNAPSHOT_DATE]),
+				            SELECTCOLUMNS(DTS_Refresh, "TheDate", DTS_Refresh[REFRESH_DATE]),
+				            SELECTCOLUMNS(Hourly_Consumption, "TheDate", Hourly_Consumption[USAGE_DATE])
+				        )
+				    )
+				VAR MinDate = MINX(AllDates, [TheDate])
+				VAR MaxDate = MAXX(AllDates, [TheDate])
+				RETURN
+				ADDCOLUMNS(
+				    CALENDAR(MinDate, MaxDate),
+				    "Year", YEAR([Date]),
+				    "Month", FORMAT([Date], "yyyy-MM"),
+				    "Month Name", FORMAT([Date], "MMM yyyy"),
+				    "Day of Week", FORMAT([Date], "ddd"),
+				    "Day of Week No", WEEKDAY([Date], 2),
+				    "Is Weekend", WEEKDAY([Date], 2) > 5,
+				    "Week Start", [Date] - WEEKDAY([Date], 2) + 1
+				)
+

@@ -1,0 +1,290 @@
+/// Dynamic-table refresh telemetry for the SILVER and GOLD layers, unioned.
+table DTS_Refresh
+	lineageTag: eb0e2844-b417-4643-a49b-2a2b0f4c0db1
+
+	column REFRESH_DATE
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 70b3c8a0-755c-4711-bdd4-078c31440786
+		summarizeBy: none
+		sourceColumn: REFRESH_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column LAYER
+		dataType: string
+		lineageTag: f7d27752-5464-4d0c-b33d-201120cbe998
+		summarizeBy: none
+		sourceColumn: LAYER
+
+		annotation SummarizationSetBy = Automatic
+
+	column TABLE_NAME
+		dataType: string
+		lineageTag: e920ce61-33b8-4a78-92e9-1cbefd4e0f01
+		summarizeBy: none
+		sourceColumn: TABLE_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column SCHEMA_NAME
+		dataType: string
+		lineageTag: 8d414d9b-682c-42d2-a035-72a66f3860ff
+		summarizeBy: none
+		sourceColumn: SCHEMA_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATABASE_NAME
+		dataType: string
+		lineageTag: d13e824b-48a4-40a4-88ed-a66a7cfa6a0e
+		summarizeBy: none
+		sourceColumn: DATABASE_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column QUERY_ID
+		dataType: string
+		lineageTag: 60fe6e04-4ecb-4dc2-b3c4-0936f2cd6f70
+		summarizeBy: none
+		sourceColumn: QUERY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column REFRESH_STATE
+		dataType: string
+		lineageTag: 942e0ebd-fbe0-4b7e-81c9-3ab5550a4f7d
+		summarizeBy: none
+		sourceColumn: REFRESH_STATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column STATE_CODE
+		dataType: string
+		lineageTag: d432342a-0c85-4a3e-96cc-7ce8fdda0193
+		summarizeBy: none
+		sourceColumn: STATE_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column REFRESH_ERROR_MSG
+		dataType: string
+		lineageTag: 5d82513b-4f5e-4f02-9c71-63abd4141469
+		summarizeBy: none
+		sourceColumn: REFRESH_ERROR_MSG
+
+		annotation SummarizationSetBy = Automatic
+
+	column REFRESH_START_TIME
+		dataType: dateTime
+		lineageTag: 52a9b788-7710-4496-a4d3-356376a49302
+		summarizeBy: none
+		sourceColumn: REFRESH_START_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column REFRESH_END_TIME
+		dataType: dateTime
+		lineageTag: 471327bd-c43b-4fd2-b089-cc67c6191993
+		summarizeBy: none
+		sourceColumn: REFRESH_END_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column REFRESH_DURATION_SEC
+		dataType: int64
+		lineageTag: 0bffc966-1f9a-4d06-8a02-eb955b909378
+		summarizeBy: sum
+		sourceColumn: REFRESH_DURATION_SEC
+
+		annotation SummarizationSetBy = Automatic
+
+	column LAG_TILL_REFRESHED_MIN
+		dataType: double
+		lineageTag: 440870bd-a68c-473e-a071-6f6ba44c2c1c
+		summarizeBy: sum
+		sourceColumn: LAG_TILL_REFRESHED_MIN
+
+		annotation SummarizationSetBy = Automatic
+
+	column TARGET_LAG_MIN
+		dataType: double
+		lineageTag: acf67d12-80bf-4f07-af02-8939e09977ad
+		summarizeBy: sum
+		sourceColumn: TARGET_LAG_MIN
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXCEEDED_TARGET_LAG
+		dataType: boolean
+		lineageTag: 15487ec7-0c7f-4dc4-8894-267dca4adbb7
+		summarizeBy: none
+		sourceColumn: EXCEEDED_TARGET_LAG
+
+		annotation SummarizationSetBy = Automatic
+
+	column LAG_OVERAGE_MIN
+		dataType: double
+		lineageTag: 7a9d612b-6554-4887-a015-533b9040f8d3
+		summarizeBy: sum
+		sourceColumn: LAG_OVERAGE_MIN
+
+		annotation SummarizationSetBy = Automatic
+
+	column COMPILATION_MS
+		dataType: int64
+		lineageTag: f11e3920-66cc-4d5d-bea1-fedb3d64f039
+		summarizeBy: sum
+		sourceColumn: COMPILATION_MS
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXECUTION_MS
+		dataType: int64
+		lineageTag: 4a1faa3b-c058-43bb-9ef2-9c201e8589ac
+		summarizeBy: sum
+		sourceColumn: EXECUTION_MS
+
+		annotation SummarizationSetBy = Automatic
+
+	column QUEUED_MS
+		dataType: int64
+		lineageTag: 1a84f67e-9dcd-405c-9f1c-a50a73c19775
+		summarizeBy: sum
+		sourceColumn: QUEUED_MS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROWS_INSERTED
+		dataType: int64
+		lineageTag: 5583fd6b-2b32-4e9f-bd7c-6d4ecebd3b55
+		summarizeBy: sum
+		sourceColumn: ROWS_INSERTED
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROWS_DELETED
+		dataType: int64
+		lineageTag: 80e1e19f-5163-4f8a-b8c6-58f220a8b837
+		summarizeBy: sum
+		sourceColumn: ROWS_DELETED
+
+		annotation SummarizationSetBy = Automatic
+
+	column REFRESH_ACTION
+		dataType: string
+		lineageTag: 3ae0db47-2d2f-4a2f-9fe6-e06263bd1305
+		summarizeBy: none
+		sourceColumn: REFRESH_ACTION
+
+		annotation SummarizationSetBy = Automatic
+
+	column REFRESH_TRIGGER
+		dataType: string
+		lineageTag: 29d00ac8-eed7-463e-8040-5d1e52ea0562
+		summarizeBy: none
+		sourceColumn: REFRESH_TRIGGER
+
+		annotation SummarizationSetBy = Automatic
+
+	column REFRESH_WAREHOUSE
+		dataType: string
+		lineageTag: 558bd93c-7697-427d-92a8-3c957ccdbc4e
+		summarizeBy: none
+		sourceColumn: REFRESH_WAREHOUSE
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Every refresh attempt recorded.
+	measure 'Total Refreshes' = COUNTROWS(DTS_Refresh)
+		formatString: #,0
+		lineageTag: 05c6bb5f-de83-40cb-8f99-ad4057016ede
+
+	measure 'Successful Refreshes' = CALCULATE([Total Refreshes], DTS_Refresh[REFRESH_STATE] = "SUCCEEDED")
+		formatString: #,0
+		lineageTag: aeeacd21-96fc-4ccf-b1b6-209c10977752
+
+	/// Includes UPSTREAM_FAILED - a dependency failed, not this table.
+	measure 'Failed Refreshes' = CALCULATE([Total Refreshes], DTS_Refresh[REFRESH_STATE] IN {"FAILED", "UPSTREAM_FAILED"})
+		formatString: #,0
+		lineageTag: e7417f38-59b4-4557-9889-c248c7c68a19
+
+	measure 'Cancelled Refreshes' = CALCULATE([Total Refreshes], DTS_Refresh[REFRESH_STATE] = "CANCELLED")
+		formatString: #,0
+		lineageTag: dbbf6651-72f5-40b3-b1f0-3b4c558fba7f
+
+	measure 'Success Rate %' = DIVIDE([Successful Refreshes], [Total Refreshes])
+		formatString: 0.0%
+		lineageTag: b7a3f3b0-d7a1-4a8b-92aa-1daba0623ce6
+
+	measure 'Failure Rate %' = DIVIDE([Failed Refreshes], [Total Refreshes])
+		formatString: 0.0%
+		lineageTag: b7d36569-ae32-40ae-9414-ff32bf2562fd
+
+	measure 'Tables Refreshed' = DISTINCTCOUNT(DTS_Refresh[TABLE_NAME])
+		formatString: #,0
+		lineageTag: 1f2ce324-f712-4ff1-bb2b-4a622cd6a9cd
+
+	measure 'Avg Refresh Duration (s)' = AVERAGE(DTS_Refresh[REFRESH_DURATION_SEC])
+		formatString: #,0.00
+		lineageTag: a5b83afd-5f35-426f-bf2b-2c80975ece6e
+
+	measure 'Max Refresh Duration (s)' = MAX(DTS_Refresh[REFRESH_DURATION_SEC])
+		formatString: #,0
+		lineageTag: b5eabe47-0f26-4153-9b2c-02734de4eb96
+
+	/// Tail latency - a better health signal than the average.
+	measure 'P95 Refresh Duration (s)' = PERCENTILEX.INC(DTS_Refresh, DTS_Refresh[REFRESH_DURATION_SEC], 0.95)
+		formatString: #,0.00
+		lineageTag: 52638925-4fd6-49c5-af15-11857c2675f7
+
+	/// Compute time spent refreshing; drives cost.
+	measure 'Total Refresh Hours' = DIVIDE(SUM(DTS_Refresh[REFRESH_DURATION_SEC]), 3600)
+		formatString: #,0.00
+		lineageTag: 54bd4ca1-c3ca-43d3-a878-e57dd817c6df
+
+	/// Sustained queueing means the warehouse is undersized.
+	measure 'Avg Queued (ms)' = AVERAGE(DTS_Refresh[QUEUED_MS])
+		formatString: #,0.00
+		lineageTag: 022fff0a-0f13-4153-99b1-14bfeeab8948
+
+	/// Refreshes that missed their freshness SLA.
+	measure 'Target Lag Breaches' = CALCULATE([Total Refreshes], DTS_Refresh[EXCEEDED_TARGET_LAG] = TRUE())
+		formatString: #,0
+		lineageTag: 67a4623b-3ebb-4474-8a06-051b302204f6
+
+	measure 'Target Lag Breach %' = DIVIDE([Target Lag Breaches], [Total Refreshes])
+		formatString: 0.0%
+		lineageTag: efa4b7d2-8c5b-4ef7-b693-197022b97ce8
+
+	/// How far past target lag the breaches ran.
+	measure 'Avg Lag Overage (min)' = AVERAGE(DTS_Refresh[LAG_OVERAGE_MIN])
+		formatString: #,0.00
+		lineageTag: 0dd8274b-37bd-410b-b988-a04b0929781c
+
+	measure 'Rows Inserted' = SUM(DTS_Refresh[ROWS_INSERTED])
+		formatString: #,0
+		lineageTag: 0c1e47b4-5e41-4b9f-83bf-97b7a62caf9b
+
+	measure 'Rows Deleted' = SUM(DTS_Refresh[ROWS_DELETED])
+		formatString: #,0
+		lineageTag: 9ce9d7b7-74b5-4d94-8a88-7a629e8fc784
+
+	/// Scheduled runs that found nothing to do - candidates for a longer target lag.
+	measure 'No-Data Refresh %' = DIVIDE(CALCULATE([Total Refreshes], DTS_Refresh[REFRESH_ACTION] = "NO_DATA"), [Total Refreshes])
+		formatString: 0.0%
+		lineageTag: c99279e1-b688-4926-bb7f-4dec938342b7
+
+	partition DTS_Refresh = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sql = Text.Replace(Text.Replace("select 'GOLD' as LAYER, cast(REFRESH_START_TIME as date) as REFRESH_DATE, TABLE_NAME, SCHEMA_NAME, DATABASE_NAME, QUERY_ID, REFRESH_STATE, STATE_CODE, REFRESH_ERROR_MSG, REFRESH_START_TIME, REFRESH_END_TIME, REFRESH_DURATION_SEC, LAG_TILL_REFRESHED_MIN, TARGET_LAG_MIN, EXCEEDED_TARGET_LAG, LAG_OVERAGE_MIN, COMPILATION_MS, EXECUTION_MS, QUEUED_MS, ROWS_INSERTED, ROWS_DELETED, REFRESH_ACTION, REFRESH_TRIGGER, REFRESH_WAREHOUSE from {DB}.{SCHEMA}.GOLD_DTS_REFRESH_LONG_TERM_HISTORY union all select 'SILVER' as LAYER, cast(REFRESH_START_TIME as date) as REFRESH_DATE, TABLE_NAME, SCHEMA_NAME, DATABASE_NAME, QUERY_ID, REFRESH_STATE, STATE_CODE, REFRESH_ERROR_MSG, REFRESH_START_TIME, REFRESH_END_TIME, REFRESH_DURATION_SEC, LAG_TILL_REFRESHED_MIN, TARGET_LAG_MIN, EXCEEDED_TARGET_LAG, LAG_OVERAGE_MIN, COMPILATION_MS, EXECUTION_MS, QUEUED_MS, ROWS_INSERTED, ROWS_DELETED, REFRESH_ACTION, REFRESH_TRIGGER, REFRESH_WAREHOUSE from {DB}.{SCHEMA}.SILVER_DTS_REFRESH_LONG_TERM_HISTORY", "{DB}", SnowflakeDatabase), "{SCHEMA}", SnowflakeSchema),
+				    Result = Value.NativeQuery(Db, Sql, null, [EnableFolding=true])
+				in
+				    Result
+
+	annotation PBI_ResultType = Table
+

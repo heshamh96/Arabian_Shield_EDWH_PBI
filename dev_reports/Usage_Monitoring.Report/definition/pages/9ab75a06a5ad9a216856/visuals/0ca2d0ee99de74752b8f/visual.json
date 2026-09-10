@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "0ca2d0ee99de74752b8f",
+  "position": {
+    "x": 650,
+    "y": 110,
+    "z": 7,
+    "height": 290,
+    "width": 618,
+    "tabOrder": 70
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Current_Tables"
+                    }
+                  },
+                  "Property": "LAYER"
+                }
+              },
+              "queryRef": "Current_Tables.LAYER",
+              "nativeQueryRef": "LAYER"
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Current_Tables"
+                    }
+                  },
+                  "Property": "IS_DYNAMIC"
+                }
+              },
+              "queryRef": "Current_Tables.IS_DYNAMIC",
+              "nativeQueryRef": "IS_DYNAMIC"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Current_Tables"
+                    }
+                  },
+                  "Property": "Tables Monitored"
+                }
+              },
+              "queryRef": "Current_Tables.Tables Monitored",
+              "nativeQueryRef": "Tables Monitored"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

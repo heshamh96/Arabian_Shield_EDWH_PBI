@@ -1,0 +1,70 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "0ff1107306d30d8202f1",
+  "position": {
+    "x": 12,
+    "y": 410,
+    "z": 8,
+    "height": 298,
+    "width": 618,
+    "tabOrder": 80
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "TABLE_NAME"
+                }
+              },
+              "queryRef": "DTS_Refresh.TABLE_NAME",
+              "nativeQueryRef": "TABLE_NAME"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "Avg Refresh Duration (s)"
+                }
+              },
+              "queryRef": "DTS_Refresh.Avg Refresh Duration (s)",
+              "nativeQueryRef": "Avg Refresh Duration (s)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "P95 Refresh Duration (s)"
+                }
+              },
+              "queryRef": "DTS_Refresh.P95 Refresh Duration (s)",
+              "nativeQueryRef": "P95 Refresh Duration (s)"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

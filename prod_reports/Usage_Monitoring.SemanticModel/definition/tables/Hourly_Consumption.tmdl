@@ -1,0 +1,122 @@
+/// Rolling 7-day hourly credit burn per warehouse.
+table Hourly_Consumption
+	lineageTag: 4d114e6d-0edf-41a8-a900-71bf4cad7c86
+
+	column WAREHOUSE_ID
+		dataType: int64
+		lineageTag: 43bf864c-ca6e-4ab2-a430-f9212ad4987f
+		summarizeBy: none
+		sourceColumn: WAREHOUSE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column WAREHOUSE_NAME
+		dataType: string
+		lineageTag: 2df50ef0-2e55-41f0-bc15-a18ebcb86f40
+		summarizeBy: none
+		sourceColumn: WAREHOUSE_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column START_TIME
+		dataType: dateTime
+		lineageTag: 0ea5fd6f-3e2b-48a8-9933-33be5f320e34
+		summarizeBy: none
+		sourceColumn: START_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column END_TIME
+		dataType: dateTime
+		lineageTag: 4b9080b8-8f7e-4f1a-892e-8ac1bdcff496
+		summarizeBy: none
+		sourceColumn: END_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column USAGE_DATE
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: bc9fff61-61ef-40c0-b998-71ad691a0b35
+		summarizeBy: none
+		sourceColumn: USAGE_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column USAGE_HOUR
+		dataType: int64
+		lineageTag: c61b5b1e-8e20-4986-898b-de5352738ad8
+		summarizeBy: none
+		sourceColumn: USAGE_HOUR
+
+		annotation SummarizationSetBy = Automatic
+
+	column CREDITS_USED
+		dataType: double
+		lineageTag: 12f71202-25bd-452f-9077-09b937951e3b
+		summarizeBy: sum
+		sourceColumn: CREDITS_USED
+
+		annotation SummarizationSetBy = Automatic
+
+	column CREDITS_USED_COMPUTE
+		dataType: double
+		lineageTag: 7cf28c98-f5e1-4fcb-9225-fd2e257d5ab8
+		summarizeBy: sum
+		sourceColumn: CREDITS_USED_COMPUTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CREDITS_USED_CLOUD_SERVICES
+		dataType: double
+		lineageTag: 140196b9-d076-42b3-a1ba-0bbaee66c35c
+		summarizeBy: sum
+		sourceColumn: CREDITS_USED_CLOUD_SERVICES
+
+		annotation SummarizationSetBy = Automatic
+
+	column ESTIMATED_COST_USD
+		dataType: double
+		lineageTag: 3cf385bb-330d-443e-be94-f99796ba6d86
+		summarizeBy: sum
+		sourceColumn: ESTIMATED_COST_USD
+
+		annotation SummarizationSetBy = Automatic
+
+	measure 'Credits (7d)' = SUM(Hourly_Consumption[CREDITS_USED])
+		formatString: #,0.00
+		lineageTag: 9e1199c1-7d91-44ba-83d3-18a289ae4f60
+
+	measure 'Cost (7d)' = SUM(Hourly_Consumption[ESTIMATED_COST_USD])
+		formatString: \$#,0.00
+		lineageTag: 06147ba9-10a4-4457-a74f-bb1c6339e828
+
+	measure 'Active Warehouses' = DISTINCTCOUNT(Hourly_Consumption[WAREHOUSE_NAME])
+		formatString: #,0
+		lineageTag: 73ad15c8-e7d8-4e06-8a24-86b82baa0626
+
+	measure 'Peak Hourly Credits' = MAX(Hourly_Consumption[CREDITS_USED])
+		formatString: #,0.00
+		lineageTag: 88a38a03-8a04-452f-a3fc-ea0b0e0fff92
+
+	measure 'Active Hours' = CALCULATE(COUNTROWS(Hourly_Consumption), Hourly_Consumption[CREDITS_USED] > 0)
+		formatString: #,0
+		lineageTag: aa2ce671-27b6-4545-8279-ac618b8cac23
+
+	measure 'Avg Credits per Active Hour' = DIVIDE([Credits (7d)], [Active Hours])
+		formatString: #,0.00
+		lineageTag: ddc1bcec-6fac-4210-83e5-d58fce3e4a4c
+
+	partition Hourly_Consumption = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sql = Text.Replace(Text.Replace("select WAREHOUSE_ID, WAREHOUSE_NAME, START_TIME, END_TIME, cast(START_TIME as date) as USAGE_DATE, hour(START_TIME) as USAGE_HOUR, CREDITS_USED, CREDITS_USED_COMPUTE, CREDITS_USED_CLOUD_SERVICES, ESTIMATED_COST_USD from {DB}.{SCHEMA}.VW_VWH_HOURLY_CONSUMPTION_7D", "{DB}", SnowflakeDatabase), "{SCHEMA}", SnowflakeSchema),
+				    Result = Value.NativeQuery(Db, Sql, null, [EnableFolding=true])
+				in
+				    Result
+
+	annotation PBI_ResultType = Table
+

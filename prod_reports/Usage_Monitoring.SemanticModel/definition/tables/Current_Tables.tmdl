@@ -1,0 +1,138 @@
+/// Current state of every monitored table across BRONZE, SILVER and GOLD.
+table Current_Tables
+	lineageTag: 6b0c982c-8960-458b-b326-12a1dd4ece14
+
+	column LAYER
+		dataType: string
+		lineageTag: f72affac-195a-4b3e-8f27-6fdec60147b4
+		summarizeBy: none
+		sourceColumn: LAYER
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATABASE_NAME
+		dataType: string
+		lineageTag: d2ab8ec6-17aa-45a4-9018-5465be6a721f
+		summarizeBy: none
+		sourceColumn: DATABASE_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column SCHEMA_NAME
+		dataType: string
+		lineageTag: 7f9d9280-eb5a-4715-961f-a9986bcbde11
+		summarizeBy: none
+		sourceColumn: SCHEMA_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column TABLE_NAME
+		dataType: string
+		lineageTag: 8d78d0d2-2bd4-40bb-a394-db9fb3363fe7
+		summarizeBy: none
+		sourceColumn: TABLE_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_DYNAMIC
+		dataType: string
+		lineageTag: 64671fd5-1348-487c-a33a-646d6c04ee59
+		summarizeBy: none
+		sourceColumn: IS_DYNAMIC
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROW_COUNT
+		dataType: int64
+		lineageTag: d623dc46-97e8-4643-9191-ae5fd0093d27
+		summarizeBy: sum
+		sourceColumn: ROW_COUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column BYTES
+		dataType: int64
+		lineageTag: 362d6fc8-36d2-4a63-843d-9b463a7d4a08
+		summarizeBy: sum
+		sourceColumn: BYTES
+
+		annotation SummarizationSetBy = Automatic
+
+	column RETENTION_TIME
+		dataType: int64
+		lineageTag: f6a71a5e-c31c-4fbd-9332-75d984bc42ce
+		summarizeBy: none
+		sourceColumn: RETENTION_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column CREATED_AT
+		dataType: dateTime
+		lineageTag: 981e5528-5a24-4664-9e35-04e544bdd2fd
+		summarizeBy: none
+		sourceColumn: CREATED_AT
+
+		annotation SummarizationSetBy = Automatic
+
+	column LAST_ALTERED
+		dataType: dateTime
+		lineageTag: af9340a5-f02f-48a0-aab4-a34477ba1c16
+		summarizeBy: none
+		sourceColumn: LAST_ALTERED
+
+		annotation SummarizationSetBy = Automatic
+
+	column TABLE_COMMENT
+		dataType: string
+		lineageTag: c3d8e0c1-24cc-4e2b-8d02-741ea338290a
+		summarizeBy: none
+		sourceColumn: TABLE_COMMENT
+
+		annotation SummarizationSetBy = Automatic
+
+	measure 'Tables Monitored' = COUNTROWS(Current_Tables)
+		formatString: #,0
+		lineageTag: 8b8eed36-138d-4313-bc59-fcba5b354b41
+
+	measure 'Current Rows' = SUM(Current_Tables[ROW_COUNT])
+		formatString: #,0
+		lineageTag: 46020c38-d570-4b9f-86e3-2454950425ea
+
+	measure 'Current Storage GB' = DIVIDE(SUM(Current_Tables[BYTES]), 1073741824)
+		formatString: #,0.00
+		lineageTag: 319cb68c-9397-4a6f-9f7a-b2487a57b953
+
+	measure 'Dynamic Tables' = CALCULATE([Tables Monitored], Current_Tables[IS_DYNAMIC] = "YES")
+		formatString: #,0
+		lineageTag: b2b8cd01-a17e-48e5-b989-eb664913c1a8
+
+	measure 'Static Tables' = CALCULATE([Tables Monitored], Current_Tables[IS_DYNAMIC] = "NO")
+		formatString: #,0
+		lineageTag: d62660ad-9b37-4f1c-a0f8-97ebc41fc7ed
+
+	measure 'Dynamic Table %' = DIVIDE([Dynamic Tables], [Tables Monitored])
+		formatString: 0.0%
+		lineageTag: cb325dfa-fd7e-427b-9361-8aa04aaa17f8
+
+	/// Zero-row tables - either genuinely empty or a broken pipeline.
+	measure 'Empty Tables' = CALCULATE([Tables Monitored], Current_Tables[ROW_COUNT] = 0)
+		formatString: #,0
+		lineageTag: 5ca6ed18-2a12-4af8-8887-dfb1f54c04b5
+
+	measure 'Avg Rows per Table' = DIVIDE([Current Rows], [Tables Monitored])
+		formatString: #,0
+		lineageTag: 6a55957e-1370-4bcb-a289-31e2d4f794ad
+
+	partition Current_Tables = m
+		mode: import
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sql = Text.Replace(Text.Replace("select 'BRONZE' as LAYER, ""DATABASE"" as DATABASE_NAME, ""SCHEMA"" as SCHEMA_NAME, ""TABLE"" as TABLE_NAME, IS_DYNAMIC, ROW_COUNT, BYTES, RETENTION_TIME, cast(CREATED_AT as timestamp_ntz) as CREATED_AT, cast(LAST_ALTERED as timestamp_ntz) as LAST_ALTERED, ""COMMENT"" as TABLE_COMMENT from {DB}.{SCHEMA}.VW_BRONZE_TABLE_CURRENT_COUNT union all select 'SILVER' as LAYER, ""DATABASE"" as DATABASE_NAME, ""SCHEMA"" as SCHEMA_NAME, ""TABLE"" as TABLE_NAME, IS_DYNAMIC, ROW_COUNT, BYTES, RETENTION_TIME, cast(CREATED_AT as timestamp_ntz) as CREATED_AT, cast(LAST_ALTERED as timestamp_ntz) as LAST_ALTERED, ""COMMENT"" as TABLE_COMMENT from {DB}.{SCHEMA}.VW_SILVER_TABLE_CURRENT_COUNT union all select 'GOLD' as LAYER, ""DATABASE"" as DATABASE_NAME, ""SCHEMA"" as SCHEMA_NAME, ""TABLE"" as TABLE_NAME, IS_DYNAMIC, ROW_COUNT, BYTES, RETENTION_TIME, cast(CREATED_AT as timestamp_ntz) as CREATED_AT, cast(LAST_ALTERED as timestamp_ntz) as LAST_ALTERED, ""COMMENT"" as TABLE_COMMENT from {DB}.{SCHEMA}.VW_GOLD_TABLE_CURRENT_COUNT", "{DB}", SnowflakeDatabase), "{SCHEMA}", SnowflakeSchema),
+				    Result = Value.NativeQuery(Db, Sql, null, [EnableFolding=true])
+				in
+				    Result
+
+	annotation PBI_ResultType = Table
+

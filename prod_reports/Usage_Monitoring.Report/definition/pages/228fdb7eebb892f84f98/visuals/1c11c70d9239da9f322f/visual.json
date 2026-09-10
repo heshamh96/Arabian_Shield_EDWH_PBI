@@ -1,0 +1,70 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "1c11c70d9239da9f322f",
+  "position": {
+    "x": 12,
+    "y": 410,
+    "z": 8,
+    "height": 298,
+    "width": 618,
+    "tabOrder": 80
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hourly_Consumption"
+                    }
+                  },
+                  "Property": "WAREHOUSE_NAME"
+                }
+              },
+              "queryRef": "Hourly_Consumption.WAREHOUSE_NAME",
+              "nativeQueryRef": "WAREHOUSE_NAME"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hourly_Consumption"
+                    }
+                  },
+                  "Property": "Cost (7d)"
+                }
+              },
+              "queryRef": "Hourly_Consumption.Cost (7d)",
+              "nativeQueryRef": "Cost (7d)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hourly_Consumption"
+                    }
+                  },
+                  "Property": "Credits (7d)"
+                }
+              },
+              "queryRef": "Hourly_Consumption.Credits (7d)",
+              "nativeQueryRef": "Credits (7d)"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

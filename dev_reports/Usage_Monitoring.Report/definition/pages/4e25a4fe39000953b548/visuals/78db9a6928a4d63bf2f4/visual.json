@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "78db9a6928a4d63bf2f4",
+  "position": {
+    "x": 223,
+    "y": 12,
+    "z": 1,
+    "height": 88,
+    "width": 201,
+    "tabOrder": 10
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Daily_Consumption"
+                    }
+                  },
+                  "Property": "Total Credits"
+                }
+              },
+              "queryRef": "Daily_Consumption.Total Credits",
+              "nativeQueryRef": "Total Credits"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

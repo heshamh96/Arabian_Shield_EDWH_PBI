@@ -1,0 +1,15 @@
+relationship befccddb-792d-47a4-853a-7b00ac178e4f
+	fromColumn: DTS_Refresh.REFRESH_DATE
+	toColumn: Date.Date
+
+relationship b3553e0d-42b8-4282-b59a-191765133f7e
+	fromColumn: Table_Snapshots.SNAPSHOT_DATE
+	toColumn: Date.Date
+
+relationship eda427f1-dbd2-4613-90b8-5917373533f8
+	fromColumn: Daily_Consumption.USAGE_DATE
+	toColumn: Date.Date
+
+relationship 1407cbbd-e445-4499-8bcd-dd00727f0088
+	fromColumn: Hourly_Consumption.USAGE_DATE
+	toColumn: Date.Date

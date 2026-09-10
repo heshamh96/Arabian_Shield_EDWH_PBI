@@ -4,8 +4,8 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 222.05013005472483,
-        "y": 1288.639237901858
+        "x": 1225.1308112241686,
+        "y": 868.72912068622861
       },
       "nodes": [
         {
@@ -503,7 +503,10 @@
           "zIndex": 0
         },
         {
-          "location": {},
+          "location": {
+            "x": 5564.8584845968107,
+            "y": 1297.6584454749493
+          },
           "nodeIndex": "A_REF_NATIONALITY_RP",
           "size": {
             "height": 200,
@@ -513,7 +516,7 @@
         }
       ],
       "name": "All tables",
-      "zoomValue": 80.162078696432843,
+      "zoomValue": 53.871798338049992,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,
@@ -522,8 +525,8 @@
     {
       "ordinal": 1,
       "scrollPosition": {
-        "x": 0,
-        "y": 266.44276358724983
+        "x": 753.64001296366325,
+        "y": 428.50354851799307
       },
       "nodes": [
         {
@@ -697,13 +700,13 @@
         }
       ],
       "name": "Layout 1",
-      "zoomValue": 56.447393005377734,
+      "zoomValue": 53.2084275121064,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,
       "tablesLocked": false
     }
   ],
-  "selectedDiagram": "Layout 1",
+  "selectedDiagram": "All tables",
   "defaultDiagram": "All tables"
 }

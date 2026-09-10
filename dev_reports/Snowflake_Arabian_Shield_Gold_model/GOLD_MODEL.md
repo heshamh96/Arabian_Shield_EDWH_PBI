@@ -79,7 +79,7 @@ Opening the `.pbip` takes ~90s and reports problems only through a dialog. To
 check the TMDL in about a second using Power BI's own parser:
 
 ```powershell
-..\tools\Validate-Tmdl.ps1
+..\..\tools\Validate-Tmdl.ps1
 ```
 
 This validates syntax and structure. It is worth running after any hand-edit to
@@ -91,7 +91,7 @@ exposed to UI Automation. To read that dialog — including over RDP, where scre
 capture is unavailable:
 
 ```powershell
-..\tools\Grab-Window.ps1 -TitleLike "Issues were found"
+..\..\tools\Grab-Window.ps1 -TitleLike "Issues were found"
 ```
 
 That is how the second bug was found: one-to-one relationships must carry
@@ -100,34 +100,50 @@ for One-to-One relationships should always be set to BothDirections."*
 
 ## Repo layout
 
+Each report lives in its own folder under `dev_reports/` or `prod_reports/`,
+holding the `.pbip` pointer and its two artefact folders together so the
+relative references between them keep resolving:
+
 ```
-Snowflake_Arabian_Shield_Gold_model.pbip          project pointer
-Snowflake_Arabian_Shield_Gold_model.SemanticModel/
-  definition/
-    model.tmdl          model settings + table refs
-    expressions.tmdl    connection parameters  ← edit here
-    tables/*.tmdl       38 tables, 838 columns
-Snowflake_Arabian_Shield_Gold_model.Report/
-  definition/pages/     report pages (one folder per page)
+dev_reports/Snowflake_Arabian_Shield_Gold_model/
+  GOLD_MODEL.md                                   this file
+  Snowflake_Arabian_Shield_Gold_model.pbip        project pointer
+  Snowflake_Arabian_Shield_Gold_model.SemanticModel/
+    definition/
+      model.tmdl          model settings + table refs
+      expressions.tmdl    connection parameters  ← edit here
+      relationships.tmdl  55 relationships
+      tables/*.tmdl       39 tables, 847 columns
+  Snowflake_Arabian_Shield_Gold_model.Report/
+    definition/pages/     report pages (one folder per page)
 ```
+
+38 of the 39 tables are DirectQuery. The exception is
+`A_REF_NATIONALITY_RP`, an Import-mode role-playing copy of the nationality
+lookup — the fix for the conformed-dimension ambiguity described in
+[RELATIONSHIPS.md](../../RELATIONSHIPS.md).
 
 ## Secrets
 
-`qlik_dev_key.p8` and `credinitals.txt` live in this folder but are excluded by
-[`.gitignore`](../.gitignore). Verify before any first push to a new remote:
+Credentials live in [`Dev_Credintials/`](../../Dev_Credintials) at the repo
+root, not in this folder, and are excluded by [`.gitignore`](../../.gitignore).
+Verify before any first push to a new remote:
 
-```powershell
-git check-ignore -v qlik_dev_key.p8 credinitals.txt   # must print a match for each
+```bash
+git check-ignore -v ../../Dev_Credintials/*
 ```
 
-Two standing risks worth fixing:
+Two standing risks, unchanged:
 
-- The private key sits **inside** the working tree. One `git add -f` and it is in
-  history permanently. Moving it to a folder outside the repo removes the risk.
+- The keys sit **inside** the working tree. One `git add -f` and a key is in
+  history permanently. A folder outside the repo removes the risk entirely.
 - The key has an **empty passphrase** — the file alone grants full
-  `SVC_QLIK_DEV` access. Re-encrypting it with a real passphrase is cheap:
-  `openssl pkcs8 -topk8 -v2 aes-256-cbc -in qlik_dev_key.p8 -out qlik_dev_key_enc.p8`
-  (no Snowflake-side change needed; the key pair itself is unchanged).
+  `SVC_QLIK_DEV` access. It is also shared with a **Qlik** workload on the same
+  service account, so rotating it breaks Qlik too; use `RSA_PUBLIC_KEY_2` to
+  rotate without downtime.
+
+See the [root README](../../README.md) for why the connection must use
+`qlik_dev_key_unencrypted.p8` rather than the encrypted-looking original.
 
 ## Relationships
 
@@ -135,7 +151,7 @@ Built from the `Ref` block of `DWH_Physical_Model_Mix_Prefix_reduced.sql` (the
 dbdiagram.io DBML), not guessed from column names — 55 `Ref`s parsed, 27 active,
 27 inactive, 1 dropped. Every endpoint is validated against the deployed schema.
 
-**See [RELATIONSHIPS.md](../RELATIONSHIPS.md)** for the full edge list, why each
+**See [RELATIONSHIPS.md](../../RELATIONSHIPS.md)** for the full edge list, why each
 inactive one is inactive, and the path that substitutes for it.
 
 The short version: GOLD is a snowflake, so facts reach the same dimension by

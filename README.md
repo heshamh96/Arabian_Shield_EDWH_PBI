@@ -5,20 +5,33 @@ plain text so they can be diffed, reviewed and branched like any other code.
 
 ## Layout
 
+One folder per report, named after the report, holding its `.pbip` pointer and
+both artefact folders together. Power BI's references between them are relative,
+so keeping the three side by side is what lets a report be moved, copied between
+environments or renamed without editing anything inside it.
+
 ```
-dev_reports/                         → ASCI-EDP (account ZN91934)
-  Snowflake_Arabian_Shield_Gold_model.*   insurance model over ARABIANSHIELD_DEV.GOLD
-  Usage_Monitoring.*                      platform telemetry over MONITORING_DB
-  GOLD_MODEL.md                           docs for the gold model
-prod_reports/                        → ASCI-EDP_PRD (account TG52301)
-  Usage_Monitoring.*                      same report, prod parameters
-                                          (a prod gold model will land here later)
-Dev_Credintials/  Prod_Credintials/  keys + connection metadata — gitignored
-tools/                               validation, screen capture, generators
-RELATIONSHIPS.md                     gold model relationship audit
-USAGE_MONITORING.md                  usage monitoring measures and gaps
-DWH_Physical_Model_Mix_Prefix_reduced.sql   dbdiagram.io physical model (source of truth
-                                            for the gold model's relationships)
+dev_reports/                                    → ASCI-EDP (account ZN91934)
+  Snowflake_Arabian_Shield_Gold_model/
+    Snowflake_Arabian_Shield_Gold_model.pbip
+    Snowflake_Arabian_Shield_Gold_model.Report/
+    Snowflake_Arabian_Shield_Gold_model.SemanticModel/
+    GOLD_MODEL.md                               docs for this report
+  Usage_Monitoring/
+    Usage_Monitoring.pbip
+    Usage_Monitoring.Report/
+    Usage_Monitoring.SemanticModel/
+
+prod_reports/                                   → ASCI-EDP_PRD (account TG52301)
+  Usage_Monitoring/                             same report, prod parameters
+    ...                                         (a prod gold model lands here later)
+
+Dev_Credintials/  Prod_Credintials/   keys + connection metadata — gitignored
+tools/                                validation, screen capture, generators
+RELATIONSHIPS.md                      gold model relationship audit
+USAGE_MONITORING.md                   usage monitoring measures and gaps
+DWH_Physical_Model_Mix_Prefix_reduced.sql   dbdiagram.io physical model (source of
+                                            truth for the gold model's relationships)
 ```
 
 ## Environments
@@ -42,7 +55,7 @@ repointing an environment is one file, not one edit per table.
 
 | Report | Docs | Storage mode | Why |
 |---|---|---|---|
-| Gold model | [dev_reports/GOLD_MODEL.md](dev_reports/GOLD_MODEL.md) | DirectQuery | `D_DIM_POLICY_BENEFIT` alone is ~305M rows |
+| Gold model | [GOLD_MODEL.md](dev_reports/Snowflake_Arabian_Shield_Gold_model/GOLD_MODEL.md) | DirectQuery | `D_DIM_POLICY_BENEFIT` alone is ~305M rows |
 | Usage monitoring | [USAGE_MONITORING.md](USAGE_MONITORING.md) | Import | whole model is well under 1M rows |
 
 ## Credentials

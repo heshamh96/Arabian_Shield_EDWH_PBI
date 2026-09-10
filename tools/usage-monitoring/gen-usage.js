@@ -24,7 +24,7 @@ const ENVS = {
   },
 };
 const NAME = 'Usage_Monitoring';
-const THEME_SRC = path.join(REPO, 'dev_reports', 'Snowflake_Arabian_Shield_Gold_model.Report', 'StaticResources');
+const THEME_SRC = path.join(REPO, 'dev_reports', 'Snowflake_Arabian_Shield_Gold_model', 'Snowflake_Arabian_Shield_Gold_model.Report', 'StaticResources');
 
 // Deterministic ids so regenerating produces no spurious diffs.
 const guid = s => { const h = crypto.createHash('sha1').update('usage|' + s).digest('hex');

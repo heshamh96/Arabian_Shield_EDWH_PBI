@@ -78,7 +78,8 @@ function dateTmdl() {
 // -------------------------------------------------------------- writer -----
 function build(envName) {
   const env = ENVS[envName];
-  const base = `${env.root}/${NAME}`;
+  // one folder per report: <env>_reports/<Name>/<Name>.{pbip,Report,SemanticModel}
+  const base = `${env.root}/${NAME}/${NAME}`;
   const SM = `${base}.SemanticModel`, RP = `${base}.Report`;
   fs.rmSync(SM, { recursive: true, force: true });
   fs.rmSync(RP, { recursive: true, force: true });

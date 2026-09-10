@@ -1,0 +1,127 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "16914ea99a4bc0115d11",
+  "position": {
+    "x": 12,
+    "y": 460,
+    "z": 14,
+    "height": 248,
+    "width": 1256,
+    "tabOrder": 140
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Current_Tables"
+                        }
+                      },
+                      "Hierarchy": "Inventory"
+                    }
+                  },
+                  "Level": "LAYER"
+                }
+              },
+              "queryRef": "Current_Tables.Inventory.LAYER",
+              "nativeQueryRef": "LAYER"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Current_Tables"
+                    }
+                  },
+                  "Property": "TABLE_NAME"
+                }
+              },
+              "queryRef": "Current_Tables.TABLE_NAME",
+              "nativeQueryRef": "TABLE_NAME"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Current_Tables"
+                    }
+                  },
+                  "Property": "IS_DYNAMIC"
+                }
+              },
+              "queryRef": "Current_Tables.IS_DYNAMIC",
+              "nativeQueryRef": "IS_DYNAMIC"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Current_Tables"
+                    }
+                  },
+                  "Property": "Current Rows"
+                }
+              },
+              "queryRef": "Current_Tables.Current Rows",
+              "nativeQueryRef": "Current Rows"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Current_Tables"
+                    }
+                  },
+                  "Property": "Current Storage GB"
+                }
+              },
+              "queryRef": "Current_Tables.Current Storage GB",
+              "nativeQueryRef": "Current Storage GB"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Current_Tables"
+                    }
+                  },
+                  "Property": "RETENTION_TIME"
+                }
+              },
+              "queryRef": "Current_Tables.RETENTION_TIME",
+              "nativeQueryRef": "RETENTION_TIME"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Current_Tables"
+                    }
+                  },
+                  "Property": "LAST_ALTERED"
+                }
+              },
+              "queryRef": "Current_Tables.LAST_ALTERED",
+              "nativeQueryRef": "LAST_ALTERED"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

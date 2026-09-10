@@ -1,0 +1,70 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "f8fba2608663da816794",
+  "position": {
+    "x": 12,
+    "y": 204,
+    "z": 12,
+    "height": 248,
+    "width": 618,
+    "tabOrder": 120
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Date"
+                    }
+                  },
+                  "Property": "Date"
+                }
+              },
+              "queryRef": "Date.Date",
+              "nativeQueryRef": "Date"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Daily_Consumption"
+                    }
+                  },
+                  "Property": "Estimated Cost"
+                }
+              },
+              "queryRef": "Daily_Consumption.Estimated Cost",
+              "nativeQueryRef": "Estimated Cost"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Daily_Consumption"
+                    }
+                  },
+                  "Property": "Credits 7D Avg"
+                }
+              },
+              "queryRef": "Daily_Consumption.Credits 7D Avg",
+              "nativeQueryRef": "Credits 7D Avg"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

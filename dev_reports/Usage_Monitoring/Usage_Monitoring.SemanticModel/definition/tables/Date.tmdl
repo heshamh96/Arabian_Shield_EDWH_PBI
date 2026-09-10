@@ -32,14 +32,24 @@ table 'Date'
 	column 'Month Name'
 		dataType: string
 		lineageTag: 9538e393-952d-4053-bcfa-805c2cf1cd7b
+		sortByColumn: 'Month Sort'
 		summarizeBy: none
 		sourceColumn: [Month Name]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Sort'
+		dataType: int64
+		lineageTag: 087fc040-7896-4223-9c5b-597b6b73728c
+		summarizeBy: none
+		sourceColumn: [Month Sort]
 
 		annotation SummarizationSetBy = Automatic
 
 	column 'Day of Week'
 		dataType: string
 		lineageTag: 6d855cb9-3aca-4b3a-ba71-a2acd28c3756
+		sortByColumn: 'Day of Week No'
 		summarizeBy: none
 		sourceColumn: [Day of Week]
 
@@ -70,6 +80,21 @@ table 'Date'
 
 		annotation SummarizationSetBy = Automatic
 
+	hierarchy Calendar
+		lineageTag: 9cf298ef-94aa-42e9-a702-4f71663ee042
+
+		level Year
+			lineageTag: a7c19357-fe1a-44c4-b480-2a168d07b032
+			column: Year
+
+		level 'Month Name'
+			lineageTag: 501aa31c-35db-44bf-b5ea-09938956fdf5
+			column: 'Month Name'
+
+		level Date
+			lineageTag: 34d76add-5e71-4776-8b5b-90b67af1e210
+			column: Date
+
 	partition 'Date' = calculated
 		mode: import
 		source =
@@ -90,6 +115,7 @@ table 'Date'
 				    "Year", YEAR([Date]),
 				    "Month", FORMAT([Date], "yyyy-MM"),
 				    "Month Name", FORMAT([Date], "MMM yyyy"),
+				    "Month Sort", YEAR([Date]) * 100 + MONTH([Date]),
 				    "Day of Week", FORMAT([Date], "ddd"),
 				    "Day of Week No", WEEKDAY([Date], 2),
 				    "Is Weekend", WEEKDAY([Date], 2) > 5,

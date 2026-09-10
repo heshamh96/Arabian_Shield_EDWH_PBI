@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "8663c9c06b624efa06a6",
+  "position": {
+    "x": 856,
+    "y": 112,
+    "z": 11,
+    "height": 84,
+    "width": 201,
+    "tabOrder": 110
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Table_Snapshots"
+                    }
+                  },
+                  "Property": "Row Growth 30D %"
+                }
+              },
+              "queryRef": "Table_Snapshots.Row Growth 30D %",
+              "nativeQueryRef": "Row Growth 30D %"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "bda84724dcd37a1eb09c",
+  "position": {
+    "x": 650,
+    "y": 460,
+    "z": 15,
+    "height": 248,
+    "width": 618,
+    "tabOrder": 150
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Current_Tables"
+                    }
+                  },
+                  "Property": "LAYER"
+                }
+              },
+              "queryRef": "Current_Tables.LAYER",
+              "nativeQueryRef": "LAYER"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Current_Tables"
+                    }
+                  },
+                  "Property": "Tables Monitored"
+                }
+              },
+              "queryRef": "Current_Tables.Tables Monitored",
+              "nativeQueryRef": "Tables Monitored"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Table_Snapshots"
+                    }
+                  },
+                  "Property": "Row Growth 7D %"
+                }
+              },
+              "queryRef": "Table_Snapshots.Row Growth 7D %",
+              "nativeQueryRef": "Row Growth 7D %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "Success Rate %"
+                }
+              },
+              "queryRef": "DTS_Refresh.Success Rate %",
+              "nativeQueryRef": "Success Rate %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "Target Lag Breach %"
+                }
+              },
+              "queryRef": "DTS_Refresh.Target Lag Breach %",
+              "nativeQueryRef": "Target Lag Breach %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Current_Tables"
+                    }
+                  },
+                  "Property": "Current Storage GB"
+                }
+              },
+              "queryRef": "Current_Tables.Current Storage GB",
+              "nativeQueryRef": "Current Storage GB"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

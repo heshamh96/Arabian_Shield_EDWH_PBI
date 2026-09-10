@@ -1,0 +1,108 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "1a6231611c3cb902a217",
+  "position": {
+    "x": 650,
+    "y": 460,
+    "z": 15,
+    "height": 248,
+    "width": 618,
+    "tabOrder": 150
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hourly_Consumption"
+                    }
+                  },
+                  "Property": "WAREHOUSE_NAME"
+                }
+              },
+              "queryRef": "Hourly_Consumption.WAREHOUSE_NAME",
+              "nativeQueryRef": "WAREHOUSE_NAME"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hourly_Consumption"
+                    }
+                  },
+                  "Property": "Credits (7d)"
+                }
+              },
+              "queryRef": "Hourly_Consumption.Credits (7d)",
+              "nativeQueryRef": "Credits (7d)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hourly_Consumption"
+                    }
+                  },
+                  "Property": "Cost (7d)"
+                }
+              },
+              "queryRef": "Hourly_Consumption.Cost (7d)",
+              "nativeQueryRef": "Cost (7d)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hourly_Consumption"
+                    }
+                  },
+                  "Property": "Active Hours"
+                }
+              },
+              "queryRef": "Hourly_Consumption.Active Hours",
+              "nativeQueryRef": "Active Hours"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hourly_Consumption"
+                    }
+                  },
+                  "Property": "Idle Hours"
+                }
+              },
+              "queryRef": "Hourly_Consumption.Idle Hours",
+              "nativeQueryRef": "Idle Hours"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hourly_Consumption"
+                    }
+                  },
+                  "Property": "Utilisation %"
+                }
+              },
+              "queryRef": "Hourly_Consumption.Utilisation %",
+              "nativeQueryRef": "Utilisation %"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

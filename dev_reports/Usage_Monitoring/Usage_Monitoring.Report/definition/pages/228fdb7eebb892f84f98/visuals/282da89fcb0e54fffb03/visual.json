@@ -2,55 +2,37 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "282da89fcb0e54fffb03",
   "position": {
-    "x": 650,
-    "y": 410,
+    "x": 645,
+    "y": 112,
     "z": 9,
-    "height": 298,
-    "width": 618,
+    "height": 84,
+    "width": 201,
     "tabOrder": 90
   },
   "visual": {
-    "visualType": "clusteredColumnChart",
+    "visualType": "cardVisual",
+    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Hourly_Consumption"
-                    }
-                  },
-                  "Property": "USAGE_HOUR"
-                }
-              },
-              "queryRef": "Hourly_Consumption.USAGE_HOUR",
-              "nativeQueryRef": "USAGE_HOUR"
-            }
-          ]
-        },
-        "Y": {
+        "Data": {
           "projections": [
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Hourly_Consumption"
+                      "Entity": "Daily_Consumption"
                     }
                   },
-                  "Property": "Credits (7d)"
+                  "Property": "Run Rate (30d) USD"
                 }
               },
-              "queryRef": "Hourly_Consumption.Credits (7d)",
-              "nativeQueryRef": "Credits (7d)"
+              "queryRef": "Daily_Consumption.Run Rate (30d) USD",
+              "nativeQueryRef": "Run Rate (30d) USD"
             }
           ]
         }
       }
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }

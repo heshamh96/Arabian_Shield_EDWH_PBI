@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "576e437eb514e5543659",
+  "position": {
+    "x": 12,
+    "y": 204,
+    "z": 13,
+    "height": 248,
+    "width": 618,
+    "tabOrder": 130
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Date"
+                    }
+                  },
+                  "Property": "Date"
+                }
+              },
+              "queryRef": "Date.Date",
+              "nativeQueryRef": "Date"
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Table_Snapshots"
+                    }
+                  },
+                  "Property": "LAYER"
+                }
+              },
+              "queryRef": "Table_Snapshots.LAYER",
+              "nativeQueryRef": "LAYER"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Table_Snapshots"
+                    }
+                  },
+                  "Property": "Rows (Snapshot)"
+                }
+              },
+              "queryRef": "Table_Snapshots.Rows (Snapshot)",
+              "nativeQueryRef": "Rows (Snapshot)"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

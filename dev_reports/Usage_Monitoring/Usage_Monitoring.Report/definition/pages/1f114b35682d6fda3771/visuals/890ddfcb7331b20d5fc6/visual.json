@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "890ddfcb7331b20d5fc6",
+  "position": {
+    "x": 12,
+    "y": 204,
+    "z": 13,
+    "height": 248,
+    "width": 618,
+    "tabOrder": 130
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "REFRESH_ACTION"
+                }
+              },
+              "queryRef": "DTS_Refresh.REFRESH_ACTION",
+              "nativeQueryRef": "REFRESH_ACTION"
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "LAYER"
+                }
+              },
+              "queryRef": "DTS_Refresh.LAYER",
+              "nativeQueryRef": "LAYER"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "Total Refreshes"
+                }
+              },
+              "queryRef": "DTS_Refresh.Total Refreshes",
+              "nativeQueryRef": "Total Refreshes"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

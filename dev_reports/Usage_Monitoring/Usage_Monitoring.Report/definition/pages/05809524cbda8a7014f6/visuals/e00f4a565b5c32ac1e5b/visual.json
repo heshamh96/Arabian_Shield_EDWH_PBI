@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "e00f4a565b5c32ac1e5b",
+  "position": {
+    "x": 1067,
+    "y": 112,
+    "z": 12,
+    "height": 84,
+    "width": 201,
+    "tabOrder": 120
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "Failure Concentration %"
+                }
+              },
+              "queryRef": "DTS_Refresh.Failure Concentration %",
+              "nativeQueryRef": "Failure Concentration %"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

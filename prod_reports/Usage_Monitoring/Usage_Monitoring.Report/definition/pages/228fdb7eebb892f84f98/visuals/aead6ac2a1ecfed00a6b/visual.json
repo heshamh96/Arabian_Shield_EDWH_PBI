@@ -2,36 +2,19 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "aead6ac2a1ecfed00a6b",
   "position": {
-    "x": 650,
-    "y": 110,
+    "x": 223,
+    "y": 112,
     "z": 7,
-    "height": 290,
-    "width": 618,
+    "height": 84,
+    "width": 201,
     "tabOrder": 70
   },
   "visual": {
-    "visualType": "clusteredColumnChart",
+    "visualType": "cardVisual",
+    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Date"
-                    }
-                  },
-                  "Property": "Month"
-                }
-              },
-              "queryRef": "Date.Month",
-              "nativeQueryRef": "Month"
-            }
-          ]
-        },
-        "Y": {
+        "Data": {
           "projections": [
             {
               "field": {
@@ -41,16 +24,15 @@
                       "Entity": "Daily_Consumption"
                     }
                   },
-                  "Property": "Estimated Cost"
+                  "Property": "Cost MTD"
                 }
               },
-              "queryRef": "Daily_Consumption.Estimated Cost",
-              "nativeQueryRef": "Estimated Cost"
+              "queryRef": "Daily_Consumption.Cost MTD",
+              "nativeQueryRef": "Cost MTD"
             }
           ]
         }
       }
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }

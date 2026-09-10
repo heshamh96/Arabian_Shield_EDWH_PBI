@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "c1b94efcc7bfaffc8142",
+  "position": {
+    "x": 650,
+    "y": 204,
+    "z": 14,
+    "height": 248,
+    "width": 618,
+    "tabOrder": 140
+  },
+  "visual": {
+    "visualType": "donutChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "REFRESH_TRIGGER"
+                }
+              },
+              "queryRef": "DTS_Refresh.REFRESH_TRIGGER",
+              "nativeQueryRef": "REFRESH_TRIGGER"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "Total Refreshes"
+                }
+              },
+              "queryRef": "DTS_Refresh.Total Refreshes",
+              "nativeQueryRef": "Total Refreshes"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

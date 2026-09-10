@@ -1,0 +1,108 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "0d50545ff989868bf704",
+  "position": {
+    "x": 650,
+    "y": 460,
+    "z": 16,
+    "height": 248,
+    "width": 618,
+    "tabOrder": 160
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Table_Snapshots"
+                    }
+                  },
+                  "Property": "LAYER"
+                }
+              },
+              "queryRef": "Table_Snapshots.LAYER",
+              "nativeQueryRef": "LAYER"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Table_Snapshots"
+                    }
+                  },
+                  "Property": "TABLE_NAME"
+                }
+              },
+              "queryRef": "Table_Snapshots.TABLE_NAME",
+              "nativeQueryRef": "TABLE_NAME"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Table_Snapshots"
+                    }
+                  },
+                  "Property": "Rows (Latest)"
+                }
+              },
+              "queryRef": "Table_Snapshots.Rows (Latest)",
+              "nativeQueryRef": "Rows (Latest)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Table_Snapshots"
+                    }
+                  },
+                  "Property": "Row Growth 7D"
+                }
+              },
+              "queryRef": "Table_Snapshots.Row Growth 7D",
+              "nativeQueryRef": "Row Growth 7D"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Table_Snapshots"
+                    }
+                  },
+                  "Property": "Row Growth 7D %"
+                }
+              },
+              "queryRef": "Table_Snapshots.Row Growth 7D %",
+              "nativeQueryRef": "Row Growth 7D %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Table_Snapshots"
+                    }
+                  },
+                  "Property": "Storage GB (Latest)"
+                }
+              },
+              "queryRef": "Table_Snapshots.Storage GB (Latest)",
+              "nativeQueryRef": "Storage GB (Latest)"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

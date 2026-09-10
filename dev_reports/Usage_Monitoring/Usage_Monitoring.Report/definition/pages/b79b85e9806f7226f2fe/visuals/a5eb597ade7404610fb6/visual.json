@@ -2,54 +2,19 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "a5eb597ade7404610fb6",
   "position": {
-    "x": 650,
-    "y": 110,
+    "x": 12,
+    "y": 112,
     "z": 7,
-    "height": 290,
-    "width": 618,
+    "height": 84,
+    "width": 201,
     "tabOrder": 70
   },
   "visual": {
-    "visualType": "lineChart",
+    "visualType": "cardVisual",
+    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Date"
-                    }
-                  },
-                  "Property": "Date"
-                }
-              },
-              "queryRef": "Date.Date",
-              "nativeQueryRef": "Date"
-            }
-          ]
-        },
-        "Series": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Table_Snapshots"
-                    }
-                  },
-                  "Property": "LAYER"
-                }
-              },
-              "queryRef": "Table_Snapshots.LAYER",
-              "nativeQueryRef": "LAYER"
-            }
-          ]
-        },
-        "Y": {
+        "Data": {
           "projections": [
             {
               "field": {
@@ -59,16 +24,15 @@
                       "Entity": "Table_Snapshots"
                     }
                   },
-                  "Property": "Storage GB (Snapshot)"
+                  "Property": "Rows (Latest)"
                 }
               },
-              "queryRef": "Table_Snapshots.Storage GB (Snapshot)",
-              "nativeQueryRef": "Storage GB (Snapshot)"
+              "queryRef": "Table_Snapshots.Rows (Latest)",
+              "nativeQueryRef": "Rows (Latest)"
             }
           ]
         }
       }
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }

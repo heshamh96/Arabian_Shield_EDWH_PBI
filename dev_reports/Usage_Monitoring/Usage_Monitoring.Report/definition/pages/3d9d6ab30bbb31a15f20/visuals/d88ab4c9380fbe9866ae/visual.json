@@ -1,0 +1,70 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "d88ab4c9380fbe9866ae",
+  "position": {
+    "x": 12,
+    "y": 204,
+    "z": 13,
+    "height": 248,
+    "width": 618,
+    "tabOrder": 130
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Date"
+                    }
+                  },
+                  "Property": "Date"
+                }
+              },
+              "queryRef": "Date.Date",
+              "nativeQueryRef": "Date"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "Failure Rate %"
+                }
+              },
+              "queryRef": "DTS_Refresh.Failure Rate %",
+              "nativeQueryRef": "Failure Rate %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "Target Lag Breach %"
+                }
+              },
+              "queryRef": "DTS_Refresh.Target Lag Breach %",
+              "nativeQueryRef": "Target Lag Breach %"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

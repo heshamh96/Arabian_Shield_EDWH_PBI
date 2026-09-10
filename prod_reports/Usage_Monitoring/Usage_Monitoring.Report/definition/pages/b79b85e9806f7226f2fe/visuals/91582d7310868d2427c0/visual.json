@@ -2,36 +2,19 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "91582d7310868d2427c0",
   "position": {
-    "x": 12,
-    "y": 410,
+    "x": 223,
+    "y": 112,
     "z": 8,
-    "height": 298,
-    "width": 618,
+    "height": 84,
+    "width": 201,
     "tabOrder": 80
   },
   "visual": {
-    "visualType": "clusteredBarChart",
+    "visualType": "cardVisual",
+    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Table_Snapshots"
-                    }
-                  },
-                  "Property": "TABLE_NAME"
-                }
-              },
-              "queryRef": "Table_Snapshots.TABLE_NAME",
-              "nativeQueryRef": "TABLE_NAME"
-            }
-          ]
-        },
-        "Y": {
+        "Data": {
           "projections": [
             {
               "field": {
@@ -41,16 +24,15 @@
                       "Entity": "Table_Snapshots"
                     }
                   },
-                  "Property": "Row Growth 7D"
+                  "Property": "Storage GB (Latest)"
                 }
               },
-              "queryRef": "Table_Snapshots.Row Growth 7D",
-              "nativeQueryRef": "Row Growth 7D"
+              "queryRef": "Table_Snapshots.Storage GB (Latest)",
+              "nativeQueryRef": "Storage GB (Latest)"
             }
           ]
         }
       }
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }

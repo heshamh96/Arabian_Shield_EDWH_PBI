@@ -2,33 +2,20 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "53db3cdefb28ff6c0ec3",
   "position": {
-    "x": 650,
-    "y": 410,
+    "x": 434,
+    "y": 112,
     "z": 9,
-    "height": 298,
-    "width": 618,
+    "height": 84,
+    "width": 201,
     "tabOrder": 90
   },
   "visual": {
-    "visualType": "tableEx",
+    "visualType": "cardVisual",
+    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
-        "Values": {
+        "Data": {
           "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Current_Tables"
-                    }
-                  },
-                  "Property": "LAYER"
-                }
-              },
-              "queryRef": "Current_Tables.LAYER",
-              "nativeQueryRef": "LAYER"
-            },
             {
               "field": {
                 "Measure": {
@@ -42,53 +29,10 @@
               },
               "queryRef": "Current_Tables.Tables Monitored",
               "nativeQueryRef": "Tables Monitored"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Current_Tables"
-                    }
-                  },
-                  "Property": "Dynamic Tables"
-                }
-              },
-              "queryRef": "Current_Tables.Dynamic Tables",
-              "nativeQueryRef": "Dynamic Tables"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Current_Tables"
-                    }
-                  },
-                  "Property": "Empty Tables"
-                }
-              },
-              "queryRef": "Current_Tables.Empty Tables",
-              "nativeQueryRef": "Empty Tables"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Current_Tables"
-                    }
-                  },
-                  "Property": "Current Storage GB"
-                }
-              },
-              "queryRef": "Current_Tables.Current Storage GB",
-              "nativeQueryRef": "Current Storage GB"
             }
           ]
         }
       }
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }

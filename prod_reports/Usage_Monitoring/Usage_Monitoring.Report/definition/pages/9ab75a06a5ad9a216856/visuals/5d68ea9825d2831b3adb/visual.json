@@ -2,37 +2,37 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "5d68ea9825d2831b3adb",
   "position": {
-    "x": 856,
-    "y": 12,
+    "x": 360,
+    "y": 60,
     "z": 4,
-    "height": 88,
-    "width": 201,
+    "height": 44,
+    "width": 300,
     "tabOrder": 40
   },
   "visual": {
-    "visualType": "cardVisual",
+    "visualType": "slicer",
+    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
         "Values": {
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
                       "Entity": "Current_Tables"
                     }
                   },
-                  "Property": "Avg Rows per Table"
+                  "Property": "LAYER"
                 }
               },
-              "queryRef": "Current_Tables.Avg Rows per Table",
-              "nativeQueryRef": "Avg Rows per Table"
+              "queryRef": "Current_Tables.LAYER",
+              "nativeQueryRef": "LAYER"
             }
           ]
         }
       }
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }

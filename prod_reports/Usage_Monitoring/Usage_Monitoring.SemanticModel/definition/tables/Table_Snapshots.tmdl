@@ -107,6 +107,21 @@ table Table_Snapshots
 
 		annotation SummarizationSetBy = Automatic
 
+	hierarchy Storage
+		lineageTag: 94a8306b-cab3-4a49-9f73-334780995e02
+
+		level LAYER
+			lineageTag: c22bddb8-cfa3-436b-be73-4df09d0d1c53
+			column: LAYER
+
+		level SCHEMA_NAME
+			lineageTag: 4bd283c4-c991-4a08-9e6c-f30881602d4e
+			column: SCHEMA_NAME
+
+		level TABLE_NAME
+			lineageTag: 68997959-bb5d-403b-ae15-1dd752dea783
+			column: TABLE_NAME
+
 	/// Only meaningful with a single date in filter context.
 	measure 'Rows (Snapshot)' = SUM(Table_Snapshots[ROW_COUNT])
 		formatString: #,0
@@ -145,9 +160,52 @@ table Table_Snapshots
 		formatString: 0.0%
 		lineageTag: 9256857e-e94a-4d7a-97b1-7d3d0c6b2042
 
+	measure 'Rows 30D Ago' = CALCULATE([Rows (Latest)], DATEADD('Date'[Date], -30, DAY))
+		formatString: #,0
+		lineageTag: badf05ae-7f03-4113-b154-05d4c8da9295
+
+	measure 'Row Growth 30D %' = DIVIDE([Rows (Latest)] - [Rows 30D Ago], [Rows 30D Ago])
+		formatString: 0.0%
+		lineageTag: 562c6f49-52c3-40ca-842b-73caff8ab188
+
+	/// Mean rows added per day over the last 30 days.
+	measure 'Avg Daily Row Growth' = DIVIDE([Row Growth 30D %] * [Rows 30D Ago], 30)
+		formatString: #,0
+		lineageTag: 566a623a-434f-4526-a5b9-8132ce0a9602
+
 	measure 'Tables in Snapshot' = DISTINCTCOUNT(Table_Snapshots[TABLE_NAME])
 		formatString: #,0
 		lineageTag: 6bc2fe67-460e-4cfa-a538-2f499309718c
+
+	/// Row width. A jump usually means a schema change or poor clustering.
+	measure 'Avg Bytes per Row' = DIVIDE(CALCULATE(SUM(Table_Snapshots[BYTES]), LASTNONBLANK('Date'[Date], [Rows (Snapshot)])), [Rows (Latest)])
+		formatString: #,0.00
+		lineageTag: 893610c3-6d28-4c73-b855-727e7d14fda4
+
+	measure 'Fastest Growing Table' = CALCULATE(FIRSTNONBLANK(Table_Snapshots[TABLE_NAME], 1), TOPN(1, ALLSELECTED(Table_Snapshots[TABLE_NAME]), [Row Growth 7D], DESC))
+		lineageTag: 418673d8-77f0-4b8f-851f-5f348a149008
+
+	measure 'Tables Growing' = COUNTROWS(FILTER(VALUES(Table_Snapshots[TABLE_NAME]), [Row Growth 7D] > 0))
+		formatString: #,0
+		lineageTag: 0525800b-c1ed-4820-9b0b-66cbed23fd1c
+
+	/// Shrinking tables are usually intentional pruning - or an upstream feed that broke.
+	measure 'Tables Shrinking' = COUNTROWS(FILTER(VALUES(Table_Snapshots[TABLE_NAME]), [Row Growth 7D] < 0))
+		formatString: #,0
+		lineageTag: 772e975e-626c-4c5e-8e2d-ee98c1a973a8
+
+	measure 'Tables Static 7D' = COUNTROWS(FILTER(VALUES(Table_Snapshots[TABLE_NAME]), [Row Growth 7D] = 0))
+		formatString: #,0
+		lineageTag: 10e35204-dda1-4c82-8257-fd7c57737740
+
+	measure 'Daily Growth GB' = DIVIDE([Storage GB (Latest)] - [Storage GB 7D Ago], 7)
+		formatString: #,0.00
+		lineageTag: 39eedcbb-7f4c-44e8-9153-a88be7a3bcc1
+
+	/// Straight-line projection from the last 7 days - a planning hint, not a forecast.
+	measure 'Projected GB in 90d' = [Storage GB (Latest)] + [Daily Growth GB] * 90
+		formatString: #,0.00
+		lineageTag: a0f7d019-96cd-41c2-9afc-80f04cfde0e4
 
 	partition Table_Snapshots = m
 		mode: import

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "8953f895d9e881c5c0dc",
+  "position": {
+    "x": 645,
+    "y": 112,
+    "z": 9,
+    "height": 84,
+    "width": 201,
+    "tabOrder": 90
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hourly_Consumption"
+                    }
+                  },
+                  "Property": "Warehouse Concentration %"
+                }
+              },
+              "queryRef": "Hourly_Consumption.Warehouse Concentration %",
+              "nativeQueryRef": "Warehouse Concentration %"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

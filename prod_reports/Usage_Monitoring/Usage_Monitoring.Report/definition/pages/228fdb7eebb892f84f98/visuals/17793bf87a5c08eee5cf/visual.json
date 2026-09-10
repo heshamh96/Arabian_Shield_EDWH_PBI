@@ -3,35 +3,18 @@
   "name": "17793bf87a5c08eee5cf",
   "position": {
     "x": 12,
-    "y": 110,
+    "y": 112,
     "z": 6,
-    "height": 290,
-    "width": 618,
+    "height": 84,
+    "width": 201,
     "tabOrder": 60
   },
   "visual": {
-    "visualType": "lineChart",
+    "visualType": "cardVisual",
+    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Date"
-                    }
-                  },
-                  "Property": "Date"
-                }
-              },
-              "queryRef": "Date.Date",
-              "nativeQueryRef": "Date"
-            }
-          ]
-        },
-        "Y": {
+        "Data": {
           "projections": [
             {
               "field": {
@@ -41,44 +24,15 @@
                       "Entity": "Daily_Consumption"
                     }
                   },
-                  "Property": "Total Credits"
+                  "Property": "Estimated Cost"
                 }
               },
-              "queryRef": "Daily_Consumption.Total Credits",
-              "nativeQueryRef": "Total Credits"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Daily_Consumption"
-                    }
-                  },
-                  "Property": "Compute Credits"
-                }
-              },
-              "queryRef": "Daily_Consumption.Compute Credits",
-              "nativeQueryRef": "Compute Credits"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Daily_Consumption"
-                    }
-                  },
-                  "Property": "Cloud Services Credits"
-                }
-              },
-              "queryRef": "Daily_Consumption.Cloud Services Credits",
-              "nativeQueryRef": "Cloud Services Credits"
+              "queryRef": "Daily_Consumption.Estimated Cost",
+              "nativeQueryRef": "Estimated Cost"
             }
           ]
         }
       }
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }

@@ -1,0 +1,75 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "94aae74c8fad62e367ac",
+  "position": {
+    "x": 12,
+    "y": 460,
+    "z": 15,
+    "height": 248,
+    "width": 618,
+    "tabOrder": 150
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DTS_Refresh"
+                        }
+                      },
+                      "Hierarchy": "Pipeline"
+                    }
+                  },
+                  "Level": "TABLE_NAME"
+                }
+              },
+              "queryRef": "DTS_Refresh.Pipeline.TABLE_NAME",
+              "nativeQueryRef": "TABLE_NAME"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "Avg Refresh Duration (s)"
+                }
+              },
+              "queryRef": "DTS_Refresh.Avg Refresh Duration (s)",
+              "nativeQueryRef": "Avg Refresh Duration (s)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "P95 Refresh Duration (s)"
+                }
+              },
+              "queryRef": "DTS_Refresh.P95 Refresh Duration (s)",
+              "nativeQueryRef": "P95 Refresh Duration (s)"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

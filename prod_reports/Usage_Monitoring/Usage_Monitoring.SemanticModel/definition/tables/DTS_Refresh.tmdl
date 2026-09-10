@@ -195,6 +195,21 @@ table DTS_Refresh
 
 		annotation SummarizationSetBy = Automatic
 
+	hierarchy Pipeline
+		lineageTag: 0fefe641-41b4-4698-9ef4-287041db4214
+
+		level LAYER
+			lineageTag: 5f1c9e13-a721-4340-a673-0f9fb0b4bd21
+			column: LAYER
+
+		level SCHEMA_NAME
+			lineageTag: 65952c63-7d94-44db-ad28-ca6051eebb5a
+			column: SCHEMA_NAME
+
+		level TABLE_NAME
+			lineageTag: cdcadc40-8dfc-4e8d-a490-c79134a00999
+			column: TABLE_NAME
+
 	/// Every refresh attempt recorded.
 	measure 'Total Refreshes' = COUNTROWS(DTS_Refresh)
 		formatString: #,0
@@ -225,9 +240,22 @@ table DTS_Refresh
 		formatString: #,0
 		lineageTag: 1f2ce324-f712-4ff1-bb2b-4a622cd6a9cd
 
+	measure 'Refresh Days' = DISTINCTCOUNT(DTS_Refresh[REFRESH_DATE])
+		formatString: #,0
+		lineageTag: 44aca8d3-5397-4bf5-a10e-5d5adf10e10f
+
+	measure 'Refreshes per Day' = DIVIDE([Total Refreshes], [Refresh Days])
+		formatString: #,0.00
+		lineageTag: 97492bd0-4562-4de9-b164-487de80110a0
+
 	measure 'Avg Refresh Duration (s)' = AVERAGE(DTS_Refresh[REFRESH_DURATION_SEC])
 		formatString: #,0.00
 		lineageTag: a5b83afd-5f35-426f-bf2b-2c80975ece6e
+
+	/// Half of refreshes finish faster than this.
+	measure 'Median Refresh Duration (s)' = MEDIANX(DTS_Refresh, DTS_Refresh[REFRESH_DURATION_SEC])
+		formatString: #,0.00
+		lineageTag: 97a623d1-0598-4666-9ddc-5803f7da33ee
 
 	measure 'Max Refresh Duration (s)' = MAX(DTS_Refresh[REFRESH_DURATION_SEC])
 		formatString: #,0
@@ -248,6 +276,11 @@ table DTS_Refresh
 		formatString: #,0.00
 		lineageTag: 022fff0a-0f13-4153-99b1-14bfeeab8948
 
+	/// Portion of elapsed time spent waiting rather than working.
+	measure 'Queue Share %' = DIVIDE(SUM(DTS_Refresh[QUEUED_MS]), SUM(DTS_Refresh[QUEUED_MS]) + SUM(DTS_Refresh[EXECUTION_MS]) + SUM(DTS_Refresh[COMPILATION_MS]))
+		formatString: 0.0%
+		lineageTag: 04e5a4b7-f48d-4012-a56a-24834a35c081
+
 	/// Refreshes that missed their freshness SLA.
 	measure 'Target Lag Breaches' = CALCULATE([Total Refreshes], DTS_Refresh[EXCEEDED_TARGET_LAG] = TRUE())
 		formatString: #,0
@@ -262,6 +295,10 @@ table DTS_Refresh
 		formatString: #,0.00
 		lineageTag: 0dd8274b-37bd-410b-b988-a04b0929781c
 
+	measure 'Worst Lag Overage (min)' = MAX(DTS_Refresh[LAG_OVERAGE_MIN])
+		formatString: #,0.00
+		lineageTag: 7e752705-a02b-4203-a32f-1dcd5001e2d8
+
 	measure 'Rows Inserted' = SUM(DTS_Refresh[ROWS_INSERTED])
 		formatString: #,0
 		lineageTag: 0c1e47b4-5e41-4b9f-83bf-97b7a62caf9b
@@ -270,10 +307,80 @@ table DTS_Refresh
 		formatString: #,0
 		lineageTag: 9ce9d7b7-74b5-4d94-8a88-7a629e8fc784
 
+	measure 'Net Rows Changed' = [Rows Inserted] - [Rows Deleted]
+		formatString: #,0
+		lineageTag: 5936478c-138f-4ecd-9db4-037d6db4ed6f
+
+	/// Throughput. A falling value on steady volume means degradation.
+	measure 'Rows per Refresh Second' = DIVIDE([Rows Inserted], SUM(DTS_Refresh[REFRESH_DURATION_SEC]))
+		formatString: #,0.00
+		lineageTag: 33230cff-7209-4ea7-b0cd-72a11233b7ce
+
 	/// Scheduled runs that found nothing to do - candidates for a longer target lag.
 	measure 'No-Data Refresh %' = DIVIDE(CALCULATE([Total Refreshes], DTS_Refresh[REFRESH_ACTION] = "NO_DATA"), [Total Refreshes])
 		formatString: 0.0%
 		lineageTag: c99279e1-b688-4926-bb7f-4dec938342b7
+
+	measure 'Distinct Errors' = CALCULATE(DISTINCTCOUNT(DTS_Refresh[REFRESH_ERROR_MSG]), NOT ISBLANK(DTS_Refresh[REFRESH_ERROR_MSG]))
+		formatString: #,0
+		lineageTag: 2a7f5d97-2a17-490d-8268-b82a3eec365c
+
+	/// Name of the table with the highest average refresh duration in the current filter.
+	measure 'Slowest Table' = CALCULATE(FIRSTNONBLANK(DTS_Refresh[TABLE_NAME], 1), TOPN(1, ALLSELECTED(DTS_Refresh[TABLE_NAME]), [Avg Refresh Duration (s)], DESC))
+		lineageTag: a5e32bdc-4ed5-4639-9f65-f4d2e43d2787
+
+	measure 'Failures Last 7 Days' = CALCULATE([Failed Refreshes], DATESINPERIOD('Date'[Date], MAX('Date'[Date]), -7, DAY))
+		formatString: #,0
+		lineageTag: 9b78906b-233f-4ae1-9925-742ea38d4b06
+
+	/// How many distinct tables are failing - one broken table failing often is a very different problem from many tables failing once.
+	measure 'Tables with Failures' = CALCULATE(DISTINCTCOUNT(DTS_Refresh[TABLE_NAME]), DTS_Refresh[REFRESH_STATE] IN {"FAILED", "UPSTREAM_FAILED"})
+		formatString: #,0
+		lineageTag: e7f7ca58-129d-4aba-8b0e-e91dd6c6718f
+
+	measure 'Avg Compilation (ms)' = AVERAGE(DTS_Refresh[COMPILATION_MS])
+		formatString: #,0.00
+		lineageTag: 8562feec-08ae-4442-90c8-286d5921d9c9
+
+	measure 'Avg Execution (ms)' = AVERAGE(DTS_Refresh[EXECUTION_MS])
+		formatString: #,0.00
+		lineageTag: 197563b1-1303-493b-843f-2c4fa1d9fc9e
+
+	/// High compile share on short refreshes means planning costs more than the work.
+	measure 'Compile Share %' = DIVIDE(SUM(DTS_Refresh[COMPILATION_MS]), SUM(DTS_Refresh[COMPILATION_MS]) + SUM(DTS_Refresh[EXECUTION_MS]))
+		formatString: 0.0%
+		lineageTag: 262e930c-d4da-49f5-8303-21fdebb66c02
+
+	measure 'Incremental Refresh %' = DIVIDE(CALCULATE([Total Refreshes], DTS_Refresh[REFRESH_ACTION] = "INCREMENTAL"), [Total Refreshes])
+		formatString: 0.0%
+		lineageTag: 711e69f6-4504-4435-bb77-a405c4b9dd01
+
+	/// Full rebuilds are the expensive path; a rising share is worth chasing.
+	measure 'Full Refresh %' = DIVIDE(CALCULATE([Total Refreshes], DTS_Refresh[REFRESH_ACTION] IN {"FULL", "REINITIALIZE"}), [Total Refreshes])
+		formatString: 0.0%
+		lineageTag: c841b564-62a0-4977-83c3-0e0c6709c338
+
+	measure 'Scheduled Refresh %' = DIVIDE(CALCULATE([Total Refreshes], DTS_Refresh[REFRESH_TRIGGER] = "SCHEDULED"), [Total Refreshes])
+		formatString: 0.0%
+		lineageTag: 50b5f7be-9afc-4159-b272-983706dbc590
+
+	/// Manual runs suggest someone is compensating for a schedule that does not fit.
+	measure 'Manual Refresh %' = DIVIDE(CALCULATE([Total Refreshes], DTS_Refresh[REFRESH_TRIGGER] = "MANUAL"), [Total Refreshes])
+		formatString: 0.0%
+		lineageTag: 823726ec-e65f-401a-b591-3dd53f3ec2b8
+
+	measure 'Avg Rows per Refresh' = DIVIDE([Rows Inserted], [Total Refreshes])
+		formatString: #,0
+		lineageTag: a0be8e98-cd09-437c-b99d-5b2570423b50
+
+	measure 'Refresh Hours per Table' = DIVIDE([Total Refresh Hours], [Tables Refreshed])
+		formatString: #,0.00
+		lineageTag: aa1b7d61-2a59-4f22-9fe9-82932385d30a
+
+	/// Share of all failures coming from the single worst table.
+	measure 'Failure Concentration %' = DIVIDE(MAXX(VALUES(DTS_Refresh[TABLE_NAME]), [Failed Refreshes]), [Failed Refreshes])
+		formatString: 0.0%
+		lineageTag: 4fc30c57-0a07-4e92-b36c-dad8bc0037c2
 
 	partition DTS_Refresh = m
 		mode: import

@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "12fc44407cef1c04dec6",
+  "position": {
+    "x": 650,
+    "y": 204,
+    "z": 14,
+    "height": 248,
+    "width": 618,
+    "tabOrder": 140
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Date"
+                    }
+                  },
+                  "Property": "Date"
+                }
+              },
+              "queryRef": "Date.Date",
+              "nativeQueryRef": "Date"
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Table_Snapshots"
+                    }
+                  },
+                  "Property": "LAYER"
+                }
+              },
+              "queryRef": "Table_Snapshots.LAYER",
+              "nativeQueryRef": "LAYER"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Table_Snapshots"
+                    }
+                  },
+                  "Property": "Storage GB (Snapshot)"
+                }
+              },
+              "queryRef": "Table_Snapshots.Storage GB (Snapshot)",
+              "nativeQueryRef": "Storage GB (Snapshot)"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

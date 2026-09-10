@@ -103,9 +103,43 @@ table Hourly_Consumption
 		formatString: #,0
 		lineageTag: aa2ce671-27b6-4545-8279-ac618b8cac23
 
+	measure 'Idle Hours' = CALCULATE(COUNTROWS(Hourly_Consumption), Hourly_Consumption[CREDITS_USED] = 0)
+		formatString: #,0
+		lineageTag: 6773da00-f4b2-4a59-8876-beb1224229f2
+
 	measure 'Avg Credits per Active Hour' = DIVIDE([Credits (7d)], [Active Hours])
 		formatString: #,0.00
 		lineageTag: ddc1bcec-6fac-4210-83e5-d58fce3e4a4c
+
+	/// Hour of day with the highest credit burn.
+	measure 'Busiest Hour' = CALCULATE(FIRSTNONBLANK(Hourly_Consumption[USAGE_HOUR], 1), TOPN(1, ALLSELECTED(Hourly_Consumption[USAGE_HOUR]), [Credits (7d)], DESC))
+		formatString: #,0
+		lineageTag: 214281e6-1556-4bf4-9ffd-1d180c5f36ea
+
+	/// Share of monitored hours where the warehouse did any work.
+	measure 'Utilisation %' = DIVIDE([Active Hours], COUNTROWS(Hourly_Consumption))
+		formatString: 0.0%
+		lineageTag: d4027334-abfe-4024-96a9-1a35d3ee4840
+
+	measure 'Off-Hours Credits' = CALCULATE([Credits (7d)], Hourly_Consumption[USAGE_HOUR] < 7 || Hourly_Consumption[USAGE_HOUR] > 19)
+		formatString: #,0.00
+		lineageTag: 99027fc0-faa1-485b-87c3-48533e8190cb
+
+	/// Burn outside 07:00-19:00. Fine for batch, worth questioning otherwise.
+	measure 'Off-Hours Credits %' = DIVIDE([Off-Hours Credits], [Credits (7d)])
+		formatString: 0.0%
+		lineageTag: 98b1dd76-7da3-48d8-b6c8-4b00a1beb08b
+
+	measure 'Top Warehouse' = CALCULATE(FIRSTNONBLANK(Hourly_Consumption[WAREHOUSE_NAME], 1), TOPN(1, ALLSELECTED(Hourly_Consumption[WAREHOUSE_NAME]), [Credits (7d)], DESC))
+		lineageTag: dc5aa82e-06d2-4621-a5c4-3cc59f7dc4f8
+
+	/// Share of credits burned by the single busiest warehouse.
+	measure 'Warehouse Concentration %' = DIVIDE(MAXX(VALUES(Hourly_Consumption[WAREHOUSE_NAME]), [Credits (7d)]), [Credits (7d)])
+		formatString: 0.0%
+		lineageTag: 751407f6-8039-475d-aa21-9f915f8fc73d
+
+	measure 'Busiest Day of Week' = CALCULATE(FIRSTNONBLANK('Date'[Day of Week], 1), TOPN(1, ALLSELECTED('Date'[Day of Week]), [Credits (7d)], DESC))
+		lineageTag: a23a8da6-6218-4b79-a3e8-553ce01e3ee3
 
 	partition Hourly_Consumption = m
 		mode: import

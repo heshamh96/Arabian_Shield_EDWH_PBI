@@ -1,0 +1,70 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "2bdab52ce080690f8fca",
+  "position": {
+    "x": 12,
+    "y": 460,
+    "z": 14,
+    "height": 248,
+    "width": 618,
+    "tabOrder": 140
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Date"
+                    }
+                  },
+                  "Property": "Day of Week"
+                }
+              },
+              "queryRef": "Date.Day of Week",
+              "nativeQueryRef": "Day of Week"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hourly_Consumption"
+                    }
+                  },
+                  "Property": "Credits (7d)"
+                }
+              },
+              "queryRef": "Hourly_Consumption.Credits (7d)",
+              "nativeQueryRef": "Credits (7d)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Daily_Consumption"
+                    }
+                  },
+                  "Property": "Estimated Cost"
+                }
+              },
+              "queryRef": "Daily_Consumption.Estimated Cost",
+              "nativeQueryRef": "Estimated Cost"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

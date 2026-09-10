@@ -1,0 +1,108 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "f0aa7e884ce8d4e51637",
+  "position": {
+    "x": 650,
+    "y": 460,
+    "z": 16,
+    "height": 248,
+    "width": 618,
+    "tabOrder": 160
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "TABLE_NAME"
+                }
+              },
+              "queryRef": "DTS_Refresh.TABLE_NAME",
+              "nativeQueryRef": "TABLE_NAME"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "Total Refreshes"
+                }
+              },
+              "queryRef": "DTS_Refresh.Total Refreshes",
+              "nativeQueryRef": "Total Refreshes"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "Incremental Refresh %"
+                }
+              },
+              "queryRef": "DTS_Refresh.Incremental Refresh %",
+              "nativeQueryRef": "Incremental Refresh %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "Full Refresh %"
+                }
+              },
+              "queryRef": "DTS_Refresh.Full Refresh %",
+              "nativeQueryRef": "Full Refresh %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "Avg Rows per Refresh"
+                }
+              },
+              "queryRef": "DTS_Refresh.Avg Rows per Refresh",
+              "nativeQueryRef": "Avg Rows per Refresh"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "Rows per Refresh Second"
+                }
+              },
+              "queryRef": "DTS_Refresh.Rows per Refresh Second",
+              "nativeQueryRef": "Rows per Refresh Second"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

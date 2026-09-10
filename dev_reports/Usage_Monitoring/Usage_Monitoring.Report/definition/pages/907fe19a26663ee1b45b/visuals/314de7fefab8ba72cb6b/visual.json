@@ -1,0 +1,74 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "314de7fefab8ba72cb6b",
+  "position": {
+    "x": 12,
+    "y": 204,
+    "z": 12,
+    "height": 248,
+    "width": 618,
+    "tabOrder": 120
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hourly_Consumption"
+                    }
+                  },
+                  "Property": "USAGE_HOUR"
+                }
+              },
+              "queryRef": "Hourly_Consumption.USAGE_HOUR",
+              "nativeQueryRef": "USAGE_HOUR"
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hourly_Consumption"
+                    }
+                  },
+                  "Property": "WAREHOUSE_NAME"
+                }
+              },
+              "queryRef": "Hourly_Consumption.WAREHOUSE_NAME",
+              "nativeQueryRef": "WAREHOUSE_NAME"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hourly_Consumption"
+                    }
+                  },
+                  "Property": "Credits (7d)"
+                }
+              },
+              "queryRef": "Hourly_Consumption.Credits (7d)",
+              "nativeQueryRef": "Credits (7d)"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -2,37 +2,38 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "44d188a61b29c3660962",
   "position": {
-    "x": 434,
-    "y": 12,
-    "z": 2,
-    "height": 88,
-    "width": 201,
+    "x": 1150,
+    "y": 14,
+    "z": 900,
+    "height": 26,
+    "width": 120,
     "tabOrder": 20
   },
   "visual": {
-    "visualType": "cardVisual",
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DTS_Refresh"
+    "visualType": "textbox",
+    "drillFilterOtherVisuals": true,
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "horizontalTextAlignment": "right",
+                "textRuns": [
+                  {
+                    "value": "DEV",
+                    "textStyle": {
+                      "fontFamily": "Segoe UI Semibold",
+                      "fontSize": "9pt",
+                      "color": "#FFFFFF"
                     }
-                  },
-                  "Property": "Failed Refreshes"
-                }
-              },
-              "queryRef": "DTS_Refresh.Failed Refreshes",
-              "nativeQueryRef": "Failed Refreshes"
-            }
-          ]
+                  }
+                ]
+              }
+            ]
+          }
         }
-      }
-    },
-    "drillFilterOtherVisuals": true
+      ]
+    }
   }
 }

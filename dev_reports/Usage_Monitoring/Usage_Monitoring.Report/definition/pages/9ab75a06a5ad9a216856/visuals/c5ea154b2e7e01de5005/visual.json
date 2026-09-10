@@ -3,35 +3,18 @@
   "name": "c5ea154b2e7e01de5005",
   "position": {
     "x": 12,
-    "y": 110,
+    "y": 112,
     "z": 6,
-    "height": 290,
-    "width": 618,
+    "height": 84,
+    "width": 201,
     "tabOrder": 60
   },
   "visual": {
-    "visualType": "pieChart",
+    "visualType": "cardVisual",
+    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Current_Tables"
-                    }
-                  },
-                  "Property": "LAYER"
-                }
-              },
-              "queryRef": "Current_Tables.LAYER",
-              "nativeQueryRef": "LAYER"
-            }
-          ]
-        },
-        "Y": {
+        "Data": {
           "projections": [
             {
               "field": {
@@ -50,7 +33,6 @@
           ]
         }
       }
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }

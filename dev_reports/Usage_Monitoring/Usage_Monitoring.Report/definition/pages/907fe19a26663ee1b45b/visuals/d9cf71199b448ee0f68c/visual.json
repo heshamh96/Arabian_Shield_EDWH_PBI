@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "d9cf71199b448ee0f68c",
+  "position": {
+    "x": 12,
+    "y": 112,
+    "z": 6,
+    "height": 84,
+    "width": 201,
+    "tabOrder": 60
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hourly_Consumption"
+                    }
+                  },
+                  "Property": "Active Warehouses"
+                }
+              },
+              "queryRef": "Hourly_Consumption.Active Warehouses",
+              "nativeQueryRef": "Active Warehouses"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

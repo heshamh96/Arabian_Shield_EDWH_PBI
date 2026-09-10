@@ -2,121 +2,37 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "47e60db9765409a88b83",
   "position": {
-    "x": 12,
-    "y": 410,
+    "x": 434,
+    "y": 112,
     "z": 8,
-    "height": 298,
-    "width": 1256,
+    "height": 84,
+    "width": 201,
     "tabOrder": 80
   },
   "visual": {
-    "visualType": "tableEx",
+    "visualType": "cardVisual",
+    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
-        "Values": {
+        "Data": {
           "projections": [
             {
               "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Current_Tables"
-                    }
-                  },
-                  "Property": "LAYER"
-                }
-              },
-              "queryRef": "Current_Tables.LAYER",
-              "nativeQueryRef": "LAYER"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Current_Tables"
-                    }
-                  },
-                  "Property": "TABLE_NAME"
-                }
-              },
-              "queryRef": "Current_Tables.TABLE_NAME",
-              "nativeQueryRef": "TABLE_NAME"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Current_Tables"
-                    }
-                  },
-                  "Property": "IS_DYNAMIC"
-                }
-              },
-              "queryRef": "Current_Tables.IS_DYNAMIC",
-              "nativeQueryRef": "IS_DYNAMIC"
-            },
-            {
-              "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
                       "Entity": "Current_Tables"
                     }
                   },
-                  "Property": "Current Rows"
+                  "Property": "Empty Tables"
                 }
               },
-              "queryRef": "Current_Tables.Current Rows",
-              "nativeQueryRef": "Current Rows"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Current_Tables"
-                    }
-                  },
-                  "Property": "Current Storage GB"
-                }
-              },
-              "queryRef": "Current_Tables.Current Storage GB",
-              "nativeQueryRef": "Current Storage GB"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Current_Tables"
-                    }
-                  },
-                  "Property": "RETENTION_TIME"
-                }
-              },
-              "queryRef": "Current_Tables.RETENTION_TIME",
-              "nativeQueryRef": "RETENTION_TIME"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Current_Tables"
-                    }
-                  },
-                  "Property": "LAST_ALTERED"
-                }
-              },
-              "queryRef": "Current_Tables.LAST_ALTERED",
-              "nativeQueryRef": "LAST_ALTERED"
+              "queryRef": "Current_Tables.Empty Tables",
+              "nativeQueryRef": "Empty Tables"
             }
           ]
         }
       }
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }

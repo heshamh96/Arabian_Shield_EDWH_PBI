@@ -2,54 +2,19 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "0ca2d0ee99de74752b8f",
   "position": {
-    "x": 650,
-    "y": 110,
+    "x": 223,
+    "y": 112,
     "z": 7,
-    "height": 290,
-    "width": 618,
+    "height": 84,
+    "width": 201,
     "tabOrder": 70
   },
   "visual": {
-    "visualType": "clusteredColumnChart",
+    "visualType": "cardVisual",
+    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Current_Tables"
-                    }
-                  },
-                  "Property": "LAYER"
-                }
-              },
-              "queryRef": "Current_Tables.LAYER",
-              "nativeQueryRef": "LAYER"
-            }
-          ]
-        },
-        "Series": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Current_Tables"
-                    }
-                  },
-                  "Property": "IS_DYNAMIC"
-                }
-              },
-              "queryRef": "Current_Tables.IS_DYNAMIC",
-              "nativeQueryRef": "IS_DYNAMIC"
-            }
-          ]
-        },
-        "Y": {
+        "Data": {
           "projections": [
             {
               "field": {
@@ -59,16 +24,15 @@
                       "Entity": "Current_Tables"
                     }
                   },
-                  "Property": "Tables Monitored"
+                  "Property": "Dynamic Tables"
                 }
               },
-              "queryRef": "Current_Tables.Tables Monitored",
-              "nativeQueryRef": "Tables Monitored"
+              "queryRef": "Current_Tables.Dynamic Tables",
+              "nativeQueryRef": "Dynamic Tables"
             }
           ]
         }
       }
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }

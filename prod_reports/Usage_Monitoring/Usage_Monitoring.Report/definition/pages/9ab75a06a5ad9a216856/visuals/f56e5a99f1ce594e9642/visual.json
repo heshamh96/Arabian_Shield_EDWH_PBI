@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "f56e5a99f1ce594e9642",
+  "position": {
+    "x": 12,
+    "y": 204,
+    "z": 12,
+    "height": 248,
+    "width": 618,
+    "tabOrder": 120
+  },
+  "visual": {
+    "visualType": "donutChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Current_Tables"
+                    }
+                  },
+                  "Property": "LAYER"
+                }
+              },
+              "queryRef": "Current_Tables.LAYER",
+              "nativeQueryRef": "LAYER"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Current_Tables"
+                    }
+                  },
+                  "Property": "Tables Monitored"
+                }
+              },
+              "queryRef": "Current_Tables.Tables Monitored",
+              "nativeQueryRef": "Tables Monitored"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

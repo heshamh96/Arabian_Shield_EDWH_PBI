@@ -2,37 +2,37 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "6152fda82bf368df6e0d",
   "position": {
-    "x": 856,
-    "y": 12,
+    "x": 12,
+    "y": 60,
     "z": 4,
-    "height": 88,
-    "width": 201,
+    "height": 44,
+    "width": 340,
     "tabOrder": 40
   },
   "visual": {
-    "visualType": "cardVisual",
+    "visualType": "slicer",
+    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
         "Values": {
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Daily_Consumption"
+                      "Entity": "Date"
                     }
                   },
-                  "Property": "Cost WoW %"
+                  "Property": "Date"
                 }
               },
-              "queryRef": "Daily_Consumption.Cost WoW %",
-              "nativeQueryRef": "Cost WoW %"
+              "queryRef": "Date.Date",
+              "nativeQueryRef": "Date"
             }
           ]
         }
       }
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }

@@ -3,7 +3,14 @@
 const fs = require('fs');
 const path = require('path');
 const { TABLES, ENVS, REPO } = require('./gen-usage.js');
-const PAGES = require('./pages.js');
+const { BRAND } = require('./theme.js');
+// pages.js is a factory. Render it with the SHIPPED feature set so the page and
+// visual counts below match what is actually in the project, rather than
+// including the pages and buttons that are currently switched off.
+const SHIPPED = ['theme', 'vstyles', 'hier', 'chrome', 'pagenav'];
+const PAGES = require('./pages.js')(
+  s => require('crypto').createHash('sha1').update('uid|' + s).digest('hex').slice(0, 20),
+  BRAND, ENVS.dev, f => SHIPPED.includes(f));
 
 const L = [];
 L.push('# Usage_Monitoring');
@@ -44,6 +51,46 @@ L.push('');
 L.push('`SNOWFLAKE.ACCOUNT_USAGE` is **not** granted to either reader role, so richer');
 L.push('telemetry (query history, login history, storage growth) is out of reach unless');
 L.push('the platform team exposes it as another view in `MONITORING_DB`.');
+L.push('');
+L.push('## Branding');
+L.push('');
+L.push('The Arabian Shield palette was taken from the live site (der3.com) by reading');
+L.push('its computed styles rather than eyeballing a screenshot:');
+L.push('');
+L.push('| Role | Hex | Where it comes from |');
+L.push('|---|---|---|');
+L.push('| Primary green | `#00602F` | nav bar / "Contact us" button |');
+L.push('| Accent lime | `#81A53F` | "Get a quote" button |');
+L.push('| Deep greens | `#1F6035` `#146032` | secondary surfaces |');
+L.push('| Ink | `#1D1D1B` | body text |');
+L.push('');
+L.push('It ships as the report **base theme**');
+L.push('(`StaticResources/SharedResources/BaseThemes/ArabianShield.json`), not as a');
+L.push('`customTheme`. That matters: registering it as a customTheme - tried under both');
+L.push('`SharedResources` and `RegisteredResources` - makes Power BI reject the whole');
+L.push('report layer. Every page vanishes while the semantic model still loads fine, so');
+L.push('the TMDL validator reports OK and the failure looks like a data problem.');
+L.push('');
+L.push('Only the first two categorical slots are brand greens. Series three onward move');
+L.push('to complementary hues, because four shades of green in one chart is unreadable.');
+L.push('');
+L.push('## Report features');
+L.push('');
+L.push('Each was verified in Desktop individually - see `UM_FEATURES` in');
+L.push('`tools/usage-monitoring/build-usage.js`.');
+L.push('');
+L.push('| Feature | State | Note |');
+L.push('|---|---|---|');
+L.push('| `theme` + `vstyles` | **on** | brand palette, green table headers, styled slicers and titles |');
+L.push('| `hier` | **on** | drill-down hierarchies: Layer → Schema → Table, Year → Month → Date |');
+L.push('| `chrome` | **on** | brand header band and page title |');
+L.push('| slicers | **on** | Date (range), Layer, Month on every page |');
+L.push('| `pagenav` | **on** | built-in pageNavigator: one labelled button per page, current page highlighted |');
+L.push('| `nav` | **off** | hand-rolled `actionButton`s rendered as unlabelled boxes - the `text` object is never applied, even with an explicit `default` state selector. `pagenav` replaces them. |');
+L.push('| `tips` | **off** | report-page tooltips and the drillthrough detail page. The `pageBinding` shape for Tooltip/Drillthrough pages is wrong somewhere and takes the whole report layer down with it. Default hover tooltips still work. |');
+L.push('');
+L.push('Both `nav` and `tips` are one flag away once the correct JSON shape is known;');
+L.push('the pages and buttons are already written in `pages.js`.');
 L.push('');
 L.push('## Tables');
 L.push('');

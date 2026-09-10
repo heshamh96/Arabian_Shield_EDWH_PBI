@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "164809632cad61fe5606",
+  "position": {
+    "x": 223,
+    "y": 112,
+    "z": 7,
+    "height": 84,
+    "width": 201,
+    "tabOrder": 70
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Daily_Consumption"
+                    }
+                  },
+                  "Property": "Cost MTD"
+                }
+              },
+              "queryRef": "Daily_Consumption.Cost MTD",
+              "nativeQueryRef": "Cost MTD"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

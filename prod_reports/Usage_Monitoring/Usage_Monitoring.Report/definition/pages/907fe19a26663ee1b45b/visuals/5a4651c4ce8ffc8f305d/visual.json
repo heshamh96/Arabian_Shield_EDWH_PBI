@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "5a4651c4ce8ffc8f305d",
+  "position": {
+    "x": 1067,
+    "y": 112,
+    "z": 11,
+    "height": 84,
+    "width": 201,
+    "tabOrder": 110
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hourly_Consumption"
+                    }
+                  },
+                  "Property": "Peak Hourly Credits"
+                }
+              },
+              "queryRef": "Hourly_Consumption.Peak Hourly Credits",
+              "nativeQueryRef": "Peak Hourly Credits"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

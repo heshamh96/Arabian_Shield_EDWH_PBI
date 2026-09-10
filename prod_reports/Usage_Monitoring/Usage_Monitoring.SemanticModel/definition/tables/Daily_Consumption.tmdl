@@ -96,6 +96,15 @@ table Daily_Consumption
 		formatString: 0.0%
 		lineageTag: 37504a4e-c251-481e-8c26-b3007c5fd3f6
 
+	measure 'Cost MTD' = CALCULATE([Estimated Cost], DATESMTD('Date'[Date]))
+		formatString: \$#,0.00
+		lineageTag: 3cf39dd1-2d72-415f-b3db-c86f99237351
+
+	/// Rolling mean - smooths the weekday/weekend saw-tooth.
+	measure 'Credits 7D Avg' = AVERAGEX(DATESINPERIOD('Date'[Date], MAX('Date'[Date]), -7, DAY), [Total Credits])
+		formatString: #,0.00
+		lineageTag: b5276c02-5d0b-40c6-a157-19dc6f43fdd0
+
 	/// Projected monthly spend at the current daily average.
 	measure 'Run Rate (30d) USD' = [Avg Daily Cost] * 30
 		formatString: \$#,0.00
@@ -105,6 +114,41 @@ table Daily_Consumption
 	measure 'Cost per Million Rows' = DIVIDE([Estimated Cost], DIVIDE([Rows (Latest)], 1000000))
 		formatString: \$#,0.00
 		lineageTag: 25ece0fe-94da-455e-b37e-a986c7d370c1
+
+	measure 'Cost per GB Stored' = DIVIDE([Estimated Cost], [Storage GB (Latest)])
+		formatString: \$#,0.00
+		lineageTag: 4ffd2294-e189-48f0-8bef-a1fe30ad1147
+
+	/// Credit burn per hour of dynamic-table refresh work.
+	measure 'Credits per Refresh Hour' = DIVIDE([Total Credits], [Total Refresh Hours])
+		formatString: #,0.00
+		lineageTag: 058e980d-26e1-4947-b681-fb952e5b4277
+
+	/// Day-to-day spread of daily spend. High volatility makes a run rate meaningless.
+	measure 'Cost Volatility' = STDEVX.P(VALUES(Daily_Consumption[USAGE_DATE]), [Estimated Cost])
+		formatString: \$#,0.00
+		lineageTag: 553c76b4-b758-4a88-8525-15ac80c5d147
+
+	measure 'Days Above Avg Cost' = COUNTROWS(FILTER(VALUES(Daily_Consumption[USAGE_DATE]), [Estimated Cost] > [Avg Daily Cost]))
+		formatString: #,0
+		lineageTag: 7ba3fcbd-ff78-461e-a34a-829c14830e7f
+
+	measure 'Weekend Cost' = CALCULATE([Estimated Cost], 'Date'[Is Weekend] = TRUE())
+		formatString: \$#,0.00
+		lineageTag: 58194cd9-ecc9-44a4-bc74-81e0010364ac
+
+	/// Spend on days nobody is working - usually pure schedule cost.
+	measure 'Weekend Cost %' = DIVIDE([Weekend Cost], [Estimated Cost])
+		formatString: 0.0%
+		lineageTag: bfc8c9b5-4070-4db2-bca2-e1c5c1700647
+
+	measure 'Most Expensive Day' = CALCULATE(FIRSTNONBLANK('Date'[Date], 1), TOPN(1, ALLSELECTED('Date'[Date]), [Estimated Cost], DESC))
+		formatString: yyyy-mm-dd
+		lineageTag: 14d24f8b-6129-465f-b745-ffdbc4b622f9
+
+	measure 'Credits per GB Stored' = DIVIDE([Total Credits], [Storage GB (Latest)])
+		formatString: #,0.00
+		lineageTag: 59ad5204-a784-4b6e-8888-587acf8a77b7
 
 	partition Daily_Consumption = m
 		mode: import

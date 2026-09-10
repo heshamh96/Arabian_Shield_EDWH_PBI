@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "7cf2c2acb750c5c01ed4",
+  "position": {
+    "x": 1067,
+    "y": 112,
+    "z": 12,
+    "height": 84,
+    "width": 201,
+    "tabOrder": 120
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Table_Snapshots"
+                    }
+                  },
+                  "Property": "Avg Bytes per Row"
+                }
+              },
+              "queryRef": "Table_Snapshots.Avg Bytes per Row",
+              "nativeQueryRef": "Avg Bytes per Row"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

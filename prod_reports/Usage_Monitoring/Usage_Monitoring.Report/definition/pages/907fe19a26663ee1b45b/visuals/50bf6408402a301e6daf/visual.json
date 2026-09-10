@@ -1,0 +1,70 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "50bf6408402a301e6daf",
+  "position": {
+    "x": 650,
+    "y": 204,
+    "z": 13,
+    "height": 248,
+    "width": 618,
+    "tabOrder": 130
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hourly_Consumption"
+                    }
+                  },
+                  "Property": "WAREHOUSE_NAME"
+                }
+              },
+              "queryRef": "Hourly_Consumption.WAREHOUSE_NAME",
+              "nativeQueryRef": "WAREHOUSE_NAME"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hourly_Consumption"
+                    }
+                  },
+                  "Property": "Active Hours"
+                }
+              },
+              "queryRef": "Hourly_Consumption.Active Hours",
+              "nativeQueryRef": "Active Hours"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Hourly_Consumption"
+                    }
+                  },
+                  "Property": "Idle Hours"
+                }
+              },
+              "queryRef": "Hourly_Consumption.Idle Hours",
+              "nativeQueryRef": "Idle Hours"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -2,18 +2,19 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "229ff31caf6785f6162c",
   "position": {
-    "x": 12,
-    "y": 110,
+    "x": 668,
+    "y": 60,
     "z": 6,
-    "height": 290,
-    "width": 618,
+    "height": 44,
+    "width": 300,
     "tabOrder": 60
   },
   "visual": {
-    "visualType": "lineChart",
+    "visualType": "slicer",
+    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
-        "Category": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -23,48 +24,15 @@
                       "Entity": "Date"
                     }
                   },
-                  "Property": "Date"
+                  "Property": "Month Name"
                 }
               },
-              "queryRef": "Date.Date",
-              "nativeQueryRef": "Date"
-            }
-          ]
-        },
-        "Y": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DTS_Refresh"
-                    }
-                  },
-                  "Property": "Failure Rate %"
-                }
-              },
-              "queryRef": "DTS_Refresh.Failure Rate %",
-              "nativeQueryRef": "Failure Rate %"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DTS_Refresh"
-                    }
-                  },
-                  "Property": "Target Lag Breach %"
-                }
-              },
-              "queryRef": "DTS_Refresh.Target Lag Breach %",
-              "nativeQueryRef": "Target Lag Breach %"
+              "queryRef": "Date.Month Name",
+              "nativeQueryRef": "Month Name"
             }
           ]
         }
       }
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }

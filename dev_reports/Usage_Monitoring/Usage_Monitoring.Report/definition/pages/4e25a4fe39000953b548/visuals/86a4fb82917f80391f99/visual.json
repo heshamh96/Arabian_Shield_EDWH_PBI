@@ -1,0 +1,70 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "86a4fb82917f80391f99",
+  "position": {
+    "x": 650,
+    "y": 204,
+    "z": 14,
+    "height": 248,
+    "width": 618,
+    "tabOrder": 140
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "LAYER"
+                }
+              },
+              "queryRef": "DTS_Refresh.LAYER",
+              "nativeQueryRef": "LAYER"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "Total Refreshes"
+                }
+              },
+              "queryRef": "DTS_Refresh.Total Refreshes",
+              "nativeQueryRef": "Total Refreshes"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "Failed Refreshes"
+                }
+              },
+              "queryRef": "DTS_Refresh.Failed Refreshes",
+              "nativeQueryRef": "Failed Refreshes"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

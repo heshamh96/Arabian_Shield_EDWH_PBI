@@ -1,0 +1,61 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "50050d620e03c52ea512",
+  "position": {
+    "x": 650,
+    "y": 204,
+    "z": 13,
+    "height": 248,
+    "width": 618,
+    "tabOrder": 130
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Date"
+                        }
+                      },
+                      "Hierarchy": "Calendar"
+                    }
+                  },
+                  "Level": "Month Name"
+                }
+              },
+              "queryRef": "Date.Calendar.Month Name",
+              "nativeQueryRef": "Month Name"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Daily_Consumption"
+                    }
+                  },
+                  "Property": "Estimated Cost"
+                }
+              },
+              "queryRef": "Daily_Consumption.Estimated Cost",
+              "nativeQueryRef": "Estimated Cost"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

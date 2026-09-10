@@ -1,0 +1,61 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "3fbb05e1f927b9b5362a",
+  "position": {
+    "x": 650,
+    "y": 204,
+    "z": 14,
+    "height": 248,
+    "width": 618,
+    "tabOrder": 140
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DTS_Refresh"
+                        }
+                      },
+                      "Hierarchy": "Pipeline"
+                    }
+                  },
+                  "Level": "TABLE_NAME"
+                }
+              },
+              "queryRef": "DTS_Refresh.Pipeline.TABLE_NAME",
+              "nativeQueryRef": "TABLE_NAME"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "Target Lag Breaches"
+                }
+              },
+              "queryRef": "DTS_Refresh.Target Lag Breaches",
+              "nativeQueryRef": "Target Lag Breaches"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

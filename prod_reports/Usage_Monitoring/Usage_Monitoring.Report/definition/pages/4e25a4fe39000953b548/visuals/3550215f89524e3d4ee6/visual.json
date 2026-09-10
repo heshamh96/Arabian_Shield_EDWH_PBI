@@ -2,69 +2,37 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "3550215f89524e3d4ee6",
   "position": {
-    "x": 650,
-    "y": 110,
+    "x": 12,
+    "y": 112,
     "z": 7,
-    "height": 290,
-    "width": 618,
+    "height": 84,
+    "width": 201,
     "tabOrder": 70
   },
   "visual": {
-    "visualType": "clusteredColumnChart",
+    "visualType": "cardVisual",
+    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DTS_Refresh"
-                    }
-                  },
-                  "Property": "LAYER"
-                }
-              },
-              "queryRef": "DTS_Refresh.LAYER",
-              "nativeQueryRef": "LAYER"
-            }
-          ]
-        },
-        "Y": {
+        "Data": {
           "projections": [
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DTS_Refresh"
+                      "Entity": "Daily_Consumption"
                     }
                   },
-                  "Property": "Total Refreshes"
+                  "Property": "Estimated Cost"
                 }
               },
-              "queryRef": "DTS_Refresh.Total Refreshes",
-              "nativeQueryRef": "Total Refreshes"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DTS_Refresh"
-                    }
-                  },
-                  "Property": "Failed Refreshes"
-                }
-              },
-              "queryRef": "DTS_Refresh.Failed Refreshes",
-              "nativeQueryRef": "Failed Refreshes"
+              "queryRef": "Daily_Consumption.Estimated Cost",
+              "nativeQueryRef": "Estimated Cost"
             }
           ]
         }
       }
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }

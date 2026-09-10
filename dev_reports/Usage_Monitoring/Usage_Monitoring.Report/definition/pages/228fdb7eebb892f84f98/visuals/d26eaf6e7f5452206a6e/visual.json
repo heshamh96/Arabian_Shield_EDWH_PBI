@@ -2,37 +2,37 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "d26eaf6e7f5452206a6e",
   "position": {
-    "x": 1067,
-    "y": 12,
+    "x": 668,
+    "y": 60,
     "z": 5,
-    "height": 88,
-    "width": 201,
+    "height": 44,
+    "width": 300,
     "tabOrder": 50
   },
   "visual": {
-    "visualType": "cardVisual",
+    "visualType": "slicer",
+    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
         "Values": {
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Daily_Consumption"
+                      "Entity": "Date"
                     }
                   },
-                  "Property": "Cloud Services %"
+                  "Property": "Month Name"
                 }
               },
-              "queryRef": "Daily_Consumption.Cloud Services %",
-              "nativeQueryRef": "Cloud Services %"
+              "queryRef": "Date.Month Name",
+              "nativeQueryRef": "Month Name"
             }
           ]
         }
       }
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }

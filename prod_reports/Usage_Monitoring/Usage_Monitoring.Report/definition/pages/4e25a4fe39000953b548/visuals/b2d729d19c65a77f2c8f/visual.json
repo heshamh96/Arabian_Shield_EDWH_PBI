@@ -2,69 +2,37 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
   "name": "b2d729d19c65a77f2c8f",
   "position": {
-    "x": 12,
-    "y": 410,
+    "x": 223,
+    "y": 112,
     "z": 8,
-    "height": 298,
-    "width": 618,
+    "height": 84,
+    "width": 201,
     "tabOrder": 80
   },
   "visual": {
-    "visualType": "clusteredBarChart",
+    "visualType": "cardVisual",
+    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Current_Tables"
-                    }
-                  },
-                  "Property": "LAYER"
-                }
-              },
-              "queryRef": "Current_Tables.LAYER",
-              "nativeQueryRef": "LAYER"
-            }
-          ]
-        },
-        "Y": {
+        "Data": {
           "projections": [
             {
               "field": {
                 "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Current_Tables"
+                      "Entity": "Daily_Consumption"
                     }
                   },
-                  "Property": "Current Rows"
+                  "Property": "Total Credits"
                 }
               },
-              "queryRef": "Current_Tables.Current Rows",
-              "nativeQueryRef": "Current Rows"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Current_Tables"
-                    }
-                  },
-                  "Property": "Current Storage GB"
-                }
-              },
-              "queryRef": "Current_Tables.Current Storage GB",
-              "nativeQueryRef": "Current Storage GB"
+              "queryRef": "Daily_Consumption.Total Credits",
+              "nativeQueryRef": "Total Credits"
             }
           ]
         }
       }
-    },
-    "drillFilterOtherVisuals": true
+    }
   }
 }

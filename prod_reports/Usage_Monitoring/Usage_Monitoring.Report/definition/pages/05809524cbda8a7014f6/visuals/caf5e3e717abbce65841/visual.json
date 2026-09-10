@@ -1,0 +1,94 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "caf5e3e717abbce65841",
+  "position": {
+    "x": 650,
+    "y": 460,
+    "z": 16,
+    "height": 248,
+    "width": 618,
+    "tabOrder": 160
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "TABLE_NAME"
+                }
+              },
+              "queryRef": "DTS_Refresh.TABLE_NAME",
+              "nativeQueryRef": "TABLE_NAME"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "Target Lag Breaches"
+                }
+              },
+              "queryRef": "DTS_Refresh.Target Lag Breaches",
+              "nativeQueryRef": "Target Lag Breaches"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "Avg Lag Overage (min)"
+                }
+              },
+              "queryRef": "DTS_Refresh.Avg Lag Overage (min)",
+              "nativeQueryRef": "Avg Lag Overage (min)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "Failed Refreshes"
+                }
+              },
+              "queryRef": "DTS_Refresh.Failed Refreshes",
+              "nativeQueryRef": "Failed Refreshes"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "Distinct Errors"
+                }
+              },
+              "queryRef": "DTS_Refresh.Distinct Errors",
+              "nativeQueryRef": "Distinct Errors"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "41acad817033ca038ada",
+  "position": {
+    "x": 1067,
+    "y": 112,
+    "z": 11,
+    "height": 84,
+    "width": 201,
+    "tabOrder": 110
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Current_Tables"
+                    }
+                  },
+                  "Property": "Current Storage GB"
+                }
+              },
+              "queryRef": "Current_Tables.Current Storage GB",
+              "nativeQueryRef": "Current Storage GB"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

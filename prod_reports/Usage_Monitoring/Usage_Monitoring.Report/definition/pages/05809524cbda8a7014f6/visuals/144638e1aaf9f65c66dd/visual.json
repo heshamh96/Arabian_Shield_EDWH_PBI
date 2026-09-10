@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "144638e1aaf9f65c66dd",
+  "position": {
+    "x": 645,
+    "y": 112,
+    "z": 10,
+    "height": 84,
+    "width": 201,
+    "tabOrder": 100
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "Worst Lag Overage (min)"
+                }
+              },
+              "queryRef": "DTS_Refresh.Worst Lag Overage (min)",
+              "nativeQueryRef": "Worst Lag Overage (min)"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

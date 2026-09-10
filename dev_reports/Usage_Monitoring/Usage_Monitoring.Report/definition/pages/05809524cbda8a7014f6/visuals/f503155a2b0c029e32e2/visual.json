@@ -1,0 +1,70 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "f503155a2b0c029e32e2",
+  "position": {
+    "x": 12,
+    "y": 460,
+    "z": 15,
+    "height": 248,
+    "width": 618,
+    "tabOrder": 150
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "LAYER"
+                }
+              },
+              "queryRef": "DTS_Refresh.LAYER",
+              "nativeQueryRef": "LAYER"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "Avg Lag Overage (min)"
+                }
+              },
+              "queryRef": "DTS_Refresh.Avg Lag Overage (min)",
+              "nativeQueryRef": "Avg Lag Overage (min)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DTS_Refresh"
+                    }
+                  },
+                  "Property": "Worst Lag Overage (min)"
+                }
+              },
+              "queryRef": "DTS_Refresh.Worst Lag Overage (min)",
+              "nativeQueryRef": "Worst Lag Overage (min)"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

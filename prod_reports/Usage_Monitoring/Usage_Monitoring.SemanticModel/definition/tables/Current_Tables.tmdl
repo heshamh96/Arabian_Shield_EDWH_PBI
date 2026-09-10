@@ -90,6 +90,21 @@ table Current_Tables
 
 		annotation SummarizationSetBy = Automatic
 
+	hierarchy Inventory
+		lineageTag: e04455a3-a130-42c2-b6ab-d1792ec3bdd9
+
+		level LAYER
+			lineageTag: 244a4545-8742-459f-a6de-dfe6ec16faa9
+			column: LAYER
+
+		level SCHEMA_NAME
+			lineageTag: a4114f86-27f0-4733-b2c0-50843ba2adfc
+			column: SCHEMA_NAME
+
+		level TABLE_NAME
+			lineageTag: e3d217f7-3a08-4d6b-9450-f14fc52bd736
+			column: TABLE_NAME
+
 	measure 'Tables Monitored' = COUNTROWS(Current_Tables)
 		formatString: #,0
 		lineageTag: 8b8eed36-138d-4313-bc59-fcba5b354b41
@@ -119,9 +134,57 @@ table Current_Tables
 		formatString: #,0
 		lineageTag: 5ca6ed18-2a12-4af8-8887-dfb1f54c04b5
 
+	measure 'Empty Table %' = DIVIDE([Empty Tables], [Tables Monitored])
+		formatString: 0.0%
+		lineageTag: efe3cfda-be9e-48fc-92f5-4382ad41fcf8
+
 	measure 'Avg Rows per Table' = DIVIDE([Current Rows], [Tables Monitored])
 		formatString: #,0
 		lineageTag: 6a55957e-1370-4bcb-a289-31e2d4f794ad
+
+	measure 'Largest Table Rows' = MAX(Current_Tables[ROW_COUNT])
+		formatString: #,0
+		lineageTag: a6770739-3af7-4642-8e3e-d1c6fab66ae6
+
+	/// Name of the biggest table by row count in the current filter.
+	measure 'Largest Table' = CALCULATE(FIRSTNONBLANK(Current_Tables[TABLE_NAME], 1), TOPN(1, ALLSELECTED(Current_Tables[TABLE_NAME]), [Current Rows], DESC))
+		lineageTag: e42c568a-e0f4-4750-8922-3470d576e67e
+
+	/// Not altered in 30 days - either stable reference data or a stalled feed.
+	measure 'Stale Tables (30d)' = CALCULATE([Tables Monitored], FILTER(Current_Tables, Current_Tables[LAST_ALTERED] < TODAY() - 30))
+		formatString: #,0
+		lineageTag: 82192f99-f3d8-4898-b171-664094dc23ea
+
+	measure 'Avg Retention Days' = AVERAGE(Current_Tables[RETENTION_TIME])
+		formatString: #,0.00
+		lineageTag: bd233caa-8458-4509-93ba-9d151654120e
+
+	/// With a 300M-row outlier present, the median describes the estate better than the mean.
+	measure 'Median Rows per Table' = MEDIANX(Current_Tables, Current_Tables[ROW_COUNT])
+		formatString: #,0
+		lineageTag: 60eb2a95-5c7a-442e-8ac1-07b486057cde
+
+	/// Share of all storage held by the single largest table.
+	measure 'Storage Concentration %' = DIVIDE(MAXX(VALUES(Current_Tables[TABLE_NAME]), [Current Storage GB]), [Current Storage GB])
+		formatString: 0.0%
+		lineageTag: 072811a3-71fb-4c82-9dc6-3715f9bfc403
+
+	measure 'Tables > 1M Rows' = CALCULATE([Tables Monitored], FILTER(Current_Tables, Current_Tables[ROW_COUNT] > 1000000))
+		formatString: #,0
+		lineageTag: c23e8499-31c0-4181-8e70-44648c5de92a
+
+	measure 'Largest Table GB' = DIVIDE(MAX(Current_Tables[BYTES]), 1073741824)
+		formatString: #,0.00
+		lineageTag: e3236b32-bc94-41ca-b48e-da3d8b8d3954
+
+	measure 'Newest Table Date' = MAX(Current_Tables[CREATED_AT])
+		formatString: yyyy-mm-dd
+		lineageTag: e5ceced1-07df-483d-a990-e22f870a5306
+
+	/// Most recent write anywhere in the current filter - a staleness canary.
+	measure 'Last Change' = MAX(Current_Tables[LAST_ALTERED])
+		formatString: yyyy-mm-dd
+		lineageTag: 91d9ff5c-9316-4e5e-9616-74c5e0e9dfac
 
 	partition Current_Tables = m
 		mode: import

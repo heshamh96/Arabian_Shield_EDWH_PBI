@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "526d156f9db557aee100",
   "position": {
     "x": 12,
@@ -11,7 +11,6 @@
   },
   "visual": {
     "visualType": "clusteredBarChart",
-    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
         "Category": {
@@ -33,7 +32,8 @@
                 }
               },
               "queryRef": "Table_Snapshots.Storage.TABLE_NAME",
-              "nativeQueryRef": "TABLE_NAME"
+              "nativeQueryRef": "TABLE_NAME",
+              "active": true
             }
           ]
         },
@@ -56,6 +56,7 @@
           ]
         }
       }
-    }
+    },
+    "drillFilterOtherVisuals": true
   }
 }

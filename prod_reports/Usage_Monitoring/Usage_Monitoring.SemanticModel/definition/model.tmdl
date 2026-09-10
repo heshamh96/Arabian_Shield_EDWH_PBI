@@ -12,12 +12,6 @@ annotation PBI_ProTooling = ["DevMode"]
 
 annotation PBI_QueryOrder = ["SnowflakeServer","SnowflakeWarehouse","SnowflakeDatabase","SnowflakeSchema","SnowflakeRole","DTS_Refresh","Table_Snapshots","Current_Tables","Daily_Consumption","Hourly_Consumption"]
 
-ref expression SnowflakeServer
-ref expression SnowflakeWarehouse
-ref expression SnowflakeDatabase
-ref expression SnowflakeSchema
-ref expression SnowflakeRole
-
 ref table DTS_Refresh
 ref table Table_Snapshots
 ref table Current_Tables

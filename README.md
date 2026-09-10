@@ -110,3 +110,11 @@ Two standing risks, unchanged:
 | [`tools/Validate-Tmdl.ps1`](tools/Validate-Tmdl.ps1) | Parse a semantic model with Power BI's own TMDL parser in ~1s, instead of a 90s Desktop launch. Syntax only — Power BI applies further semantic rules at load. |
 | [`tools/Grab-Window.ps1`](tools/Grab-Window.ps1) | Capture a window to PNG via `PrintWindow`. Reads Power BI's "Issues were found" dialog, whose text is invisible to UI Automation, and works over RDP where screen capture does not. |
 | [`tools/usage-monitoring/`](tools/usage-monitoring) | Generators that emit both Usage_Monitoring projects from one definition. |
+| [`tools/usage-monitoring/check-refs.js`](tools/usage-monitoring/check-refs.js) | Cross-checks every measure, column and hierarchy level the report references against the model, plus `pageOrder` coverage and navigation targets. Catches the dangling-reference failure in ~1s. |
+| [`tools/usage-monitoring/check-sync.js`](tools/usage-monitoring/check-sync.js) | Compares the dev and prod copies of a report and classifies each difference as expected (connection parameters, environment badge, Fabric `logicalId`) or drift. |
+
+Checking dev and prod have not diverged:
+
+```bash
+node tools/usage-monitoring/check-sync.js Usage_Monitoring
+```

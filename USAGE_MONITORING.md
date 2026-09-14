@@ -281,3 +281,28 @@ prompt: choose **Key-Pair**, then
 Use the `_unencrypted` keys. The `BEGIN ENCRYPTED PRIVATE KEY` variants carry an
 empty passphrase, which the ADBC driver rejects with
 `jwt_private_key_pkcs8_password is not configured`.
+
+### First refresh: approve the native queries
+
+Every table is loaded by a native SQL statement. Power BI requires a person to
+approve each native query the first time its text is seen (**Options → Security
+→ Require user approval for new native database queries**, on by default). On
+the first **Refresh** after opening, or after any regeneration that changes the
+SQL, Desktop shows *"Permission is required to run this native database query"*
+once per table - click **Run**. The approval is remembered per machine.
+
+An engine-triggered refresh (XMLA / TOM) cannot raise that prompt and simply
+hangs with idle `Microsoft.Mashup.Container` processes, so this step has to be
+done from Desktop.
+
+### "A cyclic reference was encountered during evaluation"
+
+Seen on prod after Desktop updated to 2.157.1354. The native SQL used to be
+assembled at refresh time with `Text.Replace` over the `SnowflakeDatabase` and
+`SnowflakeSchema` parameters. Desktop's own Refresh applies privacy-level
+partitioning that an engine refresh does not, and a query whose *text* depends
+on the same parameter that feeds its *data source* is what that partitioner
+reports as a cycle. The SQL is now a plain literal, schema-qualified only; the
+database comes from the `Db` navigation step, which Power BI honours by issuing
+`USE DATABASE "MONITORING_DB"` before every native query - visible in Snowflake
+query history. `SnowflakeSchema` was removed as no longer used.

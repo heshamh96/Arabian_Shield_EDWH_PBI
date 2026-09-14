@@ -160,8 +160,7 @@ table Daily_Consumption
 				let
 				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
 				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
-				    Sql = Text.Replace(Text.Replace("select USAGE_DATE, TOTAL_CREDITS, COMPUTE_CREDITS, CLOUD_SERVICES_CREDITS, WAREHOUSES_USED, ESTIMATED_DAILY_COST_USD from {DB}.{SCHEMA}.VW_DAILY_CONSUMPTION_SUMMARY", "{DB}", SnowflakeDatabase), "{SCHEMA}", SnowflakeSchema),
-				    Result = Value.NativeQuery(Db, Sql, null, [EnableFolding=true])
+				    Result = Value.NativeQuery(Db, "select USAGE_DATE, TOTAL_CREDITS, COMPUTE_CREDITS, CLOUD_SERVICES_CREDITS, WAREHOUSES_USED, ESTIMATED_DAILY_COST_USD from SNOWFLAKE.VW_DAILY_CONSUMPTION_SUMMARY", null, [EnableFolding=true])
 				in
 				    Result
 

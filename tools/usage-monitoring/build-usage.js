@@ -81,8 +81,17 @@ function tableTmdl(t) {
   }
 
   // One line of SQL: TMDL cannot carry embedded newlines inside the M string,
-  // and SQL does not care. {DB}/{SCHEMA} stay parameter-driven via Text.Replace.
-  const sql = t.query.replace(/\{DB\}\.SNOWFLAKE\./g, '{DB}.{SCHEMA}.')
+  // and SQL does not care.
+  //
+  // The SQL is a plain literal, schema-qualified only. The database comes from
+  // the Db navigation step, which already scopes the native query to it.
+  // Previously the text was assembled at runtime with Text.Replace over the
+  // SnowflakeDatabase / SnowflakeSchema parameters. Desktop's own Refresh applies
+  // privacy-level partitioning that the engine refresh does not, and a query
+  // whose TEXT depends on the same parameter that feeds its DATA SOURCE is what
+  // that partitioner reports as "A cyclic reference was encountered during
+  // evaluation" - which is how prod broke after Desktop updated to 2.157.1354.
+  const sql = t.query.replace(/\{DB\}\.SNOWFLAKE\./g, 'SNOWFLAKE.')
                      .replace(/\s*\r?\n\s*/g, ' ').trim().replace(/"/g, '""');
   L.push(`\tpartition ${q(t.name)} = m`);
   L.push(`\t\tmode: import`);
@@ -90,8 +99,7 @@ function tableTmdl(t) {
   L.push(`\t\t\t\tlet`);
   L.push(`\t\t\t\t    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),`);
   L.push(`\t\t\t\t    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],`);
-  L.push(`\t\t\t\t    Sql = Text.Replace(Text.Replace("${sql}", "{DB}", SnowflakeDatabase), "{SCHEMA}", SnowflakeSchema),`);
-  L.push(`\t\t\t\t    Result = Value.NativeQuery(Db, Sql, null, [EnableFolding=true])`);
+  L.push(`\t\t\t\t    Result = Value.NativeQuery(Db, "${sql}", null, [EnableFolding=true])`);
   L.push(`\t\t\t\tin`);
   L.push(`\t\t\t\t    Result`, '');
   L.push(`\tannotation PBI_ResultType = Table`, '');

@@ -257,8 +257,7 @@ const RELATIONSHIPS = [
 const PARAMS = [
   ['SnowflakeServer', 'server', 'Snowflake account URL for this environment.'],
   ['SnowflakeWarehouse', 'warehouse', 'Warehouse used to run the monitoring queries.'],
-  ['SnowflakeDatabase', 'database', 'Monitoring database. Change here to repoint the whole model.'],
-  ['SnowflakeSchema', 'schema', 'Schema holding the telemetry views.'],
+  ['SnowflakeDatabase', 'database', 'Monitoring database. The native queries run inside it and name only the SNOWFLAKE schema.'],
   ['SnowflakeRole', 'role', 'Role assumed on connect.'],
 ];
 

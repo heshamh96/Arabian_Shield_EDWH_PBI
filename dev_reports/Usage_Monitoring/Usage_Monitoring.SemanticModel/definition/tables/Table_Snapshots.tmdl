@@ -221,8 +221,7 @@ table Table_Snapshots
 				let
 				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
 				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
-				    Sql = Text.Replace(Text.Replace("select cast(SNAPSHOT_TIME as date) as SNAPSHOT_DATE, SNAPSHOT_TIME, DATABASE_NAME, SCHEMA_NAME as LAYER, SCHEMA_NAME, TABLE_NAME, IS_DYNAMIC, ROW_COUNT, BYTES, RETENTION_TIME, CREATED_AT, LAST_ALTERED, ""COMMENT"" as TABLE_COMMENT from {DB}.{SCHEMA}.TABLE_COUNT_DAILY_SNAPSHOTS", "{DB}", SnowflakeDatabase), "{SCHEMA}", SnowflakeSchema),
-				    Result = Value.NativeQuery(Db, Sql, null, [EnableFolding=true])
+				    Result = Value.NativeQuery(Db, "select cast(SNAPSHOT_TIME as date) as SNAPSHOT_DATE, SNAPSHOT_TIME, DATABASE_NAME, SCHEMA_NAME as LAYER, SCHEMA_NAME, TABLE_NAME, IS_DYNAMIC, ROW_COUNT, BYTES, RETENTION_TIME, CREATED_AT, LAST_ALTERED, ""COMMENT"" as TABLE_COMMENT from SNOWFLAKE.TABLE_COUNT_DAILY_SNAPSHOTS", null, [EnableFolding=true])
 				in
 				    Result
 

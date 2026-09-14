@@ -198,10 +198,9 @@ table Current_Tables
 				let
 				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
 				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
-				    Sql = Text.Replace(Text.Replace("select 'BRONZE' as LAYER, ""DATABASE"" as DATABASE_NAME, ""SCHEMA"" as SCHEMA_NAME, ""TABLE"" as TABLE_NAME, IS_DYNAMIC, ROW_COUNT, BYTES, RETENTION_TIME, cast(CREATED_AT as timestamp_ntz) as CREATED_AT, cast(LAST_ALTERED as timestamp_ntz) as LAST_ALTERED, ""COMMENT"" as TABLE_COMMENT from {DB}.{SCHEMA}.VW_BRONZE_TABLE_CURRENT_COUNT union all select 'SILVER' as LAYER, ""DATABASE"" as DATABASE_NAME, ""SCHEMA"" as SCHEMA_NAME, ""TABLE"" as TABLE_NAME, IS_DYNAMIC, ROW_COUNT, BYTES, RETENTION_TIME, cast(CREATED_AT as timestamp_ntz) as CREATED_AT, cast(LAST_ALTERED as timestamp_ntz) as LAST_ALTERED, ""COMMENT"" as TABLE_COMMENT from {DB}.{SCHEMA}.VW_SILVER_TABLE_CURRENT_COUNT union all select 'GOLD' as LAYER, ""DATABASE"" as DATABASE_NAME, ""SCHEMA"" as SCHEMA_NAME, ""TABLE"" as TABLE_NAME, IS_DYNAMIC, ROW_COUNT, BYTES, RETENTION_TIME, cast(CREATED_AT as timestamp_ntz) as CREATED_AT, cast(LAST_ALTERED as timestamp_ntz) as LAST_ALTERED, ""COMMENT"" as TABLE_COMMENT from {DB}.{SCHEMA}.VW_GOLD_TABLE_CURRENT_COUNT", "{DB}", SnowflakeDatabase), "{SCHEMA}", SnowflakeSchema),
-				    Result = Value.NativeQuery(Db, Sql, null, [EnableFolding=true])
+				    Result = Value.NativeQuery(Db, "select 'BRONZE' as LAYER, ""DATABASE"" as DATABASE_NAME, ""SCHEMA"" as SCHEMA_NAME, ""TABLE"" as TABLE_NAME, IS_DYNAMIC, ROW_COUNT, BYTES, RETENTION_TIME, cast(CREATED_AT as timestamp_ntz) as CREATED_AT, cast(LAST_ALTERED as timestamp_ntz) as LAST_ALTERED, ""COMMENT"" as TABLE_COMMENT from SNOWFLAKE.VW_BRONZE_TABLE_CURRENT_COUNT union all select 'SILVER' as LAYER, ""DATABASE"" as DATABASE_NAME, ""SCHEMA"" as SCHEMA_NAME, ""TABLE"" as TABLE_NAME, IS_DYNAMIC, ROW_COUNT, BYTES, RETENTION_TIME, cast(CREATED_AT as timestamp_ntz) as CREATED_AT, cast(LAST_ALTERED as timestamp_ntz) as LAST_ALTERED, ""COMMENT"" as TABLE_COMMENT from SNOWFLAKE.VW_SILVER_TABLE_CURRENT_COUNT union all select 'GOLD' as LAYER, ""DATABASE"" as DATABASE_NAME, ""SCHEMA"" as SCHEMA_NAME, ""TABLE"" as TABLE_NAME, IS_DYNAMIC, ROW_COUNT, BYTES, RETENTION_TIME, cast(CREATED_AT as timestamp_ntz) as CREATED_AT, cast(LAST_ALTERED as timestamp_ntz) as LAST_ALTERED, ""COMMENT"" as TABLE_COMMENT from SNOWFLAKE.VW_GOLD_TABLE_CURRENT_COUNT", null, [EnableFolding=true])
 				in
 				    Result
 
-	annotation PBI_ResultType = Exception
+	annotation PBI_ResultType = Table
 

@@ -153,8 +153,7 @@ table Hourly_Consumption
 				let
 				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
 				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
-				    Sql = Text.Replace(Text.Replace("select WAREHOUSE_ID, WAREHOUSE_NAME, START_TIME, END_TIME, cast(START_TIME as date) as USAGE_DATE, hour(START_TIME) as USAGE_HOUR, CREDITS_USED, CREDITS_USED_COMPUTE, CREDITS_USED_CLOUD_SERVICES, ESTIMATED_COST_USD from {DB}.{SCHEMA}.VW_VWH_HOURLY_CONSUMPTION_7D", "{DB}", SnowflakeDatabase), "{SCHEMA}", SnowflakeSchema),
-				    Result = Value.NativeQuery(Db, Sql, null, [EnableFolding=true])
+				    Result = Value.NativeQuery(Db, "select WAREHOUSE_ID, WAREHOUSE_NAME, START_TIME, END_TIME, cast(START_TIME as date) as USAGE_DATE, hour(START_TIME) as USAGE_HOUR, CREDITS_USED, CREDITS_USED_COMPUTE, CREDITS_USED_CLOUD_SERVICES, ESTIMATED_COST_USD from SNOWFLAKE.VW_VWH_HOURLY_CONSUMPTION_7D", null, [EnableFolding=true])
 				in
 				    Result
 

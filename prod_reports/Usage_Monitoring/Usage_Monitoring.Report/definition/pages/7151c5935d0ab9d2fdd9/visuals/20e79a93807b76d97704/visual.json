@@ -23,11 +23,11 @@
                       "Entity": "Daily_Consumption"
                     }
                   },
-                  "Property": "Run Rate (30d) USD"
+                  "Property": "Run Rate (30d) Credits"
                 }
               },
-              "queryRef": "Daily_Consumption.Run Rate (30d) USD",
-              "nativeQueryRef": "Run Rate (30d) USD"
+              "queryRef": "Daily_Consumption.Run Rate (30d) Credits",
+              "nativeQueryRef": "Run Rate (30d) Credits"
             }
           ]
         }
@@ -46,7 +46,7 @@
                 "Entity": "Daily_Consumption"
               }
             },
-            "Property": "Run Rate (30d) USD"
+            "Property": "Run Rate (30d) Credits"
           }
         },
         "type": "Advanced"

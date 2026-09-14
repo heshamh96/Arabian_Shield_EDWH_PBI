@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
   "name": "228fdb7eebb892f84f98",
-  "displayName": "Cost & Consumption",
+  "displayName": "Credits & Consumption",
   "displayOption": "FitToPage",
   "height": 720,
   "width": 1280

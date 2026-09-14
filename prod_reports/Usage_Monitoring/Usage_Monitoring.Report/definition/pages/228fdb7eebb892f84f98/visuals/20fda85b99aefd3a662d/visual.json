@@ -42,11 +42,11 @@
                       "Entity": "Hourly_Consumption"
                     }
                   },
-                  "Property": "Cost (7d)"
+                  "Property": "Credits (7d)"
                 }
               },
-              "queryRef": "Hourly_Consumption.Cost (7d)",
-              "nativeQueryRef": "Cost (7d)"
+              "queryRef": "Hourly_Consumption.Credits (7d)",
+              "nativeQueryRef": "Credits (7d)"
             },
             {
               "field": {

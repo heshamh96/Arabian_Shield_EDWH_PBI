@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "a5dc60b56f6c73cf96da",
   "position": {
     "x": 12,
@@ -11,7 +11,6 @@
   },
   "visual": {
     "visualType": "cardVisual",
-    "drillFilterOtherVisuals": true,
     "query": {
       "queryState": {
         "Data": {
@@ -24,15 +23,34 @@
                       "Entity": "Daily_Consumption"
                     }
                   },
-                  "Property": "Estimated Cost"
+                  "Property": "Total Credits"
                 }
               },
-              "queryRef": "Daily_Consumption.Estimated Cost",
-              "nativeQueryRef": "Estimated Cost"
+              "queryRef": "Daily_Consumption.Total Credits",
+              "nativeQueryRef": "Total Credits"
             }
           ]
         }
       }
-    }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "f6720f3ca00e10998339",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Daily_Consumption"
+              }
+            },
+            "Property": "Total Credits"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

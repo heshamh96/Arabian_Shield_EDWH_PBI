@@ -2,6 +2,126 @@
 table Table_Snapshots
 	lineageTag: b260f2c7-3665-4d7b-b1b8-57aab1efd28b
 
+	column SNAPSHOT_DATE
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 3cf6e6d4-a243-4176-bd4e-6fb1cdbc85b6
+		summarizeBy: none
+		sourceColumn: SNAPSHOT_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SNAPSHOT_TIME
+		dataType: dateTime
+		lineageTag: f71b4ad9-1ed6-466c-bfa6-dd35bd8651ee
+		summarizeBy: none
+		sourceColumn: SNAPSHOT_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATABASE_NAME
+		dataType: string
+		lineageTag: ea0d6d0b-3132-4169-95d4-43c955c48b13
+		summarizeBy: none
+		sourceColumn: DATABASE_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column LAYER
+		dataType: string
+		lineageTag: f31dc2be-36a8-473f-b579-2d07dd85d4dc
+		summarizeBy: none
+		sourceColumn: LAYER
+
+		annotation SummarizationSetBy = Automatic
+
+	column SCHEMA_NAME
+		dataType: string
+		lineageTag: da4971ee-c172-455c-ab78-e36c57791711
+		summarizeBy: none
+		sourceColumn: SCHEMA_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column TABLE_NAME
+		dataType: string
+		lineageTag: d01d1740-9884-4db3-9ae9-90adcc1dd983
+		summarizeBy: none
+		sourceColumn: TABLE_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_DYNAMIC
+		dataType: string
+		lineageTag: d572cfde-b5d5-4500-804b-0ce486232d7f
+		summarizeBy: none
+		sourceColumn: IS_DYNAMIC
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROW_COUNT
+		dataType: int64
+		lineageTag: 3d76ad5d-9a69-4284-9834-d3a07b6bf9f5
+		summarizeBy: sum
+		sourceColumn: ROW_COUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column BYTES
+		dataType: int64
+		lineageTag: c98ed4c5-a86a-452b-afe6-1c1bb944e4c8
+		summarizeBy: sum
+		sourceColumn: BYTES
+
+		annotation SummarizationSetBy = Automatic
+
+	column RETENTION_TIME
+		dataType: int64
+		lineageTag: 701fdbb9-b223-4b57-84ff-b9a1a7c1f0aa
+		summarizeBy: none
+		sourceColumn: RETENTION_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column CREATED_AT
+		dataType: dateTime
+		lineageTag: b8c912ce-a2aa-428c-834d-287e0d148889
+		summarizeBy: none
+		sourceColumn: CREATED_AT
+
+		annotation SummarizationSetBy = Automatic
+
+	column LAST_ALTERED
+		dataType: dateTime
+		lineageTag: 72405c41-12c9-444e-96fe-af8e85ecfc46
+		summarizeBy: none
+		sourceColumn: LAST_ALTERED
+
+		annotation SummarizationSetBy = Automatic
+
+	column TABLE_COMMENT
+		dataType: string
+		lineageTag: f4dfea82-6464-4764-ac33-9e6595f6002e
+		summarizeBy: none
+		sourceColumn: TABLE_COMMENT
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy Storage
+		lineageTag: 94a8306b-cab3-4a49-9f73-334780995e02
+
+		level LAYER
+			lineageTag: c22bddb8-cfa3-436b-be73-4df09d0d1c53
+			column: LAYER
+
+		level SCHEMA_NAME
+			lineageTag: 4bd283c4-c991-4a08-9e6c-f30881602d4e
+			column: SCHEMA_NAME
+
+		level TABLE_NAME
+			lineageTag: 68997959-bb5d-403b-ae15-1dd752dea783
+			column: TABLE_NAME
+
 	/// Only meaningful with a single date in filter context.
 	measure 'Rows (Snapshot)' = SUM(Table_Snapshots[ROW_COUNT])
 		formatString: #,0
@@ -86,134 +206,6 @@ table Table_Snapshots
 	measure 'Projected GB in 90d' = [Storage GB (Latest)] + [Daily Growth GB] * 90
 		formatString: #,0.00
 		lineageTag: a0f7d019-96cd-41c2-9afc-80f04cfde0e4
-
-	column SNAPSHOT_DATE
-		dataType: dateTime
-		formatString: yyyy-mm-dd
-		lineageTag: 3cf6e6d4-a243-4176-bd4e-6fb1cdbc85b6
-		summarizeBy: none
-		sourceColumn: SNAPSHOT_DATE
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
-
-	column SNAPSHOT_TIME
-		dataType: dateTime
-		lineageTag: f71b4ad9-1ed6-466c-bfa6-dd35bd8651ee
-		summarizeBy: none
-		sourceColumn: SNAPSHOT_TIME
-
-		annotation SummarizationSetBy = Automatic
-
-	column DATABASE_NAME
-		dataType: string
-		lineageTag: ea0d6d0b-3132-4169-95d4-43c955c48b13
-		summarizeBy: none
-		sourceColumn: DATABASE_NAME
-
-		annotation SummarizationSetBy = Automatic
-
-	column LAYER
-		dataType: string
-		lineageTag: f31dc2be-36a8-473f-b579-2d07dd85d4dc
-		summarizeBy: none
-		sourceColumn: LAYER
-
-		annotation SummarizationSetBy = Automatic
-
-	column SCHEMA_NAME
-		dataType: string
-		lineageTag: da4971ee-c172-455c-ab78-e36c57791711
-		summarizeBy: none
-		sourceColumn: SCHEMA_NAME
-
-		annotation SummarizationSetBy = Automatic
-
-	column TABLE_NAME
-		dataType: string
-		lineageTag: d01d1740-9884-4db3-9ae9-90adcc1dd983
-		summarizeBy: none
-		sourceColumn: TABLE_NAME
-
-		annotation SummarizationSetBy = Automatic
-
-	column IS_DYNAMIC
-		dataType: string
-		lineageTag: d572cfde-b5d5-4500-804b-0ce486232d7f
-		summarizeBy: none
-		sourceColumn: IS_DYNAMIC
-
-		annotation SummarizationSetBy = Automatic
-
-	column ROW_COUNT
-		dataType: double
-		lineageTag: 3d76ad5d-9a69-4284-9834-d3a07b6bf9f5
-		summarizeBy: sum
-		sourceColumn: ROW_COUNT
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column BYTES
-		dataType: double
-		lineageTag: c98ed4c5-a86a-452b-afe6-1c1bb944e4c8
-		summarizeBy: sum
-		sourceColumn: BYTES
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column RETENTION_TIME
-		dataType: double
-		lineageTag: 701fdbb9-b223-4b57-84ff-b9a1a7c1f0aa
-		summarizeBy: sum
-		sourceColumn: RETENTION_TIME
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column CREATED_AT
-		dataType: dateTime
-		lineageTag: b8c912ce-a2aa-428c-834d-287e0d148889
-		summarizeBy: none
-		sourceColumn: CREATED_AT
-
-		annotation SummarizationSetBy = Automatic
-
-	column LAST_ALTERED
-		dataType: dateTime
-		lineageTag: 72405c41-12c9-444e-96fe-af8e85ecfc46
-		summarizeBy: none
-		sourceColumn: LAST_ALTERED
-
-		annotation SummarizationSetBy = Automatic
-
-	column TABLE_COMMENT
-		dataType: string
-		lineageTag: f4dfea82-6464-4764-ac33-9e6595f6002e
-		summarizeBy: none
-		sourceColumn: TABLE_COMMENT
-
-		annotation SummarizationSetBy = Automatic
-
-	hierarchy Storage
-		lineageTag: 94a8306b-cab3-4a49-9f73-334780995e02
-
-		level LAYER
-			lineageTag: c22bddb8-cfa3-436b-be73-4df09d0d1c53
-			column: LAYER
-
-		level SCHEMA_NAME
-			lineageTag: 4bd283c4-c991-4a08-9e6c-f30881602d4e
-			column: SCHEMA_NAME
-
-		level TABLE_NAME
-			lineageTag: 68997959-bb5d-403b-ae15-1dd752dea783
-			column: TABLE_NAME
 
 	partition Table_Snapshots = m
 		mode: import

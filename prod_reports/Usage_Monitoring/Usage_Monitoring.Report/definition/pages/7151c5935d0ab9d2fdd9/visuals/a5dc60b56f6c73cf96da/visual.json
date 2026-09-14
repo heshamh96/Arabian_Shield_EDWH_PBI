@@ -23,11 +23,11 @@
                       "Entity": "Daily_Consumption"
                     }
                   },
-                  "Property": "Estimated Cost"
+                  "Property": "Total Credits"
                 }
               },
-              "queryRef": "Daily_Consumption.Estimated Cost",
-              "nativeQueryRef": "Estimated Cost"
+              "queryRef": "Daily_Consumption.Total Credits",
+              "nativeQueryRef": "Total Credits"
             }
           ]
         }
@@ -46,7 +46,7 @@
                 "Entity": "Daily_Consumption"
               }
             },
-            "Property": "Estimated Cost"
+            "Property": "Total Credits"
           }
         },
         "type": "Advanced"

@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
   "name": "d26eaf6e7f5452206a6e",
   "position": {
-    "x": 668,
-    "y": 60,
+    "x": 667.82608695652175,
+    "y": 46.020066889632112,
     "z": 5,
-    "height": 44,
-    "width": 300,
+    "height": 71.7056856187291,
+    "width": 299.66555183946491,
     "tabOrder": 50
   },
   "visual": {
@@ -34,6 +34,39 @@
         }
       }
     },
+    "objects": {
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Dropdown'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "f47706078e6c698ab54b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Date"
+              }
+            },
+            "Property": "Month Name"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }

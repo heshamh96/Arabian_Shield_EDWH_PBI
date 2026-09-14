@@ -23,11 +23,11 @@
                       "Entity": "Daily_Consumption"
                     }
                   },
-                  "Property": "Cost MTD"
+                  "Property": "Credits MTD"
                 }
               },
-              "queryRef": "Daily_Consumption.Cost MTD",
-              "nativeQueryRef": "Cost MTD"
+              "queryRef": "Daily_Consumption.Credits MTD",
+              "nativeQueryRef": "Credits MTD"
             }
           ]
         }
@@ -46,7 +46,7 @@
                 "Entity": "Daily_Consumption"
               }
             },
-            "Property": "Cost MTD"
+            "Property": "Credits MTD"
           }
         },
         "type": "Advanced"

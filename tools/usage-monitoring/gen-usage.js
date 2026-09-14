@@ -33,7 +33,7 @@ const guid = s => { const h = crypto.createHash('sha1').update('usage|' + s).dig
 const id20 = s => crypto.createHash('sha1').update('uid|' + s).digest('hex').slice(0, 20);
 
 const S = 'string', I = 'int64', D = 'double', T = 'dateTime', B = 'boolean';
-const FMT_INT = '#,0', FMT_2 = '#,0.00', FMT_PCT = '0.0%', FMT_USD = '\\$#,0.00', FMT_DATE = 'yyyy-mm-dd';
+const FMT_INT = '#,0', FMT_2 = '#,0.00', FMT_PCT = '0.0%', FMT_DATE = 'yyyy-mm-dd';
 
 const TABLES = [
   {
@@ -154,34 +154,34 @@ const TABLES = [
   },
   {
     name: 'Daily_Consumption', query: Q.Daily_Consumption,
-    doc: 'Credits and estimated cost per day, account-wide.',
+    doc: 'Credits per day, account-wide.',
     cols: [
       ['USAGE_DATE', T, FMT_DATE], ['TOTAL_CREDITS', D], ['COMPUTE_CREDITS', D],
-      ['CLOUD_SERVICES_CREDITS', D], ['WAREHOUSES_USED', I], ['ESTIMATED_DAILY_COST_USD', D],
+      ['CLOUD_SERVICES_CREDITS', D], ['WAREHOUSES_USED', I],
     ],
+    // Credits only. The view's USD column is an inaccurate calculated rate, so it
+    // is neither loaded nor surfaced - every metric here is in credits.
     measures: [
       ['Total Credits', 'SUM(Daily_Consumption[TOTAL_CREDITS])', FMT_2],
       ['Compute Credits', 'SUM(Daily_Consumption[COMPUTE_CREDITS])', FMT_2],
       ['Cloud Services Credits', 'SUM(Daily_Consumption[CLOUD_SERVICES_CREDITS])', FMT_2],
       ['Cloud Services %', 'DIVIDE([Cloud Services Credits], [Total Credits])', FMT_PCT, 'Snowflake bills cloud services only above 10% of compute; a high share is worth investigating.'],
-      ['Estimated Cost', 'SUM(Daily_Consumption[ESTIMATED_DAILY_COST_USD])', FMT_USD],
-      ['Avg Daily Cost', 'AVERAGE(Daily_Consumption[ESTIMATED_DAILY_COST_USD])', FMT_USD],
-      ['Peak Daily Cost', 'MAX(Daily_Consumption[ESTIMATED_DAILY_COST_USD])', FMT_USD],
+      ['Avg Daily Credits', 'AVERAGE(Daily_Consumption[TOTAL_CREDITS])', FMT_2],
+      ['Peak Daily Credits', 'MAX(Daily_Consumption[TOTAL_CREDITS])', FMT_2],
       ['Days Monitored', 'DISTINCTCOUNT(Daily_Consumption[USAGE_DATE])', FMT_INT],
-      ['Cost Last 7 Days', "CALCULATE([Estimated Cost], DATESINPERIOD('Date'[Date], MAX('Date'[Date]), -7, DAY))", FMT_USD],
-      ['Cost Prev 7 Days', "CALCULATE([Estimated Cost], DATESINPERIOD('Date'[Date], MAX('Date'[Date]) - 7, -7, DAY))", FMT_USD],
-      ['Cost WoW %', 'DIVIDE([Cost Last 7 Days] - [Cost Prev 7 Days], [Cost Prev 7 Days])', FMT_PCT],
-      ['Cost MTD', "CALCULATE([Estimated Cost], DATESMTD('Date'[Date]))", FMT_USD],
+      ['Credits Last 7 Days', "CALCULATE([Total Credits], DATESINPERIOD('Date'[Date], MAX('Date'[Date]), -7, DAY))", FMT_2],
+      ['Credits Prev 7 Days', "CALCULATE([Total Credits], DATESINPERIOD('Date'[Date], MAX('Date'[Date]) - 7, -7, DAY))", FMT_2],
+      ['Credits WoW %', 'DIVIDE([Credits Last 7 Days] - [Credits Prev 7 Days], [Credits Prev 7 Days])', FMT_PCT],
+      ['Credits MTD', "CALCULATE([Total Credits], DATESMTD('Date'[Date]))", FMT_2],
       ['Credits 7D Avg', "AVERAGEX(DATESINPERIOD('Date'[Date], MAX('Date'[Date]), -7, DAY), [Total Credits])", FMT_2, 'Rolling mean - smooths the weekday/weekend saw-tooth.'],
-      ['Run Rate (30d) USD', '[Avg Daily Cost] * 30', FMT_USD, 'Projected monthly spend at the current daily average.'],
-      ['Cost per Million Rows', 'DIVIDE([Estimated Cost], DIVIDE([Rows (Latest)], 1000000))', FMT_USD, 'Unit economics: spend against data actually landed.'],
-      ['Cost per GB Stored', 'DIVIDE([Estimated Cost], [Storage GB (Latest)])', FMT_USD],
+      ['Run Rate (30d) Credits', '[Avg Daily Credits] * 30', FMT_2, 'Projected monthly credits at the current daily average.'],
+      ['Credits per Million Rows', 'DIVIDE([Total Credits], DIVIDE([Rows (Latest)], 1000000))', FMT_2, 'Unit economics: credits against data actually landed.'],
       ['Credits per Refresh Hour', 'DIVIDE([Total Credits], [Total Refresh Hours])', FMT_2, 'Credit burn per hour of dynamic-table refresh work.'],
-      ['Cost Volatility', 'STDEVX.P(VALUES(Daily_Consumption[USAGE_DATE]), [Estimated Cost])', FMT_USD, 'Day-to-day spread of daily spend. High volatility makes a run rate meaningless.'],
-      ['Days Above Avg Cost', 'COUNTROWS(FILTER(VALUES(Daily_Consumption[USAGE_DATE]), [Estimated Cost] > [Avg Daily Cost]))', FMT_INT],
-      ['Weekend Cost', "CALCULATE([Estimated Cost], 'Date'[Is Weekend] = TRUE())", FMT_USD],
-      ['Weekend Cost %', 'DIVIDE([Weekend Cost], [Estimated Cost])', FMT_PCT, 'Spend on days nobody is working - usually pure schedule cost.'],
-      ['Most Expensive Day', "CALCULATE(FIRSTNONBLANK('Date'[Date], 1), TOPN(1, ALLSELECTED('Date'[Date]), [Estimated Cost], DESC))", FMT_DATE],
+      ['Credits Volatility', 'STDEVX.P(VALUES(Daily_Consumption[USAGE_DATE]), [Total Credits])', FMT_2, 'Day-to-day spread of daily credits. High volatility makes a run rate meaningless.'],
+      ['Days Above Avg Credits', 'COUNTROWS(FILTER(VALUES(Daily_Consumption[USAGE_DATE]), [Total Credits] > [Avg Daily Credits]))', FMT_INT],
+      ['Weekend Credits', "CALCULATE([Total Credits], 'Date'[Is Weekend] = TRUE())", FMT_2],
+      ['Weekend Credits %', 'DIVIDE([Weekend Credits], [Total Credits])', FMT_PCT, 'Credits burned on days nobody is working - usually pure schedule cost.'],
+      ['Highest Credit Day', "CALCULATE(FIRSTNONBLANK('Date'[Date], 1), TOPN(1, ALLSELECTED('Date'[Date]), [Total Credits], DESC))", FMT_DATE],
       ['Credits per GB Stored', 'DIVIDE([Total Credits], [Storage GB (Latest)])', FMT_2],
     ],
   },
@@ -191,11 +191,10 @@ const TABLES = [
     cols: [
       ['WAREHOUSE_ID', I], ['WAREHOUSE_NAME', S], ['START_TIME', T], ['END_TIME', T],
       ['USAGE_DATE', T, FMT_DATE], ['USAGE_HOUR', I], ['CREDITS_USED', D],
-      ['CREDITS_USED_COMPUTE', D], ['CREDITS_USED_CLOUD_SERVICES', D], ['ESTIMATED_COST_USD', D],
+      ['CREDITS_USED_COMPUTE', D], ['CREDITS_USED_CLOUD_SERVICES', D],
     ],
     measures: [
       ['Credits (7d)', 'SUM(Hourly_Consumption[CREDITS_USED])', FMT_2],
-      ['Cost (7d)', 'SUM(Hourly_Consumption[ESTIMATED_COST_USD])', FMT_USD],
       ['Active Warehouses', 'DISTINCTCOUNT(Hourly_Consumption[WAREHOUSE_NAME])', FMT_INT],
       ['Peak Hourly Credits', 'MAX(Hourly_Consumption[CREDITS_USED])', FMT_2],
       ['Active Hours', 'CALCULATE(COUNTROWS(Hourly_Consumption), Hourly_Consumption[CREDITS_USED] > 0)', FMT_INT],

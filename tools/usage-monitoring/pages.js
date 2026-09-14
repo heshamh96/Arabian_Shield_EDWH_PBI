@@ -28,7 +28,7 @@ const DC = 'Daily_Consumption', HC = 'Hourly_Consumption', DR = 'DTS_Refresh',
 // page ids must be resolvable before the pages are emitted, so derive them the
 // same way the builder does
 const pid = name => id20('page.' + name);
-const NAV = ['Overview', 'Cost & Consumption', 'Pipeline Health', 'Data Growth', 'Table Inventory',
+const NAV = ['Overview', 'Credits & Consumption', 'Pipeline Health', 'Data Growth', 'Table Inventory',
              'Warehouse Efficiency', 'Refresh Deep Dive', 'Freshness & SLA', 'Executive Summary'];
 const TIP_TABLE = 'Tooltip - Table';
 const TIP_DAY   = 'Tooltip - Day';
@@ -139,10 +139,10 @@ const PAGES = [
   page('Overview', 'Usage Monitoring', 'Snowflake platform telemetry',
     [dateSlicer, layerSlicer(CT), monthSlicer],
     [
-      ...cards([[DC, 'Estimated Cost'], [DC, 'Total Credits'], [CT, 'Tables Monitored'],
+      ...cards([[DC, 'Total Credits'], [DC, 'Total Credits'], [CT, 'Tables Monitored'],
                 [TS, 'Rows (Latest)'], [DR, 'Success Rate %'], [DR, 'Target Lag Breach %']]),
       withTip({ type: 'lineChart', x: L, y: R1_Y, w: HALF, h: ROW_H,
-        q: { Category: P(col(DT, 'Date')), Y: P(meas(DC, 'Estimated Cost'), meas(DC, 'Credits 7D Avg')) } }, TIP_DAY),
+        q: { Category: P(col(DT, 'Date')), Y: P(meas(DC, 'Total Credits'), meas(DC, 'Credits 7D Avg')) } }, TIP_DAY),
       { type: 'clusteredColumnChart', x: R, y: R1_Y, w: HALF, h: ROW_H,
         q: { Category: P(col(DR, 'LAYER')), Y: P(meas(DR, 'Total Refreshes'), meas(DR, 'Failed Refreshes')) } },
       { type: 'clusteredBarChart', x: L, y: R2_Y, w: HALF, h: ROW_H,
@@ -152,17 +152,17 @@ const PAGES = [
                        meas(CT, 'Empty Tables'), meas(CT, 'Current Storage GB')) } }, TIP_TABLE),
     ]),
 
-  page('Cost & Consumption', 'Cost & Consumption', 'Credits, spend and warehouse burn',
+  page('Credits & Consumption', 'Credits & Consumption', 'Credits, spend and warehouse burn',
     [dateSlicer, monthSlicer],
     [
-      ...cards([[DC, 'Estimated Cost'], [DC, 'Cost MTD'], [DC, 'Avg Daily Cost'],
-                [DC, 'Run Rate (30d) USD'], [DC, 'Cost WoW %'], [DC, 'Cloud Services %']]),
+      ...cards([[DC, 'Total Credits'], [DC, 'Credits MTD'], [DC, 'Avg Daily Credits'],
+                [DC, 'Run Rate (30d) Credits'], [DC, 'Credits WoW %'], [DC, 'Cloud Services %']]),
       withTip({ type: 'lineChart', x: L, y: R1_Y, w: HALF, h: ROW_H,
         q: { Category: P(col(DT, 'Date')), Y: P(meas(DC, 'Total Credits'), meas(DC, 'Compute Credits'), meas(DC, 'Cloud Services Credits')) } }, TIP_DAY),
       { type: 'clusteredColumnChart', x: R, y: R1_Y, w: HALF, h: ROW_H,
-        q: { Category: P(hier(DT, 'Calendar', 'Month Name')), Y: P(meas(DC, 'Estimated Cost')) } },
+        q: { Category: P(hier(DT, 'Calendar', 'Month Name')), Y: P(meas(DC, 'Total Credits')) } },
       { type: 'clusteredBarChart', x: L, y: R2_Y, w: HALF, h: ROW_H,
-        q: { Category: P(col(HC, 'WAREHOUSE_NAME')), Y: P(meas(HC, 'Cost (7d)'), meas(HC, 'Credits (7d)')) } },
+        q: { Category: P(col(HC, 'WAREHOUSE_NAME')), Y: P(meas(HC, 'Credits (7d)'), meas(HC, 'Credits (7d)')) } },
       { type: 'clusteredColumnChart', x: R, y: R2_Y, w: HALF, h: ROW_H,
         q: { Category: P(col(HC, 'USAGE_HOUR')), Series: P(col(HC, 'WAREHOUSE_NAME')), Y: P(meas(HC, 'Credits (7d)')) } },
     ]),
@@ -226,9 +226,9 @@ const PAGES = [
       { type: 'clusteredBarChart', x: R, y: R1_Y, w: HALF, h: ROW_H,
         q: { Category: P(col(HC, 'WAREHOUSE_NAME')), Y: P(meas(HC, 'Active Hours'), meas(HC, 'Idle Hours')) } },
       { type: 'clusteredColumnChart', x: L, y: R2_Y, w: HALF, h: ROW_H,
-        q: { Category: P(col(DT, 'Day of Week')), Y: P(meas(HC, 'Credits (7d)'), meas(DC, 'Estimated Cost')) } },
+        q: { Category: P(col(DT, 'Day of Week')), Y: P(meas(HC, 'Credits (7d)'), meas(DC, 'Total Credits')) } },
       { type: 'tableEx', x: R, y: R2_Y, w: HALF, h: ROW_H,
-        q: { Values: P(col(HC, 'WAREHOUSE_NAME'), meas(HC, 'Credits (7d)'), meas(HC, 'Cost (7d)'),
+        q: { Values: P(col(HC, 'WAREHOUSE_NAME'), meas(HC, 'Credits (7d)'), meas(HC, 'Credits (7d)'),
                        meas(HC, 'Active Hours'), meas(HC, 'Idle Hours'), meas(HC, 'Utilisation %')) } },
     ]),
 
@@ -268,13 +268,13 @@ const PAGES = [
   page('Executive Summary', 'Executive Summary', 'The whole platform on one page',
     [dateSlicer, monthSlicer],
     [
-      ...cards([[DC, 'Estimated Cost'], [DC, 'Cost MTD'], [DC, 'Run Rate (30d) USD'],
+      ...cards([[DC, 'Total Credits'], [DC, 'Credits MTD'], [DC, 'Run Rate (30d) Credits'],
                 [DR, 'Success Rate %'], [TS, 'Rows (Latest)'], [CT, 'Tables Monitored']]),
       { type: 'lineChart', x: L, y: R1_Y, w: HALF, h: ROW_H,
-        q: { Category: P(col(DT, 'Date')), Y: P(meas(DC, 'Estimated Cost'), meas(DC, 'Credits 7D Avg')) } },
+        q: { Category: P(col(DT, 'Date')), Y: P(meas(DC, 'Total Credits'), meas(DC, 'Credits 7D Avg')) } },
       { type: 'clusteredColumnChart', x: R, y: R1_Y, w: HALF, h: ROW_H,
         q: { Category: P(hier(DT, 'Calendar', 'Month Name')),
-             Y: P(meas(DC, 'Estimated Cost'), meas(DC, 'Weekend Cost')) } },
+             Y: P(meas(DC, 'Total Credits'), meas(DC, 'Weekend Credits')) } },
       { type: 'clusteredBarChart', x: L, y: R2_Y, w: HALF, h: ROW_H,
         q: { Category: P(col(CT, 'LAYER')), Y: P(meas(CT, 'Current Rows'), meas(CT, 'Current Storage GB')) } },
       { type: 'tableEx', x: R, y: R2_Y, w: HALF, h: ROW_H,
@@ -325,7 +325,7 @@ const PAGES = [
     visuals: [
       textbox(8, 6, 344, 24, [{ value: 'That day', textStyle: { fontFamily: 'Segoe UI Semibold', fontSize: '11pt', color: BRAND.green } }]),
       { type: 'tableEx', x: 8, y: 34, w: 344, h: 198,
-        q: { Values: P(meas(DC, 'Estimated Cost'), meas(DC, 'Total Credits'),
+        q: { Values: P(meas(DC, 'Total Credits'), meas(DC, 'Total Credits'),
                        meas(DR, 'Total Refreshes'), meas(DR, 'Failed Refreshes'),
                        meas(DR, 'Total Refresh Hours'), meas(TS, 'Rows (Snapshot)')) } },
     ],

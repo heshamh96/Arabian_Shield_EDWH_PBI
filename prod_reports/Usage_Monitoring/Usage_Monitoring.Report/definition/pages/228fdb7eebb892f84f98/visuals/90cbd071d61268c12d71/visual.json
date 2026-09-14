@@ -24,11 +24,11 @@
                       "Entity": "Daily_Consumption"
                     }
                   },
-                  "Property": "Cost WoW %"
+                  "Property": "Credits WoW %"
                 }
               },
-              "queryRef": "Daily_Consumption.Cost WoW %",
-              "nativeQueryRef": "Cost WoW %"
+              "queryRef": "Daily_Consumption.Credits WoW %",
+              "nativeQueryRef": "Credits WoW %"
             }
           ]
         }

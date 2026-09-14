@@ -34,6 +34,11 @@ function wipeContents(dir) {
   }
 }
 
+function modelOnlyDone(envName, env, names) {
+  const nMeas = TABLES.reduce((a, t) => a + (t.measures || []).length, 0);
+  console.log(`${envName.padEnd(5)} model only -> tables=${names.length} measures=${nMeas}  [${env.server}]`);
+}
+
 const summarizeFor = (name, type) =>
   (type === 'int64' || type === 'double') && !/_ID$|_HOUR$|^WAREHOUSE_ID$|RETENTION|^Year$|Sort$|No$/.test(name) ? 'sum' : 'none';
 
@@ -128,11 +133,13 @@ function build(envName) {
   // one folder per report: <env>_reports/<Name>/<Name>.{pbip,Report,SemanticModel}
   const base = `${env.root}/${NAME}/${NAME}`;
   const SM = `${base}.SemanticModel`, RP = `${base}.Report`;
-  // Empty the folders rather than deleting them. A File Explorer window sitting
-  // on the report folder locks the directory itself but not its children, and a
-  // regeneration should not fail just because someone is looking at it.
-  wipeContents(SM);
-  wipeContents(RP);
+  // Empty only the definition folders, never the item roots. The SM root holds
+  // .pbi/ (Desktop's local credential binding and data cache) and the RP root
+  // holds StaticResources plus .platform - wiping those would force a credential
+  // re-approval and, for a File Explorer lock, fail outright. .platform and
+  // definition.pbism/.pbir are overwritten in place by the J() writes below.
+  wipeContents(`${SM}/definition`);
+  if (!process.env.UM_MODEL_ONLY) wipeContents(`${RP}/definition`);
 
   J(`${base}.pbip`, {
     $schema: 'https://developer.microsoft.com/json-schemas/fabric/pbip/pbipProperties/1.0.0/schema.json',
@@ -186,6 +193,11 @@ function build(envName) {
   names.forEach(n => M.push(`ref table ${q(n)}`));
   M.push('', 'ref cultureInfo en-US', '');
   W(`${SM}/definition/model.tmdl`, crlf(M));
+
+  // The report layer is hand-maintained in Desktop (slicer edits etc.), so it is
+  // not regenerated once it has diverged. UM_MODEL_ONLY rebuilds just the
+  // semantic model, leaving the committed report untouched.
+  if (process.env.UM_MODEL_ONLY) { modelOnlyDone(envName, env, names); return; }
 
   // ---- report ----
   J(`${RP}/.platform`, {

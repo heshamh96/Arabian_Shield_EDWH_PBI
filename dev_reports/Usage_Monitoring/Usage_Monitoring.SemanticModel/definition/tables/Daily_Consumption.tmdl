@@ -1,105 +1,6 @@
-/// Credits and estimated cost per day, account-wide.
+/// Credits per day, account-wide.
 table Daily_Consumption
 	lineageTag: 9d5df39f-d940-49d1-a73e-2f475919e90a
-
-	measure 'Total Credits' = SUM(Daily_Consumption[TOTAL_CREDITS])
-		formatString: #,0.00
-		lineageTag: 91aade96-07ca-445b-8fb9-16b8f7916369
-
-	measure 'Compute Credits' = SUM(Daily_Consumption[COMPUTE_CREDITS])
-		formatString: #,0.00
-		lineageTag: 68facdb2-ae4d-46c4-859a-0b1010aa18ba
-
-	measure 'Cloud Services Credits' = SUM(Daily_Consumption[CLOUD_SERVICES_CREDITS])
-		formatString: #,0.00
-		lineageTag: 7884f500-429e-4c5d-acdd-6852a16c1443
-
-	/// Snowflake bills cloud services only above 10% of compute; a high share is worth investigating.
-	measure 'Cloud Services %' = DIVIDE([Cloud Services Credits], [Total Credits])
-		formatString: 0.0%
-		lineageTag: 2e75cb04-41bc-4a4f-9399-08bd905fe835
-
-	measure 'Estimated Cost' = SUM(Daily_Consumption[ESTIMATED_DAILY_COST_USD])
-		formatString: \$#,0.00
-		lineageTag: 88da56bc-12ba-4b90-8fcc-91fbbb1063fc
-
-	measure 'Avg Daily Cost' = AVERAGE(Daily_Consumption[ESTIMATED_DAILY_COST_USD])
-		formatString: \$#,0.00
-		lineageTag: 89c574cd-41a6-4249-aebb-27b656007c0a
-
-	measure 'Peak Daily Cost' = MAX(Daily_Consumption[ESTIMATED_DAILY_COST_USD])
-		formatString: \$#,0.00
-		lineageTag: 75255685-5be7-4651-b4c5-3ccbe50f0794
-
-	measure 'Days Monitored' = DISTINCTCOUNT(Daily_Consumption[USAGE_DATE])
-		formatString: #,0
-		lineageTag: 9836c69c-6886-4c1e-aefa-8158ee0de5de
-
-	measure 'Cost Last 7 Days' = CALCULATE([Estimated Cost], DATESINPERIOD('Date'[Date], MAX('Date'[Date]), -7, DAY))
-		formatString: \$#,0.00
-		lineageTag: 1dea84fa-d860-44b9-84b2-77b4c9518b23
-
-	measure 'Cost Prev 7 Days' = CALCULATE([Estimated Cost], DATESINPERIOD('Date'[Date], MAX('Date'[Date]) - 7, -7, DAY))
-		formatString: \$#,0.00
-		lineageTag: c9a6b5c9-3af3-494f-a279-102028f3ae66
-
-	measure 'Cost WoW %' = DIVIDE([Cost Last 7 Days] - [Cost Prev 7 Days], [Cost Prev 7 Days])
-		formatString: 0.0%
-		lineageTag: 37504a4e-c251-481e-8c26-b3007c5fd3f6
-
-	measure 'Cost MTD' = CALCULATE([Estimated Cost], DATESMTD('Date'[Date]))
-		formatString: \$#,0.00
-		lineageTag: 3cf39dd1-2d72-415f-b3db-c86f99237351
-
-	/// Rolling mean - smooths the weekday/weekend saw-tooth.
-	measure 'Credits 7D Avg' = AVERAGEX(DATESINPERIOD('Date'[Date], MAX('Date'[Date]), -7, DAY), [Total Credits])
-		formatString: #,0.00
-		lineageTag: b5276c02-5d0b-40c6-a157-19dc6f43fdd0
-
-	/// Projected monthly spend at the current daily average.
-	measure 'Run Rate (30d) USD' = [Avg Daily Cost] * 30
-		formatString: \$#,0.00
-		lineageTag: d477ab50-b364-4f98-8640-3cb01313329a
-
-	/// Unit economics: spend against data actually landed.
-	measure 'Cost per Million Rows' = DIVIDE([Estimated Cost], DIVIDE([Rows (Latest)], 1000000))
-		formatString: \$#,0.00
-		lineageTag: 25ece0fe-94da-455e-b37e-a986c7d370c1
-
-	measure 'Cost per GB Stored' = DIVIDE([Estimated Cost], [Storage GB (Latest)])
-		formatString: \$#,0.00
-		lineageTag: 4ffd2294-e189-48f0-8bef-a1fe30ad1147
-
-	/// Credit burn per hour of dynamic-table refresh work.
-	measure 'Credits per Refresh Hour' = DIVIDE([Total Credits], [Total Refresh Hours])
-		formatString: #,0.00
-		lineageTag: 058e980d-26e1-4947-b681-fb952e5b4277
-
-	/// Day-to-day spread of daily spend. High volatility makes a run rate meaningless.
-	measure 'Cost Volatility' = STDEVX.P(VALUES(Daily_Consumption[USAGE_DATE]), [Estimated Cost])
-		formatString: \$#,0.00
-		lineageTag: 553c76b4-b758-4a88-8525-15ac80c5d147
-
-	measure 'Days Above Avg Cost' = COUNTROWS(FILTER(VALUES(Daily_Consumption[USAGE_DATE]), [Estimated Cost] > [Avg Daily Cost]))
-		formatString: #,0
-		lineageTag: 7ba3fcbd-ff78-461e-a34a-829c14830e7f
-
-	measure 'Weekend Cost' = CALCULATE([Estimated Cost], 'Date'[Is Weekend] = TRUE())
-		formatString: \$#,0.00
-		lineageTag: 58194cd9-ecc9-44a4-bc74-81e0010364ac
-
-	/// Spend on days nobody is working - usually pure schedule cost.
-	measure 'Weekend Cost %' = DIVIDE([Weekend Cost], [Estimated Cost])
-		formatString: 0.0%
-		lineageTag: bfc8c9b5-4070-4db2-bca2-e1c5c1700647
-
-	measure 'Most Expensive Day' = CALCULATE(FIRSTNONBLANK('Date'[Date], 1), TOPN(1, ALLSELECTED('Date'[Date]), [Estimated Cost], DESC))
-		formatString: yyyy-mm-dd
-		lineageTag: 14d24f8b-6129-465f-b745-ffdbc4b622f9
-
-	measure 'Credits per GB Stored' = DIVIDE([Total Credits], [Storage GB (Latest)])
-		formatString: #,0.00
-		lineageTag: 59ad5204-a784-4b6e-8888-587acf8a77b7
 
 	column USAGE_DATE
 		dataType: dateTime
@@ -109,8 +10,6 @@ table Daily_Consumption
 		sourceColumn: USAGE_DATE
 
 		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
 
 	column TOTAL_CREDITS
 		dataType: double
@@ -137,22 +36,103 @@ table Daily_Consumption
 		annotation SummarizationSetBy = Automatic
 
 	column WAREHOUSES_USED
-		dataType: double
+		dataType: int64
 		lineageTag: c9d582b0-3ff5-4789-a0b3-181c3abc2348
 		summarizeBy: sum
 		sourceColumn: WAREHOUSES_USED
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+	measure 'Total Credits' = SUM(Daily_Consumption[TOTAL_CREDITS])
+		formatString: #,0.00
+		lineageTag: 91aade96-07ca-445b-8fb9-16b8f7916369
 
-	column ESTIMATED_DAILY_COST_USD
-		dataType: double
-		lineageTag: 3cead929-cbc9-4777-b2a7-c3883dff6392
-		summarizeBy: sum
-		sourceColumn: ESTIMATED_DAILY_COST_USD
+	measure 'Compute Credits' = SUM(Daily_Consumption[COMPUTE_CREDITS])
+		formatString: #,0.00
+		lineageTag: 68facdb2-ae4d-46c4-859a-0b1010aa18ba
 
-		annotation SummarizationSetBy = Automatic
+	measure 'Cloud Services Credits' = SUM(Daily_Consumption[CLOUD_SERVICES_CREDITS])
+		formatString: #,0.00
+		lineageTag: 7884f500-429e-4c5d-acdd-6852a16c1443
+
+	/// Snowflake bills cloud services only above 10% of compute; a high share is worth investigating.
+	measure 'Cloud Services %' = DIVIDE([Cloud Services Credits], [Total Credits])
+		formatString: 0.0%
+		lineageTag: 2e75cb04-41bc-4a4f-9399-08bd905fe835
+
+	measure 'Avg Daily Credits' = AVERAGE(Daily_Consumption[TOTAL_CREDITS])
+		formatString: #,0.00
+		lineageTag: 00eba0b7-2ff6-4eba-92a2-91b5d786a7b7
+
+	measure 'Peak Daily Credits' = MAX(Daily_Consumption[TOTAL_CREDITS])
+		formatString: #,0.00
+		lineageTag: 0b41ae81-f412-498f-bd9f-7eaf7d8e4126
+
+	measure 'Days Monitored' = DISTINCTCOUNT(Daily_Consumption[USAGE_DATE])
+		formatString: #,0
+		lineageTag: 9836c69c-6886-4c1e-aefa-8158ee0de5de
+
+	measure 'Credits Last 7 Days' = CALCULATE([Total Credits], DATESINPERIOD('Date'[Date], MAX('Date'[Date]), -7, DAY))
+		formatString: #,0.00
+		lineageTag: 4b1cea30-4a0a-4880-bb9a-68d2e0156536
+
+	measure 'Credits Prev 7 Days' = CALCULATE([Total Credits], DATESINPERIOD('Date'[Date], MAX('Date'[Date]) - 7, -7, DAY))
+		formatString: #,0.00
+		lineageTag: 54201c5e-b93c-49ba-812d-5656ff345ec7
+
+	measure 'Credits WoW %' = DIVIDE([Credits Last 7 Days] - [Credits Prev 7 Days], [Credits Prev 7 Days])
+		formatString: 0.0%
+		lineageTag: e1f7cb42-7357-4b28-ba25-3c67cf1af44e
+
+	measure 'Credits MTD' = CALCULATE([Total Credits], DATESMTD('Date'[Date]))
+		formatString: #,0.00
+		lineageTag: 8b6d1e30-0ee5-40cf-92e7-78eda813bc23
+
+	/// Rolling mean - smooths the weekday/weekend saw-tooth.
+	measure 'Credits 7D Avg' = AVERAGEX(DATESINPERIOD('Date'[Date], MAX('Date'[Date]), -7, DAY), [Total Credits])
+		formatString: #,0.00
+		lineageTag: b5276c02-5d0b-40c6-a157-19dc6f43fdd0
+
+	/// Projected monthly credits at the current daily average.
+	measure 'Run Rate (30d) Credits' = [Avg Daily Credits] * 30
+		formatString: #,0.00
+		lineageTag: c0f75070-8dbc-4f04-9efd-2573d9649829
+
+	/// Unit economics: credits against data actually landed.
+	measure 'Credits per Million Rows' = DIVIDE([Total Credits], DIVIDE([Rows (Latest)], 1000000))
+		formatString: #,0.00
+		lineageTag: b645eb6b-73bd-46b6-b61d-854ad1182279
+
+	/// Credit burn per hour of dynamic-table refresh work.
+	measure 'Credits per Refresh Hour' = DIVIDE([Total Credits], [Total Refresh Hours])
+		formatString: #,0.00
+		lineageTag: 058e980d-26e1-4947-b681-fb952e5b4277
+
+	/// Day-to-day spread of daily credits. High volatility makes a run rate meaningless.
+	measure 'Credits Volatility' = STDEVX.P(VALUES(Daily_Consumption[USAGE_DATE]), [Total Credits])
+		formatString: #,0.00
+		lineageTag: cfeb3801-73b4-4549-96cf-6368aa219eb7
+
+	measure 'Days Above Avg Credits' = COUNTROWS(FILTER(VALUES(Daily_Consumption[USAGE_DATE]), [Total Credits] > [Avg Daily Credits]))
+		formatString: #,0
+		lineageTag: 068dff03-04e6-4399-8c2f-b1b1eb229b1b
+
+	measure 'Weekend Credits' = CALCULATE([Total Credits], 'Date'[Is Weekend] = TRUE())
+		formatString: #,0.00
+		lineageTag: dbc281f7-e639-4e66-859f-24626f197206
+
+	/// Credits burned on days nobody is working - usually pure schedule cost.
+	measure 'Weekend Credits %' = DIVIDE([Weekend Credits], [Total Credits])
+		formatString: 0.0%
+		lineageTag: 261af40d-9957-4708-9eb8-555eae1875df
+
+	measure 'Highest Credit Day' = CALCULATE(FIRSTNONBLANK('Date'[Date], 1), TOPN(1, ALLSELECTED('Date'[Date]), [Total Credits], DESC))
+		formatString: yyyy-mm-dd
+		lineageTag: 9fe65d03-e0a5-4b71-b008-0c3da972180e
+
+	measure 'Credits per GB Stored' = DIVIDE([Total Credits], [Storage GB (Latest)])
+		formatString: #,0.00
+		lineageTag: 59ad5204-a784-4b6e-8888-587acf8a77b7
 
 	partition Daily_Consumption = m
 		mode: import
@@ -160,7 +140,7 @@ table Daily_Consumption
 				let
 				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
 				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
-				    Result = Value.NativeQuery(Db, "select USAGE_DATE, TOTAL_CREDITS, COMPUTE_CREDITS, CLOUD_SERVICES_CREDITS, WAREHOUSES_USED, ESTIMATED_DAILY_COST_USD from SNOWFLAKE.VW_DAILY_CONSUMPTION_SUMMARY", null, [EnableFolding=true])
+				    Result = Value.NativeQuery(Db, "select USAGE_DATE, TOTAL_CREDITS, COMPUTE_CREDITS, CLOUD_SERVICES_CREDITS, WAREHOUSES_USED from SNOWFLAKE.VW_DAILY_CONSUMPTION_SUMMARY", null, [EnableFolding=true])
 				in
 				    Result
 

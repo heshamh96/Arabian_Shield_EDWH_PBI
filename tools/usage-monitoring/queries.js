@@ -42,16 +42,19 @@ ${CURRENT_COLS('SILVER')}
 union all
 ${CURRENT_COLS('GOLD')}`.trim(),
 
-  // Credit / cost per day.
+  // Credits per day. The view's ESTIMATED_DAILY_COST_USD is a calculated column
+  // with an inaccurate rate, so it is deliberately not selected - the model
+  // speaks in credits only.
   Daily_Consumption: `
 select USAGE_DATE, TOTAL_CREDITS, COMPUTE_CREDITS, CLOUD_SERVICES_CREDITS,
-       WAREHOUSES_USED, ESTIMATED_DAILY_COST_USD
+       WAREHOUSES_USED
 from {DB}.SNOWFLAKE.VW_DAILY_CONSUMPTION_SUMMARY`.trim(),
 
-  // Rolling 7-day hourly credit burn per warehouse.
+  // Rolling 7-day hourly credit burn per warehouse. ESTIMATED_COST_USD is
+  // likewise excluded - see Daily_Consumption above.
   Hourly_Consumption: `
 select WAREHOUSE_ID, WAREHOUSE_NAME, START_TIME, END_TIME,
        cast(START_TIME as date) as USAGE_DATE, hour(START_TIME) as USAGE_HOUR,
-       CREDITS_USED, CREDITS_USED_COMPUTE, CREDITS_USED_CLOUD_SERVICES, ESTIMATED_COST_USD
+       CREDITS_USED, CREDITS_USED_COMPUTE, CREDITS_USED_CLOUD_SERVICES
 from {DB}.SNOWFLAKE.VW_VWH_HOURLY_CONSUMPTION_7D`.trim(),
 };

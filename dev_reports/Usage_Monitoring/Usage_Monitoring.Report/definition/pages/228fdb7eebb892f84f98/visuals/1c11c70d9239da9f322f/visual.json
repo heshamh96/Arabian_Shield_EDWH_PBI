@@ -24,11 +24,11 @@
                       "Entity": "Daily_Consumption"
                     }
                   },
-                  "Property": "Avg Daily Cost"
+                  "Property": "Avg Daily Credits"
                 }
               },
-              "queryRef": "Daily_Consumption.Avg Daily Cost",
-              "nativeQueryRef": "Avg Daily Cost"
+              "queryRef": "Daily_Consumption.Avg Daily Credits",
+              "nativeQueryRef": "Avg Daily Credits"
             }
           ]
         }

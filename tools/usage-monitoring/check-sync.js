@@ -50,6 +50,10 @@ for (const f of [...devFiles].filter(x => prodFiles.has(x))) {
     if (PARAM_LINE.test(t) && PARAM_LINE.test(u)) return 'param';
     if (/"value":\s*"(DEV|PROD)"/.test(t) && /"value":\s*"(DEV|PROD)"/.test(u)) return 'badge';
     if (/"logicalId"/.test(t) && /"logicalId"/.test(u)) return 'logicalId';
+    // Per-machine Desktop-save artefacts, not report content: the last-viewed
+    // page tab, and the schema-version stamp Desktop writes for its own build.
+    if (/"activePageName"/.test(t) && /"activePageName"/.test(u)) return 'activeTab';
+    if (/pagesMetadata\/[\d.]+\/schema/.test(t) && /pagesMetadata\/[\d.]+\/schema/.test(u)) return 'schemaStamp';
     return 'drift';
   };
   const kinds = new Set(diffs.map(classify));

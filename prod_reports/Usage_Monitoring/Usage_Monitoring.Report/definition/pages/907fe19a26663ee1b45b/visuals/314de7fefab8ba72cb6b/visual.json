@@ -71,5 +71,51 @@
       }
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "c6265b78595034955237",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Hourly_Consumption"
+              }
+            },
+            "Property": "USAGE_HOUR"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "ad142310960981a17ce0",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Hourly_Consumption"
+              }
+            },
+            "Property": "WAREHOUSE_NAME"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "e8eee8c522590a544106",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Hourly_Consumption"
+              }
+            },
+            "Property": "Credits (7d)"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

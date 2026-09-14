@@ -2,214 +2,6 @@
 table DTS_Refresh
 	lineageTag: eb0e2844-b417-4643-a49b-2a2b0f4c0db1
 
-	column REFRESH_DATE
-		dataType: dateTime
-		formatString: yyyy-mm-dd
-		lineageTag: 70b3c8a0-755c-4711-bdd4-078c31440786
-		summarizeBy: none
-		sourceColumn: REFRESH_DATE
-
-		annotation SummarizationSetBy = Automatic
-
-	column LAYER
-		dataType: string
-		lineageTag: f7d27752-5464-4d0c-b33d-201120cbe998
-		summarizeBy: none
-		sourceColumn: LAYER
-
-		annotation SummarizationSetBy = Automatic
-
-	column TABLE_NAME
-		dataType: string
-		lineageTag: e920ce61-33b8-4a78-92e9-1cbefd4e0f01
-		summarizeBy: none
-		sourceColumn: TABLE_NAME
-
-		annotation SummarizationSetBy = Automatic
-
-	column SCHEMA_NAME
-		dataType: string
-		lineageTag: 8d414d9b-682c-42d2-a035-72a66f3860ff
-		summarizeBy: none
-		sourceColumn: SCHEMA_NAME
-
-		annotation SummarizationSetBy = Automatic
-
-	column DATABASE_NAME
-		dataType: string
-		lineageTag: d13e824b-48a4-40a4-88ed-a66a7cfa6a0e
-		summarizeBy: none
-		sourceColumn: DATABASE_NAME
-
-		annotation SummarizationSetBy = Automatic
-
-	column QUERY_ID
-		dataType: string
-		lineageTag: 60fe6e04-4ecb-4dc2-b3c4-0936f2cd6f70
-		summarizeBy: none
-		sourceColumn: QUERY_ID
-
-		annotation SummarizationSetBy = Automatic
-
-	column REFRESH_STATE
-		dataType: string
-		lineageTag: 942e0ebd-fbe0-4b7e-81c9-3ab5550a4f7d
-		summarizeBy: none
-		sourceColumn: REFRESH_STATE
-
-		annotation SummarizationSetBy = Automatic
-
-	column STATE_CODE
-		dataType: string
-		lineageTag: d432342a-0c85-4a3e-96cc-7ce8fdda0193
-		summarizeBy: none
-		sourceColumn: STATE_CODE
-
-		annotation SummarizationSetBy = Automatic
-
-	column REFRESH_ERROR_MSG
-		dataType: string
-		lineageTag: 5d82513b-4f5e-4f02-9c71-63abd4141469
-		summarizeBy: none
-		sourceColumn: REFRESH_ERROR_MSG
-
-		annotation SummarizationSetBy = Automatic
-
-	column REFRESH_START_TIME
-		dataType: dateTime
-		lineageTag: 52a9b788-7710-4496-a4d3-356376a49302
-		summarizeBy: none
-		sourceColumn: REFRESH_START_TIME
-
-		annotation SummarizationSetBy = Automatic
-
-	column REFRESH_END_TIME
-		dataType: dateTime
-		lineageTag: 471327bd-c43b-4fd2-b089-cc67c6191993
-		summarizeBy: none
-		sourceColumn: REFRESH_END_TIME
-
-		annotation SummarizationSetBy = Automatic
-
-	column REFRESH_DURATION_SEC
-		dataType: int64
-		lineageTag: 0bffc966-1f9a-4d06-8a02-eb955b909378
-		summarizeBy: sum
-		sourceColumn: REFRESH_DURATION_SEC
-
-		annotation SummarizationSetBy = Automatic
-
-	column LAG_TILL_REFRESHED_MIN
-		dataType: double
-		lineageTag: 440870bd-a68c-473e-a071-6f6ba44c2c1c
-		summarizeBy: sum
-		sourceColumn: LAG_TILL_REFRESHED_MIN
-
-		annotation SummarizationSetBy = Automatic
-
-	column TARGET_LAG_MIN
-		dataType: double
-		lineageTag: acf67d12-80bf-4f07-af02-8939e09977ad
-		summarizeBy: sum
-		sourceColumn: TARGET_LAG_MIN
-
-		annotation SummarizationSetBy = Automatic
-
-	column EXCEEDED_TARGET_LAG
-		dataType: boolean
-		lineageTag: 15487ec7-0c7f-4dc4-8894-267dca4adbb7
-		summarizeBy: none
-		sourceColumn: EXCEEDED_TARGET_LAG
-
-		annotation SummarizationSetBy = Automatic
-
-	column LAG_OVERAGE_MIN
-		dataType: double
-		lineageTag: 7a9d612b-6554-4887-a015-533b9040f8d3
-		summarizeBy: sum
-		sourceColumn: LAG_OVERAGE_MIN
-
-		annotation SummarizationSetBy = Automatic
-
-	column COMPILATION_MS
-		dataType: int64
-		lineageTag: f11e3920-66cc-4d5d-bea1-fedb3d64f039
-		summarizeBy: sum
-		sourceColumn: COMPILATION_MS
-
-		annotation SummarizationSetBy = Automatic
-
-	column EXECUTION_MS
-		dataType: int64
-		lineageTag: 4a1faa3b-c058-43bb-9ef2-9c201e8589ac
-		summarizeBy: sum
-		sourceColumn: EXECUTION_MS
-
-		annotation SummarizationSetBy = Automatic
-
-	column QUEUED_MS
-		dataType: int64
-		lineageTag: 1a84f67e-9dcd-405c-9f1c-a50a73c19775
-		summarizeBy: sum
-		sourceColumn: QUEUED_MS
-
-		annotation SummarizationSetBy = Automatic
-
-	column ROWS_INSERTED
-		dataType: int64
-		lineageTag: 5583fd6b-2b32-4e9f-bd7c-6d4ecebd3b55
-		summarizeBy: sum
-		sourceColumn: ROWS_INSERTED
-
-		annotation SummarizationSetBy = Automatic
-
-	column ROWS_DELETED
-		dataType: int64
-		lineageTag: 80e1e19f-5163-4f8a-b8c6-58f220a8b837
-		summarizeBy: sum
-		sourceColumn: ROWS_DELETED
-
-		annotation SummarizationSetBy = Automatic
-
-	column REFRESH_ACTION
-		dataType: string
-		lineageTag: 3ae0db47-2d2f-4a2f-9fe6-e06263bd1305
-		summarizeBy: none
-		sourceColumn: REFRESH_ACTION
-
-		annotation SummarizationSetBy = Automatic
-
-	column REFRESH_TRIGGER
-		dataType: string
-		lineageTag: 29d00ac8-eed7-463e-8040-5d1e52ea0562
-		summarizeBy: none
-		sourceColumn: REFRESH_TRIGGER
-
-		annotation SummarizationSetBy = Automatic
-
-	column REFRESH_WAREHOUSE
-		dataType: string
-		lineageTag: 558bd93c-7697-427d-92a8-3c957ccdbc4e
-		summarizeBy: none
-		sourceColumn: REFRESH_WAREHOUSE
-
-		annotation SummarizationSetBy = Automatic
-
-	hierarchy Pipeline
-		lineageTag: 0fefe641-41b4-4698-9ef4-287041db4214
-
-		level LAYER
-			lineageTag: 5f1c9e13-a721-4340-a673-0f9fb0b4bd21
-			column: LAYER
-
-		level SCHEMA_NAME
-			lineageTag: 65952c63-7d94-44db-ad28-ca6051eebb5a
-			column: SCHEMA_NAME
-
-		level TABLE_NAME
-			lineageTag: cdcadc40-8dfc-4e8d-a490-c79134a00999
-			column: TABLE_NAME
-
 	/// Every refresh attempt recorded.
 	measure 'Total Refreshes' = COUNTROWS(DTS_Refresh)
 		formatString: #,0
@@ -381,6 +173,228 @@ table DTS_Refresh
 	measure 'Failure Concentration %' = DIVIDE(MAXX(VALUES(DTS_Refresh[TABLE_NAME]), [Failed Refreshes]), [Failed Refreshes])
 		formatString: 0.0%
 		lineageTag: 4fc30c57-0a07-4e92-b36c-dad8bc0037c2
+
+	column REFRESH_DATE
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 70b3c8a0-755c-4711-bdd4-078c31440786
+		summarizeBy: none
+		sourceColumn: REFRESH_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column LAYER
+		dataType: string
+		lineageTag: f7d27752-5464-4d0c-b33d-201120cbe998
+		summarizeBy: none
+		sourceColumn: LAYER
+
+		annotation SummarizationSetBy = Automatic
+
+	column TABLE_NAME
+		dataType: string
+		lineageTag: e920ce61-33b8-4a78-92e9-1cbefd4e0f01
+		summarizeBy: none
+		sourceColumn: TABLE_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column SCHEMA_NAME
+		dataType: string
+		lineageTag: 8d414d9b-682c-42d2-a035-72a66f3860ff
+		summarizeBy: none
+		sourceColumn: SCHEMA_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATABASE_NAME
+		dataType: string
+		lineageTag: d13e824b-48a4-40a4-88ed-a66a7cfa6a0e
+		summarizeBy: none
+		sourceColumn: DATABASE_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column QUERY_ID
+		dataType: string
+		lineageTag: 60fe6e04-4ecb-4dc2-b3c4-0936f2cd6f70
+		summarizeBy: none
+		sourceColumn: QUERY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column REFRESH_STATE
+		dataType: string
+		lineageTag: 942e0ebd-fbe0-4b7e-81c9-3ab5550a4f7d
+		summarizeBy: none
+		sourceColumn: REFRESH_STATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column STATE_CODE
+		dataType: string
+		lineageTag: d432342a-0c85-4a3e-96cc-7ce8fdda0193
+		summarizeBy: none
+		sourceColumn: STATE_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column REFRESH_ERROR_MSG
+		dataType: string
+		lineageTag: 5d82513b-4f5e-4f02-9c71-63abd4141469
+		summarizeBy: none
+		sourceColumn: REFRESH_ERROR_MSG
+
+		annotation SummarizationSetBy = Automatic
+
+	column REFRESH_START_TIME
+		dataType: dateTime
+		lineageTag: 52a9b788-7710-4496-a4d3-356376a49302
+		summarizeBy: none
+		sourceColumn: REFRESH_START_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column REFRESH_END_TIME
+		dataType: dateTime
+		lineageTag: 471327bd-c43b-4fd2-b089-cc67c6191993
+		summarizeBy: none
+		sourceColumn: REFRESH_END_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column REFRESH_DURATION_SEC
+		dataType: double
+		lineageTag: 0bffc966-1f9a-4d06-8a02-eb955b909378
+		summarizeBy: sum
+		sourceColumn: REFRESH_DURATION_SEC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LAG_TILL_REFRESHED_MIN
+		dataType: double
+		lineageTag: 440870bd-a68c-473e-a071-6f6ba44c2c1c
+		summarizeBy: sum
+		sourceColumn: LAG_TILL_REFRESHED_MIN
+
+		annotation SummarizationSetBy = Automatic
+
+	column TARGET_LAG_MIN
+		dataType: double
+		lineageTag: acf67d12-80bf-4f07-af02-8939e09977ad
+		summarizeBy: sum
+		sourceColumn: TARGET_LAG_MIN
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXCEEDED_TARGET_LAG
+		dataType: boolean
+		lineageTag: 15487ec7-0c7f-4dc4-8894-267dca4adbb7
+		summarizeBy: none
+		sourceColumn: EXCEEDED_TARGET_LAG
+
+		annotation SummarizationSetBy = Automatic
+
+	column LAG_OVERAGE_MIN
+		dataType: double
+		lineageTag: 7a9d612b-6554-4887-a015-533b9040f8d3
+		summarizeBy: sum
+		sourceColumn: LAG_OVERAGE_MIN
+
+		annotation SummarizationSetBy = Automatic
+
+	column COMPILATION_MS
+		dataType: double
+		lineageTag: f11e3920-66cc-4d5d-bea1-fedb3d64f039
+		summarizeBy: sum
+		sourceColumn: COMPILATION_MS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column EXECUTION_MS
+		dataType: double
+		lineageTag: 4a1faa3b-c058-43bb-9ef2-9c201e8589ac
+		summarizeBy: sum
+		sourceColumn: EXECUTION_MS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column QUEUED_MS
+		dataType: double
+		lineageTag: 1a84f67e-9dcd-405c-9f1c-a50a73c19775
+		summarizeBy: sum
+		sourceColumn: QUEUED_MS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ROWS_INSERTED
+		dataType: double
+		lineageTag: 5583fd6b-2b32-4e9f-bd7c-6d4ecebd3b55
+		summarizeBy: sum
+		sourceColumn: ROWS_INSERTED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ROWS_DELETED
+		dataType: double
+		lineageTag: 80e1e19f-5163-4f8a-b8c6-58f220a8b837
+		summarizeBy: sum
+		sourceColumn: ROWS_DELETED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column REFRESH_ACTION
+		dataType: string
+		lineageTag: 3ae0db47-2d2f-4a2f-9fe6-e06263bd1305
+		summarizeBy: none
+		sourceColumn: REFRESH_ACTION
+
+		annotation SummarizationSetBy = Automatic
+
+	column REFRESH_TRIGGER
+		dataType: string
+		lineageTag: 29d00ac8-eed7-463e-8040-5d1e52ea0562
+		summarizeBy: none
+		sourceColumn: REFRESH_TRIGGER
+
+		annotation SummarizationSetBy = Automatic
+
+	column REFRESH_WAREHOUSE
+		dataType: string
+		lineageTag: 558bd93c-7697-427d-92a8-3c957ccdbc4e
+		summarizeBy: none
+		sourceColumn: REFRESH_WAREHOUSE
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy Pipeline
+		lineageTag: 0fefe641-41b4-4698-9ef4-287041db4214
+
+		level LAYER
+			lineageTag: 5f1c9e13-a721-4340-a673-0f9fb0b4bd21
+			column: LAYER
+
+		level SCHEMA_NAME
+			lineageTag: 65952c63-7d94-44db-ad28-ca6051eebb5a
+			column: SCHEMA_NAME
+
+		level TABLE_NAME
+			lineageTag: cdcadc40-8dfc-4e8d-a490-c79134a00999
+			column: TABLE_NAME
 
 	partition DTS_Refresh = m
 		mode: import

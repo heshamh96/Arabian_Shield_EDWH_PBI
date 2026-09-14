@@ -21,3 +21,4 @@ expression SnowflakeRole = "PROD_QLIK_READER_ROLE" meta [IsParameterQuery=true, 
 	lineageTag: e8a4148c-cf3c-4ea3-ac08-11cb54486f1b
 
 	annotation PBI_ResultType = Text
+

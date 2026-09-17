@@ -211,8 +211,8 @@ table Table_Snapshots
 		mode: import
 		source =
 				let
-				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
-				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Source = Snowflake.Databases("ASCI-EDP.snowflakecomputing.com", "DEV_GOLD_WH", [Role="DEV_QLIK_READER_ROLE"]),
+				    Db = Source{[Name="MONITORING_DB", Kind="Database"]}[Data],
 				    Result = Value.NativeQuery(Db, "select cast(SNAPSHOT_TIME as date) as SNAPSHOT_DATE, SNAPSHOT_TIME, DATABASE_NAME, SCHEMA_NAME as LAYER, SCHEMA_NAME, TABLE_NAME, IS_DYNAMIC, ROW_COUNT, BYTES, RETENTION_TIME, CREATED_AT, LAST_ALTERED, ""COMMENT"" as TABLE_COMMENT from SNOWFLAKE.TABLE_COUNT_DAILY_SNAPSHOTS", null, [EnableFolding=true])
 				in
 				    Result

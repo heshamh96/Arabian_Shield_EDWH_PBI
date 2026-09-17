@@ -2,6 +2,79 @@
 table Hourly_Consumption
 	lineageTag: 4d114e6d-0edf-41a8-a900-71bf4cad7c86
 
+	column WAREHOUSE_ID
+		dataType: int64
+		lineageTag: 43bf864c-ca6e-4ab2-a430-f9212ad4987f
+		summarizeBy: none
+		sourceColumn: WAREHOUSE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column WAREHOUSE_NAME
+		dataType: string
+		lineageTag: 2df50ef0-2e55-41f0-bc15-a18ebcb86f40
+		summarizeBy: none
+		sourceColumn: WAREHOUSE_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column START_TIME
+		dataType: dateTime
+		lineageTag: 0ea5fd6f-3e2b-48a8-9933-33be5f320e34
+		summarizeBy: none
+		sourceColumn: START_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column END_TIME
+		dataType: dateTime
+		lineageTag: 4b9080b8-8f7e-4f1a-892e-8ac1bdcff496
+		summarizeBy: none
+		sourceColumn: END_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column USAGE_DATE
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: bc9fff61-61ef-40c0-b998-71ad691a0b35
+		summarizeBy: none
+		sourceColumn: USAGE_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column USAGE_HOUR
+		dataType: int64
+		lineageTag: c61b5b1e-8e20-4986-898b-de5352738ad8
+		summarizeBy: none
+		sourceColumn: USAGE_HOUR
+
+		annotation SummarizationSetBy = Automatic
+
+	column CREDITS_USED
+		dataType: double
+		lineageTag: 12f71202-25bd-452f-9077-09b937951e3b
+		summarizeBy: sum
+		sourceColumn: CREDITS_USED
+
+		annotation SummarizationSetBy = Automatic
+
+	column CREDITS_USED_COMPUTE
+		dataType: double
+		lineageTag: 7cf28c98-f5e1-4fcb-9225-fd2e257d5ab8
+		summarizeBy: sum
+		sourceColumn: CREDITS_USED_COMPUTE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CREDITS_USED_CLOUD_SERVICES
+		dataType: double
+		lineageTag: 140196b9-d076-42b3-a1ba-0bbaee66c35c
+		summarizeBy: sum
+		sourceColumn: CREDITS_USED_CLOUD_SERVICES
+
+		annotation SummarizationSetBy = Automatic
+
 	measure 'Credits (7d)' = SUM(Hourly_Consumption[CREDITS_USED])
 		formatString: #,0.00
 		lineageTag: 9e1199c1-7d91-44ba-83d3-18a289ae4f60
@@ -56,91 +129,12 @@ table Hourly_Consumption
 	measure 'Busiest Day of Week' = CALCULATE(FIRSTNONBLANK('Date'[Day of Week], 1), TOPN(1, ALLSELECTED('Date'[Day of Week]), [Credits (7d)], DESC))
 		lineageTag: a23a8da6-6218-4b79-a3e8-553ce01e3ee3
 
-	column WAREHOUSE_ID
-		dataType: double
-		lineageTag: 43bf864c-ca6e-4ab2-a430-f9212ad4987f
-		summarizeBy: count
-		sourceColumn: WAREHOUSE_ID
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column WAREHOUSE_NAME
-		dataType: string
-		lineageTag: 2df50ef0-2e55-41f0-bc15-a18ebcb86f40
-		summarizeBy: none
-		sourceColumn: WAREHOUSE_NAME
-
-		annotation SummarizationSetBy = Automatic
-
-	column START_TIME
-		dataType: dateTime
-		lineageTag: 0ea5fd6f-3e2b-48a8-9933-33be5f320e34
-		summarizeBy: none
-		sourceColumn: START_TIME
-
-		annotation SummarizationSetBy = Automatic
-
-	column END_TIME
-		dataType: dateTime
-		lineageTag: 4b9080b8-8f7e-4f1a-892e-8ac1bdcff496
-		summarizeBy: none
-		sourceColumn: END_TIME
-
-		annotation SummarizationSetBy = Automatic
-
-	column USAGE_DATE
-		dataType: dateTime
-		formatString: yyyy-mm-dd
-		lineageTag: bc9fff61-61ef-40c0-b998-71ad691a0b35
-		summarizeBy: none
-		sourceColumn: USAGE_DATE
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
-
-	column USAGE_HOUR
-		dataType: double
-		lineageTag: c61b5b1e-8e20-4986-898b-de5352738ad8
-		summarizeBy: sum
-		sourceColumn: USAGE_HOUR
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column CREDITS_USED
-		dataType: double
-		lineageTag: 12f71202-25bd-452f-9077-09b937951e3b
-		summarizeBy: sum
-		sourceColumn: CREDITS_USED
-
-		annotation SummarizationSetBy = Automatic
-
-	column CREDITS_USED_COMPUTE
-		dataType: double
-		lineageTag: 7cf28c98-f5e1-4fcb-9225-fd2e257d5ab8
-		summarizeBy: sum
-		sourceColumn: CREDITS_USED_COMPUTE
-
-		annotation SummarizationSetBy = Automatic
-
-	column CREDITS_USED_CLOUD_SERVICES
-		dataType: double
-		lineageTag: 140196b9-d076-42b3-a1ba-0bbaee66c35c
-		summarizeBy: sum
-		sourceColumn: CREDITS_USED_CLOUD_SERVICES
-
-		annotation SummarizationSetBy = Automatic
-
 	partition Hourly_Consumption = m
 		mode: import
 		source =
 				let
-				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
-				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Source = Snowflake.Databases("ASCI-EDP_PRD.snowflakecomputing.com", "PROD_GOLD_WH", [Role="PROD_QLIK_READER_ROLE"]),
+				    Db = Source{[Name="MONITORING_DB", Kind="Database"]}[Data],
 				    Result = Value.NativeQuery(Db, "select WAREHOUSE_ID, WAREHOUSE_NAME, START_TIME, END_TIME, cast(START_TIME as date) as USAGE_DATE, hour(START_TIME) as USAGE_HOUR, CREDITS_USED, CREDITS_USED_COMPUTE, CREDITS_USED_CLOUD_SERVICES from SNOWFLAKE.VW_VWH_HOURLY_CONSUMPTION_7D", null, [EnableFolding=true])
 				in
 				    Result

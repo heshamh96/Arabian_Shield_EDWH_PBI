@@ -1,5 +1,5 @@
 /// Date dimension derived from the loaded facts, so it always spans the data.
-table Date
+table 'Date'
 	lineageTag: 1b9a6551-016e-462d-8537-7108dd2bec7a
 	dataCategory: Time
 
@@ -32,9 +32,9 @@ table Date
 	column 'Month Name'
 		dataType: string
 		lineageTag: 9538e393-952d-4053-bcfa-805c2cf1cd7b
+		sortByColumn: 'Month Sort'
 		summarizeBy: none
 		sourceColumn: [Month Name]
-		sortByColumn: 'Month Sort'
 
 		annotation SummarizationSetBy = Automatic
 
@@ -49,9 +49,9 @@ table Date
 	column 'Day of Week'
 		dataType: string
 		lineageTag: 6d855cb9-3aca-4b3a-ba71-a2acd28c3756
+		sortByColumn: 'Day of Week No'
 		summarizeBy: none
 		sourceColumn: [Day of Week]
-		sortByColumn: 'Day of Week No'
 
 		annotation SummarizationSetBy = Automatic
 
@@ -95,7 +95,7 @@ table Date
 			lineageTag: 34d76add-5e71-4776-8b5b-90b67af1e210
 			column: Date
 
-	partition Date = calculated
+	partition 'Date' = calculated
 		mode: import
 		source =
 				VAR AllDates =

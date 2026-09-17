@@ -2,6 +2,47 @@
 table Daily_Consumption
 	lineageTag: 9d5df39f-d940-49d1-a73e-2f475919e90a
 
+	column USAGE_DATE
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: a2a7dab9-a532-4f4f-93ea-f993f7713abf
+		summarizeBy: none
+		sourceColumn: USAGE_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_CREDITS
+		dataType: double
+		lineageTag: a91a89e3-9ad9-4173-a4c9-33276a7a59b9
+		summarizeBy: sum
+		sourceColumn: TOTAL_CREDITS
+
+		annotation SummarizationSetBy = Automatic
+
+	column COMPUTE_CREDITS
+		dataType: double
+		lineageTag: b6dd36c8-bd36-457a-abc4-a9d167023c53
+		summarizeBy: sum
+		sourceColumn: COMPUTE_CREDITS
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLOUD_SERVICES_CREDITS
+		dataType: double
+		lineageTag: 05b10e89-631d-47a0-ba55-7666133c56e1
+		summarizeBy: sum
+		sourceColumn: CLOUD_SERVICES_CREDITS
+
+		annotation SummarizationSetBy = Automatic
+
+	column WAREHOUSES_USED
+		dataType: int64
+		lineageTag: c9d582b0-3ff5-4789-a0b3-181c3abc2348
+		summarizeBy: sum
+		sourceColumn: WAREHOUSES_USED
+
+		annotation SummarizationSetBy = Automatic
+
 	measure 'Total Credits' = SUM(Daily_Consumption[TOTAL_CREDITS])
 		formatString: #,0.00
 		lineageTag: 91aade96-07ca-445b-8fb9-16b8f7916369
@@ -93,57 +134,12 @@ table Daily_Consumption
 		formatString: #,0.00
 		lineageTag: 59ad5204-a784-4b6e-8888-587acf8a77b7
 
-	column USAGE_DATE
-		dataType: dateTime
-		formatString: yyyy-mm-dd
-		lineageTag: a2a7dab9-a532-4f4f-93ea-f993f7713abf
-		summarizeBy: none
-		sourceColumn: USAGE_DATE
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
-
-	column TOTAL_CREDITS
-		dataType: double
-		lineageTag: a91a89e3-9ad9-4173-a4c9-33276a7a59b9
-		summarizeBy: sum
-		sourceColumn: TOTAL_CREDITS
-
-		annotation SummarizationSetBy = Automatic
-
-	column COMPUTE_CREDITS
-		dataType: double
-		lineageTag: b6dd36c8-bd36-457a-abc4-a9d167023c53
-		summarizeBy: sum
-		sourceColumn: COMPUTE_CREDITS
-
-		annotation SummarizationSetBy = Automatic
-
-	column CLOUD_SERVICES_CREDITS
-		dataType: double
-		lineageTag: 05b10e89-631d-47a0-ba55-7666133c56e1
-		summarizeBy: sum
-		sourceColumn: CLOUD_SERVICES_CREDITS
-
-		annotation SummarizationSetBy = Automatic
-
-	column WAREHOUSES_USED
-		dataType: double
-		lineageTag: c9d582b0-3ff5-4789-a0b3-181c3abc2348
-		summarizeBy: sum
-		sourceColumn: WAREHOUSES_USED
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	partition Daily_Consumption = m
 		mode: import
 		source =
 				let
-				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
-				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Source = Snowflake.Databases("ASCI-EDP_PRD.snowflakecomputing.com", "PROD_GOLD_WH", [Role="PROD_QLIK_READER_ROLE"]),
+				    Db = Source{[Name="MONITORING_DB", Kind="Database"]}[Data],
 				    Result = Value.NativeQuery(Db, "select USAGE_DATE, TOTAL_CREDITS, COMPUTE_CREDITS, CLOUD_SERVICES_CREDITS, WAREHOUSES_USED from SNOWFLAKE.VW_DAILY_CONSUMPTION_SUMMARY", null, [EnableFolding=true])
 				in
 				    Result

@@ -138,8 +138,8 @@ table Daily_Consumption
 		mode: import
 		source =
 				let
-				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
-				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Source = Snowflake.Databases("ASCI-EDP.snowflakecomputing.com", "DEV_GOLD_WH", [Role="DEV_QLIK_READER_ROLE"]),
+				    Db = Source{[Name="MONITORING_DB", Kind="Database"]}[Data],
 				    Result = Value.NativeQuery(Db, "select USAGE_DATE, TOTAL_CREDITS, COMPUTE_CREDITS, CLOUD_SERVICES_CREDITS, WAREHOUSES_USED from SNOWFLAKE.VW_DAILY_CONSUMPTION_SUMMARY", null, [EnableFolding=true])
 				in
 				    Result

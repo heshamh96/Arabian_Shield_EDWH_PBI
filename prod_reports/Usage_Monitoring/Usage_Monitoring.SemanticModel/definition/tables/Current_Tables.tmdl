@@ -2,6 +2,109 @@
 table Current_Tables
 	lineageTag: 6b0c982c-8960-458b-b326-12a1dd4ece14
 
+	column LAYER
+		dataType: string
+		lineageTag: f72affac-195a-4b3e-8f27-6fdec60147b4
+		summarizeBy: none
+		sourceColumn: LAYER
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATABASE_NAME
+		dataType: string
+		lineageTag: d2ab8ec6-17aa-45a4-9018-5465be6a721f
+		summarizeBy: none
+		sourceColumn: DATABASE_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column SCHEMA_NAME
+		dataType: string
+		lineageTag: 7f9d9280-eb5a-4715-961f-a9986bcbde11
+		summarizeBy: none
+		sourceColumn: SCHEMA_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column TABLE_NAME
+		dataType: string
+		lineageTag: 8d78d0d2-2bd4-40bb-a394-db9fb3363fe7
+		summarizeBy: none
+		sourceColumn: TABLE_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column IS_DYNAMIC
+		dataType: string
+		lineageTag: 64671fd5-1348-487c-a33a-646d6c04ee59
+		summarizeBy: none
+		sourceColumn: IS_DYNAMIC
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROW_COUNT
+		dataType: int64
+		lineageTag: d623dc46-97e8-4643-9191-ae5fd0093d27
+		summarizeBy: sum
+		sourceColumn: ROW_COUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column BYTES
+		dataType: int64
+		lineageTag: 362d6fc8-36d2-4a63-843d-9b463a7d4a08
+		summarizeBy: sum
+		sourceColumn: BYTES
+
+		annotation SummarizationSetBy = Automatic
+
+	column RETENTION_TIME
+		dataType: int64
+		lineageTag: f6a71a5e-c31c-4fbd-9332-75d984bc42ce
+		summarizeBy: none
+		sourceColumn: RETENTION_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column CREATED_AT
+		dataType: dateTime
+		lineageTag: 981e5528-5a24-4664-9e35-04e544bdd2fd
+		summarizeBy: none
+		sourceColumn: CREATED_AT
+
+		annotation SummarizationSetBy = Automatic
+
+	column LAST_ALTERED
+		dataType: dateTime
+		lineageTag: af9340a5-f02f-48a0-aab4-a34477ba1c16
+		summarizeBy: none
+		sourceColumn: LAST_ALTERED
+
+		annotation SummarizationSetBy = Automatic
+
+	column TABLE_COMMENT
+		dataType: string
+		lineageTag: c3d8e0c1-24cc-4e2b-8d02-741ea338290a
+		summarizeBy: none
+		sourceColumn: TABLE_COMMENT
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy Inventory
+		lineageTag: e04455a3-a130-42c2-b6ab-d1792ec3bdd9
+
+		level LAYER
+			lineageTag: 244a4545-8742-459f-a6de-dfe6ec16faa9
+			column: LAYER
+
+		level SCHEMA_NAME
+			lineageTag: a4114f86-27f0-4733-b2c0-50843ba2adfc
+			column: SCHEMA_NAME
+
+		level TABLE_NAME
+			lineageTag: e3d217f7-3a08-4d6b-9450-f14fc52bd736
+			column: TABLE_NAME
+
 	measure 'Tables Monitored' = COUNTROWS(Current_Tables)
 		formatString: #,0
 		lineageTag: 8b8eed36-138d-4313-bc59-fcba5b354b41
@@ -83,121 +186,12 @@ table Current_Tables
 		formatString: yyyy-mm-dd
 		lineageTag: 91d9ff5c-9316-4e5e-9616-74c5e0e9dfac
 
-	column LAYER
-		dataType: string
-		lineageTag: f72affac-195a-4b3e-8f27-6fdec60147b4
-		summarizeBy: none
-		sourceColumn: LAYER
-
-		annotation SummarizationSetBy = Automatic
-
-	column DATABASE_NAME
-		dataType: string
-		lineageTag: d2ab8ec6-17aa-45a4-9018-5465be6a721f
-		summarizeBy: none
-		sourceColumn: DATABASE_NAME
-
-		annotation SummarizationSetBy = Automatic
-
-	column SCHEMA_NAME
-		dataType: string
-		lineageTag: 7f9d9280-eb5a-4715-961f-a9986bcbde11
-		summarizeBy: none
-		sourceColumn: SCHEMA_NAME
-
-		annotation SummarizationSetBy = Automatic
-
-	column TABLE_NAME
-		dataType: string
-		lineageTag: 8d78d0d2-2bd4-40bb-a394-db9fb3363fe7
-		summarizeBy: none
-		sourceColumn: TABLE_NAME
-
-		annotation SummarizationSetBy = Automatic
-
-	column IS_DYNAMIC
-		dataType: string
-		lineageTag: 64671fd5-1348-487c-a33a-646d6c04ee59
-		summarizeBy: none
-		sourceColumn: IS_DYNAMIC
-
-		annotation SummarizationSetBy = Automatic
-
-	column ROW_COUNT
-		dataType: double
-		lineageTag: d623dc46-97e8-4643-9191-ae5fd0093d27
-		summarizeBy: sum
-		sourceColumn: ROW_COUNT
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column BYTES
-		dataType: double
-		lineageTag: 362d6fc8-36d2-4a63-843d-9b463a7d4a08
-		summarizeBy: sum
-		sourceColumn: BYTES
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column RETENTION_TIME
-		dataType: double
-		lineageTag: f6a71a5e-c31c-4fbd-9332-75d984bc42ce
-		summarizeBy: sum
-		sourceColumn: RETENTION_TIME
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column CREATED_AT
-		dataType: dateTime
-		lineageTag: 981e5528-5a24-4664-9e35-04e544bdd2fd
-		summarizeBy: none
-		sourceColumn: CREATED_AT
-
-		annotation SummarizationSetBy = Automatic
-
-	column LAST_ALTERED
-		dataType: dateTime
-		lineageTag: af9340a5-f02f-48a0-aab4-a34477ba1c16
-		summarizeBy: none
-		sourceColumn: LAST_ALTERED
-
-		annotation SummarizationSetBy = Automatic
-
-	column TABLE_COMMENT
-		dataType: string
-		lineageTag: c3d8e0c1-24cc-4e2b-8d02-741ea338290a
-		summarizeBy: none
-		sourceColumn: TABLE_COMMENT
-
-		annotation SummarizationSetBy = Automatic
-
-	hierarchy Inventory
-		lineageTag: e04455a3-a130-42c2-b6ab-d1792ec3bdd9
-
-		level LAYER
-			lineageTag: 244a4545-8742-459f-a6de-dfe6ec16faa9
-			column: LAYER
-
-		level SCHEMA_NAME
-			lineageTag: a4114f86-27f0-4733-b2c0-50843ba2adfc
-			column: SCHEMA_NAME
-
-		level TABLE_NAME
-			lineageTag: e3d217f7-3a08-4d6b-9450-f14fc52bd736
-			column: TABLE_NAME
-
 	partition Current_Tables = m
 		mode: import
 		source =
 				let
-				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
-				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Source = Snowflake.Databases("ASCI-EDP_PRD.snowflakecomputing.com", "PROD_GOLD_WH", [Role="PROD_QLIK_READER_ROLE"]),
+				    Db = Source{[Name="MONITORING_DB", Kind="Database"]}[Data],
 				    Result = Value.NativeQuery(Db, "select 'BRONZE' as LAYER, ""DATABASE"" as DATABASE_NAME, ""SCHEMA"" as SCHEMA_NAME, ""TABLE"" as TABLE_NAME, IS_DYNAMIC, ROW_COUNT, BYTES, RETENTION_TIME, cast(CREATED_AT as timestamp_ntz) as CREATED_AT, cast(LAST_ALTERED as timestamp_ntz) as LAST_ALTERED, ""COMMENT"" as TABLE_COMMENT from SNOWFLAKE.VW_BRONZE_TABLE_CURRENT_COUNT union all select 'SILVER' as LAYER, ""DATABASE"" as DATABASE_NAME, ""SCHEMA"" as SCHEMA_NAME, ""TABLE"" as TABLE_NAME, IS_DYNAMIC, ROW_COUNT, BYTES, RETENTION_TIME, cast(CREATED_AT as timestamp_ntz) as CREATED_AT, cast(LAST_ALTERED as timestamp_ntz) as LAST_ALTERED, ""COMMENT"" as TABLE_COMMENT from SNOWFLAKE.VW_SILVER_TABLE_CURRENT_COUNT union all select 'GOLD' as LAYER, ""DATABASE"" as DATABASE_NAME, ""SCHEMA"" as SCHEMA_NAME, ""TABLE"" as TABLE_NAME, IS_DYNAMIC, ROW_COUNT, BYTES, RETENTION_TIME, cast(CREATED_AT as timestamp_ntz) as CREATED_AT, cast(LAST_ALTERED as timestamp_ntz) as LAST_ALTERED, ""COMMENT"" as TABLE_COMMENT from SNOWFLAKE.VW_GOLD_TABLE_CURRENT_COUNT", null, [EnableFolding=true])
 				in
 				    Result

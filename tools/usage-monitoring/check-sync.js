@@ -18,6 +18,9 @@ const walk = (root, base = '') => {
   const out = [];
   if (!fs.existsSync(root)) return out;
   for (const e of fs.readdirSync(root)) {
+    // .pbi/ holds Desktop's gitignored local state (credential binding, cache);
+    // it is per-machine, not part of the report, so it is not a sync concern.
+    if (e === '.pbi') continue;
     const abs = path.join(root, e), rel = base ? base + '/' + e : e;
     if (fs.statSync(abs).isDirectory()) out.push(...walk(abs, rel));
     else out.push(rel);
@@ -48,6 +51,9 @@ for (const f of [...devFiles].filter(x => prodFiles.has(x))) {
   const classify = ([x, y]) => {
     const t = x.trim(), u = y.trim();
     if (PARAM_LINE.test(t) && PARAM_LINE.test(u)) return 'param';
+    // The connection is inlined per environment, so this one M line differs by
+    // design (server / warehouse / role / database literals).
+    if (/Source = Snowflake\.Databases\(/.test(t) && /Source = Snowflake\.Databases\(/.test(u)) return 'connection';
     if (/"value":\s*"(DEV|PROD)"/.test(t) && /"value":\s*"(DEV|PROD)"/.test(u)) return 'badge';
     if (/"logicalId"/.test(t) && /"logicalId"/.test(u)) return 'logicalId';
     // Per-machine Desktop-save artefacts, not report content: the last-viewed

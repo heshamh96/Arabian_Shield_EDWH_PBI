@@ -10,12 +10,7 @@ annotation __PBI_TimeIntelligenceEnabled = 0
 
 annotation PBI_ProTooling = ["DevMode"]
 
-annotation PBI_QueryOrder = ["SnowflakeServer","SnowflakeWarehouse","SnowflakeDatabase","SnowflakeRole","DTS_Refresh","Table_Snapshots","Current_Tables","Daily_Consumption","Hourly_Consumption"]
-
-ref expression SnowflakeServer
-ref expression SnowflakeWarehouse
-ref expression SnowflakeDatabase
-ref expression SnowflakeRole
+annotation PBI_QueryOrder = ["DTS_Refresh","Table_Snapshots","Current_Tables","Daily_Consumption","Hourly_Consumption"]
 
 ref table DTS_Refresh
 ref table Table_Snapshots

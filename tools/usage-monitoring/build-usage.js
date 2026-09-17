@@ -65,7 +65,7 @@ function hierarchyTmdl(tableName, [hName, levels]) {
   return L;
 }
 
-function tableTmdl(t) {
+function tableTmdl(t, env) {
   const L = [];
   if (t.doc) L.push(`/// ${t.doc}`);
   L.push(`table ${q(t.name)}`, `\tlineageTag: ${guid('t.' + t.name)}`, '');
@@ -86,24 +86,27 @@ function tableTmdl(t) {
   }
 
   // One line of SQL: TMDL cannot carry embedded newlines inside the M string,
-  // and SQL does not care.
+  // and SQL does not care. Schema-qualified only; the database is the Db
+  // navigation step.
   //
-  // The SQL is a plain literal, schema-qualified only. The database comes from
-  // the Db navigation step, which already scopes the native query to it.
-  // Previously the text was assembled at runtime with Text.Replace over the
-  // SnowflakeDatabase / SnowflakeSchema parameters. Desktop's own Refresh applies
-  // privacy-level partitioning that the engine refresh does not, and a query
-  // whose TEXT depends on the same parameter that feeds its DATA SOURCE is what
-  // that partitioner reports as "A cyclic reference was encountered during
-  // evaluation" - which is how prod broke after Desktop updated to 2.157.1354.
+  // The connection values are INLINED as literals, not read from parameters.
+  // Desktop's "Refresh now" runs the Formula Firewall, which partitions queries
+  // by privacy level. A table query that references parameter-queries
+  // (SnowflakeServer etc.) AND touches a data source is a cross-query
+  // combination the firewall reports as "A cyclic reference was encountered
+  // during evaluation" - the failure the user kept hitting. (The TOM/engine
+  // refresh bypasses the firewall, which is why it always succeeded and masked
+  // the bug.) Inlining removes every cross-query edge, so the firewall has
+  // nothing to partition and cannot raise the cycle. Each environment's file
+  // carries its own literals; the generator stays the single place to change them.
   const sql = t.query.replace(/\{DB\}\.SNOWFLAKE\./g, 'SNOWFLAKE.')
                      .replace(/\s*\r?\n\s*/g, ' ').trim().replace(/"/g, '""');
   L.push(`\tpartition ${q(t.name)} = m`);
   L.push(`\t\tmode: import`);
   L.push(`\t\tsource =`);
   L.push(`\t\t\t\tlet`);
-  L.push(`\t\t\t\t    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),`);
-  L.push(`\t\t\t\t    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],`);
+  L.push(`\t\t\t\t    Source = Snowflake.Databases("${env.server}", "${env.warehouse}", [Role="${env.role}"]),`);
+  L.push(`\t\t\t\t    Db = Source{[Name="${env.database}", Kind="Database"]}[Data],`);
   L.push(`\t\t\t\t    Result = Value.NativeQuery(Db, "${sql}", null, [EnableFolding=true])`);
   L.push(`\t\t\t\tin`);
   L.push(`\t\t\t\t    Result`, '');
@@ -160,17 +163,14 @@ function build(envName) {
   W(`${SM}/definition/database.tmdl`, crlf(['database', '\tcompatibilityLevel: 1606', '']));
   W(`${SM}/definition/cultures/en-US.tmdl`, crlf(['cultureInfo en-US']));
 
-  const E = [];
-  PARAMS.forEach(([pn, key, doc], i) => {
-    if (i) E.push('');
-    E.push(`/// ${doc}`);
-    E.push(`expression ${pn} = "${env[key]}" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]`);
-    E.push(`\tlineageTag: ${guid('e.' + pn)}`, '');
-    E.push(`\tannotation PBI_ResultType = Text`);
-  });
-  W(`${SM}/definition/expressions.tmdl`, crlf(E));
+  // No parameter queries. The connection values are inlined into each table's M
+  // (see tableTmdl) precisely so no table query references a parameter-query -
+  // that cross-query reference is what the Formula Firewall reported as a cyclic
+  // reference. expressions.tmdl is therefore removed if it lingers from an
+  // earlier build.
+  fs.rmSync(`${SM}/definition/expressions.tmdl`, { force: true });
 
-  TABLES.forEach(t => W(`${SM}/definition/tables/${t.name}.tmdl`, tableTmdl(t)));
+  TABLES.forEach(t => W(`${SM}/definition/tables/${t.name}.tmdl`, tableTmdl(t, env)));
   W(`${SM}/definition/tables/Date.tmdl`, dateTmdl());
 
   const R = [];
@@ -187,9 +187,7 @@ function build(envName) {
     '\tsourceQueryCulture: en-GB', '\tdataAccessOptions', '\t\tlegacyRedirects', '\t\treturnErrorValuesAsNull', ''];
   M.push('annotation __PBI_TimeIntelligenceEnabled = 0', '');
   M.push('annotation PBI_ProTooling = ["DevMode"]', '');
-  M.push(`annotation PBI_QueryOrder = ${JSON.stringify(PARAMS.map(p => p[0]).concat(TABLES.map(t => t.name)))}`, '');
-  PARAMS.forEach(([pn]) => M.push(`ref expression ${pn}`));
-  M.push('');
+  M.push(`annotation PBI_QueryOrder = ${JSON.stringify(TABLES.map(t => t.name))}`, '');
   names.forEach(n => M.push(`ref table ${q(n)}`));
   M.push('', 'ref cultureInfo en-US', '');
   W(`${SM}/definition/model.tmdl`, crlf(M));

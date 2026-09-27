@@ -1,0 +1,76 @@
+table C_DIM_MEDICAL_PLANS
+	lineageTag: 53480656-62d4-4334-aa42-b0ebedccd3dd
+
+	column MEDICAL_PLAN_ID
+		dataType: string
+		lineageTag: fad29275-4f5f-441d-89d3-917859a74c44
+		summarizeBy: none
+		sourceColumn: MEDICAL_PLAN_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLAN_CODE
+		dataType: string
+		lineageTag: fd2860d6-bfdb-46f3-9085-b6ae1761feb8
+		summarizeBy: none
+		sourceColumn: PLAN_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLAN_NAME
+		dataType: string
+		lineageTag: f291676a-9f29-4a35-b5ab-98a390d679a5
+		summarizeBy: none
+		sourceColumn: PLAN_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_SYSTEM
+		dataType: string
+		lineageTag: 6ed8ef4e-8409-495d-a3f9-0f8cd72b29f9
+		summarizeBy: none
+		sourceColumn: SOURCE_SYSTEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXTRACTION_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4aa9909f-3007-42e9-943a-4c8e028f66fd
+		summarizeBy: none
+		sourceColumn: EXTRACTION_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOAD_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 72de4794-9a38-4257-93f9-071a92ed1e4f
+		summarizeBy: none
+		sourceColumn: LOAD_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROW_VERSION
+		dataType: string
+		lineageTag: cbeafe5a-e1a9-4e51-a304-1098b34b46d8
+		summarizeBy: none
+		sourceColumn: ROW_VERSION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition C_DIM_MEDICAL_PLANS = m
+		mode: directQuery
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sch = Db{[Name=SnowflakeSchema, Kind="Schema"]}[Data],
+				    Data = Sch{[Name="C_DIM_MEDICAL_PLANS", Kind="Table"]}[Data]
+				in
+				    Data
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

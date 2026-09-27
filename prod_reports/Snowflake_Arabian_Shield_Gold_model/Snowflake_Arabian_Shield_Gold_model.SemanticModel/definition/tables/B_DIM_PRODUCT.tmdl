@@ -1,0 +1,92 @@
+table B_DIM_PRODUCT
+	lineageTag: 6a80b632-759d-4cd3-8782-b7c65a99df12
+
+	column PRODUCT_ID
+		dataType: string
+		lineageTag: 565ae687-6040-4270-850f-5d37d5557b38
+		summarizeBy: none
+		sourceColumn: PRODUCT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOB_ID
+		dataType: string
+		lineageTag: 588aebe4-6c79-4141-a943-ab8c10b07902
+		summarizeBy: none
+		sourceColumn: LOB_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_NAME
+		dataType: string
+		lineageTag: 17716491-f0c6-49ff-8d5b-17bde09da01f
+		summarizeBy: none
+		sourceColumn: SOURCE_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column EN_NAME
+		dataType: string
+		lineageTag: 7e3c2b39-bd6c-4b9a-93b7-57d2a67d313b
+		summarizeBy: none
+		sourceColumn: EN_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column AR_NAME
+		dataType: string
+		lineageTag: 88100aeb-2667-444b-b5f0-3a1a831109af
+		summarizeBy: none
+		sourceColumn: AR_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_SYSTEM
+		dataType: string
+		lineageTag: 09808235-9a11-4a14-ab2e-010ce1928780
+		summarizeBy: none
+		sourceColumn: SOURCE_SYSTEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXTRACTION_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 97661046-a4ef-4409-8ab3-4b8502f3a34e
+		summarizeBy: none
+		sourceColumn: EXTRACTION_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOAD_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 8a852e6d-a7d5-4693-8d65-70d0974d4127
+		summarizeBy: none
+		sourceColumn: LOAD_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROW_VERSION
+		dataType: string
+		lineageTag: 630cea97-1831-4782-a2ce-8d6dda9e6dfc
+		summarizeBy: none
+		sourceColumn: ROW_VERSION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition B_DIM_PRODUCT = m
+		mode: directQuery
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sch = Db{[Name=SnowflakeSchema, Kind="Schema"]}[Data],
+				    Data = Sch{[Name="B_DIM_PRODUCT", Kind="Table"]}[Data]
+				in
+				    Data
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

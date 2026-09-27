@@ -1,0 +1,258 @@
+table F_FCT_CLAIMS
+	lineageTag: 4ea8b347-2e93-4bbe-8070-782ec0cd98fc
+
+	measure 'claim os' =
+			CALCULATE (
+			    SUM ( F_FCT_CLAIMS[TRANSACTION_AMOUNT] ),
+			    F_FCT_CLAIMS[TRANSACTION_TYPE] = "Reserve"
+			)
+		lineageTag: 232978ef-8987-47c7-a026-8504c351f244
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'claim paid' =
+			CALCULATE (
+			    SUM ( F_FCT_CLAIMS[TRANSACTION_AMOUNT] ),
+			    F_FCT_CLAIMS[TRANSACTION_TYPE] = "Payment"
+			)
+		lineageTag: 6f1a2d4a-223d-4ae1-8c0a-93d5ea75a42a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'claim recovery' =
+			CALCULATE (
+			    SUM ( F_FCT_CLAIMS[TRANSACTION_AMOUNT] ),
+			    F_FCT_CLAIMS[TRANSACTION_TYPE] = "Recovery Collection"
+			)
+		lineageTag: 3b13dbaa-bd49-4e91-b2ff-61c2592a409a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'claim recovery os' =
+			CALCULATE (
+			    SUM ( F_FCT_CLAIMS[TRANSACTION_AMOUNT] ),
+			   F_FCT_CLAIMS[TRANSACTION_TYPE] = "Recovery"
+			)
+		lineageTag: 24f90744-4d10-411d-a5cd-e6b7596d9613
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TRANSACTION_ID
+		dataType: string
+		lineageTag: 654a9069-ffef-4350-9e32-abc2f0fbc42c
+		summarizeBy: none
+		sourceColumn: TRANSACTION_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICY_ID
+		dataType: string
+		lineageTag: 15b5bbf9-d8fd-4bf0-ba3f-b52fec3fddd9
+		summarizeBy: none
+		sourceColumn: POLICY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column RISK_ID
+		dataType: string
+		lineageTag: 670ecddd-aad8-42d9-a34f-ab4917d5ed21
+		summarizeBy: none
+		sourceColumn: RISK_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIMANT_ID
+		dataType: string
+		lineageTag: 48cceb06-5b96-40d7-9f84-549e78b2e502
+		summarizeBy: none
+		sourceColumn: CLAIMANT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUB_CLAIM_ID
+		dataType: string
+		lineageTag: 0e728a40-19fb-4cc6-af28-ddce476ecaf3
+		summarizeBy: none
+		sourceColumn: SUB_CLAIM_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIM_DETAIL_ID
+		dataType: string
+		lineageTag: 2b85df96-3177-4142-aa89-729157343d3a
+		summarizeBy: none
+		sourceColumn: CLAIM_DETAIL_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIM_ID
+		dataType: string
+		lineageTag: cf25f0aa-819b-450c-a6ea-beac7885e6cb
+		summarizeBy: none
+		sourceColumn: CLAIM_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUB_CLAIM_STATUS
+		dataType: string
+		lineageTag: 4771854e-8880-436b-b1aa-7f19916b63b8
+		summarizeBy: none
+		sourceColumn: SUB_CLAIM_STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUB_CLAIM_ACTION
+		dataType: string
+		lineageTag: 24025e95-4ef9-44b6-b467-f5fe648f5cad
+		summarizeBy: none
+		sourceColumn: SUB_CLAIM_ACTION
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRANSACTION_SERIAL
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 662c542a-a1bf-42fa-8fcd-7250acde12a7
+		summarizeBy: sum
+		sourceColumn: TRANSACTION_SERIAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TRANSACTION_TYPE
+		dataType: string
+		lineageTag: 0db259de-f861-4163-8209-de52eb1eaa55
+		summarizeBy: none
+		sourceColumn: TRANSACTION_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRANSACTION_SUB_TYPE
+		dataType: string
+		lineageTag: 955786d0-67f7-4045-9c95-7599da6e87d1
+		summarizeBy: none
+		sourceColumn: TRANSACTION_SUB_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRANSACTION_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 61246df3-53a9-4f6e-a350-1a1f18b256ab
+		summarizeBy: none
+		sourceColumn: TRANSACTION_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column TRANSACTION_AMOUNT
+		dataType: double
+		lineageTag: ea09b333-bbd6-41fb-963e-abc1523eb4bb
+		summarizeBy: sum
+		sourceColumn: TRANSACTION_AMOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRANSACTION_VAT
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: c0bc6b47-a5cd-43b0-b82e-3ea4f5d66bf0
+		summarizeBy: sum
+		sourceColumn: TRANSACTION_VAT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TRANSACTION_AUTO_INSERT
+		dataType: boolean
+		lineageTag: fef0cdfd-743f-460e-a99f-9e95cb537423
+		summarizeBy: none
+		sourceColumn: TRANSACTION_AUTO_INSERT
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_TTY_AMOUNT
+		dataType: double
+		lineageTag: c402ce4d-6db1-4db5-8057-76f43e52605e
+		summarizeBy: sum
+		sourceColumn: TOTAL_TTY_AMOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_FAC_AMOUNT
+		dataType: double
+		lineageTag: 96ebcd7d-bf19-48c8-bef5-6d40464d7283
+		summarizeBy: sum
+		sourceColumn: TOTAL_FAC_AMOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column TOTAL_RET_AMOUNT
+		dataType: double
+		lineageTag: 31e0db3f-1426-4f94-ac0d-cf0befda371a
+		summarizeBy: sum
+		sourceColumn: TOTAL_RET_AMOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column REASON
+		dataType: string
+		lineageTag: 8106cd8f-be57-49e5-a9b8-e819e931e6a9
+		summarizeBy: none
+		sourceColumn: REASON
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_SYSTEM
+		dataType: string
+		lineageTag: 2bc53ebe-b3c1-47a2-9fe9-a12ca11952f5
+		summarizeBy: none
+		sourceColumn: SOURCE_SYSTEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXTRACTION_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 7eb90a6f-cdb1-4a42-94c4-8d4333301907
+		summarizeBy: none
+		sourceColumn: EXTRACTION_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOAD_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 92cbbadd-1591-45af-9230-e78b96ba9852
+		summarizeBy: none
+		sourceColumn: LOAD_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROW_VERSION
+		dataType: string
+		lineageTag: 1bc61855-c4fc-47bf-850c-3cbb38471170
+		summarizeBy: none
+		sourceColumn: ROW_VERSION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition F_FCT_CLAIMS = m
+		mode: directQuery
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sch = Db{[Name=SnowflakeSchema, Kind="Schema"]}[Data],
+				    Data = Sch{[Name="F_FCT_CLAIMS", Kind="Table"]}[Data]
+				in
+				    Data
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,52 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "92cbc17bbbc04726e01c",
+  "position": {
+    "x": 149.63380281690141,
+    "y": 117.1830985915493,
+    "z": 1000,
+    "height": 160.45070422535213,
+    "width": 427.26760563380282,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "A_REF_GENDER"
+                    }
+                  },
+                  "Property": "GENDER_ID"
+                }
+              },
+              "queryRef": "A_REF_GENDER.GENDER_ID",
+              "nativeQueryRef": "GENDER_ID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "A_REF_GENDER"
+                    }
+                  },
+                  "Property": "EN_NAME"
+                }
+              },
+              "queryRef": "A_REF_GENDER.EN_NAME",
+              "nativeQueryRef": "EN_NAME"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

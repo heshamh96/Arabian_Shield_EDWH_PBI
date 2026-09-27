@@ -1,0 +1,233 @@
+table BUC_LIFE360_CLAIMS_SETTLEMENT_VIEW
+	lineageTag: 9b77b151-58ff-451f-8ea4-8b38c90c4d3c
+
+	column CLAIM_ID
+		dataType: string
+		lineageTag: fbcb4be6-1383-4741-8631-2d542c07c428
+		summarizeBy: none
+		sourceColumn: CLAIM_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIM_NO
+		dataType: string
+		lineageTag: 68448735-c4d4-4f7e-8783-ea5abf4e7795
+		summarizeBy: none
+		sourceColumn: CLAIM_NO
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICY_ID
+		dataType: string
+		lineageTag: 2a5c8c29-8e73-4131-8a5b-e0686579f1f2
+		summarizeBy: none
+		sourceColumn: POLICY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column RISK_ID
+		dataType: string
+		lineageTag: 24857638-c39c-4a8a-9b3e-b4b93c80c0c9
+		summarizeBy: none
+		sourceColumn: RISK_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRODUCT_ID
+		dataType: string
+		lineageTag: e3eb5a51-aeb5-4a94-b01c-1a4f4bdc9f88
+		summarizeBy: none
+		sourceColumn: PRODUCT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRODUCT_NAME
+		dataType: string
+		lineageTag: 48f17579-641a-48e5-a457-f74f659ed6cd
+		summarizeBy: none
+		sourceColumn: PRODUCT_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIM_TYPE
+		dataType: string
+		lineageTag: 8549e908-f4ec-4875-973e-498e4a5b094e
+		summarizeBy: none
+		sourceColumn: CLAIM_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIM_STATUS
+		dataType: string
+		lineageTag: 73d9a8d8-2864-4aee-bcef-c845f8da530a
+		summarizeBy: none
+		sourceColumn: CLAIM_STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	column DATE_OF_LOSS
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5c088850-dadd-41d0-b92f-c3b3170555a8
+		summarizeBy: none
+		sourceColumn: DATE_OF_LOSS
+
+		annotation SummarizationSetBy = Automatic
+
+	column NOTIFICATION_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 28a95917-fbf0-40a7-ae7a-5d7cc4d9f0bc
+		summarizeBy: none
+		sourceColumn: NOTIFICATION_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column REGISTRATION_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 24edd173-6547-4404-b30d-a02178627b37
+		summarizeBy: none
+		sourceColumn: REGISTRATION_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIM_STATUS_DATE
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 60d765d4-24b5-4e80-9f2d-0d6b1f1ad5f2
+		summarizeBy: none
+		sourceColumn: CLAIM_STATUS_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIMED_AMOUNT
+		dataType: double
+		lineageTag: cee8ef93-ba02-49ad-8e94-427f37bcf016
+		summarizeBy: sum
+		sourceColumn: CLAIMED_AMOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column PAID_AMOUNT
+		dataType: double
+		lineageTag: 6831193f-481a-455c-888d-162f5b8e3ffa
+		summarizeBy: sum
+		sourceColumn: PAID_AMOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column RESERVED_AMOUNT
+		dataType: double
+		lineageTag: 497c075d-50e8-4028-8ed8-e96a17480974
+		summarizeBy: sum
+		sourceColumn: RESERVED_AMOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column FIRST_PAYMENT_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 53ffb095-6c03-4018-afc8-8c26a9a02618
+		summarizeBy: none
+		sourceColumn: FIRST_PAYMENT_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column LAST_PAYMENT_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: a0846894-aac9-4e2d-893e-4fa435ce11bd
+		summarizeBy: none
+		sourceColumn: LAST_PAYMENT_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column IS_SETTLED
+		dataType: double
+		sourceProviderType: decimal(1, 0)
+		lineageTag: 33f0c757-2cb3-4250-a042-bce306303289
+		summarizeBy: sum
+		sourceColumn: IS_SETTLED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IS_REJECTED
+		dataType: double
+		sourceProviderType: decimal(1, 0)
+		lineageTag: 348cf228-b244-473d-bc15-0da2ddfc6262
+		summarizeBy: sum
+		sourceColumn: IS_REJECTED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IS_REOPENED
+		dataType: double
+		sourceProviderType: decimal(1, 0)
+		lineageTag: 64aa0ff9-3b60-4068-bb1f-9b867159414b
+		summarizeBy: sum
+		sourceColumn: IS_REOPENED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IS_OPEN
+		dataType: double
+		sourceProviderType: decimal(1, 0)
+		lineageTag: 09caba60-631e-4535-87ac-f3da34833998
+		summarizeBy: sum
+		sourceColumn: IS_OPEN
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SETTLEMENT_DAYS
+		dataType: double
+		sourceProviderType: decimal(9, 0)
+		lineageTag: 0af50272-8482-4f5e-a404-09cbd4461ba1
+		summarizeBy: sum
+		sourceColumn: SETTLEMENT_DAYS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column NOTIFICATION_MONTH
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 5f6a6d7e-78c1-4f9b-a088-922af107ea96
+		summarizeBy: none
+		sourceColumn: NOTIFICATION_MONTH
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition BUC_LIFE360_CLAIMS_SETTLEMENT_VIEW = m
+		mode: directQuery
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sch = Db{[Name=SnowflakeSchema, Kind="Schema"]}[Data],
+				    Data = Sch{[Name="BUC_LIFE360_CLAIMS_SETTLEMENT_VIEW", Kind="View"]}[Data]
+				in
+				    Data
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

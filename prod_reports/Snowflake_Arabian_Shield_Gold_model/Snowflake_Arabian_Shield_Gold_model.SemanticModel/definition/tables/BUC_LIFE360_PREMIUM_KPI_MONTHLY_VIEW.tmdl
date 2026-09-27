@@ -1,0 +1,205 @@
+table BUC_LIFE360_PREMIUM_KPI_MONTHLY_VIEW
+	lineageTag: 34793123-5992-4c87-a01e-2628cecf55c6
+
+	column MONTH
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: c99e0d31-1f49-46b4-bf8b-60c5033613a3
+		summarizeBy: none
+		sourceColumn: MONTH
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column PRODUCT_ID
+		dataType: string
+		lineageTag: e3bd10e3-97b3-4a99-a582-f51fabc652d8
+		summarizeBy: none
+		sourceColumn: PRODUCT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PRODUCT_NAME
+		dataType: string
+		lineageTag: 6bee8957-7ea9-4d2f-8af2-4cc38f52abc9
+		summarizeBy: none
+		sourceColumn: PRODUCT_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column CONTRIBUTION_CYCLES
+		dataType: double
+		isNullable: false
+		sourceProviderType: decimal(18, 0)
+		lineageTag: cf07c5a4-94b6-429d-bd26-05edd1b10b95
+		summarizeBy: sum
+		sourceColumn: CONTRIBUTION_CYCLES
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column POLICIES_BILLED
+		dataType: double
+		isNullable: false
+		sourceProviderType: decimal(18, 0)
+		lineageTag: 8b4854c6-7825-41b1-ba05-9a8a294401e0
+		summarizeBy: sum
+		sourceColumn: POLICIES_BILLED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GROSS_WRITTEN_PREMIUM
+		dataType: double
+		lineageTag: 5aaef679-12ed-4da3-bcb7-ebce14c5ec85
+		summarizeBy: sum
+		sourceColumn: GROSS_WRITTEN_PREMIUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column TREATY_PREMIUM_CEDED
+		dataType: double
+		lineageTag: 83d55feb-7ff2-47a5-9bbd-97924f16afcb
+		summarizeBy: sum
+		sourceColumn: TREATY_PREMIUM_CEDED
+
+		annotation SummarizationSetBy = Automatic
+
+	column NET_WRITTEN_PREMIUM
+		dataType: double
+		lineageTag: 7d096748-5db9-401e-8cd8-c8cc81ccf32a
+		summarizeBy: sum
+		sourceColumn: NET_WRITTEN_PREMIUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column NEW_BUSINESS_PREMIUM
+		dataType: double
+		lineageTag: e66e426b-af19-4f14-bb02-ee5b4db54af0
+		summarizeBy: sum
+		sourceColumn: NEW_BUSINESS_PREMIUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column NEW_BUSINESS_POLICIES
+		dataType: double
+		isNullable: false
+		sourceProviderType: decimal(18, 0)
+		lineageTag: 0ba231f3-1502-4f48-bcd8-7498944267f7
+		summarizeBy: sum
+		sourceColumn: NEW_BUSINESS_POLICIES
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RAISED_PREMIUM
+		dataType: double
+		lineageTag: 8d7a00c2-fbe4-4544-8392-4454a156a234
+		summarizeBy: sum
+		sourceColumn: RAISED_PREMIUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column COLLECTED_PREMIUM
+		dataType: double
+		lineageTag: 04f9e6ff-9321-4296-b1f5-9f121fe46ee4
+		summarizeBy: sum
+		sourceColumn: COLLECTED_PREMIUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column DEFAULTED_PREMIUM
+		dataType: double
+		lineageTag: 0f79ee5c-6c43-49f8-a8c3-9d92dcee45b3
+		summarizeBy: sum
+		sourceColumn: DEFAULTED_PREMIUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column PENDING_PREMIUM
+		dataType: double
+		lineageTag: a47eab3c-a354-4d00-bb25-c628b1980df3
+		summarizeBy: sum
+		sourceColumn: PENDING_PREMIUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column PREMIUM_COLLECTION_RATE
+		dataType: double
+		lineageTag: 5eb27d1e-b850-47ea-873d-fbd488813238
+		summarizeBy: sum
+		sourceColumn: PREMIUM_COLLECTION_RATE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIMS_PAID
+		dataType: double
+		lineageTag: 9b67a461-2f7c-4494-8760-8e461ae1f063
+		summarizeBy: sum
+		sourceColumn: CLAIMS_PAID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIMS_RESERVED
+		dataType: double
+		lineageTag: 6b2afb90-cea3-4aa7-9360-9292a95ec3d5
+		summarizeBy: sum
+		sourceColumn: CLAIMS_RESERVED
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIMS_TOUCHED
+		dataType: double
+		sourceProviderType: decimal(30, 0)
+		lineageTag: 5ce242f1-2702-4344-b746-79a6e5582cb9
+		summarizeBy: sum
+		sourceColumn: CLAIMS_TOUCHED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CLAIMS_RATIO
+		dataType: double
+		lineageTag: 11aa0876-fc37-4eaa-92e8-3b3da1ab633d
+		summarizeBy: sum
+		sourceColumn: CLAIMS_RATIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column COMMISSION_PAID
+		dataType: double
+		lineageTag: 97c3f602-fe17-4932-bc9d-d9f632a79b12
+		summarizeBy: sum
+		sourceColumn: COMMISSION_PAID
+
+		annotation SummarizationSetBy = Automatic
+
+	column COMMISSION_RATIO
+		dataType: double
+		lineageTag: 03bf98d7-41c5-44e4-a8f4-9d224835bd19
+		summarizeBy: sum
+		sourceColumn: COMMISSION_RATIO
+
+		annotation SummarizationSetBy = Automatic
+
+	partition BUC_LIFE360_PREMIUM_KPI_MONTHLY_VIEW = m
+		mode: directQuery
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sch = Db{[Name=SnowflakeSchema, Kind="Schema"]}[Data],
+				    Data = Sch{[Name="BUC_LIFE360_PREMIUM_KPI_MONTHLY_VIEW", Kind="View"]}[Data]
+				in
+				    Data
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

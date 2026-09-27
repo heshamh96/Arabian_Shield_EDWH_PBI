@@ -1,0 +1,92 @@
+table A_REF_NATIONALITY
+	lineageTag: 481c7214-90fd-4791-8086-dfb038c5db0c
+
+	column NATIONALITY_ID
+		dataType: string
+		lineageTag: 14624a9a-8a27-4bec-b41a-f11f3e71105b
+		summarizeBy: none
+		sourceColumn: NATIONALITY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_CODE
+		dataType: string
+		lineageTag: c668e3b8-2b19-4187-b369-c55d5699a8d0
+		summarizeBy: none
+		sourceColumn: SOURCE_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_NAME
+		dataType: string
+		lineageTag: d0b85e73-70a7-45d9-8f3f-29de65a1ee1c
+		summarizeBy: none
+		sourceColumn: SOURCE_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column EN_NAME
+		dataType: string
+		lineageTag: 1bb3ed16-f93a-4c36-9048-8ca9287c72d6
+		summarizeBy: none
+		sourceColumn: EN_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column AR_NAME
+		dataType: string
+		lineageTag: 1cd2d205-f61d-4615-b746-5015ce754e2f
+		summarizeBy: none
+		sourceColumn: AR_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_SYSTEM
+		dataType: string
+		lineageTag: ee276263-9947-404f-b765-7017c6567a75
+		summarizeBy: none
+		sourceColumn: SOURCE_SYSTEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXTRACTION_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 82714533-62b1-44b4-a6fb-d79a1da40bed
+		summarizeBy: none
+		sourceColumn: EXTRACTION_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOAD_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ffd1453a-5fbc-418e-9ea6-d442ff951f4d
+		summarizeBy: none
+		sourceColumn: LOAD_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROW_VERSION
+		dataType: string
+		lineageTag: 0e0e324c-143a-4651-a674-3ea0865b14b6
+		summarizeBy: none
+		sourceColumn: ROW_VERSION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition A_REF_NATIONALITY = m
+		mode: directQuery
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sch = Db{[Name=SnowflakeSchema, Kind="Schema"]}[Data],
+				    Data = Sch{[Name="A_REF_NATIONALITY", Kind="Table"]}[Data]
+				in
+				    Data
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

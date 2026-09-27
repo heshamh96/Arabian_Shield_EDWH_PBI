@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Snowflake_Arabian_Shield_Gold_model"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "39a12ee0-f719-4833-ab58-04b8fc417daf"
+  }
+}

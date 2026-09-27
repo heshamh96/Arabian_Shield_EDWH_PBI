@@ -1,0 +1,261 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "64665e6fb3fc03c29ddd",
+  "position": {
+    "x": 992.1522812873543,
+    "y": 439.724847199982,
+    "z": 2009,
+    "height": 280.275152800018,
+    "width": 287.8477187126457
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "A_REF_NATIONALITY"
+                    }
+                  },
+                  "Property": "EN_NAME"
+                }
+              },
+              "queryRef": "A_REF_NATIONALITY.EN_NAME",
+              "nativeQueryRef": "EN_NAME"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "C_DIM_POLICY_MASTER"
+                        }
+                      },
+                      "Property": "POLICY_ID"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "C_DIM_POLICY_MASTER.POLICY_ID",
+              "nativeQueryRef": "Count of POLICY_ID"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "E_FCT_TRANSACTIONS"
+                        }
+                      },
+                      "Property": "RISK_ID"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "E_FCT_TRANSACTIONS.RISK_ID",
+              "nativeQueryRef": "Count of RISK_ID"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "E_FCT_TRANSACTIONS"
+                        }
+                      },
+                      "Property": "GROSS_PREMIUM_LC"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(E_FCT_TRANSACTIONS.GROSS_PREMIUM_LC)",
+              "nativeQueryRef": "Sum of GROSS_PREMIUM_LC"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "6fda905d04461a640dca",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "A_REF_NATIONALITY"
+              }
+            },
+            "Property": "EN_NAME"
+          }
+        },
+        "type": "TopN",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "subquery",
+              "Expression": {
+                "Subquery": {
+                  "Query": {
+                    "Version": 2,
+                    "From": [
+                      {
+                        "Name": "a",
+                        "Entity": "A_REF_NATIONALITY",
+                        "Type": 0
+                      },
+                      {
+                        "Name": "e",
+                        "Entity": "E_FCT_TRANSACTIONS",
+                        "Type": 0
+                      }
+                    ],
+                    "Select": [
+                      {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "a"
+                            }
+                          },
+                          "Property": "EN_NAME"
+                        },
+                        "Name": "field"
+                      }
+                    ],
+                    "OrderBy": [
+                      {
+                        "Direction": 2,
+                        "Expression": {
+                          "Aggregation": {
+                            "Expression": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "e"
+                                  }
+                                },
+                                "Property": "GROSS_PREMIUM_LC"
+                              }
+                            },
+                            "Function": 0
+                          }
+                        }
+                      }
+                    ],
+                    "Top": 15
+                  }
+                }
+              },
+              "Type": 2
+            },
+            {
+              "Name": "a",
+              "Entity": "A_REF_NATIONALITY",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "a"
+                          }
+                        },
+                        "Property": "EN_NAME"
+                      }
+                    }
+                  ],
+                  "Table": {
+                    "SourceRef": {
+                      "Source": "subquery"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "95dbcb314930ec6f007a",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "C_DIM_POLICY_MASTER"
+                  }
+                },
+                "Property": "POLICY_ID"
+              }
+            },
+            "Function": 5
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a511eb3997a5b03f5460",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "E_FCT_TRANSACTIONS"
+                  }
+                },
+                "Property": "RISK_ID"
+              }
+            },
+            "Function": 5
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "76934f000f8ce1d2469f",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "E_FCT_TRANSACTIONS"
+                  }
+                },
+                "Property": "GROSS_PREMIUM_LC"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

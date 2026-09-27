@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "91f9930470017ee28dd4",
+  "position": {
+    "x": 0,
+    "y": 117,
+    "z": 2000,
+    "height": 160,
+    "width": 427,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "D_DIM_MEDICAL_RISK_INSURED_MEMBER"
+                    }
+                  },
+                  "Property": "GENDER"
+                }
+              },
+              "queryRef": "D_DIM_MEDICAL_RISK_INSURED_MEMBER.GENDER",
+              "nativeQueryRef": "GENDER"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,335 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "87c0b523cc297d89843a",
+  "position": {
+    "x": 467.5,
+    "y": 378.75,
+    "z": 9,
+    "height": 300,
+    "width": 382.5
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "F_FCT_CLAIMS"
+                    }
+                  },
+                  "Property": "POLICY_ID"
+                }
+              },
+              "queryRef": "F_FCT_CLAIMS.POLICY_ID",
+              "nativeQueryRef": "POLICY_ID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "F_FCT_CLAIMS"
+                    }
+                  },
+                  "Property": "CLAIM_ID"
+                }
+              },
+              "queryRef": "F_FCT_CLAIMS.CLAIM_ID",
+              "nativeQueryRef": "CLAIM_ID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "E_DIM_LIFE_CLAIMS_DETAILS"
+                    }
+                  },
+                  "Property": "CLAIM_NO"
+                }
+              },
+              "queryRef": "E_DIM_LIFE_CLAIMS_DETAILS.CLAIM_NO",
+              "nativeQueryRef": "CLAIM_NO"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "E_DIM_MEDICAL_CLAIMS_DETAILS"
+                    }
+                  },
+                  "Property": "CLAIM_NO"
+                }
+              },
+              "queryRef": "E_DIM_MEDICAL_CLAIMS_DETAILS.CLAIM_NO",
+              "nativeQueryRef": "CLAIM_NO1"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "E_DIM_MOTOR_CLAIMS_DETAILS"
+                    }
+                  },
+                  "Property": "CLAIM_NO"
+                }
+              },
+              "queryRef": "E_DIM_MOTOR_CLAIMS_DETAILS.CLAIM_NO",
+              "nativeQueryRef": "CLAIM_NO2"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "E_DIM_NON_MOTOR_CLAIMS_DETAILS"
+                    }
+                  },
+                  "Property": "CLAIM_NO"
+                }
+              },
+              "queryRef": "E_DIM_NON_MOTOR_CLAIMS_DETAILS.CLAIM_NO",
+              "nativeQueryRef": "CLAIM_NO3"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "F_FCT_CLAIMS"
+                    }
+                  },
+                  "Property": "RISK_ID"
+                }
+              },
+              "queryRef": "F_FCT_CLAIMS.RISK_ID",
+              "nativeQueryRef": "RISK_ID"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "F_FCT_CLAIMS"
+                    }
+                  },
+                  "Property": "claim os"
+                }
+              },
+              "queryRef": "F_FCT_CLAIMS.claim os",
+              "nativeQueryRef": "claim os"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "F_FCT_CLAIMS"
+                    }
+                  },
+                  "Property": "claim paid"
+                }
+              },
+              "queryRef": "F_FCT_CLAIMS.claim paid",
+              "nativeQueryRef": "claim paid"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "F_FCT_CLAIMS"
+                    }
+                  },
+                  "Property": "claim recovery"
+                }
+              },
+              "queryRef": "F_FCT_CLAIMS.claim recovery",
+              "nativeQueryRef": "claim recovery"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "F_FCT_CLAIMS"
+                    }
+                  },
+                  "Property": "claim recovery os"
+                }
+              },
+              "queryRef": "F_FCT_CLAIMS.claim recovery os",
+              "nativeQueryRef": "claim recovery os"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "f8a433697299f0ff3dba",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "E_DIM_LIFE_CLAIMS_DETAILS"
+              }
+            },
+            "Property": "CLAIM_NO"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "5a98387c2074faeccc5e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "E_DIM_MEDICAL_CLAIMS_DETAILS"
+              }
+            },
+            "Property": "CLAIM_NO"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a206cd68a245173affd1",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "E_DIM_MOTOR_CLAIMS_DETAILS"
+              }
+            },
+            "Property": "CLAIM_NO"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "52ff385dabaecc7a6b83",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "E_DIM_NON_MOTOR_CLAIMS_DETAILS"
+              }
+            },
+            "Property": "CLAIM_NO"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a35c699252c6682e13e1",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "F_FCT_CLAIMS"
+              }
+            },
+            "Property": "claim os"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7bbef0d55bfc733217c3",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "F_FCT_CLAIMS"
+              }
+            },
+            "Property": "claim paid"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "4b13868a2c7893b59da9",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "F_FCT_CLAIMS"
+              }
+            },
+            "Property": "claim recovery"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "dbef0b7cb86a772c8df7",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "F_FCT_CLAIMS"
+              }
+            },
+            "Property": "claim recovery os"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1b94cc7590f025cee0e1",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "F_FCT_CLAIMS"
+              }
+            },
+            "Property": "CLAIM_ID"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "d1298be3fca8138d280f",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "F_FCT_CLAIMS"
+              }
+            },
+            "Property": "POLICY_ID"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "be6e88803ff69effd588",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "F_FCT_CLAIMS"
+              }
+            },
+            "Property": "RISK_ID"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
+  }
+}

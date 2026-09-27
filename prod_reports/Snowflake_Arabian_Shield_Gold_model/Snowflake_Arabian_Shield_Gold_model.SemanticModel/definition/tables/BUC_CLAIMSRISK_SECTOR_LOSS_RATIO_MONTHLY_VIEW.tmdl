@@ -1,0 +1,237 @@
+table BUC_CLAIMSRISK_SECTOR_LOSS_RATIO_MONTHLY_VIEW
+	lineageTag: dc16f618-137b-49e0-b1d2-f9eaf6826c6e
+
+	column SOURCE_SYSTEM
+		dataType: string
+		lineageTag: a73bb41d-3ce7-4184-b4f9-87fa88d1b451
+		summarizeBy: none
+		sourceColumn: SOURCE_SYSTEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column SECTOR
+		dataType: string
+		lineageTag: 16c36422-a821-45fe-87d7-99bcd67cc5fd
+		summarizeBy: none
+		sourceColumn: SECTOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column MONTH
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 5b6520eb-f1fb-484c-a697-cda500892ff2
+		summarizeBy: none
+		sourceColumn: MONTH
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column TRANSACTIONS
+		dataType: double
+		sourceProviderType: decimal(18, 0)
+		lineageTag: d495a603-8761-4ac9-98d9-458e4eb0cc13
+		summarizeBy: sum
+		sourceColumn: TRANSACTIONS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column POLICIES_WRITTEN
+		dataType: double
+		sourceProviderType: decimal(18, 0)
+		lineageTag: 9400785b-8a9d-465b-ab3d-fe27fc72bba8
+		summarizeBy: sum
+		sourceColumn: POLICIES_WRITTEN
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GROSS_WRITTEN_PREMIUM
+		dataType: double
+		lineageTag: 7dd0992a-a5cc-4b34-8514-83fe29923683
+		summarizeBy: sum
+		sourceColumn: GROSS_WRITTEN_PREMIUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column EARNED_PREMIUM
+		dataType: double
+		lineageTag: 4cfef204-96e5-4026-a73a-6ad01b21e822
+		summarizeBy: sum
+		sourceColumn: EARNED_PREMIUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column REINSURANCE_PREMIUM_CEDED
+		dataType: double
+		lineageTag: 03bcdff0-eee7-458e-bc33-ecaecbe6b6a5
+		summarizeBy: sum
+		sourceColumn: REINSURANCE_PREMIUM_CEDED
+
+		annotation SummarizationSetBy = Automatic
+
+	column RETAINED_PREMIUM
+		dataType: double
+		lineageTag: 92bb32ed-85fc-43c0-ac45-ecf3e94a4794
+		summarizeBy: sum
+		sourceColumn: RETAINED_PREMIUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column COMMISSION
+		dataType: double
+		lineageTag: e3a39139-4a2a-4c83-8c21-ec6175ceafa2
+		summarizeBy: sum
+		sourceColumn: COMMISSION
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIMS_REPORTED
+		dataType: double
+		sourceProviderType: decimal(18, 0)
+		lineageTag: 14aed945-744e-4952-8fc8-f0d7acea6d62
+		summarizeBy: sum
+		sourceColumn: CLAIMS_REPORTED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CLAIMS_TOUCHED
+		dataType: double
+		sourceProviderType: decimal(18, 0)
+		lineageTag: 8b7495ea-2a94-4225-90e0-42c5a90a28d9
+		summarizeBy: sum
+		sourceColumn: CLAIMS_TOUCHED
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CLAIMS_WITH_PAYMENT
+		dataType: double
+		sourceProviderType: decimal(18, 0)
+		lineageTag: 8820cc24-040d-4059-b107-f029afa097a5
+		summarizeBy: sum
+		sourceColumn: CLAIMS_WITH_PAYMENT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CLAIMS_PAID
+		dataType: double
+		lineageTag: 92f58af3-d284-48e4-9fe8-34d70069edd2
+		summarizeBy: sum
+		sourceColumn: CLAIMS_PAID
+
+		annotation SummarizationSetBy = Automatic
+
+	column RESERVE_MOVEMENT
+		dataType: double
+		lineageTag: ba594b73-97f1-431d-b8fb-1d3490be7b5b
+		summarizeBy: sum
+		sourceColumn: RESERVE_MOVEMENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column RECOVERIES_FROM_THIRD_PARTIES
+		dataType: double
+		lineageTag: fc8611fe-80cc-4668-8251-a4bc31be11e7
+		summarizeBy: sum
+		sourceColumn: RECOVERIES_FROM_THIRD_PARTIES
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIMS_INCURRED
+		dataType: double
+		lineageTag: b3dd54e8-a591-411a-9f56-805c66a14b37
+		summarizeBy: sum
+		sourceColumn: CLAIMS_INCURRED
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIMS_PAID_TREATY_SHARE
+		dataType: double
+		lineageTag: 6f0adfc7-ce8e-4917-87a2-35b6e736b4bc
+		summarizeBy: sum
+		sourceColumn: CLAIMS_PAID_TREATY_SHARE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIMS_PAID_RETAINED
+		dataType: double
+		lineageTag: 0d73f390-ae18-4d22-bd9b-715db5c87ee1
+		summarizeBy: sum
+		sourceColumn: CLAIMS_PAID_RETAINED
+
+		annotation SummarizationSetBy = Automatic
+
+	column REINSURANCE_RECOVERIES
+		dataType: double
+		lineageTag: fda75198-4583-46ba-9781-880a5ec2f2ec
+		summarizeBy: sum
+		sourceColumn: REINSURANCE_RECOVERIES
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOSS_RATIO
+		dataType: double
+		lineageTag: a1f9aa36-9009-4533-bb5e-c9671ef5c312
+		summarizeBy: sum
+		sourceColumn: LOSS_RATIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column WRITTEN_LOSS_RATIO
+		dataType: double
+		lineageTag: 99cf6dd7-0404-4b69-80d9-83ef255b854d
+		summarizeBy: sum
+		sourceColumn: WRITTEN_LOSS_RATIO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIMS_FREQUENCY_PER_100_POLICIES
+		dataType: double
+		lineageTag: 8e08ba83-4529-4d75-ae4e-7c38ac202efb
+		summarizeBy: sum
+		sourceColumn: CLAIMS_FREQUENCY_PER_100_POLICIES
+
+		annotation SummarizationSetBy = Automatic
+
+	column AVERAGE_CLAIM_SEVERITY
+		dataType: double
+		lineageTag: fa2dc4f6-c9b7-4a2a-905e-a356141bbb15
+		summarizeBy: sum
+		sourceColumn: AVERAGE_CLAIM_SEVERITY
+
+		annotation SummarizationSetBy = Automatic
+
+	column REINSURANCE_RECOVERY_RATIO
+		dataType: double
+		lineageTag: c5f19223-0a7e-433a-9071-1dc1a7fcca99
+		summarizeBy: sum
+		sourceColumn: REINSURANCE_RECOVERY_RATIO
+
+		annotation SummarizationSetBy = Automatic
+
+	partition BUC_CLAIMSRISK_SECTOR_LOSS_RATIO_MONTHLY_VIEW = m
+		mode: directQuery
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sch = Db{[Name=SnowflakeSchema, Kind="Schema"]}[Data],
+				    Data = Sch{[Name="BUC_CLAIMSRISK_SECTOR_LOSS_RATIO_MONTHLY_VIEW", Kind="View"]}[Data]
+				in
+				    Data
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

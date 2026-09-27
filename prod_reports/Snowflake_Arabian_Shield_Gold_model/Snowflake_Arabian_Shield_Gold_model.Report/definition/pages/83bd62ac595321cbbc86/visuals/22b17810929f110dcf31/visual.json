@@ -1,0 +1,113 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "22b17810929f110dcf31",
+  "position": {
+    "x": 394.81690140845069,
+    "y": 263.21126760563379,
+    "z": 0,
+    "height": 414.64788732394368,
+    "width": 569.69014084507046,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "A_REF_GENDER"
+                    }
+                  },
+                  "Property": "EN_NAME"
+                }
+              },
+              "queryRef": "A_REF_GENDER.EN_NAME",
+              "nativeQueryRef": "EN_NAME1"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "B_DIM_PARTIES"
+                    }
+                  },
+                  "Property": "GENDER_ID"
+                }
+              },
+              "queryRef": "B_DIM_PARTIES.GENDER_ID",
+              "nativeQueryRef": "GENDER_ID"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "C_DIM_POLICY_MASTER"
+                        }
+                      },
+                      "Property": "POLICY_ID"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "CountNonNull(C_DIM_POLICY_MASTER.POLICY_ID)",
+              "nativeQueryRef": "Count of POLICY_ID"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "C_DIM_POLICY_MASTER"
+                      }
+                    },
+                    "Property": "POLICY_ID"
+                  }
+                },
+                "Function": 5
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "7a769e857c83ea17a0c9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "A_DIM_LINE_OF_BUSINESS"
+              }
+            },
+            "Property": "EN_NAME"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      }
+    ]
+  }
+}

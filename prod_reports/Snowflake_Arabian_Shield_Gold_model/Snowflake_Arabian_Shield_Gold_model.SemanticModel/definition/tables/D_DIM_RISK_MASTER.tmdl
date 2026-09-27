@@ -1,0 +1,168 @@
+table D_DIM_RISK_MASTER
+	lineageTag: 7704dc2a-e02c-45ba-ab82-58c745c4a034
+
+	column RISK_ID
+		dataType: string
+		lineageTag: 6ea67e25-7eb3-432f-85c2-7bab6667c92f
+		summarizeBy: none
+		sourceColumn: RISK_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column POLICY_ID
+		dataType: string
+		lineageTag: 94ec40fa-7427-4ff7-8e49-69058a916be6
+		summarizeBy: none
+		sourceColumn: POLICY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column MID_RISK_ID
+		dataType: string
+		lineageTag: a64698e1-3d59-4701-9366-4bbdf85913a4
+		summarizeBy: none
+		sourceColumn: MID_RISK_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column LIFE_RISK_ID
+		dataType: string
+		lineageTag: 02cba482-9e68-4121-8260-3c1a2d9e7d6e
+		summarizeBy: none
+		sourceColumn: LIFE_RISK_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column NMOTOR_RISK_ID
+		dataType: string
+		lineageTag: ff7732e6-51b8-4ba8-8593-a4ff537f0e2e
+		summarizeBy: none
+		sourceColumn: NMOTOR_RISK_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column MOTOR_RISK_ID
+		dataType: string
+		lineageTag: 170edfae-7521-49ea-8ce3-fc214405c50b
+		summarizeBy: none
+		sourceColumn: MOTOR_RISK_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOB_CLASS
+		dataType: string
+		lineageTag: 55200220-6c7d-46fb-9aba-a5457d5e0c3f
+		summarizeBy: none
+		sourceColumn: LOB_CLASS
+
+		annotation SummarizationSetBy = Automatic
+
+	column LINE_OF_BUSINESS
+		dataType: string
+		lineageTag: 65b23a3d-6a7c-4383-b4ea-3b7f57eeea8f
+		summarizeBy: none
+		sourceColumn: LINE_OF_BUSINESS
+
+		annotation SummarizationSetBy = Automatic
+
+	column ISSUE_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 4bbaa5b6-402d-425e-841c-85357c4bc545
+		summarizeBy: none
+		sourceColumn: ISSUE_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column EFFECTIVE_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 0b8234f4-e2ac-4493-bc4f-f2a7ac257a32
+		summarizeBy: none
+		sourceColumn: EFFECTIVE_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column EXPIRY_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: faf7e35a-c5dd-4e11-9e07-9f11a3585c77
+		summarizeBy: none
+		sourceColumn: EXPIRY_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column SUMINUSRED
+		dataType: double
+		lineageTag: 043c9e8a-552b-4198-92b2-4bc32ba509f0
+		summarizeBy: sum
+		sourceColumn: SUMINUSRED
+
+		annotation SummarizationSetBy = Automatic
+
+	column PREMIUM
+		dataType: double
+		lineageTag: c5610d01-f3a4-45f5-838c-402de71168e5
+		summarizeBy: sum
+		sourceColumn: PREMIUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_SYSTEM
+		dataType: string
+		lineageTag: db0af6bf-118a-48cc-9e77-a684fe7ad68c
+		summarizeBy: none
+		sourceColumn: SOURCE_SYSTEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXTRACTION_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a8bbf0a6-4722-48a7-becc-7695c5922ceb
+		summarizeBy: none
+		sourceColumn: EXTRACTION_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOAD_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4309c14e-b5cc-4d11-8b2b-3bba2bd0b9e4
+		summarizeBy: none
+		sourceColumn: LOAD_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROW_VERSION
+		dataType: string
+		lineageTag: 0bec5b7e-4d18-4047-ac77-defcf130cbe9
+		summarizeBy: none
+		sourceColumn: ROW_VERSION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition D_DIM_RISK_MASTER = m
+		mode: directQuery
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sch = Db{[Name=SnowflakeSchema, Kind="Schema"]}[Data],
+				    Data = Sch{[Name="D_DIM_RISK_MASTER", Kind="Table"]}[Data]
+				in
+				    Data
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

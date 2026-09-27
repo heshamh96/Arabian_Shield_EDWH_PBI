@@ -1,0 +1,171 @@
+table D_DIM_TREATY_DETAILS
+	lineageTag: 644aa97f-37cd-4724-a510-b0905957b348
+
+	column TREATY_ID
+		dataType: string
+		lineageTag: 4f487b62-58c1-497a-acd7-d58e7ece2db9
+		summarizeBy: none
+		sourceColumn: TREATY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOB_ID
+		dataType: string
+		lineageTag: 2b28d0df-d94f-4e91-a228-e8b56a88d36d
+		summarizeBy: none
+		sourceColumn: LOB_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TREATY_NUMBER
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 8a63d4c2-0b12-4f1e-98db-75d585e8da9e
+		summarizeBy: none
+		sourceColumn: TREATY_NUMBER
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TREATY_NAME
+		dataType: string
+		lineageTag: 983df4e7-7770-4590-a850-0fb283a62e47
+		summarizeBy: none
+		sourceColumn: TREATY_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column LAYER_ID
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: bf78b646-074c-4ea5-b53d-8060920d3574
+		summarizeBy: none
+		sourceColumn: LAYER_ID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LAYER_NAME
+		dataType: string
+		lineageTag: 55efc38c-5e1b-41ff-ae70-8565431f3af2
+		summarizeBy: none
+		sourceColumn: LAYER_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column UW_YEAR
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 538ba63d-53c2-473f-805c-10f270646c37
+		summarizeBy: none
+		sourceColumn: UW_YEAR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RETENTION_PERCENT
+		dataType: double
+		lineageTag: 5a934831-dffe-40e7-921f-36e48d059a38
+		summarizeBy: sum
+		sourceColumn: RETENTION_PERCENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column CEDED_PERCENT
+		dataType: double
+		lineageTag: c79e6124-0d98-4b41-833a-2a8a837ebafa
+		summarizeBy: sum
+		sourceColumn: CEDED_PERCENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column LAYER_REINSURER_ID
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: e0953bd9-8953-4ec7-9298-a6cf1062e55b
+		summarizeBy: none
+		sourceColumn: LAYER_REINSURER_ID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column REINSURER_ID
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 4314841e-483c-4c13-9343-64579641b6bc
+		summarizeBy: none
+		sourceColumn: REINSURER_ID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PARTY_ID
+		dataType: string
+		lineageTag: c618446b-31f2-4074-be94-c9d7bba1ddb8
+		summarizeBy: none
+		sourceColumn: PARTY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column REINSURER_SHARE
+		dataType: double
+		lineageTag: 92069a72-273f-4652-a926-307d4031f835
+		summarizeBy: sum
+		sourceColumn: REINSURER_SHARE
+
+		annotation SummarizationSetBy = Automatic
+
+	column REINSURER_COMMISSION_PERCENT
+		dataType: double
+		lineageTag: 13173458-2ea9-4f09-a961-f7ee87dc6a43
+		summarizeBy: sum
+		sourceColumn: REINSURER_COMMISSION_PERCENT
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXTRACTION_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: cd654a82-ab84-4174-9c1d-474a5187fe69
+		summarizeBy: none
+		sourceColumn: EXTRACTION_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOAD_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: eb038840-70ce-4299-bae4-dd7e6a615288
+		summarizeBy: none
+		sourceColumn: LOAD_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROW_VERSION
+		dataType: string
+		lineageTag: eb458cf6-3639-4785-a0d2-a2f65dfadd84
+		summarizeBy: none
+		sourceColumn: ROW_VERSION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition D_DIM_TREATY_DETAILS = m
+		mode: directQuery
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sch = Db{[Name=SnowflakeSchema, Kind="Schema"]}[Data],
+				    Data = Sch{[Name="D_DIM_TREATY_DETAILS", Kind="Table"]}[Data]
+				in
+				    Data
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Snowflake_Arabian_Shield_Gold_model"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "884ed477-b721-486a-a9ee-f0a5da681e62"
+  }
+}

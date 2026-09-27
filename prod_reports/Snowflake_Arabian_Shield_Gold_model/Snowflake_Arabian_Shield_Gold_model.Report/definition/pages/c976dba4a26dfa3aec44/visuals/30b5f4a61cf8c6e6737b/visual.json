@@ -1,0 +1,88 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.8.0/schema.json",
+  "name": "30b5f4a61cf8c6e6737b",
+  "position": {
+    "x": 846.19319335122589,
+    "y": 36.95166783193126,
+    "z": 2008,
+    "height": 105.31225332100409,
+    "width": 291.91817587225694
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "B_DIM_PARTIES"
+                        }
+                      },
+                      "Property": "PARTY_ID"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "Min(B_DIM_PARTIES.PARTY_ID)",
+              "nativeQueryRef": "Count of PARTY_ID"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "B_DIM_PARTIES"
+                      }
+                    },
+                    "Property": "PARTY_ID"
+                  }
+                },
+                "Function": 5
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "aafa7ea8f4fda9e4422d",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "B_DIM_PARTIES"
+                  }
+                },
+                "Property": "PARTY_ID"
+              }
+            },
+            "Function": 5
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

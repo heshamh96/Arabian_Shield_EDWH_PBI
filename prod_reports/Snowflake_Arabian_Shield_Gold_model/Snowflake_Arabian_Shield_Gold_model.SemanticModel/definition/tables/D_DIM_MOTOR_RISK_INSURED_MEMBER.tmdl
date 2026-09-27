@@ -1,0 +1,350 @@
+table D_DIM_MOTOR_RISK_INSURED_MEMBER
+	lineageTag: 3f575e36-c2e7-49a9-9bfa-c11470996690
+
+	column MOTOR_RISK_ID
+		dataType: string
+		lineageTag: ed078521-b874-40d8-b31d-b3fab77854ae
+		summarizeBy: none
+		sourceColumn: MOTOR_RISK_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column RISK_ID
+		dataType: string
+		lineageTag: 478094a7-196a-4f48-9146-34a798439c85
+		summarizeBy: none
+		sourceColumn: RISK_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_POLICY_ID
+		dataType: string
+		lineageTag: 5151cc0a-5fb5-4754-8bfe-54439c5c9fc3
+		summarizeBy: none
+		sourceColumn: SOURCE_POLICY_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_NATIVE_UID
+		dataType: string
+		lineageTag: c05d296a-8ee0-4408-9388-2fb8efe58283
+		summarizeBy: none
+		sourceColumn: SOURCE_NATIVE_UID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ENDO_SERIAL
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 0fd2b127-dab0-43db-a2e1-de0cb47d0a36
+		summarizeBy: sum
+		sourceColumn: ENDO_SERIAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SUBJECT_SERIAL
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 76149b32-0278-4cb0-bc0c-36c77fbb6f8e
+		summarizeBy: sum
+		sourceColumn: SUBJECT_SERIAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SOURCE_SYSTEM
+		dataType: string
+		lineageTag: fbc51193-109a-43a3-a716-b2635510c8e0
+		summarizeBy: none
+		sourceColumn: SOURCE_SYSTEM
+
+		annotation SummarizationSetBy = Automatic
+
+	column DRIVER_NAME
+		dataType: string
+		lineageTag: e7ad8497-513b-4139-8dd4-136d2cdcd955
+		summarizeBy: none
+		sourceColumn: DRIVER_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column DRIVER_ID
+		dataType: string
+		lineageTag: fe7e647b-1f25-4788-817a-cfe58f7693a8
+		summarizeBy: none
+		sourceColumn: DRIVER_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DRIVER_DOB
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 43ffcec0-4eb9-4ec9-bc63-1f05d6f1e866
+		summarizeBy: none
+		sourceColumn: DRIVER_DOB
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DRIVER_CITY
+		dataType: string
+		lineageTag: fed03ee1-002a-4af1-a830-dfed9fd5389e
+		summarizeBy: none
+		sourceColumn: DRIVER_CITY
+
+		annotation SummarizationSetBy = Automatic
+
+	column DRIVER_MOBILE
+		dataType: string
+		lineageTag: 89244295-f73e-4dd9-a667-d1ced97af921
+		summarizeBy: none
+		sourceColumn: DRIVER_MOBILE
+
+		annotation SummarizationSetBy = Automatic
+
+	column DRIVER_NCD
+		dataType: double
+		lineageTag: 2c4b1cd5-8992-406b-bcd6-940d8515702b
+		summarizeBy: sum
+		sourceColumn: DRIVER_NCD
+
+		annotation SummarizationSetBy = Automatic
+
+	column NCD_DISCOUNT_AMOUNT
+		dataType: double
+		lineageTag: e9dc67f4-4300-449b-9d54-45f06ff0cba0
+		summarizeBy: sum
+		sourceColumn: NCD_DISCOUNT_AMOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column VEHICLE_USE
+		dataType: string
+		lineageTag: a1b94002-bbb1-48d5-ad6f-49bb81257f18
+		summarizeBy: none
+		sourceColumn: VEHICLE_USE
+
+		annotation SummarizationSetBy = Automatic
+
+	column VEHICLE_MAKE
+		dataType: string
+		lineageTag: 0a775845-03fb-48f8-9c29-a9e51702d43d
+		summarizeBy: none
+		sourceColumn: VEHICLE_MAKE
+
+		annotation SummarizationSetBy = Automatic
+
+	column VEHICLE_MODEL
+		dataType: string
+		lineageTag: 13682d7b-a234-41a6-bf5e-a6f87dc7308b
+		summarizeBy: none
+		sourceColumn: VEHICLE_MODEL
+
+		annotation SummarizationSetBy = Automatic
+
+	column VEHICLE_YEAR
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 008d2db8-4139-4c0c-bf3d-c9d8a1090a67
+		summarizeBy: sum
+		sourceColumn: VEHICLE_YEAR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VEHICLE_BODY
+		dataType: string
+		lineageTag: 85cee147-9800-4050-8d16-aaeff932ae94
+		summarizeBy: none
+		sourceColumn: VEHICLE_BODY
+
+		annotation SummarizationSetBy = Automatic
+
+	column VEHICLE_COLOR
+		dataType: string
+		lineageTag: 4e90c6fd-d2b0-48a2-a808-057cecbad061
+		summarizeBy: none
+		sourceColumn: VEHICLE_COLOR
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRANSMISSION
+		dataType: string
+		lineageTag: fb702af0-1493-48eb-80e7-3ea536dd3a37
+		summarizeBy: none
+		sourceColumn: TRANSMISSION
+
+		annotation SummarizationSetBy = Automatic
+
+	column NO_SEATS
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: f11599de-0564-4205-a449-e11792d5e3fe
+		summarizeBy: sum
+		sourceColumn: NO_SEATS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VEHICLE_VIN
+		dataType: string
+		lineageTag: 7d768879-eb3f-4bfb-8d5f-fb35122492ae
+		summarizeBy: none
+		sourceColumn: VEHICLE_VIN
+
+		annotation SummarizationSetBy = Automatic
+
+	column PLATE_NO
+		dataType: string
+		lineageTag: a96699f7-ecf9-4206-a99a-c64ef78256a2
+		summarizeBy: none
+		sourceColumn: PLATE_NO
+
+		annotation SummarizationSetBy = Automatic
+
+	column SEQUANCE_NO
+		dataType: string
+		lineageTag: c4e0ddfc-9484-41e8-a6e6-aae892858cba
+		summarizeBy: none
+		sourceColumn: SEQUANCE_NO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CUSTOM_NO
+		dataType: string
+		lineageTag: 82f45ced-4965-45cd-affd-d171be5083fb
+		summarizeBy: none
+		sourceColumn: CUSTOM_NO
+
+		annotation SummarizationSetBy = Automatic
+
+	column VEHICLE_NATIONALITY
+		dataType: string
+		lineageTag: 68f7a38f-91be-4267-a6ed-67af355c10a8
+		summarizeBy: none
+		sourceColumn: VEHICLE_NATIONALITY
+
+		annotation SummarizationSetBy = Automatic
+
+	column VEHICLE_REGESTRATION_CITY
+		dataType: string
+		lineageTag: 8a246ffe-2c11-4b13-8865-c6ada62369ca
+		summarizeBy: none
+		sourceColumn: VEHICLE_REGESTRATION_CITY
+
+		annotation SummarizationSetBy = Automatic
+
+	column ISTMARA_EXPIRY_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 5c67add2-383b-4bda-b96d-a7b8777c8d74
+		summarizeBy: none
+		sourceColumn: ISTMARA_EXPIRY_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column VEHICLE_MILAGE
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 46565422-d97b-4f3b-a525-2e422811b9b6
+		summarizeBy: sum
+		sourceColumn: VEHICLE_MILAGE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column REPAIR_CONDITION
+		dataType: string
+		lineageTag: 79d5c6bd-3e98-4d52-aac3-232e25ffd1cc
+		summarizeBy: none
+		sourceColumn: REPAIR_CONDITION
+
+		annotation SummarizationSetBy = Automatic
+
+	column NO_COVERED_PASSANGERS
+		dataType: double
+		sourceProviderType: decimal(38, 0)
+		lineageTag: 2ff0f638-9190-49d8-bde4-e63db47277ac
+		summarizeBy: sum
+		sourceColumn: NO_COVERED_PASSANGERS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VEHICLE_DEDUCTIABLE
+		dataType: string
+		lineageTag: 5e16fce2-72d5-409e-aab0-c2b537173d64
+		summarizeBy: none
+		sourceColumn: VEHICLE_DEDUCTIABLE
+
+		annotation SummarizationSetBy = Automatic
+
+	column VEHICLE_VALUE
+		dataType: double
+		lineageTag: 287be37e-de04-4c15-b439-d49fb325e377
+		summarizeBy: sum
+		sourceColumn: VEHICLE_VALUE
+
+		annotation SummarizationSetBy = Automatic
+
+	column VEHICLE_PREMIUM
+		dataType: double
+		lineageTag: 2dcf718f-dc46-4f84-bad5-85e6e3d97999
+		summarizeBy: sum
+		sourceColumn: VEHICLE_PREMIUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXTRACTION_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 14a73379-7c41-4776-a87f-9e745156e058
+		summarizeBy: none
+		sourceColumn: EXTRACTION_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOAD_TIME
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4ebf172a-f591-47e1-b5dc-7456cd94fab9
+		summarizeBy: none
+		sourceColumn: LOAD_TIME
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROW_VERSION
+		dataType: string
+		lineageTag: de0cd0ba-5ac3-46c0-a33b-44ea1a115594
+		summarizeBy: none
+		sourceColumn: ROW_VERSION
+
+		annotation SummarizationSetBy = Automatic
+
+	partition D_DIM_MOTOR_RISK_INSURED_MEMBER = m
+		mode: directQuery
+		source =
+				let
+				    Source = Snowflake.Databases(SnowflakeServer, SnowflakeWarehouse, [Role=SnowflakeRole]),
+				    Db = Source{[Name=SnowflakeDatabase, Kind="Database"]}[Data],
+				    Sch = Db{[Name=SnowflakeSchema, Kind="Schema"]}[Data],
+				    Data = Sch{[Name="D_DIM_MOTOR_RISK_INSURED_MEMBER", Kind="Table"]}[Data]
+				in
+				    Data
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

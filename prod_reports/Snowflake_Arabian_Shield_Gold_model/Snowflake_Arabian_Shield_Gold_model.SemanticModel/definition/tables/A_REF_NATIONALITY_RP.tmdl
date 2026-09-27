@@ -1,0 +1,83 @@
+table A_REF_NATIONALITY_RP
+	lineageTag: cdc19690-1c70-4d48-8453-cf85091064e4
+
+	column NATIONALITY_ID
+		lineageTag: cbed00ca-8f92-4804-9126-3b876e93a320
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: A_REF_NATIONALITY[NATIONALITY_ID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_CODE
+		lineageTag: 7bdfc1a0-9637-4f4e-9ef3-02ef8225eb7b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: A_REF_NATIONALITY[SOURCE_CODE]
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_NAME
+		lineageTag: 1aef1919-2c1a-40c7-883a-9cf421cae517
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: A_REF_NATIONALITY[SOURCE_NAME]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EN_NAME
+		lineageTag: 19f2818f-d45f-44d9-9f6a-5f4cc14d2ceb
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: A_REF_NATIONALITY[EN_NAME]
+
+		annotation SummarizationSetBy = Automatic
+
+	column AR_NAME
+		lineageTag: 40175086-3ce9-4309-b56e-58480bd207d7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: A_REF_NATIONALITY[AR_NAME]
+
+		annotation SummarizationSetBy = Automatic
+
+	column SOURCE_SYSTEM
+		lineageTag: 68f90193-a061-41fa-9a0c-9025282d4422
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: A_REF_NATIONALITY[SOURCE_SYSTEM]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EXTRACTION_TIME
+		formatString: General Date
+		lineageTag: d75f8043-bb88-4b30-9b62-0e0f61da0949
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: A_REF_NATIONALITY[EXTRACTION_TIME]
+
+		annotation SummarizationSetBy = Automatic
+
+	column LOAD_TIME
+		formatString: General Date
+		lineageTag: 46e1ec06-6925-4ca7-a4ba-070f2ff9add7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: A_REF_NATIONALITY[LOAD_TIME]
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROW_VERSION
+		lineageTag: 390eeb90-76a6-4558-9668-3a4aa0299f19
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: A_REF_NATIONALITY[ROW_VERSION]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition A_REF_NATIONALITY_RP = calculated
+		mode: import
+		source = A_REF_NATIONALITY
+
+	annotation PBI_Id = 0da0723e6a8b4beba188a1bd2230aa29
+

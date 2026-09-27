@@ -76,14 +76,6 @@ relationship e41fba31-724f-493e-9ae7-8b2bedd393fa
 	fromColumn: D_DIM_LIFE_BENEFICIARY.POLICY_ID
 	toColumn: C_DIM_POLICY_MASTER.POLICY_ID
 
-relationship 4d2b225a-d223-4418-a39b-ba5329e08d74
-	fromColumn: D_DIM_MEDICAL_POLICY_NETWORK.POLICY_ID
-	toColumn: C_DIM_POLICY_MASTER.POLICY_ID
-
-relationship c07a0f23-998a-40f2-8416-8b0514593375
-	fromColumn: D_DIM_POLICY_BENEFIT.POLICY_ID
-	toColumn: C_DIM_POLICY_MASTER.POLICY_ID
-
 relationship 06eae508-9e00-4e42-8d55-beecbf1ba30b
 	isActive: false
 	fromColumn: E_DIM_LIFE_CLAIMS_DETAILS.POLICY_ID
@@ -132,24 +124,6 @@ relationship 3c63e95b-a943-4bb0-b38d-2f9fdd3569e5
 relationship db12d334-ebf7-4e8d-8f90-2cb97d545bac
 	fromColumn: G_DIM_REINSURANCE_SHARE.TREATY_ID
 	toColumn: D_DIM_TREATY_DETAILS.TREATY_ID
-
-relationship a216a063-0fab-4f6e-a655-a1e4a54d85e1
-	fromColumn: D_DIM_MEDICAL_POLICY_NETWORK.MEDICAL_CLASS_ID
-	toColumn: C_DIM_MEDICAL_CLASSES.MEDICAL_CLASS_ID
-
-relationship 471a6af7-56ca-484a-8064-8caaa866d9d6
-	fromColumn: D_DIM_MEDICAL_POLICY_NETWORK.MEDICAL_PLAN_ID
-	toColumn: C_DIM_MEDICAL_PLANS.MEDICAL_PLAN_ID
-
-relationship caf05ff2-b77d-4053-a312-faa4d734b809
-	isActive: false
-	fromColumn: D_DIM_POLICY_BENEFIT.MEDICAL_CLASS_ID
-	toColumn: C_DIM_MEDICAL_CLASSES.MEDICAL_CLASS_ID
-
-relationship 0a5f6e3f-52e9-4bbe-bbe3-56f1657b4c52
-	isActive: false
-	fromColumn: D_DIM_POLICY_BENEFIT.MEDICAL_PLAN_ID
-	toColumn: C_DIM_MEDICAL_PLANS.MEDICAL_PLAN_ID
 
 relationship 65900b05-ddbc-4451-b817-a91538f4ae7d
 	isActive: false
@@ -252,4 +226,3 @@ relationship e3af60b6-44cd-4935-94ea-9bbbe92deed0
 relationship b565822e-cf6b-e598-2354-4fdb4b2e2ff5
 	fromColumn: E_DIM_MOTOR_CLAIMS_DETAILS.DRIVER_NATIONALITY
 	toColumn: A_REF_NATIONALITY_RP.NATIONALITY_ID
-

@@ -241,6 +241,30 @@ table BUC_LIFE360_POLICY_STATUS_VIEW
 
 		annotation SummarizationSetBy = Automatic
 
+	column POLICY_ISSUE_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 5aea6939-704b-4374-ac3b-4a13eae6c401
+		summarizeBy: none
+		sourceColumn: POLICY_ISSUE_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column ISSUE_MONTH
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: da7c5958-14ba-4601-a72a-3b074edcc796
+		summarizeBy: none
+		sourceColumn: ISSUE_MONTH
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
 	partition BUC_LIFE360_POLICY_STATUS_VIEW = m
 		mode: directQuery
 		source =

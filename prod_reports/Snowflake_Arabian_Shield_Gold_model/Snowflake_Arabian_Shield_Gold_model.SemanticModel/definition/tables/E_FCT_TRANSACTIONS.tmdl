@@ -23,14 +23,6 @@ table E_FCT_TRANSACTIONS
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column TRANS_ID
-		dataType: string
-		lineageTag: f49cc1fb-c463-4936-8c5e-5323ace76d82
-		summarizeBy: none
-		sourceColumn: TRANS_ID
-
-		annotation SummarizationSetBy = Automatic
-
 	column POLICY_ID
 		dataType: string
 		lineageTag: fb72e59d-ce08-47e4-95a9-b69490f73aa0
@@ -52,14 +44,6 @@ table E_FCT_TRANSACTIONS
 		lineageTag: 7b78c5c4-211d-41b2-93a2-ba55c09fd973
 		summarizeBy: none
 		sourceColumn: PARTY_ID
-
-		annotation SummarizationSetBy = Automatic
-
-	column BENIFITIONRY_ID
-		dataType: string
-		lineageTag: 25499046-a385-4245-b471-6e07133ac901
-		summarizeBy: none
-		sourceColumn: BENIFITIONRY_ID
 
 		annotation SummarizationSetBy = Automatic
 
@@ -341,6 +325,24 @@ table E_FCT_TRANSACTIONS
 		lineageTag: 95145a23-a552-4edd-ae85-f5a8b2d2b477
 		summarizeBy: none
 		sourceColumn: ROW_VERSION
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRANSACTION_ID
+		dataType: string
+		sourceProviderType: nvarchar(16777216)
+		lineageTag: ceeccb43-412f-4658-bf90-63a54b91cc71
+		summarizeBy: none
+		sourceColumn: TRANSACTION_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column BENEFICIARY_ID
+		dataType: string
+		sourceProviderType: nvarchar(16777216)
+		lineageTag: 8d7760f0-e63d-44f7-91c5-6ce73012bc47
+		summarizeBy: none
+		sourceColumn: BENEFICIARY_ID
 
 		annotation SummarizationSetBy = Automatic
 

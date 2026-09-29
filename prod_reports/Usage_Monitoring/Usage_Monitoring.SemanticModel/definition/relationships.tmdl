@@ -13,3 +13,4 @@ relationship eda427f1-dbd2-4613-90b8-5917373533f8
 relationship 1407cbbd-e445-4499-8bcd-dd00727f0088
 	fromColumn: Hourly_Consumption.USAGE_DATE
 	toColumn: Date.Date
+

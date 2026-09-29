@@ -81,5 +81,65 @@
       }
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d4bdd566b63d79a04174",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Date"
+              }
+            },
+            "Property": "Date"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "50ce8550c7c0ba91d8c1",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Daily_Consumption"
+              }
+            },
+            "Property": "Total Credits"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5202e69188284956edb1",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Daily_Consumption"
+              }
+            },
+            "Property": "Compute Credits"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "105b3af0b9b060b50580",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Daily_Consumption"
+              }
+            },
+            "Property": "Cloud Services Credits"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

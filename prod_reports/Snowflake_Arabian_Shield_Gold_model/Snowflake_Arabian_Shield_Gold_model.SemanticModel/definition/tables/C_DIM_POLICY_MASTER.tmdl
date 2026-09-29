@@ -271,6 +271,18 @@ table C_DIM_POLICY_MASTER
 
 		annotation SummarizationSetBy = Automatic
 
+	column POLICY_ISSUE_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 1ab06e66-f441-4c5c-bade-e6ddfdc28d38
+		summarizeBy: none
+		sourceColumn: POLICY_ISSUE_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
 	partition C_DIM_POLICY_MASTER = m
 		mode: directQuery
 		source =

@@ -176,6 +176,18 @@ table BUC_SALESPERFORMANCE_APPLICATION_FUNNEL_VIEW
 
 		annotation SummarizationSetBy = Automatic
 
+	column POLICY_ISSUE_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 8247e898-1966-4d98-bd87-6988b73a40c5
+		summarizeBy: none
+		sourceColumn: POLICY_ISSUE_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
 	partition BUC_SALESPERFORMANCE_APPLICATION_FUNNEL_VIEW = m
 		mode: directQuery
 		source =

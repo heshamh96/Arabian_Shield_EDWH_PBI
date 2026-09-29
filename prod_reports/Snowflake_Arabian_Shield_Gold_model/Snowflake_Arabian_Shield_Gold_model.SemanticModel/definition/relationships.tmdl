@@ -160,11 +160,6 @@ relationship 47f75d06-0dbd-4642-9ec5-8189b7e03772
 	fromColumn: E_DIM_NON_MOTOR_CLAIMS_DETAILS.CLAIMANT_ID
 	toColumn: B_DIM_PARTIES.PARTY_ID
 
-relationship 5e0e5227-1e7f-4848-806c-c0c56dcbe846
-	isActive: false
-	fromColumn: E_FCT_TRANSACTIONS.BENIFITIONRY_ID
-	toColumn: B_DIM_PARTIES.PARTY_ID
-
 relationship 88c7d3b3-875f-462c-8baa-6c3b7f389d55
 	isActive: false
 	fromColumn: E_FCT_TRANSACTIONS.SALES_CHANNEL_ID
@@ -226,3 +221,4 @@ relationship e3af60b6-44cd-4935-94ea-9bbbe92deed0
 relationship b565822e-cf6b-e598-2354-4fdb4b2e2ff5
 	fromColumn: E_DIM_MOTOR_CLAIMS_DETAILS.DRIVER_NATIONALITY
 	toColumn: A_REF_NATIONALITY_RP.NATIONALITY_ID
+

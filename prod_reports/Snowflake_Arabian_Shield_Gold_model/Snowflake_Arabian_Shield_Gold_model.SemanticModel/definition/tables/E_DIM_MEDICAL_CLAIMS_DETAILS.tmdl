@@ -66,15 +66,13 @@ table E_DIM_MEDICAL_CLAIMS_DETAILS
 		annotation SummarizationSetBy = Automatic
 
 	column DAMAGE_TYPE
-		dataType: double
-		sourceProviderType: decimal(38, 0)
+		dataType: string
+		sourceProviderType: nvarchar(16777216)
 		lineageTag: 01cc5800-22c5-48d5-8c59-c7fe2fa47e0f
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: DAMAGE_TYPE
 
 		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column DESCRIPTION
 		dataType: string
@@ -171,6 +169,144 @@ table E_DIM_MEDICAL_CLAIMS_DETAILS
 		lineageTag: 11991226-689c-4dd3-9330-76b9c652e550
 		summarizeBy: none
 		sourceColumn: ROW_VERSION
+
+		annotation SummarizationSetBy = Automatic
+
+	column MEDICAL_CLAIM_DETAIL_ID
+		dataType: string
+		sourceProviderType: nvarchar(16777216)
+		lineageTag: 570a1557-66dd-4180-9377-f3697e2b9a2b
+		summarizeBy: none
+		sourceColumn: MEDICAL_CLAIM_DETAIL_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TRANS_NATIVE_ID
+		dataType: string
+		sourceProviderType: nvarchar(16777216)
+		lineageTag: 327c8368-3afd-45a5-8691-6ed99456e92c
+		summarizeBy: none
+		sourceColumn: TRANS_NATIVE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIM_NATIVE_ID
+		dataType: string
+		sourceProviderType: nvarchar(16777216)
+		lineageTag: 7efebd8e-9cde-40d3-86ba-64eae80edb0e
+		summarizeBy: none
+		sourceColumn: CLAIM_NATIVE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUB_CLAIM_NATIVE_ID
+		dataType: string
+		sourceProviderType: nvarchar(16777216)
+		lineageTag: 50d679de-e252-4b5e-ad88-e7145c16115d
+		summarizeBy: none
+		sourceColumn: SUB_CLAIM_NATIVE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column BATCH_NO
+		dataType: string
+		sourceProviderType: nvarchar(16777216)
+		lineageTag: 2cc2b895-c5f1-4fef-b155-f7160a404a23
+		summarizeBy: none
+		sourceColumn: BATCH_NO
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIM_TYPE
+		dataType: string
+		sourceProviderType: nvarchar(16777216)
+		lineageTag: 33c84a9b-1190-4a29-89d4-0ae99759e043
+		summarizeBy: none
+		sourceColumn: CLAIM_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUPPLIER_NAME
+		dataType: string
+		sourceProviderType: nvarchar(16777216)
+		lineageTag: 0c053c6c-d028-4f48-9826-6398f4d23613
+		summarizeBy: none
+		sourceColumn: SUPPLIER_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLAIM_SOURCE
+		dataType: string
+		sourceProviderType: nvarchar(16777216)
+		lineageTag: 6790fc14-2754-4f59-a3bb-41649cca243d
+		summarizeBy: none
+		sourceColumn: CLAIM_SOURCE
+
+		annotation SummarizationSetBy = Automatic
+
+	column TREATMENT_DATE
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: dfd1e7f1-edf8-4d69-8efc-422b16ecb1ba
+		summarizeBy: none
+		sourceColumn: TREATMENT_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column INVOICE_NO
+		dataType: string
+		sourceProviderType: nvarchar(16777216)
+		lineageTag: 5c34c3a1-0a01-4cb2-b5f3-31d1f9130517
+		summarizeBy: none
+		sourceColumn: INVOICE_NO
+
+		annotation SummarizationSetBy = Automatic
+
+	column AUTH_NO
+		dataType: string
+		sourceProviderType: nvarchar(16777216)
+		lineageTag: e5a78166-f597-4ba0-8b6b-7ad88c994759
+		summarizeBy: none
+		sourceColumn: AUTH_NO
+
+		annotation SummarizationSetBy = Automatic
+
+	column BENEFIT
+		dataType: string
+		sourceProviderType: nvarchar(16777216)
+		lineageTag: c99c841d-c876-4b4f-a7d2-1ca09d9a7255
+		summarizeBy: none
+		sourceColumn: BENEFIT
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUB_BENEFIT
+		dataType: string
+		sourceProviderType: nvarchar(16777216)
+		lineageTag: b87b58bc-d866-4366-acff-d3b1c33eec4c
+		summarizeBy: none
+		sourceColumn: SUB_BENEFIT
+
+		annotation SummarizationSetBy = Automatic
+
+	column SERVICE_CODE
+		dataType: string
+		sourceProviderType: nvarchar(16777216)
+		lineageTag: 04a4ca2a-7c9d-4300-b720-a0ce92c86e7e
+		summarizeBy: none
+		sourceColumn: SERVICE_CODE
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROVIDER_SERVICE_CODE
+		dataType: string
+		sourceProviderType: nvarchar(16777216)
+		lineageTag: a5cf88a8-00a3-403a-8a8e-81719ba70d98
+		summarizeBy: none
+		sourceColumn: PROVIDER_SERVICE_CODE
 
 		annotation SummarizationSetBy = Automatic
 
